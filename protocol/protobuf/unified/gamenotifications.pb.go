@@ -1237,7 +1237,7 @@ const file_steammessages_gamenotifications_steamclient_proto_rawDesc = "" +
 	"\x1aUpdateNotificationSettings\x126.CGameNotifications_UpdateNotificationSettings_Request\x1a7.CGameNotifications_UpdateNotificationSettings_Response2\xdd\x01\n" +
 	"\x17GameNotificationsClient\x12b\n" +
 	"\x18OnNotificationsRequested\x129.CGameNotifications_OnNotificationsRequested_Notification\x1a\v.NoResponse\x12X\n" +
-	"\x13OnUserStatusChanged\x124.CGameNotifications_OnUserStatusChanged_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\x13OnUserStatusChanged\x124.CGameNotifications_OnUserStatusChanged_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_gamenotifications_steamclient_proto_rawDescOnce sync.Once

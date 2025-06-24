@@ -2813,7 +2813,7 @@ const file_econ_gcmessages_proto_rawDesc = "" +
 	"6k_ItemPurgatoryResponse_Refund_Failed_CouldNotFindItem\x10\x02\x123\n" +
 	"/k_ItemPurgatoryResponse_Refund_Failed_NoSOCache\x10\x03\x122\n" +
 	".k_ItemPurgatoryResponse_Refund_Failed_NoDetail\x10\x04\x125\n" +
-	"1k_ItemPurgatoryResponse_Refund_Failed_NexonWebAPI\x10\x05B:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"1k_ItemPurgatoryResponse_Refund_Failed_NexonWebAPI\x10\x05B7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_econ_gcmessages_proto_rawDescOnce sync.Once

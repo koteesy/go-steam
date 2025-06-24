@@ -662,7 +662,7 @@ const file_content_manifest_proto_rawDesc = "" +
 	"size_delta\x18\x06 \x01(\rR\tsizeDelta*\x83\x01\n" +
 	"\x1eEContentDeltaChunkDataLocation\x12.\n" +
 	"*k_EContentDeltaChunkDataLocationInProtobuf\x10\x00\x121\n" +
-	"-k_EContentDeltaChunkDataLocationAfterProtobuf\x10\x01B:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"-k_EContentDeltaChunkDataLocationAfterProtobuf\x10\x01B7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_content_manifest_proto_rawDescOnce sync.Once

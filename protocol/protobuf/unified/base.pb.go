@@ -319,7 +319,7 @@ const file_steammessages_unified_base_steamclient_proto_rawDesc = "" +
 	"\x12force_emit_service\x12\x1f.google.protobuf.ServiceOptions\x18\xea\x86\x03 \x01(\b:\x05falseR\x10forceEmitService:O\n" +
 	"\x12method_description\x12\x1e.google.protobuf.MethodOptions\x18І\x03 \x01(\tR\x11methodDescription:I\n" +
 	"\x10enum_description\x12\x1c.google.protobuf.EnumOptions\x18І\x03 \x01(\tR\x0fenumDescription:Y\n" +
-	"\x16enum_value_description\x12!.google.protobuf.EnumValueOptions\x18І\x03 \x01(\tR\x14enumValueDescriptionB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"\x16enum_value_description\x12!.google.protobuf.EnumValueOptions\x18І\x03 \x01(\tR\x14enumValueDescriptionB7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_unified_base_steamclient_proto_rawDescOnce sync.Once

@@ -1004,7 +1004,7 @@ const file_steammessages_partnerapps_steamclient_proto_rawDesc = "" +
 	"\x17FinishUploadDepotUpload\x12'.CPartnerApps_FinishUploadDepot_Request\x1a(.CPartnerApps_FinishUploadDepot_Response\x12l\n" +
 	"\x13GetDepotBuildResult\x12).CPartnerApps_GetDepotBuildResult_Request\x1a*.CPartnerApps_GetDepotBuildResult_Response\x12]\n" +
 	"\x0eFindDRMUploads\x12$.CPartnerApps_FindDRMUploads_Request\x1a%.CPartnerApps_FindDRMUploads_Response\x12K\n" +
-	"\bDownload\x12\x1e.CPartnerApps_Download_Request\x1a\x1f.CPartnerApps_Download_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\bDownload\x12\x1e.CPartnerApps_Download_Request\x1a\x1f.CPartnerApps_Download_ResponseB5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_partnerapps_steamclient_proto_rawDescOnce sync.Once

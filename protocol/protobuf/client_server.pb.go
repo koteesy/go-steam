@@ -4039,7 +4039,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\bheadline\x18\x03 \x01(\tR\bheadline\x12\x17\n" +
 	"\agame_id\x18\x04 \x01(\x06R\x06gameId\x12\x1f\n" +
 	"\vjust_posted\x18\x05 \x01(\bR\n" +
-	"justPostedB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"justPostedB7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_clientserver_proto_rawDescOnce sync.Once

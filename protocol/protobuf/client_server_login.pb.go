@@ -1696,7 +1696,7 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\x1aCMsgClientChallengeRequest\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\";\n" +
 	"\x1bCMsgClientChallengeResponse\x12\x1c\n" +
-	"\tchallenge\x18\x01 \x01(\x06R\tchallengeB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"\tchallenge\x18\x01 \x01(\x06R\tchallengeB7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_clientserver_login_proto_rawDescOnce sync.Once

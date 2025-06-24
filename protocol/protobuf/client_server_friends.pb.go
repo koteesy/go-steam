@@ -2756,7 +2756,7 @@ const file_steammessages_clientserver_friends_proto_rawDesc = "" +
 	"\x05count\x18\x02 \x01(\x05R\x05count\x12#\n" +
 	"\rtime_received\x18\x03 \x01(\rR\ftimeReceived\x12!\n" +
 	"\finfinite_use\x18\x04 \x01(\bR\vinfiniteUse\x12\x14\n" +
-	"\x05appid\x18\x05 \x01(\rR\x05appidB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"\x05appid\x18\x05 \x01(\rR\x05appidB7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_clientserver_friends_proto_rawDescOnce sync.Once

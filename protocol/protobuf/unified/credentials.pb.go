@@ -915,7 +915,7 @@ const file_steammessages_credentials_steamclient_proto_rawDesc = "" +
 	"\x14ValidateEmailAddress\x12*.CCredentials_ValidateEmailAddress_Request\x1a+.CCredentials_ValidateEmailAddress_Response\x12{\n" +
 	"\x18SteamGuardPhishingReport\x12..CCredentials_SteamGuardPhishingReport_Request\x1a/.CCredentials_SteamGuardPhishingReport_Response\x12\x81\x01\n" +
 	"\x1eGetCredentialChangeTimeDetails\x12..CCredentials_LastCredentialChangeTime_Request\x1a/.CCredentials_LastCredentialChangeTime_Response\x12o\n" +
-	"\x14GetAccountAuthSecret\x12*.CCredentials_GetAccountAuthSecret_Request\x1a+.CCredentials_GetAccountAuthSecret_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\x14GetAccountAuthSecret\x12*.CCredentials_GetAccountAuthSecret_Request\x1a+.CCredentials_GetAccountAuthSecret_ResponseB5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_credentials_steamclient_proto_rawDescOnce sync.Once

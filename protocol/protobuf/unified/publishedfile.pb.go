@@ -7596,7 +7596,7 @@ const file_steammessages_publishedfile_steamclient_proto_rawDesc = "" +
 	"\x13PublishedFileClient\x12P\n" +
 	"\x14NotifyFileSubscribed\x12+.CPublishedFile_FileSubscribed_Notification\x1a\v.NoResponse\x12T\n" +
 	"\x16NotifyFileUnsubscribed\x12-.CPublishedFile_FileUnsubscribed_Notification\x1a\v.NoResponse\x12Q\n" +
-	"\x11NotifyFileDeleted\x12/.CPublishedFile_FileDeleted_Client_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\x11NotifyFileDeleted\x12/.CPublishedFile_FileDeleted_Client_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_publishedfile_steamclient_proto_rawDescOnce sync.Once

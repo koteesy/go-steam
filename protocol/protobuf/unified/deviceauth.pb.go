@@ -1702,7 +1702,7 @@ const file_steammessages_deviceauth_steamclient_proto_rawDesc = "" +
 	"\x19RemoveAuthorizedBorrowers\x12..CDeviceAuth_RemoveAuthorizedBorrowers_Request\x1a/.CDeviceAuth_RemoveAuthorizedBorrowers_Response\x12v\n" +
 	"\x17GetAuthorizedAsBorrower\x12,.CDeviceAuth_GetAuthorizedAsBorrower_Request\x1a-.CDeviceAuth_GetAuthorizedAsBorrower_Response\x12|\n" +
 	"\x19GetExcludedGamesInLibrary\x12..CDeviceAuth_GetExcludedGamesInLibrary_Request\x1a/.CDeviceAuth_GetExcludedGamesInLibrary_Response\x12s\n" +
-	"\x16GetBorrowerPlayHistory\x12+.CDeviceAuth_GetBorrowerPlayHistory_Request\x1a,.CDeviceAuth_GetBorrowerPlayHistory_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\x16GetBorrowerPlayHistory\x12+.CDeviceAuth_GetBorrowerPlayHistory_Request\x1a,.CDeviceAuth_GetBorrowerPlayHistory_ResponseB5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_deviceauth_steamclient_proto_rawDescOnce sync.Once

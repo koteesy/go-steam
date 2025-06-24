@@ -288,7 +288,7 @@ const file_steammessages_offline_steamclient_proto_rawDesc = "" +
 	"\x06ticket\x18\x01 \x01(\v2\x1c.COffline_OfflineLogonTicketR\x06ticket2\xfa\x01\n" +
 	"\aOffline\x12j\n" +
 	"\x15GetOfflineLogonTicket\x12'.COffline_GetOfflineLogonTicket_Request\x1a(.COffline_GetOfflineLogonTicket_Response\x12\x82\x01\n" +
-	"\x1dGetUnsignedOfflineLogonTicket\x12/.COffline_GetUnsignedOfflineLogonTicket_Request\x1a0.COffline_GetUnsignedOfflineLogonTicket_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\x1dGetUnsignedOfflineLogonTicket\x12/.COffline_GetUnsignedOfflineLogonTicket_Request\x1a0.COffline_GetUnsignedOfflineLogonTicket_ResponseB5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_offline_steamclient_proto_rawDescOnce sync.Once

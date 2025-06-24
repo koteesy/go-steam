@@ -16221,7 +16221,7 @@ const file_tf_gcmessages_proto_rawDesc = "" +
 	"\x14QUESTION_MAP_QUALITY\x10\x01\x12\x19\n" +
 	"\x15QUESTION_COMP_INQUIRY\x10\x02\x12\x1b\n" +
 	"\x17QUESTION_CASUAL_INQUIRY\x10\x03\x12\x18\n" +
-	"\x14QUESTION_RANDOM_CRIT\x10\x04B:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"\x14QUESTION_RANDOM_CRIT\x10\x04B7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_tf_gcmessages_proto_rawDescOnce sync.Once

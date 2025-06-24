@@ -7797,7 +7797,7 @@ const file_steammessages_clientserver_2_proto_rawDesc = "" +
 	"#CMsgClientPendingGameLaunchResponse\x12\x1b\n" +
 	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x15\n" +
 	"\x06app_id\x18\x02 \x01(\rR\x05appId\x12\x16\n" +
-	"\x06envkey\x18\x03 \x01(\tR\x06envkeyB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"\x06envkey\x18\x03 \x01(\tR\x06envkeyB7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_clientserver_2_proto_rawDescOnce sync.Once

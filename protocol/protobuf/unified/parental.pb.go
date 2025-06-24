@@ -1909,7 +1909,7 @@ const file_steammessages_parental_steamclient_proto_rawDesc = "" +
 	"\fNotifyUnlock\x12&.CParental_ParentalUnlock_Notification\x1a\v.NoResponse\x12?\n" +
 	"\n" +
 	"NotifyLock\x12$.CParental_ParentalLock_Notification\x1a\v.NoResponse\x12G\n" +
-	"\x12NotifyPlaytimeUsed\x12$.CParental_PlaytimeUsed_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\x12NotifyPlaytimeUsed\x12$.CParental_PlaytimeUsed_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_parental_steamclient_proto_rawDescOnce sync.Once

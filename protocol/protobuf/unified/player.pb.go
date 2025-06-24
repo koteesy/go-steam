@@ -9310,7 +9310,7 @@ const file_steammessages_player_steamclient_proto_rawDesc = "" +
 	"!NotifyCommunityPreferencesChanged\x121.CPlayer_CommunityPreferencesChanged_Notification\x1a\v.NoResponse\x12Y\n" +
 	"\x1cNotifyTextFilterWordsChanged\x12,.CPlayer_TextFilterWordsChanged_Notification\x1a\v.NoResponse\x12c\n" +
 	"!NotifyPerFriendPreferencesChanged\x121.CPlayer_PerFriendPreferencesChanged_Notification\x1a\v.NoResponse\x12`\n" +
-	"#NotifyPrivacyPrivacySettingsChanged\x12,.CPlayer_PrivacySettingsChanged_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"#NotifyPrivacyPrivacySettingsChanged\x12,.CPlayer_PrivacySettingsChanged_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_player_steamclient_proto_rawDescOnce sync.Once

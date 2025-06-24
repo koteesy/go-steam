@@ -4118,7 +4118,7 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\x16ClientGetAppQuotaUsage\x12&.CCloud_ClientGetAppQuotaUsage_Request\x1a'.CCloud_ClientGetAppQuotaUsage_Response2\xb6\x01\n" +
 	"\vCloudClient\x12M\n" +
 	"\x14NotifyAppStateChange\x12(.CCloud_AppCloudStateChange_Notification\x1a\v.NoResponse\x12R\n" +
-	"\x16ClientLogUploadRequest\x12+.CCloud_ClientLogUploadRequest_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
+	"\x16ClientLogUploadRequest\x12+.CCloud_ClientLogUploadRequest_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B5Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_cloud_steamclient_proto_rawDescOnce sync.Once

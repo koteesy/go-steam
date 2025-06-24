@@ -6003,7 +6003,7 @@ const file_base_gcmessages_proto_rawDesc = "" +
 	"\x19k_EProtoObjectLobbyInvite\x10\xea\a*T\n" +
 	"\x0fGCGoodbyeReason\x12!\n" +
 	"\x1dGCGoodbyeReason_GC_GOING_DOWN\x10\x01\x12\x1e\n" +
-	"\x1aGCGoodbyeReason_NO_SESSION\x10\x02B:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
+	"\x1aGCGoodbyeReason_NO_SESSION\x10\x02B7H\x01Z0github.com/koteesy/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_base_gcmessages_proto_rawDescOnce sync.Once
