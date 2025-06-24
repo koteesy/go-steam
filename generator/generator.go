@@ -178,7 +178,7 @@ func compileProto(srcBase, srcSubdir, proto, target string, opt []string) {
 	}
 
 	// Определяем базовый путь для go_package
-	baseImportPath := "github.com/an0nfunc/go-steam/v4/protocol/protobuf"
+	baseImportPath := "github.com/koteesy/go-steam/v4/protocol/protobuf"
 
 	args := []string{
 		"-I=" + srcBase,
