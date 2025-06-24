@@ -1,7 +1,7 @@
 package trade
 
 import (
-	"github.com/koteesy/go-steam/v3/trade/tradeapi"
+	"github.com/koteesy/go-steam/v4/trade/tradeapi"
 )
 
 type TradeEndedEvent struct {

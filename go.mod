@@ -1,4 +1,4 @@
-module github.com/koteesy/go-steam/v3
+module github.com/koteesy/go-steam/v4
 
 go 1.16
 

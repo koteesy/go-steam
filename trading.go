@@ -1,10 +1,10 @@
 package steam
 
 import (
-	"github.com/koteesy/go-steam/v3/protocol"
-	"github.com/koteesy/go-steam/v3/protocol/protobuf"
-	"github.com/koteesy/go-steam/v3/protocol/steamlang"
-	"github.com/koteesy/go-steam/v3/steamid"
+	"github.com/koteesy/go-steam/v4/protocol"
+	"github.com/koteesy/go-steam/v4/protocol/protobuf"
+	"github.com/koteesy/go-steam/v4/protocol/steamlang"
+	"github.com/koteesy/go-steam/v4/steamid"
 	"google.golang.org/protobuf/proto"
 )
 
