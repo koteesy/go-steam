@@ -8,6 +8,8 @@ package unified
 
 import (
 	
+	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -23,10 +25,11 @@ const (
 )
 
 type COffline_GetOfflineLogonTicket_Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Priority      *uint32                `protobuf:"varint,1,opt,name=priority" json:"priority,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Priority          *uint32                `protobuf:"varint,1,opt,name=priority" json:"priority,omitempty"`
+	PerformEncryption *bool                  `protobuf:"varint,2,opt,name=perform_encryption,json=performEncryption" json:"perform_encryption,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *COffline_GetOfflineLogonTicket_Request) Reset() {
@@ -66,10 +69,18 @@ func (x *COffline_GetOfflineLogonTicket_Request) GetPriority() uint32 {
 	return 0
 }
 
+func (x *COffline_GetOfflineLogonTicket_Request) GetPerformEncryption() bool {
+	if x != nil && x.PerformEncryption != nil {
+		return *x.PerformEncryption
+	}
+	return false
+}
+
 type COffline_GetOfflineLogonTicket_Response struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	SerializedTicket []byte                 `protobuf:"bytes,1,opt,name=serialized_ticket,json=serializedTicket" json:"serialized_ticket,omitempty"`
-	Signature        []byte                 `protobuf:"bytes,2,opt,name=signature" json:"signature,omitempty"`
+	state            protoimpl.MessageState               `protogen:"open.v1"`
+	SerializedTicket []byte                               `protobuf:"bytes,1,opt,name=serialized_ticket,json=serializedTicket" json:"serialized_ticket,omitempty"`
+	Signature        []byte                               `protobuf:"bytes,2,opt,name=signature" json:"signature,omitempty"`
+	EncryptedTicket  *Offline_Ticket `protobuf:"bytes,3,opt,name=encrypted_ticket,json=encryptedTicket" json:"encrypted_ticket,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -114,6 +125,13 @@ func (x *COffline_GetOfflineLogonTicket_Response) GetSerializedTicket() []byte {
 func (x *COffline_GetOfflineLogonTicket_Response) GetSignature() []byte {
 	if x != nil {
 		return x.Signature
+	}
+	return nil
+}
+
+func (x *COffline_GetOfflineLogonTicket_Response) GetEncryptedTicket() *Offline_Ticket {
+	if x != nil {
+		return x.EncryptedTicket
 	}
 	return nil
 }
@@ -254,21 +272,23 @@ var File_steammessages_offline_steamclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_offline_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"'steammessages_offline.steamclient.proto\x1a,steammessages_unified_base.steamclient.proto\"D\n" +
+	"'steammessages_offline.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\x1a\x14offline_ticket.proto\"s\n" +
 	"&COffline_GetOfflineLogonTicket_Request\x12\x1a\n" +
-	"\bpriority\x18\x01 \x01(\rR\bpriority\"t\n" +
+	"\bpriority\x18\x01 \x01(\rR\bpriority\x12-\n" +
+	"\x12perform_encryption\x18\x02 \x01(\bR\x11performEncryption\"\xb0\x01\n" +
 	"'COffline_GetOfflineLogonTicket_Response\x12+\n" +
 	"\x11serialized_ticket\x18\x01 \x01(\fR\x10serializedTicket\x12\x1c\n" +
-	"\tsignature\x18\x02 \x01(\fR\tsignature\"0\n" +
+	"\tsignature\x18\x02 \x01(\fR\tsignature\x12:\n" +
+	"\x10encrypted_ticket\x18\x03 \x01(\v2\x0f.Offline_TicketR\x0fencryptedTicket\"0\n" +
 	".COffline_GetUnsignedOfflineLogonTicket_Request\"o\n" +
 	"\x1bCOffline_OfflineLogonTicket\x12\x1c\n" +
 	"\taccountid\x18\x01 \x01(\rR\taccountid\x122\n" +
 	"\x15rtime32_creation_time\x18\x02 \x01(\aR\x13rtime32CreationTime\"g\n" +
 	"/COffline_GetUnsignedOfflineLogonTicket_Response\x124\n" +
-	"\x06ticket\x18\x01 \x01(\v2\x1c.COffline_OfflineLogonTicketR\x06ticket2\xa3\x03\n" +
-	"\aOffline\x12\xb5\x01\n" +
-	"\x15GetOfflineLogonTicket\x12'.COffline_GetOfflineLogonTicket_Request\x1a(.COffline_GetOfflineLogonTicket_Response\"I\x82\xb5\x18EGet a serialized and signed offline logon ticket for the current user\x12\xc1\x01\n" +
-	"\x1dGetUnsignedOfflineLogonTicket\x12/.COffline_GetUnsignedOfflineLogonTicket_Request\x1a0.COffline_GetUnsignedOfflineLogonTicket_Response\"=\x82\xb5\x189Get an unsigned offline logon ticket for the current user\x1a\x1c\x82\xb5\x18\x18Offline settings serviceB\x03\x80\x01\x01"
+	"\x06ticket\x18\x01 \x01(\v2\x1c.COffline_OfflineLogonTicketR\x06ticket2\xfa\x01\n" +
+	"\aOffline\x12j\n" +
+	"\x15GetOfflineLogonTicket\x12'.COffline_GetOfflineLogonTicket_Request\x1a(.COffline_GetOfflineLogonTicket_Response\x12\x82\x01\n" +
+	"\x1dGetUnsignedOfflineLogonTicket\x12/.COffline_GetUnsignedOfflineLogonTicket_Request\x1a0.COffline_GetUnsignedOfflineLogonTicket_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_offline_steamclient_proto_rawDescOnce sync.Once
@@ -289,18 +309,20 @@ var file_steammessages_offline_steamclient_proto_goTypes = []any{
 	(*COffline_GetUnsignedOfflineLogonTicket_Request)(nil),  // 2: COffline_GetUnsignedOfflineLogonTicket_Request
 	(*COffline_OfflineLogonTicket)(nil),                     // 3: COffline_OfflineLogonTicket
 	(*COffline_GetUnsignedOfflineLogonTicket_Response)(nil), // 4: COffline_GetUnsignedOfflineLogonTicket_Response
+	(*Offline_Ticket)(nil),             // 5: Offline_Ticket
 }
 var file_steammessages_offline_steamclient_proto_depIdxs = []int32{
-	3, // 0: COffline_GetUnsignedOfflineLogonTicket_Response.ticket:type_name -> COffline_OfflineLogonTicket
-	0, // 1: Offline.GetOfflineLogonTicket:input_type -> COffline_GetOfflineLogonTicket_Request
-	2, // 2: Offline.GetUnsignedOfflineLogonTicket:input_type -> COffline_GetUnsignedOfflineLogonTicket_Request
-	1, // 3: Offline.GetOfflineLogonTicket:output_type -> COffline_GetOfflineLogonTicket_Response
-	4, // 4: Offline.GetUnsignedOfflineLogonTicket:output_type -> COffline_GetUnsignedOfflineLogonTicket_Response
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	5, // 0: COffline_GetOfflineLogonTicket_Response.encrypted_ticket:type_name -> Offline_Ticket
+	3, // 1: COffline_GetUnsignedOfflineLogonTicket_Response.ticket:type_name -> COffline_OfflineLogonTicket
+	0, // 2: Offline.GetOfflineLogonTicket:input_type -> COffline_GetOfflineLogonTicket_Request
+	2, // 3: Offline.GetUnsignedOfflineLogonTicket:input_type -> COffline_GetUnsignedOfflineLogonTicket_Request
+	1, // 4: Offline.GetOfflineLogonTicket:output_type -> COffline_GetOfflineLogonTicket_Response
+	4, // 5: Offline.GetUnsignedOfflineLogonTicket:output_type -> COffline_GetUnsignedOfflineLogonTicket_Response
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_offline_steamclient_proto_init() }

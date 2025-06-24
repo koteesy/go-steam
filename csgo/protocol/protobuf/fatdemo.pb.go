@@ -617,34 +617,35 @@ func (x *MLWeaponState) GetRecoilIndex() float32 {
 }
 
 type MLPlayerState struct {
-	state         protoimpl.MessageState        `protogen:"open.v1"`
-	AccountId     *int32                        `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
-	UserId        *int32                        `protobuf:"varint,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	Entindex      *int32                        `protobuf:"varint,3,opt,name=entindex" json:"entindex,omitempty"`
-	Name          *string                       `protobuf:"bytes,4,opt,name=name" json:"name,omitempty"`
-	Clan          *string                       `protobuf:"bytes,5,opt,name=clan" json:"clan,omitempty"`
-	Team          *ETeam                        `protobuf:"varint,6,opt,name=team,enum=ETeam,def=0" json:"team,omitempty"`
+	state         protoimpl.MessageState             `protogen:"open.v1"`
+	AccountId     *int32                             `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	PlayerSlot    *int32                             `protobuf:"varint,2,opt,name=player_slot,json=playerSlot,def=-1" json:"player_slot,omitempty"`
+	Entindex      *int32                             `protobuf:"varint,3,opt,name=entindex" json:"entindex,omitempty"`
+	Name          *string                            `protobuf:"bytes,4,opt,name=name" json:"name,omitempty"`
+	Clan          *string                            `protobuf:"bytes,5,opt,name=clan" json:"clan,omitempty"`
+	Team          *ETeam                             `protobuf:"varint,6,opt,name=team,enum=ETeam,def=0" json:"team,omitempty"`
 	Abspos        *CMsgVector `protobuf:"bytes,7,opt,name=abspos" json:"abspos,omitempty"`
 	Eyeangle      *CMsgQAngle `protobuf:"bytes,8,opt,name=eyeangle" json:"eyeangle,omitempty"`
 	EyeangleFwd   *CMsgVector `protobuf:"bytes,9,opt,name=eyeangle_fwd,json=eyeangleFwd" json:"eyeangle_fwd,omitempty"`
-	Health        *int32                        `protobuf:"varint,10,opt,name=health" json:"health,omitempty"`
-	Armor         *int32                        `protobuf:"varint,11,opt,name=armor" json:"armor,omitempty"`
-	Flashed       *float32                      `protobuf:"fixed32,12,opt,name=flashed" json:"flashed,omitempty"`
-	Smoked        *float32                      `protobuf:"fixed32,13,opt,name=smoked" json:"smoked,omitempty"`
-	Money         *int32                        `protobuf:"varint,14,opt,name=money" json:"money,omitempty"`
-	RoundKills    *int32                        `protobuf:"varint,15,opt,name=round_kills,json=roundKills" json:"round_kills,omitempty"`
-	RoundKillhs   *int32                        `protobuf:"varint,16,opt,name=round_killhs,json=roundKillhs" json:"round_killhs,omitempty"`
-	Burning       *float32                      `protobuf:"fixed32,17,opt,name=burning" json:"burning,omitempty"`
-	Helmet        *bool                         `protobuf:"varint,18,opt,name=helmet" json:"helmet,omitempty"`
-	DefuseKit     *bool                         `protobuf:"varint,19,opt,name=defuse_kit,json=defuseKit" json:"defuse_kit,omitempty"`
-	Weapons       []*MLWeaponState              `protobuf:"bytes,20,rep,name=weapons" json:"weapons,omitempty"`
+	Health        *int32                             `protobuf:"varint,10,opt,name=health" json:"health,omitempty"`
+	Armor         *int32                             `protobuf:"varint,11,opt,name=armor" json:"armor,omitempty"`
+	Flashed       *float32                           `protobuf:"fixed32,12,opt,name=flashed" json:"flashed,omitempty"`
+	Smoked        *float32                           `protobuf:"fixed32,13,opt,name=smoked" json:"smoked,omitempty"`
+	Money         *int32                             `protobuf:"varint,14,opt,name=money" json:"money,omitempty"`
+	RoundKills    *int32                             `protobuf:"varint,15,opt,name=round_kills,json=roundKills" json:"round_kills,omitempty"`
+	RoundKillhs   *int32                             `protobuf:"varint,16,opt,name=round_killhs,json=roundKillhs" json:"round_killhs,omitempty"`
+	Burning       *float32                           `protobuf:"fixed32,17,opt,name=burning" json:"burning,omitempty"`
+	Helmet        *bool                              `protobuf:"varint,18,opt,name=helmet" json:"helmet,omitempty"`
+	DefuseKit     *bool                              `protobuf:"varint,19,opt,name=defuse_kit,json=defuseKit" json:"defuse_kit,omitempty"`
+	Weapons       []*MLWeaponState                   `protobuf:"bytes,20,rep,name=weapons" json:"weapons,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 // Default values for MLPlayerState fields.
 const (
-	Default_MLPlayerState_Team = ETeam_ET_Unknown
+	Default_MLPlayerState_PlayerSlot = int32(-1)
+	Default_MLPlayerState_Team       = ETeam_ET_Unknown
 )
 
 func (x *MLPlayerState) Reset() {
@@ -684,11 +685,11 @@ func (x *MLPlayerState) GetAccountId() int32 {
 	return 0
 }
 
-func (x *MLPlayerState) GetUserId() int32 {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
+func (x *MLPlayerState) GetPlayerSlot() int32 {
+	if x != nil && x.PlayerSlot != nil {
+		return *x.PlayerSlot
 	}
-	return 0
+	return Default_MLPlayerState_PlayerSlot
 }
 
 func (x *MLPlayerState) GetEntindex() int32 {
@@ -1005,11 +1006,103 @@ func (x *MLTick) GetEvents() []*MLEvent {
 	return nil
 }
 
+type VacNetShot struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	SteamidPlayer        *uint64                `protobuf:"fixed64,1,opt,name=steamid_player,json=steamidPlayer" json:"steamid_player,omitempty"`
+	RoundNumber          *int32                 `protobuf:"varint,2,opt,name=round_number,json=roundNumber" json:"round_number,omitempty"`
+	HitType              *int32                 `protobuf:"varint,3,opt,name=hit_type,json=hitType" json:"hit_type,omitempty"`
+	WeaponType           *int32                 `protobuf:"varint,4,opt,name=weapon_type,json=weaponType" json:"weapon_type,omitempty"`
+	DistanceToHurtTarget *float32               `protobuf:"fixed32,5,opt,name=distance_to_hurt_target,json=distanceToHurtTarget" json:"distance_to_hurt_target,omitempty"`
+	DeltaYawWindow       []float32              `protobuf:"fixed32,6,rep,name=delta_yaw_window,json=deltaYawWindow" json:"delta_yaw_window,omitempty"`
+	DeltaPitchWindow     []float32              `protobuf:"fixed32,7,rep,name=delta_pitch_window,json=deltaPitchWindow" json:"delta_pitch_window,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *VacNetShot) Reset() {
+	*x = VacNetShot{}
+	mi := &file_fatdemo_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *VacNetShot) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VacNetShot) ProtoMessage() {}
+
+func (x *VacNetShot) ProtoReflect() protoreflect.Message {
+	mi := &file_fatdemo_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VacNetShot.ProtoReflect.Descriptor instead.
+func (*VacNetShot) Descriptor() ([]byte, []int) {
+	return file_fatdemo_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *VacNetShot) GetSteamidPlayer() uint64 {
+	if x != nil && x.SteamidPlayer != nil {
+		return *x.SteamidPlayer
+	}
+	return 0
+}
+
+func (x *VacNetShot) GetRoundNumber() int32 {
+	if x != nil && x.RoundNumber != nil {
+		return *x.RoundNumber
+	}
+	return 0
+}
+
+func (x *VacNetShot) GetHitType() int32 {
+	if x != nil && x.HitType != nil {
+		return *x.HitType
+	}
+	return 0
+}
+
+func (x *VacNetShot) GetWeaponType() int32 {
+	if x != nil && x.WeaponType != nil {
+		return *x.WeaponType
+	}
+	return 0
+}
+
+func (x *VacNetShot) GetDistanceToHurtTarget() float32 {
+	if x != nil && x.DistanceToHurtTarget != nil {
+		return *x.DistanceToHurtTarget
+	}
+	return 0
+}
+
+func (x *VacNetShot) GetDeltaYawWindow() []float32 {
+	if x != nil {
+		return x.DeltaYawWindow
+	}
+	return nil
+}
+
+func (x *VacNetShot) GetDeltaPitchWindow() []float32 {
+	if x != nil {
+		return x.DeltaPitchWindow
+	}
+	return nil
+}
+
 var File_fatdemo_proto protoreflect.FileDescriptor
 
 const file_fatdemo_proto_rawDesc = "" +
 	"\n" +
-	"\rfatdemo.proto\x1a\x11netmessages.proto\"o\n" +
+	"\rfatdemo.proto\x1a\x16networkbasetypes.proto\"o\n" +
 	"\x06MLDict\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x1d\n" +
 	"\n" +
@@ -1040,11 +1133,12 @@ const file_fatdemo_proto_rawDesc = "" +
 	"\rammo_clip_max\x18\x05 \x01(\x05R\vammoClipMax\x12!\n" +
 	"\fammo_reserve\x18\x06 \x01(\x05R\vammoReserve\x12\x14\n" +
 	"\x05state\x18\a \x01(\tR\x05state\x12!\n" +
-	"\frecoil_index\x18\b \x01(\x02R\vrecoilIndex\"\xe6\x04\n" +
+	"\frecoil_index\x18\b \x01(\x02R\vrecoilIndex\"\xf2\x04\n" +
 	"\rMLPlayerState\x12\x1d\n" +
 	"\n" +
-	"account_id\x18\x01 \x01(\x05R\taccountId\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\x05R\x06userId\x12\x1a\n" +
+	"account_id\x18\x01 \x01(\x05R\taccountId\x12#\n" +
+	"\vplayer_slot\x18\x02 \x01(\x05:\x02-1R\n" +
+	"playerSlot\x12\x1a\n" +
 	"\bentindex\x18\x03 \x01(\x05R\bentindex\x12\x12\n" +
 	"\x04name\x18\x04 \x01(\tR\x04name\x12\x12\n" +
 	"\x04clan\x18\x05 \x01(\tR\x04clan\x12&\n" +
@@ -1080,7 +1174,17 @@ const file_fatdemo_proto_rawDesc = "" +
 	"\n" +
 	"tick_count\x18\x01 \x01(\x05R\ttickCount\x12\"\n" +
 	"\x05state\x18\x02 \x01(\v2\f.MLGameStateR\x05state\x12 \n" +
-	"\x06events\x18\x03 \x03(\v2\b.MLEventR\x06events*\xac\x01\n" +
+	"\x06events\x18\x03 \x03(\v2\b.MLEventR\x06events\"\xa1\x02\n" +
+	"\n" +
+	"VacNetShot\x12%\n" +
+	"\x0esteamid_player\x18\x01 \x01(\x06R\rsteamidPlayer\x12!\n" +
+	"\fround_number\x18\x02 \x01(\x05R\vroundNumber\x12\x19\n" +
+	"\bhit_type\x18\x03 \x01(\x05R\ahitType\x12\x1f\n" +
+	"\vweapon_type\x18\x04 \x01(\x05R\n" +
+	"weaponType\x125\n" +
+	"\x17distance_to_hurt_target\x18\x05 \x01(\x02R\x14distanceToHurtTarget\x12(\n" +
+	"\x10delta_yaw_window\x18\x06 \x03(\x02R\x0edeltaYawWindow\x12,\n" +
+	"\x12delta_pitch_window\x18\a \x03(\x02R\x10deltaPitchWindow*\xac\x01\n" +
 	"\tEHitGroup\x12\x0f\n" +
 	"\vEHG_Generic\x10\x00\x12\f\n" +
 	"\bEHG_Head\x10\x01\x12\r\n" +
@@ -1128,31 +1232,32 @@ func file_fatdemo_proto_rawDescGZIP() []byte {
 }
 
 var file_fatdemo_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_fatdemo_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_fatdemo_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_fatdemo_proto_goTypes = []any{
-	(EHitGroup)(0),                       // 0: EHitGroup
-	(ETeam)(0),                           // 1: ETeam
-	(EWeaponType)(0),                     // 2: EWeaponType
-	(*MLDict)(nil),                       // 3: MLDict
-	(*MLEvent)(nil),                      // 4: MLEvent
-	(*MLMatchState)(nil),                 // 5: MLMatchState
-	(*MLRoundState)(nil),                 // 6: MLRoundState
-	(*MLWeaponState)(nil),                // 7: MLWeaponState
-	(*MLPlayerState)(nil),                // 8: MLPlayerState
-	(*MLGameState)(nil),                  // 9: MLGameState
-	(*MLDemoHeader)(nil),                 // 10: MLDemoHeader
-	(*MLTick)(nil),                       // 11: MLTick
-	(*CMsgVector)(nil), // 12: CMsgVector
-	(*CMsgQAngle)(nil), // 13: CMsgQAngle
+	(EHitGroup)(0),                            // 0: EHitGroup
+	(ETeam)(0),                                // 1: ETeam
+	(EWeaponType)(0),                          // 2: EWeaponType
+	(*MLDict)(nil),                            // 3: MLDict
+	(*MLEvent)(nil),                           // 4: MLEvent
+	(*MLMatchState)(nil),                      // 5: MLMatchState
+	(*MLRoundState)(nil),                      // 6: MLRoundState
+	(*MLWeaponState)(nil),                     // 7: MLWeaponState
+	(*MLPlayerState)(nil),                     // 8: MLPlayerState
+	(*MLGameState)(nil),                       // 9: MLGameState
+	(*MLDemoHeader)(nil),                      // 10: MLDemoHeader
+	(*MLTick)(nil),                            // 11: MLTick
+	(*VacNetShot)(nil),                        // 12: VacNetShot
+	(*CMsgVector)(nil), // 13: CMsgVector
+	(*CMsgQAngle)(nil), // 14: CMsgQAngle
 }
 var file_fatdemo_proto_depIdxs = []int32{
 	3,  // 0: MLEvent.data:type_name -> MLDict
 	1,  // 1: MLRoundState.win_team:type_name -> ETeam
 	2,  // 2: MLWeaponState.type:type_name -> EWeaponType
 	1,  // 3: MLPlayerState.team:type_name -> ETeam
-	12, // 4: MLPlayerState.abspos:type_name -> CMsgVector
-	13, // 5: MLPlayerState.eyeangle:type_name -> CMsgQAngle
-	12, // 6: MLPlayerState.eyeangle_fwd:type_name -> CMsgVector
+	13, // 4: MLPlayerState.abspos:type_name -> CMsgVector
+	14, // 5: MLPlayerState.eyeangle:type_name -> CMsgQAngle
+	13, // 6: MLPlayerState.eyeangle_fwd:type_name -> CMsgVector
 	7,  // 7: MLPlayerState.weapons:type_name -> MLWeaponState
 	5,  // 8: MLGameState.match:type_name -> MLMatchState
 	6,  // 9: MLGameState.round:type_name -> MLRoundState
@@ -1177,7 +1282,7 @@ func file_fatdemo_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_fatdemo_proto_rawDesc), len(file_fatdemo_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

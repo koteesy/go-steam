@@ -8,6 +8,8 @@ package unified
 
 import (
 	
+	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -22,204 +24,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type ParentalApp struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	IsAllowed     *bool                  `protobuf:"varint,2,opt,name=is_allowed,json=isAllowed" json:"is_allowed,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ParentalApp) Reset() {
-	*x = ParentalApp{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ParentalApp) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ParentalApp) ProtoMessage() {}
-
-func (x *ParentalApp) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ParentalApp.ProtoReflect.Descriptor instead.
-func (*ParentalApp) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *ParentalApp) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *ParentalApp) GetIsAllowed() bool {
-	if x != nil && x.IsAllowed != nil {
-		return *x.IsAllowed
-	}
-	return false
-}
-
-type ParentalSettings struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	Steamid                *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
-	ApplistBaseId          *uint32                `protobuf:"varint,2,opt,name=applist_base_id,json=applistBaseId" json:"applist_base_id,omitempty"`
-	ApplistBaseDescription *string                `protobuf:"bytes,3,opt,name=applist_base_description,json=applistBaseDescription" json:"applist_base_description,omitempty"`
-	ApplistBase            []*ParentalApp         `protobuf:"bytes,4,rep,name=applist_base,json=applistBase" json:"applist_base,omitempty"`
-	ApplistCustom          []*ParentalApp         `protobuf:"bytes,5,rep,name=applist_custom,json=applistCustom" json:"applist_custom,omitempty"`
-	Passwordhashtype       *uint32                `protobuf:"varint,6,opt,name=passwordhashtype" json:"passwordhashtype,omitempty"`
-	Salt                   []byte                 `protobuf:"bytes,7,opt,name=salt" json:"salt,omitempty"`
-	Passwordhash           []byte                 `protobuf:"bytes,8,opt,name=passwordhash" json:"passwordhash,omitempty"`
-	IsEnabled              *bool                  `protobuf:"varint,9,opt,name=is_enabled,json=isEnabled" json:"is_enabled,omitempty"`
-	EnabledFeatures        *uint32                `protobuf:"varint,10,opt,name=enabled_features,json=enabledFeatures" json:"enabled_features,omitempty"`
-	RecoveryEmail          *string                `protobuf:"bytes,11,opt,name=recovery_email,json=recoveryEmail" json:"recovery_email,omitempty"`
-	IsSiteLicenseLock      *bool                  `protobuf:"varint,12,opt,name=is_site_license_lock,json=isSiteLicenseLock" json:"is_site_license_lock,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *ParentalSettings) Reset() {
-	*x = ParentalSettings{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ParentalSettings) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ParentalSettings) ProtoMessage() {}
-
-func (x *ParentalSettings) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use ParentalSettings.ProtoReflect.Descriptor instead.
-func (*ParentalSettings) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *ParentalSettings) GetSteamid() uint64 {
-	if x != nil && x.Steamid != nil {
-		return *x.Steamid
-	}
-	return 0
-}
-
-func (x *ParentalSettings) GetApplistBaseId() uint32 {
-	if x != nil && x.ApplistBaseId != nil {
-		return *x.ApplistBaseId
-	}
-	return 0
-}
-
-func (x *ParentalSettings) GetApplistBaseDescription() string {
-	if x != nil && x.ApplistBaseDescription != nil {
-		return *x.ApplistBaseDescription
-	}
-	return ""
-}
-
-func (x *ParentalSettings) GetApplistBase() []*ParentalApp {
-	if x != nil {
-		return x.ApplistBase
-	}
-	return nil
-}
-
-func (x *ParentalSettings) GetApplistCustom() []*ParentalApp {
-	if x != nil {
-		return x.ApplistCustom
-	}
-	return nil
-}
-
-func (x *ParentalSettings) GetPasswordhashtype() uint32 {
-	if x != nil && x.Passwordhashtype != nil {
-		return *x.Passwordhashtype
-	}
-	return 0
-}
-
-func (x *ParentalSettings) GetSalt() []byte {
-	if x != nil {
-		return x.Salt
-	}
-	return nil
-}
-
-func (x *ParentalSettings) GetPasswordhash() []byte {
-	if x != nil {
-		return x.Passwordhash
-	}
-	return nil
-}
-
-func (x *ParentalSettings) GetIsEnabled() bool {
-	if x != nil && x.IsEnabled != nil {
-		return *x.IsEnabled
-	}
-	return false
-}
-
-func (x *ParentalSettings) GetEnabledFeatures() uint32 {
-	if x != nil && x.EnabledFeatures != nil {
-		return *x.EnabledFeatures
-	}
-	return 0
-}
-
-func (x *ParentalSettings) GetRecoveryEmail() string {
-	if x != nil && x.RecoveryEmail != nil {
-		return *x.RecoveryEmail
-	}
-	return ""
-}
-
-func (x *ParentalSettings) GetIsSiteLicenseLock() bool {
-	if x != nil && x.IsSiteLicenseLock != nil {
-		return *x.IsSiteLicenseLock
-	}
-	return false
-}
-
 type CParental_EnableParentalSettings_Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Password      *string                `protobuf:"bytes,1,opt,name=password" json:"password,omitempty"`
-	Settings      *ParentalSettings      `protobuf:"bytes,2,opt,name=settings" json:"settings,omitempty"`
-	Sessionid     *string                `protobuf:"bytes,3,opt,name=sessionid" json:"sessionid,omitempty"`
-	Enablecode    *uint32                `protobuf:"varint,4,opt,name=enablecode" json:"enablecode,omitempty"`
-	Steamid       *uint64                `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
+	state         protoimpl.MessageState                                 `protogen:"open.v1"`
+	Password      *string                                                `protobuf:"bytes,1,opt,name=password" json:"password,omitempty"`
+	Settings      *ParentalSettings `protobuf:"bytes,2,opt,name=settings" json:"settings,omitempty"`
+	Sessionid     *string                                                `protobuf:"bytes,3,opt,name=sessionid" json:"sessionid,omitempty"`
+	Enablecode    *uint32                                                `protobuf:"varint,4,opt,name=enablecode" json:"enablecode,omitempty"`
+	Steamid       *uint64                                                `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CParental_EnableParentalSettings_Request) Reset() {
 	*x = CParental_EnableParentalSettings_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[2]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -231,7 +49,7 @@ func (x *CParental_EnableParentalSettings_Request) String() string {
 func (*CParental_EnableParentalSettings_Request) ProtoMessage() {}
 
 func (x *CParental_EnableParentalSettings_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[2]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -244,7 +62,7 @@ func (x *CParental_EnableParentalSettings_Request) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CParental_EnableParentalSettings_Request.ProtoReflect.Descriptor instead.
 func (*CParental_EnableParentalSettings_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{2}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CParental_EnableParentalSettings_Request) GetPassword() string {
@@ -290,7 +108,7 @@ type CParental_EnableParentalSettings_Response struct {
 
 func (x *CParental_EnableParentalSettings_Response) Reset() {
 	*x = CParental_EnableParentalSettings_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[3]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -302,7 +120,7 @@ func (x *CParental_EnableParentalSettings_Response) String() string {
 func (*CParental_EnableParentalSettings_Response) ProtoMessage() {}
 
 func (x *CParental_EnableParentalSettings_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[3]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -315,7 +133,7 @@ func (x *CParental_EnableParentalSettings_Response) ProtoReflect() protoreflect.
 
 // Deprecated: Use CParental_EnableParentalSettings_Response.ProtoReflect.Descriptor instead.
 func (*CParental_EnableParentalSettings_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{3}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{1}
 }
 
 type CParental_DisableParentalSettings_Request struct {
@@ -328,7 +146,7 @@ type CParental_DisableParentalSettings_Request struct {
 
 func (x *CParental_DisableParentalSettings_Request) Reset() {
 	*x = CParental_DisableParentalSettings_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -340,7 +158,7 @@ func (x *CParental_DisableParentalSettings_Request) String() string {
 func (*CParental_DisableParentalSettings_Request) ProtoMessage() {}
 
 func (x *CParental_DisableParentalSettings_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -353,7 +171,7 @@ func (x *CParental_DisableParentalSettings_Request) ProtoReflect() protoreflect.
 
 // Deprecated: Use CParental_DisableParentalSettings_Request.ProtoReflect.Descriptor instead.
 func (*CParental_DisableParentalSettings_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{4}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CParental_DisableParentalSettings_Request) GetPassword() string {
@@ -378,7 +196,7 @@ type CParental_DisableParentalSettings_Response struct {
 
 func (x *CParental_DisableParentalSettings_Response) Reset() {
 	*x = CParental_DisableParentalSettings_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -390,7 +208,7 @@ func (x *CParental_DisableParentalSettings_Response) String() string {
 func (*CParental_DisableParentalSettings_Response) ProtoMessage() {}
 
 func (x *CParental_DisableParentalSettings_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -403,7 +221,7 @@ func (x *CParental_DisableParentalSettings_Response) ProtoReflect() protoreflect
 
 // Deprecated: Use CParental_DisableParentalSettings_Response.ProtoReflect.Descriptor instead.
 func (*CParental_DisableParentalSettings_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{3}
 }
 
 type CParental_GetParentalSettings_Request struct {
@@ -415,7 +233,7 @@ type CParental_GetParentalSettings_Request struct {
 
 func (x *CParental_GetParentalSettings_Request) Reset() {
 	*x = CParental_GetParentalSettings_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -427,7 +245,7 @@ func (x *CParental_GetParentalSettings_Request) String() string {
 func (*CParental_GetParentalSettings_Request) ProtoMessage() {}
 
 func (x *CParental_GetParentalSettings_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -440,7 +258,7 @@ func (x *CParental_GetParentalSettings_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CParental_GetParentalSettings_Request.ProtoReflect.Descriptor instead.
 func (*CParental_GetParentalSettings_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CParental_GetParentalSettings_Request) GetSteamid() uint64 {
@@ -451,15 +269,15 @@ func (x *CParental_GetParentalSettings_Request) GetSteamid() uint64 {
 }
 
 type CParental_GetParentalSettings_Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Settings      *ParentalSettings      `protobuf:"bytes,1,opt,name=settings" json:"settings,omitempty"`
+	state         protoimpl.MessageState                                 `protogen:"open.v1"`
+	Settings      *ParentalSettings `protobuf:"bytes,1,opt,name=settings" json:"settings,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CParental_GetParentalSettings_Response) Reset() {
 	*x = CParental_GetParentalSettings_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -471,7 +289,7 @@ func (x *CParental_GetParentalSettings_Response) String() string {
 func (*CParental_GetParentalSettings_Response) ProtoMessage() {}
 
 func (x *CParental_GetParentalSettings_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -484,7 +302,7 @@ func (x *CParental_GetParentalSettings_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CParental_GetParentalSettings_Response.ProtoReflect.Descriptor instead.
 func (*CParental_GetParentalSettings_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CParental_GetParentalSettings_Response) GetSettings() *ParentalSettings {
@@ -503,7 +321,7 @@ type CParental_GetSignedParentalSettings_Request struct {
 
 func (x *CParental_GetSignedParentalSettings_Request) Reset() {
 	*x = CParental_GetSignedParentalSettings_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -515,7 +333,7 @@ func (x *CParental_GetSignedParentalSettings_Request) String() string {
 func (*CParental_GetSignedParentalSettings_Request) ProtoMessage() {}
 
 func (x *CParental_GetSignedParentalSettings_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -528,7 +346,7 @@ func (x *CParental_GetSignedParentalSettings_Request) ProtoReflect() protoreflec
 
 // Deprecated: Use CParental_GetSignedParentalSettings_Request.ProtoReflect.Descriptor instead.
 func (*CParental_GetSignedParentalSettings_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CParental_GetSignedParentalSettings_Request) GetPriority() uint32 {
@@ -548,7 +366,7 @@ type CParental_GetSignedParentalSettings_Response struct {
 
 func (x *CParental_GetSignedParentalSettings_Response) Reset() {
 	*x = CParental_GetSignedParentalSettings_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -560,7 +378,7 @@ func (x *CParental_GetSignedParentalSettings_Response) String() string {
 func (*CParental_GetSignedParentalSettings_Response) ProtoMessage() {}
 
 func (x *CParental_GetSignedParentalSettings_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -573,7 +391,7 @@ func (x *CParental_GetSignedParentalSettings_Response) ProtoReflect() protorefle
 
 // Deprecated: Use CParental_GetSignedParentalSettings_Response.ProtoReflect.Descriptor instead.
 func (*CParental_GetSignedParentalSettings_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CParental_GetSignedParentalSettings_Response) GetSerializedSettings() []byte {
@@ -591,19 +409,19 @@ func (x *CParental_GetSignedParentalSettings_Response) GetSignature() []byte {
 }
 
 type CParental_SetParentalSettings_Request struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Password      *string                `protobuf:"bytes,1,opt,name=password" json:"password,omitempty"`
-	Settings      *ParentalSettings      `protobuf:"bytes,2,opt,name=settings" json:"settings,omitempty"`
-	NewPassword   *string                `protobuf:"bytes,3,opt,name=new_password,json=newPassword" json:"new_password,omitempty"`
-	Sessionid     *string                `protobuf:"bytes,4,opt,name=sessionid" json:"sessionid,omitempty"`
-	Steamid       *uint64                `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
+	state         protoimpl.MessageState                                 `protogen:"open.v1"`
+	Password      *string                                                `protobuf:"bytes,1,opt,name=password" json:"password,omitempty"`
+	Settings      *ParentalSettings `protobuf:"bytes,2,opt,name=settings" json:"settings,omitempty"`
+	NewPassword   *string                                                `protobuf:"bytes,3,opt,name=new_password,json=newPassword" json:"new_password,omitempty"`
+	Sessionid     *string                                                `protobuf:"bytes,4,opt,name=sessionid" json:"sessionid,omitempty"`
+	Steamid       *uint64                                                `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CParental_SetParentalSettings_Request) Reset() {
 	*x = CParental_SetParentalSettings_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -615,7 +433,7 @@ func (x *CParental_SetParentalSettings_Request) String() string {
 func (*CParental_SetParentalSettings_Request) ProtoMessage() {}
 
 func (x *CParental_SetParentalSettings_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -628,7 +446,7 @@ func (x *CParental_SetParentalSettings_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CParental_SetParentalSettings_Request.ProtoReflect.Descriptor instead.
 func (*CParental_SetParentalSettings_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CParental_SetParentalSettings_Request) GetPassword() string {
@@ -674,7 +492,7 @@ type CParental_SetParentalSettings_Response struct {
 
 func (x *CParental_SetParentalSettings_Response) Reset() {
 	*x = CParental_SetParentalSettings_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -686,7 +504,7 @@ func (x *CParental_SetParentalSettings_Response) String() string {
 func (*CParental_SetParentalSettings_Response) ProtoMessage() {}
 
 func (x *CParental_SetParentalSettings_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -699,7 +517,7 @@ func (x *CParental_SetParentalSettings_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CParental_SetParentalSettings_Response.ProtoReflect.Descriptor instead.
 func (*CParental_SetParentalSettings_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{9}
 }
 
 type CParental_ValidateToken_Request struct {
@@ -711,7 +529,7 @@ type CParental_ValidateToken_Request struct {
 
 func (x *CParental_ValidateToken_Request) Reset() {
 	*x = CParental_ValidateToken_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -723,7 +541,7 @@ func (x *CParental_ValidateToken_Request) String() string {
 func (*CParental_ValidateToken_Request) ProtoMessage() {}
 
 func (x *CParental_ValidateToken_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -736,7 +554,7 @@ func (x *CParental_ValidateToken_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CParental_ValidateToken_Request.ProtoReflect.Descriptor instead.
 func (*CParental_ValidateToken_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CParental_ValidateToken_Request) GetUnlockToken() string {
@@ -754,7 +572,7 @@ type CParental_ValidateToken_Response struct {
 
 func (x *CParental_ValidateToken_Response) Reset() {
 	*x = CParental_ValidateToken_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -766,7 +584,7 @@ func (x *CParental_ValidateToken_Response) String() string {
 func (*CParental_ValidateToken_Response) ProtoMessage() {}
 
 func (x *CParental_ValidateToken_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -779,7 +597,7 @@ func (x *CParental_ValidateToken_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CParental_ValidateToken_Response.ProtoReflect.Descriptor instead.
 func (*CParental_ValidateToken_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{11}
 }
 
 type CParental_ValidatePassword_Request struct {
@@ -793,7 +611,7 @@ type CParental_ValidatePassword_Request struct {
 
 func (x *CParental_ValidatePassword_Request) Reset() {
 	*x = CParental_ValidatePassword_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -805,7 +623,7 @@ func (x *CParental_ValidatePassword_Request) String() string {
 func (*CParental_ValidatePassword_Request) ProtoMessage() {}
 
 func (x *CParental_ValidatePassword_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -818,7 +636,7 @@ func (x *CParental_ValidatePassword_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CParental_ValidatePassword_Request.ProtoReflect.Descriptor instead.
 func (*CParental_ValidatePassword_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CParental_ValidatePassword_Request) GetPassword() string {
@@ -851,7 +669,7 @@ type CParental_ValidatePassword_Response struct {
 
 func (x *CParental_ValidatePassword_Response) Reset() {
 	*x = CParental_ValidatePassword_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -863,7 +681,7 @@ func (x *CParental_ValidatePassword_Response) String() string {
 func (*CParental_ValidatePassword_Response) ProtoMessage() {}
 
 func (x *CParental_ValidatePassword_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -876,7 +694,7 @@ func (x *CParental_ValidatePassword_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CParental_ValidatePassword_Response.ProtoReflect.Descriptor instead.
 func (*CParental_ValidatePassword_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{15}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CParental_ValidatePassword_Response) GetToken() string {
@@ -895,7 +713,7 @@ type CParental_LockClient_Request struct {
 
 func (x *CParental_LockClient_Request) Reset() {
 	*x = CParental_LockClient_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -907,7 +725,7 @@ func (x *CParental_LockClient_Request) String() string {
 func (*CParental_LockClient_Request) ProtoMessage() {}
 
 func (x *CParental_LockClient_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -920,7 +738,7 @@ func (x *CParental_LockClient_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CParental_LockClient_Request.ProtoReflect.Descriptor instead.
 func (*CParental_LockClient_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{16}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CParental_LockClient_Request) GetSession() string {
@@ -938,7 +756,7 @@ type CParental_LockClient_Response struct {
 
 func (x *CParental_LockClient_Response) Reset() {
 	*x = CParental_LockClient_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -950,7 +768,7 @@ func (x *CParental_LockClient_Response) String() string {
 func (*CParental_LockClient_Response) ProtoMessage() {}
 
 func (x *CParental_LockClient_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -963,7 +781,7 @@ func (x *CParental_LockClient_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CParental_LockClient_Response.ProtoReflect.Descriptor instead.
 func (*CParental_LockClient_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{17}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{15}
 }
 
 type CParental_RequestRecoveryCode_Request struct {
@@ -974,7 +792,7 @@ type CParental_RequestRecoveryCode_Request struct {
 
 func (x *CParental_RequestRecoveryCode_Request) Reset() {
 	*x = CParental_RequestRecoveryCode_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -986,7 +804,7 @@ func (x *CParental_RequestRecoveryCode_Request) String() string {
 func (*CParental_RequestRecoveryCode_Request) ProtoMessage() {}
 
 func (x *CParental_RequestRecoveryCode_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -999,7 +817,7 @@ func (x *CParental_RequestRecoveryCode_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CParental_RequestRecoveryCode_Request.ProtoReflect.Descriptor instead.
 func (*CParental_RequestRecoveryCode_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{16}
 }
 
 type CParental_RequestRecoveryCode_Response struct {
@@ -1010,7 +828,7 @@ type CParental_RequestRecoveryCode_Response struct {
 
 func (x *CParental_RequestRecoveryCode_Response) Reset() {
 	*x = CParental_RequestRecoveryCode_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1022,7 +840,7 @@ func (x *CParental_RequestRecoveryCode_Response) String() string {
 func (*CParental_RequestRecoveryCode_Response) ProtoMessage() {}
 
 func (x *CParental_RequestRecoveryCode_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1035,7 +853,7 @@ func (x *CParental_RequestRecoveryCode_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CParental_RequestRecoveryCode_Response.ProtoReflect.Descriptor instead.
 func (*CParental_RequestRecoveryCode_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{19}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{17}
 }
 
 type CParental_DisableWithRecoveryCode_Request struct {
@@ -1048,7 +866,7 @@ type CParental_DisableWithRecoveryCode_Request struct {
 
 func (x *CParental_DisableWithRecoveryCode_Request) Reset() {
 	*x = CParental_DisableWithRecoveryCode_Request{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1060,7 +878,7 @@ func (x *CParental_DisableWithRecoveryCode_Request) String() string {
 func (*CParental_DisableWithRecoveryCode_Request) ProtoMessage() {}
 
 func (x *CParental_DisableWithRecoveryCode_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1073,7 +891,7 @@ func (x *CParental_DisableWithRecoveryCode_Request) ProtoReflect() protoreflect.
 
 // Deprecated: Use CParental_DisableWithRecoveryCode_Request.ProtoReflect.Descriptor instead.
 func (*CParental_DisableWithRecoveryCode_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CParental_DisableWithRecoveryCode_Request) GetRecoveryCode() uint32 {
@@ -1098,7 +916,7 @@ type CParental_DisableWithRecoveryCode_Response struct {
 
 func (x *CParental_DisableWithRecoveryCode_Response) Reset() {
 	*x = CParental_DisableWithRecoveryCode_Response{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1110,7 +928,7 @@ func (x *CParental_DisableWithRecoveryCode_Response) String() string {
 func (*CParental_DisableWithRecoveryCode_Response) ProtoMessage() {}
 
 func (x *CParental_DisableWithRecoveryCode_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1123,7 +941,623 @@ func (x *CParental_DisableWithRecoveryCode_Response) ProtoReflect() protoreflect
 
 // Deprecated: Use CParental_DisableWithRecoveryCode_Response.ProtoReflect.Descriptor instead.
 func (*CParental_DisableWithRecoveryCode_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{19}
+}
+
+type CParental_RequestFeatureAccess_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Features      *uint32                `protobuf:"varint,1,opt,name=features" json:"features,omitempty"`
+	Steamid       *uint64                `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_RequestFeatureAccess_Request) Reset() {
+	*x = CParental_RequestFeatureAccess_Request{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_RequestFeatureAccess_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_RequestFeatureAccess_Request) ProtoMessage() {}
+
+func (x *CParental_RequestFeatureAccess_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_RequestFeatureAccess_Request.ProtoReflect.Descriptor instead.
+func (*CParental_RequestFeatureAccess_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *CParental_RequestFeatureAccess_Request) GetFeatures() uint32 {
+	if x != nil && x.Features != nil {
+		return *x.Features
+	}
+	return 0
+}
+
+func (x *CParental_RequestFeatureAccess_Request) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+type CParental_RequestFeatureAccess_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Requestid     *uint64                `protobuf:"fixed64,1,opt,name=requestid" json:"requestid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_RequestFeatureAccess_Response) Reset() {
+	*x = CParental_RequestFeatureAccess_Response{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_RequestFeatureAccess_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_RequestFeatureAccess_Response) ProtoMessage() {}
+
+func (x *CParental_RequestFeatureAccess_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_RequestFeatureAccess_Response.ProtoReflect.Descriptor instead.
+func (*CParental_RequestFeatureAccess_Response) Descriptor() ([]byte, []int) {
 	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *CParental_RequestFeatureAccess_Response) GetRequestid() uint64 {
+	if x != nil && x.Requestid != nil {
+		return *x.Requestid
+	}
+	return 0
+}
+
+type CParental_ApproveFeatureAccess_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Approve       *bool                  `protobuf:"varint,1,opt,name=approve" json:"approve,omitempty"`
+	Requestid     *uint64                `protobuf:"fixed64,2,opt,name=requestid" json:"requestid,omitempty"`
+	Features      *uint32                `protobuf:"varint,3,opt,name=features" json:"features,omitempty"`
+	Duration      *uint32                `protobuf:"varint,4,opt,name=duration" json:"duration,omitempty"`
+	Steamid       *uint64                `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_ApproveFeatureAccess_Request) Reset() {
+	*x = CParental_ApproveFeatureAccess_Request{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_ApproveFeatureAccess_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_ApproveFeatureAccess_Request) ProtoMessage() {}
+
+func (x *CParental_ApproveFeatureAccess_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_ApproveFeatureAccess_Request.ProtoReflect.Descriptor instead.
+func (*CParental_ApproveFeatureAccess_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *CParental_ApproveFeatureAccess_Request) GetApprove() bool {
+	if x != nil && x.Approve != nil {
+		return *x.Approve
+	}
+	return false
+}
+
+func (x *CParental_ApproveFeatureAccess_Request) GetRequestid() uint64 {
+	if x != nil && x.Requestid != nil {
+		return *x.Requestid
+	}
+	return 0
+}
+
+func (x *CParental_ApproveFeatureAccess_Request) GetFeatures() uint32 {
+	if x != nil && x.Features != nil {
+		return *x.Features
+	}
+	return 0
+}
+
+func (x *CParental_ApproveFeatureAccess_Request) GetDuration() uint32 {
+	if x != nil && x.Duration != nil {
+		return *x.Duration
+	}
+	return 0
+}
+
+func (x *CParental_ApproveFeatureAccess_Request) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+type CParental_ApproveFeatureAccess_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_ApproveFeatureAccess_Response) Reset() {
+	*x = CParental_ApproveFeatureAccess_Response{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_ApproveFeatureAccess_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_ApproveFeatureAccess_Response) ProtoMessage() {}
+
+func (x *CParental_ApproveFeatureAccess_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_ApproveFeatureAccess_Response.ProtoReflect.Descriptor instead.
+func (*CParental_ApproveFeatureAccess_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{23}
+}
+
+type CParental_RequestPlaytime_Request struct {
+	state                       protoimpl.MessageState                                    `protogen:"open.v1"`
+	TimeExpires                 *uint32                                                   `protobuf:"varint,1,opt,name=time_expires,json=timeExpires" json:"time_expires,omitempty"`
+	CurrentPlaytimeRestrictions *ParentalPlaytimeDay `protobuf:"bytes,2,opt,name=current_playtime_restrictions,json=currentPlaytimeRestrictions" json:"current_playtime_restrictions,omitempty"`
+	Steamid                     *uint64                                                   `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
+}
+
+func (x *CParental_RequestPlaytime_Request) Reset() {
+	*x = CParental_RequestPlaytime_Request{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_RequestPlaytime_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_RequestPlaytime_Request) ProtoMessage() {}
+
+func (x *CParental_RequestPlaytime_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_RequestPlaytime_Request.ProtoReflect.Descriptor instead.
+func (*CParental_RequestPlaytime_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *CParental_RequestPlaytime_Request) GetTimeExpires() uint32 {
+	if x != nil && x.TimeExpires != nil {
+		return *x.TimeExpires
+	}
+	return 0
+}
+
+func (x *CParental_RequestPlaytime_Request) GetCurrentPlaytimeRestrictions() *ParentalPlaytimeDay {
+	if x != nil {
+		return x.CurrentPlaytimeRestrictions
+	}
+	return nil
+}
+
+func (x *CParental_RequestPlaytime_Request) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+type CParental_RequestPlaytime_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Requestid     *uint64                `protobuf:"fixed64,1,opt,name=requestid" json:"requestid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_RequestPlaytime_Response) Reset() {
+	*x = CParental_RequestPlaytime_Response{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_RequestPlaytime_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_RequestPlaytime_Response) ProtoMessage() {}
+
+func (x *CParental_RequestPlaytime_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_RequestPlaytime_Response.ProtoReflect.Descriptor instead.
+func (*CParental_RequestPlaytime_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *CParental_RequestPlaytime_Response) GetRequestid() uint64 {
+	if x != nil && x.Requestid != nil {
+		return *x.Requestid
+	}
+	return 0
+}
+
+type CParental_ApprovePlaytime_Request struct {
+	state                protoimpl.MessageState                                                      `protogen:"open.v1"`
+	Approve              *bool                                                                       `protobuf:"varint,1,opt,name=approve" json:"approve,omitempty"`
+	Requestid            *uint64                                                                     `protobuf:"fixed64,2,opt,name=requestid" json:"requestid,omitempty"`
+	RestrictionsApproved *ParentalTemporaryPlaytimeRestrictions `protobuf:"bytes,3,opt,name=restrictions_approved,json=restrictionsApproved" json:"restrictions_approved,omitempty"`
+	Steamid              *uint64                                                                     `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *CParental_ApprovePlaytime_Request) Reset() {
+	*x = CParental_ApprovePlaytime_Request{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_ApprovePlaytime_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_ApprovePlaytime_Request) ProtoMessage() {}
+
+func (x *CParental_ApprovePlaytime_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_ApprovePlaytime_Request.ProtoReflect.Descriptor instead.
+func (*CParental_ApprovePlaytime_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *CParental_ApprovePlaytime_Request) GetApprove() bool {
+	if x != nil && x.Approve != nil {
+		return *x.Approve
+	}
+	return false
+}
+
+func (x *CParental_ApprovePlaytime_Request) GetRequestid() uint64 {
+	if x != nil && x.Requestid != nil {
+		return *x.Requestid
+	}
+	return 0
+}
+
+func (x *CParental_ApprovePlaytime_Request) GetRestrictionsApproved() *ParentalTemporaryPlaytimeRestrictions {
+	if x != nil {
+		return x.RestrictionsApproved
+	}
+	return nil
+}
+
+func (x *CParental_ApprovePlaytime_Request) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+type CParental_ApprovePlaytime_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_ApprovePlaytime_Response) Reset() {
+	*x = CParental_ApprovePlaytime_Response{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_ApprovePlaytime_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_ApprovePlaytime_Response) ProtoMessage() {}
+
+func (x *CParental_ApprovePlaytime_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_ApprovePlaytime_Response.ProtoReflect.Descriptor instead.
+func (*CParental_ApprovePlaytime_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{27}
+}
+
+type CParental_GetRequests_Request struct {
+	state                   protoimpl.MessageState `protogen:"open.v1"`
+	RtIncludeCompletedSince *uint32                `protobuf:"varint,1,opt,name=rt_include_completed_since,json=rtIncludeCompletedSince" json:"rt_include_completed_since,omitempty"`
+	FamilyGroupid           *uint64                `protobuf:"fixed64,2,opt,name=family_groupid,json=familyGroupid" json:"family_groupid,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
+func (x *CParental_GetRequests_Request) Reset() {
+	*x = CParental_GetRequests_Request{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_GetRequests_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_GetRequests_Request) ProtoMessage() {}
+
+func (x *CParental_GetRequests_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_GetRequests_Request.ProtoReflect.Descriptor instead.
+func (*CParental_GetRequests_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *CParental_GetRequests_Request) GetRtIncludeCompletedSince() uint32 {
+	if x != nil && x.RtIncludeCompletedSince != nil {
+		return *x.RtIncludeCompletedSince
+	}
+	return 0
+}
+
+func (x *CParental_GetRequests_Request) GetFamilyGroupid() uint64 {
+	if x != nil && x.FamilyGroupid != nil {
+		return *x.FamilyGroupid
+	}
+	return 0
+}
+
+type CParental_GetRequests_Response struct {
+	state            protoimpl.MessageState                                          `protogen:"open.v1"`
+	FeatureRequests  []*ParentalFeatureRequest  `protobuf:"bytes,1,rep,name=feature_requests,json=featureRequests" json:"feature_requests,omitempty"`
+	PlaytimeRequests []*ParentalPlaytimeRequest `protobuf:"bytes,2,rep,name=playtime_requests,json=playtimeRequests" json:"playtime_requests,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CParental_GetRequests_Response) Reset() {
+	*x = CParental_GetRequests_Response{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_GetRequests_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_GetRequests_Response) ProtoMessage() {}
+
+func (x *CParental_GetRequests_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_GetRequests_Response.ProtoReflect.Descriptor instead.
+func (*CParental_GetRequests_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *CParental_GetRequests_Response) GetFeatureRequests() []*ParentalFeatureRequest {
+	if x != nil {
+		return x.FeatureRequests
+	}
+	return nil
+}
+
+func (x *CParental_GetRequests_Response) GetPlaytimeRequests() []*ParentalPlaytimeRequest {
+	if x != nil {
+		return x.PlaytimeRequests
+	}
+	return nil
+}
+
+type CParental_ReportPlaytimeAndNotify_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DayOfWeek     *uint32                `protobuf:"varint,1,opt,name=day_of_week,json=dayOfWeek" json:"day_of_week,omitempty"`
+	MinutesUsed   *uint32                `protobuf:"varint,2,opt,name=minutes_used,json=minutesUsed" json:"minutes_used,omitempty"`
+	Steamid       *uint64                `protobuf:"fixed64,10,opt,name=steamid" json:"steamid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_ReportPlaytimeAndNotify_Request) Reset() {
+	*x = CParental_ReportPlaytimeAndNotify_Request{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_ReportPlaytimeAndNotify_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_ReportPlaytimeAndNotify_Request) ProtoMessage() {}
+
+func (x *CParental_ReportPlaytimeAndNotify_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_ReportPlaytimeAndNotify_Request.ProtoReflect.Descriptor instead.
+func (*CParental_ReportPlaytimeAndNotify_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *CParental_ReportPlaytimeAndNotify_Request) GetDayOfWeek() uint32 {
+	if x != nil && x.DayOfWeek != nil {
+		return *x.DayOfWeek
+	}
+	return 0
+}
+
+func (x *CParental_ReportPlaytimeAndNotify_Request) GetMinutesUsed() uint32 {
+	if x != nil && x.MinutesUsed != nil {
+		return *x.MinutesUsed
+	}
+	return 0
+}
+
+func (x *CParental_ReportPlaytimeAndNotify_Request) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+type CParental_ReportPlaytimeAndNotify_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_ReportPlaytimeAndNotify_Response) Reset() {
+	*x = CParental_ReportPlaytimeAndNotify_Response{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_ReportPlaytimeAndNotify_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_ReportPlaytimeAndNotify_Response) ProtoMessage() {}
+
+func (x *CParental_ReportPlaytimeAndNotify_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_ReportPlaytimeAndNotify_Response.ProtoReflect.Descriptor instead.
+func (*CParental_ReportPlaytimeAndNotify_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{31}
 }
 
 type CParental_ParentalSettingsChange_Notification struct {
@@ -1138,7 +1572,7 @@ type CParental_ParentalSettingsChange_Notification struct {
 
 func (x *CParental_ParentalSettingsChange_Notification) Reset() {
 	*x = CParental_ParentalSettingsChange_Notification{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[22]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1150,7 +1584,7 @@ func (x *CParental_ParentalSettingsChange_Notification) String() string {
 func (*CParental_ParentalSettingsChange_Notification) ProtoMessage() {}
 
 func (x *CParental_ParentalSettingsChange_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[22]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1163,7 +1597,7 @@ func (x *CParental_ParentalSettingsChange_Notification) ProtoReflect() protorefl
 
 // Deprecated: Use CParental_ParentalSettingsChange_Notification.ProtoReflect.Descriptor instead.
 func (*CParental_ParentalSettingsChange_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *CParental_ParentalSettingsChange_Notification) GetSerializedSettings() []byte {
@@ -1204,7 +1638,7 @@ type CParental_ParentalUnlock_Notification struct {
 
 func (x *CParental_ParentalUnlock_Notification) Reset() {
 	*x = CParental_ParentalUnlock_Notification{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[23]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1216,7 +1650,7 @@ func (x *CParental_ParentalUnlock_Notification) String() string {
 func (*CParental_ParentalUnlock_Notification) ProtoMessage() {}
 
 func (x *CParental_ParentalUnlock_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[23]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1229,7 +1663,7 @@ func (x *CParental_ParentalUnlock_Notification) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CParental_ParentalUnlock_Notification.ProtoReflect.Descriptor instead.
 func (*CParental_ParentalUnlock_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *CParental_ParentalUnlock_Notification) GetPassword() string {
@@ -1255,7 +1689,7 @@ type CParental_ParentalLock_Notification struct {
 
 func (x *CParental_ParentalLock_Notification) Reset() {
 	*x = CParental_ParentalLock_Notification{}
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[24]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1267,7 +1701,7 @@ func (x *CParental_ParentalLock_Notification) String() string {
 func (*CParental_ParentalLock_Notification) ProtoMessage() {}
 
 func (x *CParental_ParentalLock_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_parental_steamclient_proto_msgTypes[24]
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1280,7 +1714,7 @@ func (x *CParental_ParentalLock_Notification) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CParental_ParentalLock_Notification.ProtoReflect.Descriptor instead.
 func (*CParental_ParentalLock_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CParental_ParentalLock_Notification) GetSessionid() string {
@@ -1290,30 +1724,63 @@ func (x *CParental_ParentalLock_Notification) GetSessionid() string {
 	return ""
 }
 
+type CParental_PlaytimeUsed_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	DayOfWeek     *uint32                `protobuf:"varint,1,opt,name=day_of_week,json=dayOfWeek" json:"day_of_week,omitempty"`
+	MinutesUsed   *uint32                `protobuf:"varint,2,opt,name=minutes_used,json=minutesUsed" json:"minutes_used,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CParental_PlaytimeUsed_Notification) Reset() {
+	*x = CParental_PlaytimeUsed_Notification{}
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[35]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CParental_PlaytimeUsed_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CParental_PlaytimeUsed_Notification) ProtoMessage() {}
+
+func (x *CParental_PlaytimeUsed_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_parental_steamclient_proto_msgTypes[35]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CParental_PlaytimeUsed_Notification.ProtoReflect.Descriptor instead.
+func (*CParental_PlaytimeUsed_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_parental_steamclient_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *CParental_PlaytimeUsed_Notification) GetDayOfWeek() uint32 {
+	if x != nil && x.DayOfWeek != nil {
+		return *x.DayOfWeek
+	}
+	return 0
+}
+
+func (x *CParental_PlaytimeUsed_Notification) GetMinutesUsed() uint32 {
+	if x != nil && x.MinutesUsed != nil {
+		return *x.MinutesUsed
+	}
+	return 0
+}
+
 var File_steammessages_parental_steamclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_parental_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"(steammessages_parental.steamclient.proto\x1a,steammessages_unified_base.steamclient.proto\"B\n" +
-	"\vParentalApp\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1d\n" +
-	"\n" +
-	"is_allowed\x18\x02 \x01(\bR\tisAllowed\"\xfa\x03\n" +
-	"\x10ParentalSettings\x12\x18\n" +
-	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12&\n" +
-	"\x0fapplist_base_id\x18\x02 \x01(\rR\rapplistBaseId\x128\n" +
-	"\x18applist_base_description\x18\x03 \x01(\tR\x16applistBaseDescription\x12/\n" +
-	"\fapplist_base\x18\x04 \x03(\v2\f.ParentalAppR\vapplistBase\x123\n" +
-	"\x0eapplist_custom\x18\x05 \x03(\v2\f.ParentalAppR\rapplistCustom\x12*\n" +
-	"\x10passwordhashtype\x18\x06 \x01(\rR\x10passwordhashtype\x12\x12\n" +
-	"\x04salt\x18\a \x01(\fR\x04salt\x12\"\n" +
-	"\fpasswordhash\x18\b \x01(\fR\fpasswordhash\x12\x1d\n" +
-	"\n" +
-	"is_enabled\x18\t \x01(\bR\tisEnabled\x12)\n" +
-	"\x10enabled_features\x18\n" +
-	" \x01(\rR\x0fenabledFeatures\x12%\n" +
-	"\x0erecovery_email\x18\v \x01(\tR\rrecoveryEmail\x12/\n" +
-	"\x14is_site_license_lock\x18\f \x01(\bR\x11isSiteLicenseLock\"\xcd\x01\n" +
+	"(steammessages_parental.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\x1a$steammessages_parental_objects.proto\"\xcd\x01\n" +
 	"(CParental_EnableParentalSettings_Request\x12\x1a\n" +
 	"\bpassword\x18\x01 \x01(\tR\bpassword\x12-\n" +
 	"\bsettings\x18\x02 \x01(\v2\x11.ParentalSettingsR\bsettings\x12\x1c\n" +
@@ -1365,7 +1832,47 @@ const file_steammessages_parental_steamclient_proto_rawDesc = "" +
 	"\rrecovery_code\x18\x01 \x01(\rR\frecoveryCode\x12\x18\n" +
 	"\asteamid\x18\n" +
 	" \x01(\x06R\asteamid\",\n" +
-	"*CParental_DisableWithRecoveryCode_Response\"\xb8\x01\n" +
+	"*CParental_DisableWithRecoveryCode_Response\"^\n" +
+	"&CParental_RequestFeatureAccess_Request\x12\x1a\n" +
+	"\bfeatures\x18\x01 \x01(\rR\bfeatures\x12\x18\n" +
+	"\asteamid\x18\n" +
+	" \x01(\x06R\asteamid\"G\n" +
+	"'CParental_RequestFeatureAccess_Response\x12\x1c\n" +
+	"\trequestid\x18\x01 \x01(\x06R\trequestid\"\xb2\x01\n" +
+	"&CParental_ApproveFeatureAccess_Request\x12\x18\n" +
+	"\aapprove\x18\x01 \x01(\bR\aapprove\x12\x1c\n" +
+	"\trequestid\x18\x02 \x01(\x06R\trequestid\x12\x1a\n" +
+	"\bfeatures\x18\x03 \x01(\rR\bfeatures\x12\x1a\n" +
+	"\bduration\x18\x04 \x01(\rR\bduration\x12\x18\n" +
+	"\asteamid\x18\n" +
+	" \x01(\x06R\asteamid\")\n" +
+	"'CParental_ApproveFeatureAccess_Response\"\xba\x01\n" +
+	"!CParental_RequestPlaytime_Request\x12!\n" +
+	"\ftime_expires\x18\x01 \x01(\rR\vtimeExpires\x12X\n" +
+	"\x1dcurrent_playtime_restrictions\x18\x02 \x01(\v2\x14.ParentalPlaytimeDayR\x1bcurrentPlaytimeRestrictions\x12\x18\n" +
+	"\asteamid\x18\n" +
+	" \x01(\x06R\asteamid\"B\n" +
+	"\"CParental_RequestPlaytime_Response\x12\x1c\n" +
+	"\trequestid\x18\x01 \x01(\x06R\trequestid\"\xd2\x01\n" +
+	"!CParental_ApprovePlaytime_Request\x12\x18\n" +
+	"\aapprove\x18\x01 \x01(\bR\aapprove\x12\x1c\n" +
+	"\trequestid\x18\x02 \x01(\x06R\trequestid\x12[\n" +
+	"\x15restrictions_approved\x18\x03 \x01(\v2&.ParentalTemporaryPlaytimeRestrictionsR\x14restrictionsApproved\x12\x18\n" +
+	"\asteamid\x18\n" +
+	" \x01(\x06R\asteamid\"$\n" +
+	"\"CParental_ApprovePlaytime_Response\"\x83\x01\n" +
+	"\x1dCParental_GetRequests_Request\x12;\n" +
+	"\x1art_include_completed_since\x18\x01 \x01(\rR\x17rtIncludeCompletedSince\x12%\n" +
+	"\x0efamily_groupid\x18\x02 \x01(\x06R\rfamilyGroupid\"\xab\x01\n" +
+	"\x1eCParental_GetRequests_Response\x12B\n" +
+	"\x10feature_requests\x18\x01 \x03(\v2\x17.ParentalFeatureRequestR\x0ffeatureRequests\x12E\n" +
+	"\x11playtime_requests\x18\x02 \x03(\v2\x18.ParentalPlaytimeRequestR\x10playtimeRequests\"\x88\x01\n" +
+	")CParental_ReportPlaytimeAndNotify_Request\x12\x1e\n" +
+	"\vday_of_week\x18\x01 \x01(\rR\tdayOfWeek\x12!\n" +
+	"\fminutes_used\x18\x02 \x01(\rR\vminutesUsed\x12\x18\n" +
+	"\asteamid\x18\n" +
+	" \x01(\x06R\asteamid\",\n" +
+	"*CParental_ReportPlaytimeAndNotify_Response\"\xb8\x01\n" +
 	"-CParental_ParentalSettingsChange_Notification\x12/\n" +
 	"\x13serialized_settings\x18\x01 \x01(\fR\x12serializedSettings\x12\x1c\n" +
 	"\tsignature\x18\x02 \x01(\fR\tsignature\x12\x1a\n" +
@@ -1375,24 +1882,34 @@ const file_steammessages_parental_steamclient_proto_rawDesc = "" +
 	"\bpassword\x18\x01 \x01(\tR\bpassword\x12\x1c\n" +
 	"\tsessionid\x18\x02 \x01(\tR\tsessionid\"C\n" +
 	"#CParental_ParentalLock_Notification\x12\x1c\n" +
-	"\tsessionid\x18\x01 \x01(\tR\tsessionid2\xd2\x0e\n" +
-	"\bParental\x12\xd0\x01\n" +
-	"\x16EnableParentalSettings\x12).CParental_EnableParentalSettings_Request\x1a*.CParental_EnableParentalSettings_Response\"_\x82\xb5\x18[Enable parental settings for the logged in account, optionally setting the current settings\x12\xab\x01\n" +
-	"\x17DisableParentalSettings\x12*.CParental_DisableParentalSettings_Request\x1a+.CParental_DisableParentalSettings_Response\"7\x82\xb5\x183Disable parental settings for the logged in account\x12\xa7\x01\n" +
-	"\x13GetParentalSettings\x12&.CParental_GetParentalSettings_Request\x1a'.CParental_GetParentalSettings_Response\"?\x82\xb5\x18;Get the current parental settings for the logged in account\x12\xe8\x01\n" +
-	"\x19GetSignedParentalSettings\x12,.CParental_GetSignedParentalSettings_Request\x1a-.CParental_GetSignedParentalSettings_Response\"n\x82\xb5\x18jGet the current parental settings for the logged in account in a form that can by verified by the receiver\x12\xa7\x01\n" +
-	"\x13SetParentalSettings\x12&.CParental_SetParentalSettings_Request\x1a'.CParental_SetParentalSettings_Response\"?\x82\xb5\x18;Set the current parental settings for the logged in account\x12\xa7\x01\n" +
-	"\rValidateToken\x12 .CParental_ValidateToken_Request\x1a!.CParental_ValidateToken_Response\"Q\x82\xb5\x18MCheck if the given parental unlock token is correct for the logged in account\x12\xb7\x01\n" +
-	"\x10ValidatePassword\x12#.CParental_ValidatePassword_Request\x1a$.CParental_ValidatePassword_Response\"X\x82\xb5\x18TValidate the plaintext password for the logged in account and return an unlock token\x12\x8f\x01\n" +
+	"\tsessionid\x18\x01 \x01(\tR\tsessionid\"h\n" +
+	"#CParental_PlaytimeUsed_Notification\x12\x1e\n" +
+	"\vday_of_week\x18\x01 \x01(\rR\tdayOfWeek\x12!\n" +
+	"\fminutes_used\x18\x02 \x01(\rR\vminutesUsed2\xe9\f\n" +
+	"\bParental\x12o\n" +
+	"\x16EnableParentalSettings\x12).CParental_EnableParentalSettings_Request\x1a*.CParental_EnableParentalSettings_Response\x12r\n" +
+	"\x17DisableParentalSettings\x12*.CParental_DisableParentalSettings_Request\x1a+.CParental_DisableParentalSettings_Response\x12f\n" +
+	"\x13GetParentalSettings\x12&.CParental_GetParentalSettings_Request\x1a'.CParental_GetParentalSettings_Response\x12x\n" +
+	"\x19GetSignedParentalSettings\x12,.CParental_GetSignedParentalSettings_Request\x1a-.CParental_GetSignedParentalSettings_Response\x12f\n" +
+	"\x13SetParentalSettings\x12&.CParental_SetParentalSettings_Request\x1a'.CParental_SetParentalSettings_Response\x12T\n" +
+	"\rValidateToken\x12 .CParental_ValidateToken_Request\x1a!.CParental_ValidateToken_Response\x12]\n" +
+	"\x10ValidatePassword\x12#.CParental_ValidatePassword_Request\x1a$.CParental_ValidatePassword_Response\x12K\n" +
 	"\n" +
-	"LockClient\x12\x1d.CParental_LockClient_Request\x1a\x1e.CParental_LockClient_Response\"B\x82\xb5\x18>Notify connected clients that a lock has occurred in a browser\x12\xc3\x01\n" +
-	"\x13RequestRecoveryCode\x12&.CParental_RequestRecoveryCode_Request\x1a'.CParental_RequestRecoveryCode_Response\"[\x82\xb5\x18WRequest a recovery code be sent to the recovery email address for the specified account\x12\xaa\x01\n" +
-	"\x17DisableWithRecoveryCode\x12*.CParental_DisableWithRecoveryCode_Request\x1a+.CParental_DisableWithRecoveryCode_Response\"6\x82\xb5\x182Attempt a recovery unlock on the specified account\x1a\x1d\x82\xb5\x18\x19Parental settings service2\x86\x04\n" +
-	"\x0eParentalClient\x12\x9c\x01\n" +
-	"\x14NotifySettingsChange\x12..CParental_ParentalSettingsChange_Notification\x1a\v.NoResponse\"G\x82\xb5\x18CNotification from server to client of a change in parental settings\x12\x94\x01\n" +
-	"\fNotifyUnlock\x12&.CParental_ParentalUnlock_Notification\x1a\v.NoResponse\"O\x82\xb5\x18KNotification from server to client that an unlock has occurred in a browser\x12\x8d\x01\n" +
+	"LockClient\x12\x1d.CParental_LockClient_Request\x1a\x1e.CParental_LockClient_Response\x12f\n" +
+	"\x13RequestRecoveryCode\x12&.CParental_RequestRecoveryCode_Request\x1a'.CParental_RequestRecoveryCode_Response\x12r\n" +
+	"\x17DisableWithRecoveryCode\x12*.CParental_DisableWithRecoveryCode_Request\x1a+.CParental_DisableWithRecoveryCode_Response\x12i\n" +
+	"\x14RequestFeatureAccess\x12'.CParental_RequestFeatureAccess_Request\x1a(.CParental_RequestFeatureAccess_Response\x12i\n" +
+	"\x14ApproveFeatureAccess\x12'.CParental_ApproveFeatureAccess_Request\x1a(.CParental_ApproveFeatureAccess_Response\x12Z\n" +
+	"\x0fRequestPlaytime\x12\".CParental_RequestPlaytime_Request\x1a#.CParental_RequestPlaytime_Response\x12Z\n" +
+	"\x0fApprovePlaytime\x12\".CParental_ApprovePlaytime_Request\x1a#.CParental_ApprovePlaytime_Response\x12N\n" +
+	"\vGetRequests\x12\x1e.CParental_GetRequests_Request\x1a\x1f.CParental_GetRequests_Response\x12r\n" +
+	"\x17ReportPlaytimeAndNotify\x12*.CParental_ReportPlaytimeAndNotify_Request\x1a+.CParental_ReportPlaytimeAndNotify_Response2\xba\x02\n" +
+	"\x0eParentalClient\x12S\n" +
+	"\x14NotifySettingsChange\x12..CParental_ParentalSettingsChange_Notification\x1a\v.NoResponse\x12C\n" +
+	"\fNotifyUnlock\x12&.CParental_ParentalUnlock_Notification\x1a\v.NoResponse\x12?\n" +
 	"\n" +
-	"NotifyLock\x12$.CParental_ParentalLock_Notification\x1a\v.NoResponse\"L\x82\xb5\x18HNotification from server to client that a lock has occurred in a browser\x1a.\x82\xb5\x18&Parental settings client notifications\xc0\xb5\x18\x02B\x03\x80\x01\x01"
+	"NotifyLock\x12$.CParental_ParentalLock_Notification\x1a\v.NoResponse\x12G\n" +
+	"\x12NotifyPlaytimeUsed\x12$.CParental_PlaytimeUsed_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_parental_steamclient_proto_rawDescOnce sync.Once
@@ -1406,72 +1923,104 @@ func file_steammessages_parental_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_parental_steamclient_proto_rawDescData
 }
 
-var file_steammessages_parental_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
+var file_steammessages_parental_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_steammessages_parental_steamclient_proto_goTypes = []any{
-	(*ParentalApp)(nil),                                             // 0: ParentalApp
-	(*ParentalSettings)(nil),                                        // 1: ParentalSettings
-	(*CParental_EnableParentalSettings_Request)(nil),                // 2: CParental_EnableParentalSettings_Request
-	(*CParental_EnableParentalSettings_Response)(nil),               // 3: CParental_EnableParentalSettings_Response
-	(*CParental_DisableParentalSettings_Request)(nil),               // 4: CParental_DisableParentalSettings_Request
-	(*CParental_DisableParentalSettings_Response)(nil),              // 5: CParental_DisableParentalSettings_Response
-	(*CParental_GetParentalSettings_Request)(nil),                   // 6: CParental_GetParentalSettings_Request
-	(*CParental_GetParentalSettings_Response)(nil),                  // 7: CParental_GetParentalSettings_Response
-	(*CParental_GetSignedParentalSettings_Request)(nil),             // 8: CParental_GetSignedParentalSettings_Request
-	(*CParental_GetSignedParentalSettings_Response)(nil),            // 9: CParental_GetSignedParentalSettings_Response
-	(*CParental_SetParentalSettings_Request)(nil),                   // 10: CParental_SetParentalSettings_Request
-	(*CParental_SetParentalSettings_Response)(nil),                  // 11: CParental_SetParentalSettings_Response
-	(*CParental_ValidateToken_Request)(nil),                         // 12: CParental_ValidateToken_Request
-	(*CParental_ValidateToken_Response)(nil),                        // 13: CParental_ValidateToken_Response
-	(*CParental_ValidatePassword_Request)(nil),                      // 14: CParental_ValidatePassword_Request
-	(*CParental_ValidatePassword_Response)(nil),                     // 15: CParental_ValidatePassword_Response
-	(*CParental_LockClient_Request)(nil),                            // 16: CParental_LockClient_Request
-	(*CParental_LockClient_Response)(nil),                           // 17: CParental_LockClient_Response
-	(*CParental_RequestRecoveryCode_Request)(nil),                   // 18: CParental_RequestRecoveryCode_Request
-	(*CParental_RequestRecoveryCode_Response)(nil),                  // 19: CParental_RequestRecoveryCode_Response
-	(*CParental_DisableWithRecoveryCode_Request)(nil),               // 20: CParental_DisableWithRecoveryCode_Request
-	(*CParental_DisableWithRecoveryCode_Response)(nil),              // 21: CParental_DisableWithRecoveryCode_Response
-	(*CParental_ParentalSettingsChange_Notification)(nil),           // 22: CParental_ParentalSettingsChange_Notification
-	(*CParental_ParentalUnlock_Notification)(nil),                   // 23: CParental_ParentalUnlock_Notification
-	(*CParental_ParentalLock_Notification)(nil),                     // 24: CParental_ParentalLock_Notification
-	(*NoResponse)(nil), // 25: NoResponse
+	(*CParental_EnableParentalSettings_Request)(nil),                                   // 0: CParental_EnableParentalSettings_Request
+	(*CParental_EnableParentalSettings_Response)(nil),                                  // 1: CParental_EnableParentalSettings_Response
+	(*CParental_DisableParentalSettings_Request)(nil),                                  // 2: CParental_DisableParentalSettings_Request
+	(*CParental_DisableParentalSettings_Response)(nil),                                 // 3: CParental_DisableParentalSettings_Response
+	(*CParental_GetParentalSettings_Request)(nil),                                      // 4: CParental_GetParentalSettings_Request
+	(*CParental_GetParentalSettings_Response)(nil),                                     // 5: CParental_GetParentalSettings_Response
+	(*CParental_GetSignedParentalSettings_Request)(nil),                                // 6: CParental_GetSignedParentalSettings_Request
+	(*CParental_GetSignedParentalSettings_Response)(nil),                               // 7: CParental_GetSignedParentalSettings_Response
+	(*CParental_SetParentalSettings_Request)(nil),                                      // 8: CParental_SetParentalSettings_Request
+	(*CParental_SetParentalSettings_Response)(nil),                                     // 9: CParental_SetParentalSettings_Response
+	(*CParental_ValidateToken_Request)(nil),                                            // 10: CParental_ValidateToken_Request
+	(*CParental_ValidateToken_Response)(nil),                                           // 11: CParental_ValidateToken_Response
+	(*CParental_ValidatePassword_Request)(nil),                                         // 12: CParental_ValidatePassword_Request
+	(*CParental_ValidatePassword_Response)(nil),                                        // 13: CParental_ValidatePassword_Response
+	(*CParental_LockClient_Request)(nil),                                               // 14: CParental_LockClient_Request
+	(*CParental_LockClient_Response)(nil),                                              // 15: CParental_LockClient_Response
+	(*CParental_RequestRecoveryCode_Request)(nil),                                      // 16: CParental_RequestRecoveryCode_Request
+	(*CParental_RequestRecoveryCode_Response)(nil),                                     // 17: CParental_RequestRecoveryCode_Response
+	(*CParental_DisableWithRecoveryCode_Request)(nil),                                  // 18: CParental_DisableWithRecoveryCode_Request
+	(*CParental_DisableWithRecoveryCode_Response)(nil),                                 // 19: CParental_DisableWithRecoveryCode_Response
+	(*CParental_RequestFeatureAccess_Request)(nil),                                     // 20: CParental_RequestFeatureAccess_Request
+	(*CParental_RequestFeatureAccess_Response)(nil),                                    // 21: CParental_RequestFeatureAccess_Response
+	(*CParental_ApproveFeatureAccess_Request)(nil),                                     // 22: CParental_ApproveFeatureAccess_Request
+	(*CParental_ApproveFeatureAccess_Response)(nil),                                    // 23: CParental_ApproveFeatureAccess_Response
+	(*CParental_RequestPlaytime_Request)(nil),                                          // 24: CParental_RequestPlaytime_Request
+	(*CParental_RequestPlaytime_Response)(nil),                                         // 25: CParental_RequestPlaytime_Response
+	(*CParental_ApprovePlaytime_Request)(nil),                                          // 26: CParental_ApprovePlaytime_Request
+	(*CParental_ApprovePlaytime_Response)(nil),                                         // 27: CParental_ApprovePlaytime_Response
+	(*CParental_GetRequests_Request)(nil),                                              // 28: CParental_GetRequests_Request
+	(*CParental_GetRequests_Response)(nil),                                             // 29: CParental_GetRequests_Response
+	(*CParental_ReportPlaytimeAndNotify_Request)(nil),                                  // 30: CParental_ReportPlaytimeAndNotify_Request
+	(*CParental_ReportPlaytimeAndNotify_Response)(nil),                                 // 31: CParental_ReportPlaytimeAndNotify_Response
+	(*CParental_ParentalSettingsChange_Notification)(nil),                              // 32: CParental_ParentalSettingsChange_Notification
+	(*CParental_ParentalUnlock_Notification)(nil),                                      // 33: CParental_ParentalUnlock_Notification
+	(*CParental_ParentalLock_Notification)(nil),                                        // 34: CParental_ParentalLock_Notification
+	(*CParental_PlaytimeUsed_Notification)(nil),                                        // 35: CParental_PlaytimeUsed_Notification
+	(*ParentalSettings)(nil),                      // 36: ParentalSettings
+	(*ParentalPlaytimeDay)(nil),                   // 37: ParentalPlaytimeDay
+	(*ParentalTemporaryPlaytimeRestrictions)(nil), // 38: ParentalTemporaryPlaytimeRestrictions
+	(*ParentalFeatureRequest)(nil),                // 39: ParentalFeatureRequest
+	(*ParentalPlaytimeRequest)(nil),               // 40: ParentalPlaytimeRequest
+	(*NoResponse)(nil),                    // 41: NoResponse
 }
 var file_steammessages_parental_steamclient_proto_depIdxs = []int32{
-	0,  // 0: ParentalSettings.applist_base:type_name -> ParentalApp
-	0,  // 1: ParentalSettings.applist_custom:type_name -> ParentalApp
-	1,  // 2: CParental_EnableParentalSettings_Request.settings:type_name -> ParentalSettings
-	1,  // 3: CParental_GetParentalSettings_Response.settings:type_name -> ParentalSettings
-	1,  // 4: CParental_SetParentalSettings_Request.settings:type_name -> ParentalSettings
-	2,  // 5: Parental.EnableParentalSettings:input_type -> CParental_EnableParentalSettings_Request
-	4,  // 6: Parental.DisableParentalSettings:input_type -> CParental_DisableParentalSettings_Request
-	6,  // 7: Parental.GetParentalSettings:input_type -> CParental_GetParentalSettings_Request
-	8,  // 8: Parental.GetSignedParentalSettings:input_type -> CParental_GetSignedParentalSettings_Request
-	10, // 9: Parental.SetParentalSettings:input_type -> CParental_SetParentalSettings_Request
-	12, // 10: Parental.ValidateToken:input_type -> CParental_ValidateToken_Request
-	14, // 11: Parental.ValidatePassword:input_type -> CParental_ValidatePassword_Request
-	16, // 12: Parental.LockClient:input_type -> CParental_LockClient_Request
-	18, // 13: Parental.RequestRecoveryCode:input_type -> CParental_RequestRecoveryCode_Request
-	20, // 14: Parental.DisableWithRecoveryCode:input_type -> CParental_DisableWithRecoveryCode_Request
-	22, // 15: ParentalClient.NotifySettingsChange:input_type -> CParental_ParentalSettingsChange_Notification
-	23, // 16: ParentalClient.NotifyUnlock:input_type -> CParental_ParentalUnlock_Notification
-	24, // 17: ParentalClient.NotifyLock:input_type -> CParental_ParentalLock_Notification
-	3,  // 18: Parental.EnableParentalSettings:output_type -> CParental_EnableParentalSettings_Response
-	5,  // 19: Parental.DisableParentalSettings:output_type -> CParental_DisableParentalSettings_Response
-	7,  // 20: Parental.GetParentalSettings:output_type -> CParental_GetParentalSettings_Response
-	9,  // 21: Parental.GetSignedParentalSettings:output_type -> CParental_GetSignedParentalSettings_Response
-	11, // 22: Parental.SetParentalSettings:output_type -> CParental_SetParentalSettings_Response
-	13, // 23: Parental.ValidateToken:output_type -> CParental_ValidateToken_Response
-	15, // 24: Parental.ValidatePassword:output_type -> CParental_ValidatePassword_Response
-	17, // 25: Parental.LockClient:output_type -> CParental_LockClient_Response
-	19, // 26: Parental.RequestRecoveryCode:output_type -> CParental_RequestRecoveryCode_Response
-	21, // 27: Parental.DisableWithRecoveryCode:output_type -> CParental_DisableWithRecoveryCode_Response
-	25, // 28: ParentalClient.NotifySettingsChange:output_type -> NoResponse
-	25, // 29: ParentalClient.NotifyUnlock:output_type -> NoResponse
-	25, // 30: ParentalClient.NotifyLock:output_type -> NoResponse
-	18, // [18:31] is the sub-list for method output_type
-	5,  // [5:18] is the sub-list for method input_type
-	5,  // [5:5] is the sub-list for extension type_name
-	5,  // [5:5] is the sub-list for extension extendee
-	0,  // [0:5] is the sub-list for field type_name
+	36, // 0: CParental_EnableParentalSettings_Request.settings:type_name -> ParentalSettings
+	36, // 1: CParental_GetParentalSettings_Response.settings:type_name -> ParentalSettings
+	36, // 2: CParental_SetParentalSettings_Request.settings:type_name -> ParentalSettings
+	37, // 3: CParental_RequestPlaytime_Request.current_playtime_restrictions:type_name -> ParentalPlaytimeDay
+	38, // 4: CParental_ApprovePlaytime_Request.restrictions_approved:type_name -> ParentalTemporaryPlaytimeRestrictions
+	39, // 5: CParental_GetRequests_Response.feature_requests:type_name -> ParentalFeatureRequest
+	40, // 6: CParental_GetRequests_Response.playtime_requests:type_name -> ParentalPlaytimeRequest
+	0,  // 7: Parental.EnableParentalSettings:input_type -> CParental_EnableParentalSettings_Request
+	2,  // 8: Parental.DisableParentalSettings:input_type -> CParental_DisableParentalSettings_Request
+	4,  // 9: Parental.GetParentalSettings:input_type -> CParental_GetParentalSettings_Request
+	6,  // 10: Parental.GetSignedParentalSettings:input_type -> CParental_GetSignedParentalSettings_Request
+	8,  // 11: Parental.SetParentalSettings:input_type -> CParental_SetParentalSettings_Request
+	10, // 12: Parental.ValidateToken:input_type -> CParental_ValidateToken_Request
+	12, // 13: Parental.ValidatePassword:input_type -> CParental_ValidatePassword_Request
+	14, // 14: Parental.LockClient:input_type -> CParental_LockClient_Request
+	16, // 15: Parental.RequestRecoveryCode:input_type -> CParental_RequestRecoveryCode_Request
+	18, // 16: Parental.DisableWithRecoveryCode:input_type -> CParental_DisableWithRecoveryCode_Request
+	20, // 17: Parental.RequestFeatureAccess:input_type -> CParental_RequestFeatureAccess_Request
+	22, // 18: Parental.ApproveFeatureAccess:input_type -> CParental_ApproveFeatureAccess_Request
+	24, // 19: Parental.RequestPlaytime:input_type -> CParental_RequestPlaytime_Request
+	26, // 20: Parental.ApprovePlaytime:input_type -> CParental_ApprovePlaytime_Request
+	28, // 21: Parental.GetRequests:input_type -> CParental_GetRequests_Request
+	30, // 22: Parental.ReportPlaytimeAndNotify:input_type -> CParental_ReportPlaytimeAndNotify_Request
+	32, // 23: ParentalClient.NotifySettingsChange:input_type -> CParental_ParentalSettingsChange_Notification
+	33, // 24: ParentalClient.NotifyUnlock:input_type -> CParental_ParentalUnlock_Notification
+	34, // 25: ParentalClient.NotifyLock:input_type -> CParental_ParentalLock_Notification
+	35, // 26: ParentalClient.NotifyPlaytimeUsed:input_type -> CParental_PlaytimeUsed_Notification
+	1,  // 27: Parental.EnableParentalSettings:output_type -> CParental_EnableParentalSettings_Response
+	3,  // 28: Parental.DisableParentalSettings:output_type -> CParental_DisableParentalSettings_Response
+	5,  // 29: Parental.GetParentalSettings:output_type -> CParental_GetParentalSettings_Response
+	7,  // 30: Parental.GetSignedParentalSettings:output_type -> CParental_GetSignedParentalSettings_Response
+	9,  // 31: Parental.SetParentalSettings:output_type -> CParental_SetParentalSettings_Response
+	11, // 32: Parental.ValidateToken:output_type -> CParental_ValidateToken_Response
+	13, // 33: Parental.ValidatePassword:output_type -> CParental_ValidatePassword_Response
+	15, // 34: Parental.LockClient:output_type -> CParental_LockClient_Response
+	17, // 35: Parental.RequestRecoveryCode:output_type -> CParental_RequestRecoveryCode_Response
+	19, // 36: Parental.DisableWithRecoveryCode:output_type -> CParental_DisableWithRecoveryCode_Response
+	21, // 37: Parental.RequestFeatureAccess:output_type -> CParental_RequestFeatureAccess_Response
+	23, // 38: Parental.ApproveFeatureAccess:output_type -> CParental_ApproveFeatureAccess_Response
+	25, // 39: Parental.RequestPlaytime:output_type -> CParental_RequestPlaytime_Response
+	27, // 40: Parental.ApprovePlaytime:output_type -> CParental_ApprovePlaytime_Response
+	29, // 41: Parental.GetRequests:output_type -> CParental_GetRequests_Response
+	31, // 42: Parental.ReportPlaytimeAndNotify:output_type -> CParental_ReportPlaytimeAndNotify_Response
+	41, // 43: ParentalClient.NotifySettingsChange:output_type -> NoResponse
+	41, // 44: ParentalClient.NotifyUnlock:output_type -> NoResponse
+	41, // 45: ParentalClient.NotifyLock:output_type -> NoResponse
+	41, // 46: ParentalClient.NotifyPlaytimeUsed:output_type -> NoResponse
+	27, // [27:47] is the sub-list for method output_type
+	7,  // [7:27] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_parental_steamclient_proto_init() }
@@ -1485,7 +2034,7 @@ func file_steammessages_parental_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_parental_steamclient_proto_rawDesc), len(file_steammessages_parental_steamclient_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   25,
+			NumMessages:   36,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

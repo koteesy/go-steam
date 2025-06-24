@@ -211,7 +211,7 @@ const file_gcsystemmsgs_proto_rawDesc = "" +
 	"\x13k_EMsgGCClientHello\x10\xa6\x1f\x12\x18\n" +
 	"\x13k_EMsgGCServerHello\x10\xa7\x1f\x12#\n" +
 	"\x1ek_EMsgGCClientConnectionStatus\x10\xa9\x1f\x12#\n" +
-	"\x1ek_EMsgGCServerConnectionStatus\x10\xaa\x1fB\x05H\x01\x80\x01\x00"
+	"\x1ek_EMsgGCServerConnectionStatus\x10\xaa\x1f"
 
 var (
 	file_gcsystemmsgs_proto_rawDescOnce sync.Once

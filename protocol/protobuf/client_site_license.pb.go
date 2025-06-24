@@ -414,7 +414,7 @@ const file_steammessages_sitelicenseclient_proto_rawDesc = "" +
 	"portNumber\x12\x1b\n" +
 	"\tp2p_group\x18\x04 \x01(\rR\bp2pGroup\x12\x1d\n" +
 	"\n" +
-	"ip_address\x18\x05 \x01(\tR\tipAddressB\x05H\x01\x80\x01\x00"
+	"ip_address\x18\x05 \x01(\tR\tipAddressB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_sitelicenseclient_proto_rawDescOnce sync.Once

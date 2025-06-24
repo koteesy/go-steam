@@ -138,6 +138,7 @@ const (
 	EGCItemMsg_k_EMsgGCDev_NewItemRequest                   EGCItemMsg = 2001
 	EGCItemMsg_k_EMsgGCDev_NewItemRequestResponse           EGCItemMsg = 2002
 	EGCItemMsg_k_EMsgGCDev_PaintKitDropItem                 EGCItemMsg = 2003
+	EGCItemMsg_k_EMsgGCDev_SchemaReservationRequest         EGCItemMsg = 2004
 	EGCItemMsg_k_EMsgGCStoreGetUserData                     EGCItemMsg = 2500
 	EGCItemMsg_k_EMsgGCStoreGetUserDataResponse             EGCItemMsg = 2501
 	EGCItemMsg_k_EMsgGCStorePurchaseInit_DEPRECATED         EGCItemMsg = 2502
@@ -161,13 +162,18 @@ const (
 	EGCItemMsg_k_EMsgGCToGCIsTrustedServerResponse          EGCItemMsg = 2520
 	EGCItemMsg_k_EMsgGCToGCBroadcastConsoleCommand          EGCItemMsg = 2521
 	EGCItemMsg_k_EMsgGCServerVersionUpdated                 EGCItemMsg = 2522
-	EGCItemMsg_k_EMsgGCApplyAutograph                       EGCItemMsg = 2523
 	EGCItemMsg_k_EMsgGCToGCWebAPIAccountChanged             EGCItemMsg = 2524
 	EGCItemMsg_k_EMsgGCRequestAnnouncements                 EGCItemMsg = 2525
 	EGCItemMsg_k_EMsgGCRequestAnnouncementsResponse         EGCItemMsg = 2526
 	EGCItemMsg_k_EMsgGCRequestPassportItemGrant             EGCItemMsg = 2527
 	EGCItemMsg_k_EMsgGCClientVersionUpdated                 EGCItemMsg = 2528
 	EGCItemMsg_k_EMsgGCAdjustItemEquippedStateMulti         EGCItemMsg = 2529
+	EGCItemMsg_k_EMsgGCRecurringSubscriptionStatus          EGCItemMsg = 2530
+	EGCItemMsg_k_EMsgGCAdjustEquipSlotsManual               EGCItemMsg = 2531
+	EGCItemMsg_k_EMsgGCAdjustEquipSlotsShuffle              EGCItemMsg = 2532
+	EGCItemMsg_k_EMsgGCNameItemAndEquip                     EGCItemMsg = 2533
+	EGCItemMsg_k_EMsgGCOpenCrate                            EGCItemMsg = 2534
+	EGCItemMsg_k_EMsgGCAcknowledgeRentalExpiration          EGCItemMsg = 2535
 )
 
 // Enum value maps for EGCItemMsg.
@@ -286,6 +292,7 @@ var (
 		2001: "k_EMsgGCDev_NewItemRequest",
 		2002: "k_EMsgGCDev_NewItemRequestResponse",
 		2003: "k_EMsgGCDev_PaintKitDropItem",
+		2004: "k_EMsgGCDev_SchemaReservationRequest",
 		2500: "k_EMsgGCStoreGetUserData",
 		2501: "k_EMsgGCStoreGetUserDataResponse",
 		2502: "k_EMsgGCStorePurchaseInit_DEPRECATED",
@@ -309,13 +316,18 @@ var (
 		2520: "k_EMsgGCToGCIsTrustedServerResponse",
 		2521: "k_EMsgGCToGCBroadcastConsoleCommand",
 		2522: "k_EMsgGCServerVersionUpdated",
-		2523: "k_EMsgGCApplyAutograph",
 		2524: "k_EMsgGCToGCWebAPIAccountChanged",
 		2525: "k_EMsgGCRequestAnnouncements",
 		2526: "k_EMsgGCRequestAnnouncementsResponse",
 		2527: "k_EMsgGCRequestPassportItemGrant",
 		2528: "k_EMsgGCClientVersionUpdated",
 		2529: "k_EMsgGCAdjustItemEquippedStateMulti",
+		2530: "k_EMsgGCRecurringSubscriptionStatus",
+		2531: "k_EMsgGCAdjustEquipSlotsManual",
+		2532: "k_EMsgGCAdjustEquipSlotsShuffle",
+		2533: "k_EMsgGCNameItemAndEquip",
+		2534: "k_EMsgGCOpenCrate",
+		2535: "k_EMsgGCAcknowledgeRentalExpiration",
 	}
 	EGCItemMsg_value = map[string]int32{
 		"k_EMsgGCBase":                                 1000,
@@ -431,6 +443,7 @@ var (
 		"k_EMsgGCDev_NewItemRequest":                   2001,
 		"k_EMsgGCDev_NewItemRequestResponse":           2002,
 		"k_EMsgGCDev_PaintKitDropItem":                 2003,
+		"k_EMsgGCDev_SchemaReservationRequest":         2004,
 		"k_EMsgGCStoreGetUserData":                     2500,
 		"k_EMsgGCStoreGetUserDataResponse":             2501,
 		"k_EMsgGCStorePurchaseInit_DEPRECATED":         2502,
@@ -454,13 +467,18 @@ var (
 		"k_EMsgGCToGCIsTrustedServerResponse":          2520,
 		"k_EMsgGCToGCBroadcastConsoleCommand":          2521,
 		"k_EMsgGCServerVersionUpdated":                 2522,
-		"k_EMsgGCApplyAutograph":                       2523,
 		"k_EMsgGCToGCWebAPIAccountChanged":             2524,
 		"k_EMsgGCRequestAnnouncements":                 2525,
 		"k_EMsgGCRequestAnnouncementsResponse":         2526,
 		"k_EMsgGCRequestPassportItemGrant":             2527,
 		"k_EMsgGCClientVersionUpdated":                 2528,
 		"k_EMsgGCAdjustItemEquippedStateMulti":         2529,
+		"k_EMsgGCRecurringSubscriptionStatus":          2530,
+		"k_EMsgGCAdjustEquipSlotsManual":               2531,
+		"k_EMsgGCAdjustEquipSlotsShuffle":              2532,
+		"k_EMsgGCNameItemAndEquip":                     2533,
+		"k_EMsgGCOpenCrate":                            2534,
+		"k_EMsgGCAcknowledgeRentalExpiration":          2535,
 	}
 )
 
@@ -655,26 +673,32 @@ func (EUnlockStyle) EnumDescriptor() ([]byte, []int) {
 type EGCItemCustomizationNotification int32
 
 const (
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_NameItem              EGCItemCustomizationNotification = 1006
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_UnlockCrate           EGCItemCustomizationNotification = 1007
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_XRayItemReveal        EGCItemCustomizationNotification = 1008
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_XRayItemClaim         EGCItemCustomizationNotification = 1009
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketTooFull         EGCItemCustomizationNotification = 1011
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketContents        EGCItemCustomizationNotification = 1012
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketAdded           EGCItemCustomizationNotification = 1013
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketRemoved         EGCItemCustomizationNotification = 1014
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketInvFull         EGCItemCustomizationNotification = 1015
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_NameBaseItem          EGCItemCustomizationNotification = 1019
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_RemoveItemName        EGCItemCustomizationNotification = 1030
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_RemoveSticker         EGCItemCustomizationNotification = 1053
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ApplySticker          EGCItemCustomizationNotification = 1086
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_StatTrakSwap          EGCItemCustomizationNotification = 1088
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_RemovePatch           EGCItemCustomizationNotification = 1089
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ApplyPatch            EGCItemCustomizationNotification = 1090
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ActivateFanToken      EGCItemCustomizationNotification = 9178
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ActivateOperationCoin EGCItemCustomizationNotification = 9179
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_GraffitiUnseal        EGCItemCustomizationNotification = 9185
-	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_GenerateSouvenir      EGCItemCustomizationNotification = 9204
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_NameItem                  EGCItemCustomizationNotification = 1006
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_UnlockCrate               EGCItemCustomizationNotification = 1007
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_XRayItemReveal            EGCItemCustomizationNotification = 1008
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_XRayItemClaim             EGCItemCustomizationNotification = 1009
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketTooFull             EGCItemCustomizationNotification = 1011
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketContents            EGCItemCustomizationNotification = 1012
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketAdded               EGCItemCustomizationNotification = 1013
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketRemoved             EGCItemCustomizationNotification = 1014
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_CasketInvFull             EGCItemCustomizationNotification = 1015
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_NameBaseItem              EGCItemCustomizationNotification = 1019
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_RemoveItemName            EGCItemCustomizationNotification = 1030
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_RemoveSticker             EGCItemCustomizationNotification = 1053
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ApplySticker              EGCItemCustomizationNotification = 1086
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_StatTrakSwap              EGCItemCustomizationNotification = 1088
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_RemovePatch               EGCItemCustomizationNotification = 1089
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ApplyPatch                EGCItemCustomizationNotification = 1090
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ApplyKeychain             EGCItemCustomizationNotification = 1091
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_RemoveKeychain            EGCItemCustomizationNotification = 1092
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ActivateFanToken          EGCItemCustomizationNotification = 9178
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ActivateOperationCoin     EGCItemCustomizationNotification = 9179
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_GraffitiUnseal            EGCItemCustomizationNotification = 9185
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_GenerateSouvenir          EGCItemCustomizationNotification = 9204
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ClientRedeemMissionReward EGCItemCustomizationNotification = 9209
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_ClientRedeemFreeReward    EGCItemCustomizationNotification = 9219
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_XpShopUseTicket           EGCItemCustomizationNotification = 9221
+	EGCItemCustomizationNotification_k_EGCItemCustomizationNotification_XpShopAckTracks           EGCItemCustomizationNotification = 9222
 )
 
 // Enum value maps for EGCItemCustomizationNotification.
@@ -696,32 +720,44 @@ var (
 		1088: "k_EGCItemCustomizationNotification_StatTrakSwap",
 		1089: "k_EGCItemCustomizationNotification_RemovePatch",
 		1090: "k_EGCItemCustomizationNotification_ApplyPatch",
+		1091: "k_EGCItemCustomizationNotification_ApplyKeychain",
+		1092: "k_EGCItemCustomizationNotification_RemoveKeychain",
 		9178: "k_EGCItemCustomizationNotification_ActivateFanToken",
 		9179: "k_EGCItemCustomizationNotification_ActivateOperationCoin",
 		9185: "k_EGCItemCustomizationNotification_GraffitiUnseal",
 		9204: "k_EGCItemCustomizationNotification_GenerateSouvenir",
+		9209: "k_EGCItemCustomizationNotification_ClientRedeemMissionReward",
+		9219: "k_EGCItemCustomizationNotification_ClientRedeemFreeReward",
+		9221: "k_EGCItemCustomizationNotification_XpShopUseTicket",
+		9222: "k_EGCItemCustomizationNotification_XpShopAckTracks",
 	}
 	EGCItemCustomizationNotification_value = map[string]int32{
-		"k_EGCItemCustomizationNotification_NameItem":              1006,
-		"k_EGCItemCustomizationNotification_UnlockCrate":           1007,
-		"k_EGCItemCustomizationNotification_XRayItemReveal":        1008,
-		"k_EGCItemCustomizationNotification_XRayItemClaim":         1009,
-		"k_EGCItemCustomizationNotification_CasketTooFull":         1011,
-		"k_EGCItemCustomizationNotification_CasketContents":        1012,
-		"k_EGCItemCustomizationNotification_CasketAdded":           1013,
-		"k_EGCItemCustomizationNotification_CasketRemoved":         1014,
-		"k_EGCItemCustomizationNotification_CasketInvFull":         1015,
-		"k_EGCItemCustomizationNotification_NameBaseItem":          1019,
-		"k_EGCItemCustomizationNotification_RemoveItemName":        1030,
-		"k_EGCItemCustomizationNotification_RemoveSticker":         1053,
-		"k_EGCItemCustomizationNotification_ApplySticker":          1086,
-		"k_EGCItemCustomizationNotification_StatTrakSwap":          1088,
-		"k_EGCItemCustomizationNotification_RemovePatch":           1089,
-		"k_EGCItemCustomizationNotification_ApplyPatch":            1090,
-		"k_EGCItemCustomizationNotification_ActivateFanToken":      9178,
-		"k_EGCItemCustomizationNotification_ActivateOperationCoin": 9179,
-		"k_EGCItemCustomizationNotification_GraffitiUnseal":        9185,
-		"k_EGCItemCustomizationNotification_GenerateSouvenir":      9204,
+		"k_EGCItemCustomizationNotification_NameItem":                  1006,
+		"k_EGCItemCustomizationNotification_UnlockCrate":               1007,
+		"k_EGCItemCustomizationNotification_XRayItemReveal":            1008,
+		"k_EGCItemCustomizationNotification_XRayItemClaim":             1009,
+		"k_EGCItemCustomizationNotification_CasketTooFull":             1011,
+		"k_EGCItemCustomizationNotification_CasketContents":            1012,
+		"k_EGCItemCustomizationNotification_CasketAdded":               1013,
+		"k_EGCItemCustomizationNotification_CasketRemoved":             1014,
+		"k_EGCItemCustomizationNotification_CasketInvFull":             1015,
+		"k_EGCItemCustomizationNotification_NameBaseItem":              1019,
+		"k_EGCItemCustomizationNotification_RemoveItemName":            1030,
+		"k_EGCItemCustomizationNotification_RemoveSticker":             1053,
+		"k_EGCItemCustomizationNotification_ApplySticker":              1086,
+		"k_EGCItemCustomizationNotification_StatTrakSwap":              1088,
+		"k_EGCItemCustomizationNotification_RemovePatch":               1089,
+		"k_EGCItemCustomizationNotification_ApplyPatch":                1090,
+		"k_EGCItemCustomizationNotification_ApplyKeychain":             1091,
+		"k_EGCItemCustomizationNotification_RemoveKeychain":            1092,
+		"k_EGCItemCustomizationNotification_ActivateFanToken":          9178,
+		"k_EGCItemCustomizationNotification_ActivateOperationCoin":     9179,
+		"k_EGCItemCustomizationNotification_GraffitiUnseal":            9185,
+		"k_EGCItemCustomizationNotification_GenerateSouvenir":          9204,
+		"k_EGCItemCustomizationNotification_ClientRedeemMissionReward": 9209,
+		"k_EGCItemCustomizationNotification_ClientRedeemFreeReward":    9219,
+		"k_EGCItemCustomizationNotification_XpShopUseTicket":           9221,
+		"k_EGCItemCustomizationNotification_XpShopAckTracks":           9222,
 	}
 )
 
@@ -838,28 +874,30 @@ func (x *CMsgGCGiftedItems) GetRecipientsAccountids() []uint32 {
 	return nil
 }
 
-type CMsgApplyAutograph struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	AutographItemId *uint64                `protobuf:"varint,1,opt,name=autograph_item_id,json=autographItemId" json:"autograph_item_id,omitempty"`
-	ItemItemId      *uint64                `protobuf:"varint,2,opt,name=item_item_id,json=itemItemId" json:"item_item_id,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+type CMsgGCDev_SchemaReservationRequest struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	SchemaTypename *string                `protobuf:"bytes,1,opt,name=schema_typename,json=schemaTypename" json:"schema_typename,omitempty"`
+	InstanceName   *string                `protobuf:"bytes,2,opt,name=instance_name,json=instanceName" json:"instance_name,omitempty"`
+	Context        *uint64                `protobuf:"varint,3,opt,name=context" json:"context,omitempty"`
+	Id             *uint64                `protobuf:"varint,4,opt,name=id" json:"id,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
-func (x *CMsgApplyAutograph) Reset() {
-	*x = CMsgApplyAutograph{}
+func (x *CMsgGCDev_SchemaReservationRequest) Reset() {
+	*x = CMsgGCDev_SchemaReservationRequest{}
 	mi := &file_econ_gcmessages_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CMsgApplyAutograph) String() string {
+func (x *CMsgGCDev_SchemaReservationRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CMsgApplyAutograph) ProtoMessage() {}
+func (*CMsgGCDev_SchemaReservationRequest) ProtoMessage() {}
 
-func (x *CMsgApplyAutograph) ProtoReflect() protoreflect.Message {
+func (x *CMsgGCDev_SchemaReservationRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_econ_gcmessages_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -871,21 +909,35 @@ func (x *CMsgApplyAutograph) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CMsgApplyAutograph.ProtoReflect.Descriptor instead.
-func (*CMsgApplyAutograph) Descriptor() ([]byte, []int) {
+// Deprecated: Use CMsgGCDev_SchemaReservationRequest.ProtoReflect.Descriptor instead.
+func (*CMsgGCDev_SchemaReservationRequest) Descriptor() ([]byte, []int) {
 	return file_econ_gcmessages_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CMsgApplyAutograph) GetAutographItemId() uint64 {
-	if x != nil && x.AutographItemId != nil {
-		return *x.AutographItemId
+func (x *CMsgGCDev_SchemaReservationRequest) GetSchemaTypename() string {
+	if x != nil && x.SchemaTypename != nil {
+		return *x.SchemaTypename
+	}
+	return ""
+}
+
+func (x *CMsgGCDev_SchemaReservationRequest) GetInstanceName() string {
+	if x != nil && x.InstanceName != nil {
+		return *x.InstanceName
+	}
+	return ""
+}
+
+func (x *CMsgGCDev_SchemaReservationRequest) GetContext() uint64 {
+	if x != nil && x.Context != nil {
+		return *x.Context
 	}
 	return 0
 }
 
-func (x *CMsgApplyAutograph) GetItemItemId() uint64 {
-	if x != nil && x.ItemItemId != nil {
-		return *x.ItemItemId
+func (x *CMsgGCDev_SchemaReservationRequest) GetId() uint64 {
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return 0
 }
@@ -990,6 +1042,7 @@ type CMsgGCItemCustomizationNotification struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ItemId        []uint64               `protobuf:"varint,1,rep,name=item_id,json=itemId" json:"item_id,omitempty"`
 	Request       *uint32                `protobuf:"varint,2,opt,name=request" json:"request,omitempty"`
+	ExtraData     []uint64               `protobuf:"varint,3,rep,name=extra_data,json=extraData" json:"extra_data,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1038,6 +1091,13 @@ func (x *CMsgGCItemCustomizationNotification) GetRequest() uint32 {
 	return 0
 }
 
+func (x *CMsgGCItemCustomizationNotification) GetExtraData() []uint64 {
+	if x != nil {
+		return x.ExtraData
+	}
+	return nil
+}
+
 var File_econ_gcmessages_proto protoreflect.FileDescriptor
 
 const file_econ_gcmessages_proto_rawDesc = "" +
@@ -1048,20 +1108,23 @@ const file_econ_gcmessages_proto_rawDesc = "" +
 	"\fgiftdefindex\x18\x02 \x01(\rR\fgiftdefindex\x12,\n" +
 	"\x12max_gifts_possible\x18\x03 \x01(\rR\x10maxGiftsPossible\x126\n" +
 	"\x17num_eligible_recipients\x18\x04 \x01(\rR\x15numEligibleRecipients\x123\n" +
-	"\x15recipients_accountids\x18\x05 \x03(\rR\x14recipientsAccountids\"b\n" +
-	"\x12CMsgApplyAutograph\x12*\n" +
-	"\x11autograph_item_id\x18\x01 \x01(\x04R\x0fautographItemId\x12 \n" +
-	"\fitem_item_id\x18\x02 \x01(\x04R\n" +
-	"itemItemId\"X\n" +
+	"\x15recipients_accountids\x18\x05 \x03(\rR\x14recipientsAccountids\"\x9c\x01\n" +
+	"\"CMsgGCDev_SchemaReservationRequest\x12'\n" +
+	"\x0fschema_typename\x18\x01 \x01(\tR\x0eschemaTypename\x12#\n" +
+	"\rinstance_name\x18\x02 \x01(\tR\finstanceName\x12\x18\n" +
+	"\acontext\x18\x03 \x01(\x04R\acontext\x12\x0e\n" +
+	"\x02id\x18\x04 \x01(\x04R\x02id\"X\n" +
 	"\x0eCMsgCasketItem\x12$\n" +
 	"\x0ecasket_item_id\x18\x01 \x01(\x04R\fcasketItemId\x12 \n" +
 	"\fitem_item_id\x18\x02 \x01(\x04R\n" +
 	"itemItemId\">\n" +
 	"&CMsgGCUserTrackTimePlayedConsecutively\x12\x14\n" +
-	"\x05state\x18\x01 \x01(\rR\x05state\"X\n" +
+	"\x05state\x18\x01 \x01(\rR\x05state\"w\n" +
 	"#CMsgGCItemCustomizationNotification\x12\x17\n" +
 	"\aitem_id\x18\x01 \x03(\x04R\x06itemId\x12\x18\n" +
-	"\arequest\x18\x02 \x01(\rR\arequest*\xdd'\n" +
+	"\arequest\x18\x02 \x01(\rR\arequest\x12\x1d\n" +
+	"\n" +
+	"extra_data\x18\x03 \x03(\x04R\textraData*\xc1)\n" +
 	"\n" +
 	"EGCItemMsg\x12\x11\n" +
 	"\fk_EMsgGCBase\x10\xe8\a\x12\x1c\n" +
@@ -1176,7 +1239,8 @@ const file_econ_gcmessages_proto_rawDesc = "" +
 	")k_EMsgGCItemPreviewItemBoughtNotification\x10\xab\r\x12\x1f\n" +
 	"\x1ak_EMsgGCDev_NewItemRequest\x10\xd1\x0f\x12'\n" +
 	"\"k_EMsgGCDev_NewItemRequestResponse\x10\xd2\x0f\x12!\n" +
-	"\x1ck_EMsgGCDev_PaintKitDropItem\x10\xd3\x0f\x12\x1d\n" +
+	"\x1ck_EMsgGCDev_PaintKitDropItem\x10\xd3\x0f\x12)\n" +
+	"$k_EMsgGCDev_SchemaReservationRequest\x10\xd4\x0f\x12\x1d\n" +
 	"\x18k_EMsgGCStoreGetUserData\x10\xc4\x13\x12%\n" +
 	" k_EMsgGCStoreGetUserDataResponse\x10\xc5\x13\x12)\n" +
 	"$k_EMsgGCStorePurchaseInit_DEPRECATED\x10\xc6\x13\x121\n" +
@@ -1199,14 +1263,19 @@ const file_econ_gcmessages_proto_rawDesc = "" +
 	"\x1bk_EMsgGCToGCIsTrustedServer\x10\xd7\x13\x12(\n" +
 	"#k_EMsgGCToGCIsTrustedServerResponse\x10\xd8\x13\x12(\n" +
 	"#k_EMsgGCToGCBroadcastConsoleCommand\x10\xd9\x13\x12!\n" +
-	"\x1ck_EMsgGCServerVersionUpdated\x10\xda\x13\x12\x1b\n" +
-	"\x16k_EMsgGCApplyAutograph\x10\xdb\x13\x12%\n" +
+	"\x1ck_EMsgGCServerVersionUpdated\x10\xda\x13\x12%\n" +
 	" k_EMsgGCToGCWebAPIAccountChanged\x10\xdc\x13\x12!\n" +
 	"\x1ck_EMsgGCRequestAnnouncements\x10\xdd\x13\x12)\n" +
 	"$k_EMsgGCRequestAnnouncementsResponse\x10\xde\x13\x12%\n" +
 	" k_EMsgGCRequestPassportItemGrant\x10\xdf\x13\x12!\n" +
 	"\x1ck_EMsgGCClientVersionUpdated\x10\xe0\x13\x12)\n" +
-	"$k_EMsgGCAdjustItemEquippedStateMulti\x10\xe1\x13*\xd5\x02\n" +
+	"$k_EMsgGCAdjustItemEquippedStateMulti\x10\xe1\x13\x12(\n" +
+	"#k_EMsgGCRecurringSubscriptionStatus\x10\xe2\x13\x12#\n" +
+	"\x1ek_EMsgGCAdjustEquipSlotsManual\x10\xe3\x13\x12$\n" +
+	"\x1fk_EMsgGCAdjustEquipSlotsShuffle\x10\xe4\x13\x12\x1d\n" +
+	"\x18k_EMsgGCNameItemAndEquip\x10\xe5\x13\x12\x16\n" +
+	"\x11k_EMsgGCOpenCrate\x10\xe6\x13\x12(\n" +
+	"#k_EMsgGCAcknowledgeRentalExpiration\x10\xe7\x13*\xd5\x02\n" +
 	"\x0eEGCMsgResponse\x12\x16\n" +
 	"\x12k_EGCMsgResponseOK\x10\x00\x12\x1a\n" +
 	"\x16k_EGCMsgResponseDenied\x10\x01\x12\x1f\n" +
@@ -1226,7 +1295,7 @@ const file_econ_gcmessages_proto_rawDesc = "" +
 	"\x1fk_UnlockStyle_Failed_CantAfford\x10\x02\x12#\n" +
 	"\x1fk_UnlockStyle_Failed_CantCommit\x10\x03\x12&\n" +
 	"\"k_UnlockStyle_Failed_CantLockCache\x10\x04\x12)\n" +
-	"%k_UnlockStyle_Failed_CantAffordAttrib\x10\x05*\xef\b\n" +
+	"%k_UnlockStyle_Failed_CantAffordAttrib\x10\x05*\xd3\v\n" +
 	" EGCItemCustomizationNotification\x120\n" +
 	"+k_EGCItemCustomizationNotification_NameItem\x10\xee\a\x123\n" +
 	".k_EGCItemCustomizationNotification_UnlockCrate\x10\xef\a\x126\n" +
@@ -1243,11 +1312,17 @@ const file_econ_gcmessages_proto_rawDesc = "" +
 	"/k_EGCItemCustomizationNotification_ApplySticker\x10\xbe\b\x124\n" +
 	"/k_EGCItemCustomizationNotification_StatTrakSwap\x10\xc0\b\x123\n" +
 	".k_EGCItemCustomizationNotification_RemovePatch\x10\xc1\b\x122\n" +
-	"-k_EGCItemCustomizationNotification_ApplyPatch\x10\xc2\b\x128\n" +
+	"-k_EGCItemCustomizationNotification_ApplyPatch\x10\xc2\b\x125\n" +
+	"0k_EGCItemCustomizationNotification_ApplyKeychain\x10\xc3\b\x126\n" +
+	"1k_EGCItemCustomizationNotification_RemoveKeychain\x10\xc4\b\x128\n" +
 	"3k_EGCItemCustomizationNotification_ActivateFanToken\x10\xdaG\x12=\n" +
 	"8k_EGCItemCustomizationNotification_ActivateOperationCoin\x10\xdbG\x126\n" +
 	"1k_EGCItemCustomizationNotification_GraffitiUnseal\x10\xe1G\x128\n" +
-	"3k_EGCItemCustomizationNotification_GenerateSouvenir\x10\xf4GB\x05H\x01\x80\x01\x00"
+	"3k_EGCItemCustomizationNotification_GenerateSouvenir\x10\xf4G\x12A\n" +
+	"<k_EGCItemCustomizationNotification_ClientRedeemMissionReward\x10\xf9G\x12>\n" +
+	"9k_EGCItemCustomizationNotification_ClientRedeemFreeReward\x10\x83H\x127\n" +
+	"2k_EGCItemCustomizationNotification_XpShopUseTicket\x10\x85H\x127\n" +
+	"2k_EGCItemCustomizationNotification_XpShopAckTracks\x10\x86H"
 
 var (
 	file_econ_gcmessages_proto_rawDescOnce sync.Once
@@ -1269,7 +1344,7 @@ var file_econ_gcmessages_proto_goTypes = []any{
 	(EUnlockStyle)(0),                              // 2: EUnlockStyle
 	(EGCItemCustomizationNotification)(0),          // 3: EGCItemCustomizationNotification
 	(*CMsgGCGiftedItems)(nil),                      // 4: CMsgGCGiftedItems
-	(*CMsgApplyAutograph)(nil),                     // 5: CMsgApplyAutograph
+	(*CMsgGCDev_SchemaReservationRequest)(nil),     // 5: CMsgGCDev_SchemaReservationRequest
 	(*CMsgCasketItem)(nil),                         // 6: CMsgCasketItem
 	(*CMsgGCUserTrackTimePlayedConsecutively)(nil), // 7: CMsgGCUserTrackTimePlayedConsecutively
 	(*CMsgGCItemCustomizationNotification)(nil),    // 8: CMsgGCItemCustomizationNotification

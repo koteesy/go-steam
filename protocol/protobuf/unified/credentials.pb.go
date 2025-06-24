@@ -8,6 +8,7 @@ package unified
 
 import (
 	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -127,19 +128,14 @@ func (x *CCredentials_TestAvailablePassword_Response) GetIsValid() bool {
 }
 
 type CCredentials_GetSteamGuardDetails_Request struct {
-	state                     protoimpl.MessageState `protogen:"open.v1"`
-	IncludeNewAuthentications *bool                  `protobuf:"varint,1,opt,name=include_new_authentications,json=includeNewAuthentications,def=1" json:"include_new_authentications,omitempty"`
-	Webcookie                 *string                `protobuf:"bytes,2,opt,name=webcookie" json:"webcookie,omitempty"`
-	TimestampMinimumWanted    *uint32                `protobuf:"fixed32,3,opt,name=timestamp_minimum_wanted,json=timestampMinimumWanted" json:"timestamp_minimum_wanted,omitempty"`
-	Ipaddress                 *int32                 `protobuf:"varint,4,opt,name=ipaddress" json:"ipaddress,omitempty"`
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state                  protoimpl.MessageState                  `protogen:"open.v1"`
+	Webcookie              *string                                 `protobuf:"bytes,2,opt,name=webcookie" json:"webcookie,omitempty"`
+	TimestampMinimumWanted *uint32                                 `protobuf:"fixed32,3,opt,name=timestamp_minimum_wanted,json=timestampMinimumWanted" json:"timestamp_minimum_wanted,omitempty"`
+	DeprecatedIpaddress    *int32                                  `protobuf:"varint,4,opt,name=deprecated_ipaddress,json=deprecatedIpaddress" json:"deprecated_ipaddress,omitempty"`
+	IpAddress              *CMsgIPAddress `protobuf:"bytes,5,opt,name=ip_address,json=ipAddress" json:"ip_address,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
-
-// Default values for CCredentials_GetSteamGuardDetails_Request fields.
-const (
-	Default_CCredentials_GetSteamGuardDetails_Request_IncludeNewAuthentications = bool(true)
-)
 
 func (x *CCredentials_GetSteamGuardDetails_Request) Reset() {
 	*x = CCredentials_GetSteamGuardDetails_Request{}
@@ -171,13 +167,6 @@ func (*CCredentials_GetSteamGuardDetails_Request) Descriptor() ([]byte, []int) {
 	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *CCredentials_GetSteamGuardDetails_Request) GetIncludeNewAuthentications() bool {
-	if x != nil && x.IncludeNewAuthentications != nil {
-		return *x.IncludeNewAuthentications
-	}
-	return Default_CCredentials_GetSteamGuardDetails_Request_IncludeNewAuthentications
-}
-
 func (x *CCredentials_GetSteamGuardDetails_Request) GetWebcookie() string {
 	if x != nil && x.Webcookie != nil {
 		return *x.Webcookie
@@ -192,26 +181,32 @@ func (x *CCredentials_GetSteamGuardDetails_Request) GetTimestampMinimumWanted() 
 	return 0
 }
 
-func (x *CCredentials_GetSteamGuardDetails_Request) GetIpaddress() int32 {
-	if x != nil && x.Ipaddress != nil {
-		return *x.Ipaddress
+func (x *CCredentials_GetSteamGuardDetails_Request) GetDeprecatedIpaddress() int32 {
+	if x != nil && x.DeprecatedIpaddress != nil {
+		return *x.DeprecatedIpaddress
 	}
 	return 0
 }
 
+func (x *CCredentials_GetSteamGuardDetails_Request) GetIpAddress() *CMsgIPAddress {
+	if x != nil {
+		return x.IpAddress
+	}
+	return nil
+}
+
 type CCredentials_GetSteamGuardDetails_Response struct {
-	state                                                 protoimpl.MessageState                                          `protogen:"open.v1"`
-	IsSteamguardEnabled                                   *bool                                                           `protobuf:"varint,1,opt,name=is_steamguard_enabled,json=isSteamguardEnabled" json:"is_steamguard_enabled,omitempty"`
-	TimestampSteamguardEnabled                            *uint32                                                         `protobuf:"fixed32,2,opt,name=timestamp_steamguard_enabled,json=timestampSteamguardEnabled" json:"timestamp_steamguard_enabled,omitempty"`
-	DeprecatedNewauthentication                           []*CCredentials_GetSteamGuardDetails_Response_NewAuthentication `protobuf:"bytes,3,rep,name=deprecated_newauthentication,json=deprecatedNewauthentication" json:"deprecated_newauthentication,omitempty"`
-	DeprecatedMachineNameUserchosen                       *string                                                         `protobuf:"bytes,4,opt,name=deprecated_machine_name_userchosen,json=deprecatedMachineNameUserchosen" json:"deprecated_machine_name_userchosen,omitempty"`
-	DeprecatedTimestampMachineSteamguardEnabled           *uint32                                                         `protobuf:"fixed32,5,opt,name=deprecated_timestamp_machine_steamguard_enabled,json=deprecatedTimestampMachineSteamguardEnabled" json:"deprecated_timestamp_machine_steamguard_enabled,omitempty"`
-	DeprecatedAuthenticationExistsFromGeolocBeforeMintime *bool                                                           `protobuf:"varint,6,opt,name=deprecated_authentication_exists_from_geoloc_before_mintime,json=deprecatedAuthenticationExistsFromGeolocBeforeMintime" json:"deprecated_authentication_exists_from_geoloc_before_mintime,omitempty"`
-	DeprecatedMachineId                                   *uint64                                                         `protobuf:"varint,7,opt,name=deprecated_machine_id,json=deprecatedMachineId" json:"deprecated_machine_id,omitempty"`
-	SessionData                                           []*CCredentials_GetSteamGuardDetails_Response_SessionData       `protobuf:"bytes,8,rep,name=session_data,json=sessionData" json:"session_data,omitempty"`
-	IsTwofactorEnabled                                    *bool                                                           `protobuf:"varint,9,opt,name=is_twofactor_enabled,json=isTwofactorEnabled" json:"is_twofactor_enabled,omitempty"`
-	TimestampTwofactorEnabled                             *uint32                                                         `protobuf:"fixed32,10,opt,name=timestamp_twofactor_enabled,json=timestampTwofactorEnabled" json:"timestamp_twofactor_enabled,omitempty"`
-	IsPhoneVerified                                       *bool                                                           `protobuf:"varint,11,opt,name=is_phone_verified,json=isPhoneVerified" json:"is_phone_verified,omitempty"`
+	state                                                 protoimpl.MessageState                                    `protogen:"open.v1"`
+	IsSteamguardEnabled                                   *bool                                                     `protobuf:"varint,1,opt,name=is_steamguard_enabled,json=isSteamguardEnabled" json:"is_steamguard_enabled,omitempty"`
+	TimestampSteamguardEnabled                            *uint32                                                   `protobuf:"fixed32,2,opt,name=timestamp_steamguard_enabled,json=timestampSteamguardEnabled" json:"timestamp_steamguard_enabled,omitempty"`
+	DeprecatedMachineNameUserchosen                       *string                                                   `protobuf:"bytes,4,opt,name=deprecated_machine_name_userchosen,json=deprecatedMachineNameUserchosen" json:"deprecated_machine_name_userchosen,omitempty"`
+	DeprecatedTimestampMachineSteamguardEnabled           *uint32                                                   `protobuf:"fixed32,5,opt,name=deprecated_timestamp_machine_steamguard_enabled,json=deprecatedTimestampMachineSteamguardEnabled" json:"deprecated_timestamp_machine_steamguard_enabled,omitempty"`
+	DeprecatedAuthenticationExistsFromGeolocBeforeMintime *bool                                                     `protobuf:"varint,6,opt,name=deprecated_authentication_exists_from_geoloc_before_mintime,json=deprecatedAuthenticationExistsFromGeolocBeforeMintime" json:"deprecated_authentication_exists_from_geoloc_before_mintime,omitempty"`
+	DeprecatedMachineId                                   *uint64                                                   `protobuf:"varint,7,opt,name=deprecated_machine_id,json=deprecatedMachineId" json:"deprecated_machine_id,omitempty"`
+	SessionData                                           []*CCredentials_GetSteamGuardDetails_Response_SessionData `protobuf:"bytes,8,rep,name=session_data,json=sessionData" json:"session_data,omitempty"`
+	IsTwofactorEnabled                                    *bool                                                     `protobuf:"varint,9,opt,name=is_twofactor_enabled,json=isTwofactorEnabled" json:"is_twofactor_enabled,omitempty"`
+	TimestampTwofactorEnabled                             *uint32                                                   `protobuf:"fixed32,10,opt,name=timestamp_twofactor_enabled,json=timestampTwofactorEnabled" json:"timestamp_twofactor_enabled,omitempty"`
+	IsPhoneVerified                                       *bool                                                     `protobuf:"varint,11,opt,name=is_phone_verified,json=isPhoneVerified" json:"is_phone_verified,omitempty"`
 	unknownFields                                         protoimpl.UnknownFields
 	sizeCache                                             protoimpl.SizeCache
 }
@@ -258,13 +253,6 @@ func (x *CCredentials_GetSteamGuardDetails_Response) GetTimestampSteamguardEnabl
 		return *x.TimestampSteamguardEnabled
 	}
 	return 0
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response) GetDeprecatedNewauthentication() []*CCredentials_GetSteamGuardDetails_Response_NewAuthentication {
-	if x != nil {
-		return x.DeprecatedNewauthentication
-	}
-	return nil
 }
 
 func (x *CCredentials_GetSteamGuardDetails_Response) GetDeprecatedMachineNameUserchosen() string {
@@ -323,94 +311,6 @@ func (x *CCredentials_GetSteamGuardDetails_Response) GetIsPhoneVerified() bool {
 	return false
 }
 
-type CCredentials_NewMachineNotificationDialog_Request struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	IsApproved       *bool                  `protobuf:"varint,1,opt,name=is_approved,json=isApproved" json:"is_approved,omitempty"`
-	IsWizardComplete *bool                  `protobuf:"varint,2,opt,name=is_wizard_complete,json=isWizardComplete" json:"is_wizard_complete,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *CCredentials_NewMachineNotificationDialog_Request) Reset() {
-	*x = CCredentials_NewMachineNotificationDialog_Request{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CCredentials_NewMachineNotificationDialog_Request) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CCredentials_NewMachineNotificationDialog_Request) ProtoMessage() {}
-
-func (x *CCredentials_NewMachineNotificationDialog_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CCredentials_NewMachineNotificationDialog_Request.ProtoReflect.Descriptor instead.
-func (*CCredentials_NewMachineNotificationDialog_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *CCredentials_NewMachineNotificationDialog_Request) GetIsApproved() bool {
-	if x != nil && x.IsApproved != nil {
-		return *x.IsApproved
-	}
-	return false
-}
-
-func (x *CCredentials_NewMachineNotificationDialog_Request) GetIsWizardComplete() bool {
-	if x != nil && x.IsWizardComplete != nil {
-		return *x.IsWizardComplete
-	}
-	return false
-}
-
-type CCredentials_NewMachineNotificationDialog_Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CCredentials_NewMachineNotificationDialog_Response) Reset() {
-	*x = CCredentials_NewMachineNotificationDialog_Response{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CCredentials_NewMachineNotificationDialog_Response) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CCredentials_NewMachineNotificationDialog_Response) ProtoMessage() {}
-
-func (x *CCredentials_NewMachineNotificationDialog_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CCredentials_NewMachineNotificationDialog_Response.ProtoReflect.Descriptor instead.
-func (*CCredentials_NewMachineNotificationDialog_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{5}
-}
-
 type CCredentials_ValidateEmailAddress_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Stoken        *string                `protobuf:"bytes,1,opt,name=stoken" json:"stoken,omitempty"`
@@ -420,7 +320,7 @@ type CCredentials_ValidateEmailAddress_Request struct {
 
 func (x *CCredentials_ValidateEmailAddress_Request) Reset() {
 	*x = CCredentials_ValidateEmailAddress_Request{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -432,7 +332,7 @@ func (x *CCredentials_ValidateEmailAddress_Request) String() string {
 func (*CCredentials_ValidateEmailAddress_Request) ProtoMessage() {}
 
 func (x *CCredentials_ValidateEmailAddress_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -445,7 +345,7 @@ func (x *CCredentials_ValidateEmailAddress_Request) ProtoReflect() protoreflect.
 
 // Deprecated: Use CCredentials_ValidateEmailAddress_Request.ProtoReflect.Descriptor instead.
 func (*CCredentials_ValidateEmailAddress_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CCredentials_ValidateEmailAddress_Request) GetStoken() string {
@@ -464,7 +364,7 @@ type CCredentials_ValidateEmailAddress_Response struct {
 
 func (x *CCredentials_ValidateEmailAddress_Response) Reset() {
 	*x = CCredentials_ValidateEmailAddress_Response{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -476,7 +376,7 @@ func (x *CCredentials_ValidateEmailAddress_Response) String() string {
 func (*CCredentials_ValidateEmailAddress_Response) ProtoMessage() {}
 
 func (x *CCredentials_ValidateEmailAddress_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -489,7 +389,7 @@ func (x *CCredentials_ValidateEmailAddress_Response) ProtoReflect() protoreflect
 
 // Deprecated: Use CCredentials_ValidateEmailAddress_Response.ProtoReflect.Descriptor instead.
 func (*CCredentials_ValidateEmailAddress_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CCredentials_ValidateEmailAddress_Response) GetWasValidated() bool {
@@ -502,14 +402,14 @@ func (x *CCredentials_ValidateEmailAddress_Response) GetWasValidated() bool {
 type CCredentials_SteamGuardPhishingReport_Request struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	ParamString     *string                `protobuf:"bytes,1,opt,name=param_string,json=paramString" json:"param_string,omitempty"`
-	IpaddressActual *uint32                `protobuf:"varint,2,opt,name=ipaddress_actual,json=ipaddressActual" json:"ipaddress_actual,omitempty"`
+	IpaddressActual *string                `protobuf:"bytes,2,opt,name=ipaddress_actual,json=ipaddressActual" json:"ipaddress_actual,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CCredentials_SteamGuardPhishingReport_Request) Reset() {
 	*x = CCredentials_SteamGuardPhishingReport_Request{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -521,7 +421,7 @@ func (x *CCredentials_SteamGuardPhishingReport_Request) String() string {
 func (*CCredentials_SteamGuardPhishingReport_Request) ProtoMessage() {}
 
 func (x *CCredentials_SteamGuardPhishingReport_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -534,7 +434,7 @@ func (x *CCredentials_SteamGuardPhishingReport_Request) ProtoReflect() protorefl
 
 // Deprecated: Use CCredentials_SteamGuardPhishingReport_Request.ProtoReflect.Descriptor instead.
 func (*CCredentials_SteamGuardPhishingReport_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CCredentials_SteamGuardPhishingReport_Request) GetParamString() string {
@@ -544,20 +444,20 @@ func (x *CCredentials_SteamGuardPhishingReport_Request) GetParamString() string 
 	return ""
 }
 
-func (x *CCredentials_SteamGuardPhishingReport_Request) GetIpaddressActual() uint32 {
+func (x *CCredentials_SteamGuardPhishingReport_Request) GetIpaddressActual() string {
 	if x != nil && x.IpaddressActual != nil {
 		return *x.IpaddressActual
 	}
-	return 0
+	return ""
 }
 
 type CCredentials_SteamGuardPhishingReport_Response struct {
 	state                   protoimpl.MessageState `protogen:"open.v1"`
-	IpaddressLoginattempt   *uint32                `protobuf:"varint,1,opt,name=ipaddress_loginattempt,json=ipaddressLoginattempt" json:"ipaddress_loginattempt,omitempty"`
+	IpaddressLoginattempt   *string                `protobuf:"bytes,1,opt,name=ipaddress_loginattempt,json=ipaddressLoginattempt" json:"ipaddress_loginattempt,omitempty"`
 	CountrynameLoginattempt *string                `protobuf:"bytes,2,opt,name=countryname_loginattempt,json=countrynameLoginattempt" json:"countryname_loginattempt,omitempty"`
 	StatenameLoginattempt   *string                `protobuf:"bytes,3,opt,name=statename_loginattempt,json=statenameLoginattempt" json:"statename_loginattempt,omitempty"`
 	CitynameLoginattempt    *string                `protobuf:"bytes,4,opt,name=cityname_loginattempt,json=citynameLoginattempt" json:"cityname_loginattempt,omitempty"`
-	IpaddressActual         *uint32                `protobuf:"varint,5,opt,name=ipaddress_actual,json=ipaddressActual" json:"ipaddress_actual,omitempty"`
+	IpaddressActual         *string                `protobuf:"bytes,5,opt,name=ipaddress_actual,json=ipaddressActual" json:"ipaddress_actual,omitempty"`
 	CountrynameActual       *string                `protobuf:"bytes,6,opt,name=countryname_actual,json=countrynameActual" json:"countryname_actual,omitempty"`
 	StatenameActual         *string                `protobuf:"bytes,7,opt,name=statename_actual,json=statenameActual" json:"statename_actual,omitempty"`
 	CitynameActual          *string                `protobuf:"bytes,8,opt,name=cityname_actual,json=citynameActual" json:"cityname_actual,omitempty"`
@@ -568,7 +468,7 @@ type CCredentials_SteamGuardPhishingReport_Response struct {
 
 func (x *CCredentials_SteamGuardPhishingReport_Response) Reset() {
 	*x = CCredentials_SteamGuardPhishingReport_Response{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -580,7 +480,7 @@ func (x *CCredentials_SteamGuardPhishingReport_Response) String() string {
 func (*CCredentials_SteamGuardPhishingReport_Response) ProtoMessage() {}
 
 func (x *CCredentials_SteamGuardPhishingReport_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -593,14 +493,14 @@ func (x *CCredentials_SteamGuardPhishingReport_Response) ProtoReflect() protoref
 
 // Deprecated: Use CCredentials_SteamGuardPhishingReport_Response.ProtoReflect.Descriptor instead.
 func (*CCredentials_SteamGuardPhishingReport_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *CCredentials_SteamGuardPhishingReport_Response) GetIpaddressLoginattempt() uint32 {
+func (x *CCredentials_SteamGuardPhishingReport_Response) GetIpaddressLoginattempt() string {
 	if x != nil && x.IpaddressLoginattempt != nil {
 		return *x.IpaddressLoginattempt
 	}
-	return 0
+	return ""
 }
 
 func (x *CCredentials_SteamGuardPhishingReport_Response) GetCountrynameLoginattempt() string {
@@ -624,11 +524,11 @@ func (x *CCredentials_SteamGuardPhishingReport_Response) GetCitynameLoginattempt
 	return ""
 }
 
-func (x *CCredentials_SteamGuardPhishingReport_Response) GetIpaddressActual() uint32 {
+func (x *CCredentials_SteamGuardPhishingReport_Response) GetIpaddressActual() string {
 	if x != nil && x.IpaddressActual != nil {
 		return *x.IpaddressActual
 	}
-	return 0
+	return ""
 }
 
 func (x *CCredentials_SteamGuardPhishingReport_Response) GetCountrynameActual() string {
@@ -668,7 +568,7 @@ type CCredentials_LastCredentialChangeTime_Request struct {
 
 func (x *CCredentials_LastCredentialChangeTime_Request) Reset() {
 	*x = CCredentials_LastCredentialChangeTime_Request{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -680,7 +580,7 @@ func (x *CCredentials_LastCredentialChangeTime_Request) String() string {
 func (*CCredentials_LastCredentialChangeTime_Request) ProtoMessage() {}
 
 func (x *CCredentials_LastCredentialChangeTime_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -693,7 +593,7 @@ func (x *CCredentials_LastCredentialChangeTime_Request) ProtoReflect() protorefl
 
 // Deprecated: Use CCredentials_LastCredentialChangeTime_Request.ProtoReflect.Descriptor instead.
 func (*CCredentials_LastCredentialChangeTime_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CCredentials_LastCredentialChangeTime_Request) GetUserChangesOnly() bool {
@@ -714,7 +614,7 @@ type CCredentials_LastCredentialChangeTime_Response struct {
 
 func (x *CCredentials_LastCredentialChangeTime_Response) Reset() {
 	*x = CCredentials_LastCredentialChangeTime_Response{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -726,7 +626,7 @@ func (x *CCredentials_LastCredentialChangeTime_Response) String() string {
 func (*CCredentials_LastCredentialChangeTime_Response) ProtoMessage() {}
 
 func (x *CCredentials_LastCredentialChangeTime_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -739,7 +639,7 @@ func (x *CCredentials_LastCredentialChangeTime_Response) ProtoReflect() protoref
 
 // Deprecated: Use CCredentials_LastCredentialChangeTime_Response.ProtoReflect.Descriptor instead.
 func (*CCredentials_LastCredentialChangeTime_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CCredentials_LastCredentialChangeTime_Response) GetTimestampLastPasswordChange() uint32 {
@@ -771,7 +671,7 @@ type CCredentials_GetAccountAuthSecret_Request struct {
 
 func (x *CCredentials_GetAccountAuthSecret_Request) Reset() {
 	*x = CCredentials_GetAccountAuthSecret_Request{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -783,7 +683,7 @@ func (x *CCredentials_GetAccountAuthSecret_Request) String() string {
 func (*CCredentials_GetAccountAuthSecret_Request) ProtoMessage() {}
 
 func (x *CCredentials_GetAccountAuthSecret_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -796,7 +696,7 @@ func (x *CCredentials_GetAccountAuthSecret_Request) ProtoReflect() protoreflect.
 
 // Deprecated: Use CCredentials_GetAccountAuthSecret_Request.ProtoReflect.Descriptor instead.
 func (*CCredentials_GetAccountAuthSecret_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{10}
 }
 
 type CCredentials_GetAccountAuthSecret_Response struct {
@@ -809,7 +709,7 @@ type CCredentials_GetAccountAuthSecret_Response struct {
 
 func (x *CCredentials_GetAccountAuthSecret_Response) Reset() {
 	*x = CCredentials_GetAccountAuthSecret_Response{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -821,7 +721,7 @@ func (x *CCredentials_GetAccountAuthSecret_Response) String() string {
 func (*CCredentials_GetAccountAuthSecret_Response) ProtoMessage() {}
 
 func (x *CCredentials_GetAccountAuthSecret_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -834,7 +734,7 @@ func (x *CCredentials_GetAccountAuthSecret_Response) ProtoReflect() protoreflect
 
 // Deprecated: Use CCredentials_GetAccountAuthSecret_Response.ProtoReflect.Descriptor instead.
 func (*CCredentials_GetAccountAuthSecret_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CCredentials_GetAccountAuthSecret_Response) GetSecretId() int32 {
@@ -851,115 +751,22 @@ func (x *CCredentials_GetAccountAuthSecret_Response) GetSecret() []byte {
 	return nil
 }
 
-type CCredentials_GetSteamGuardDetails_Response_NewAuthentication struct {
-	state                      protoimpl.MessageState `protogen:"open.v1"`
-	TimestampSteamguardEnabled *uint32                `protobuf:"fixed32,1,opt,name=timestamp_steamguard_enabled,json=timestampSteamguardEnabled" json:"timestamp_steamguard_enabled,omitempty"`
-	IsWebCookie                *bool                  `protobuf:"varint,2,opt,name=is_web_cookie,json=isWebCookie" json:"is_web_cookie,omitempty"`
-	Ipaddress                  *int32                 `protobuf:"varint,3,opt,name=ipaddress" json:"ipaddress,omitempty"`
-	GeolocInfo                 *string                `protobuf:"bytes,4,opt,name=geoloc_info,json=geolocInfo" json:"geoloc_info,omitempty"`
-	IsRemembered               *bool                  `protobuf:"varint,5,opt,name=is_remembered,json=isRemembered" json:"is_remembered,omitempty"`
-	MachineNameUserSupplied    *string                `protobuf:"bytes,6,opt,name=machine_name_user_supplied,json=machineNameUserSupplied" json:"machine_name_user_supplied,omitempty"`
-	Status                     *int32                 `protobuf:"varint,7,opt,name=status" json:"status,omitempty"`
-	unknownFields              protoimpl.UnknownFields
-	sizeCache                  protoimpl.SizeCache
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) Reset() {
-	*x = CCredentials_GetSteamGuardDetails_Response_NewAuthentication{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[14]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CCredentials_GetSteamGuardDetails_Response_NewAuthentication) ProtoMessage() {}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[14]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CCredentials_GetSteamGuardDetails_Response_NewAuthentication.ProtoReflect.Descriptor instead.
-func (*CCredentials_GetSteamGuardDetails_Response_NewAuthentication) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{3, 0}
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) GetTimestampSteamguardEnabled() uint32 {
-	if x != nil && x.TimestampSteamguardEnabled != nil {
-		return *x.TimestampSteamguardEnabled
-	}
-	return 0
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) GetIsWebCookie() bool {
-	if x != nil && x.IsWebCookie != nil {
-		return *x.IsWebCookie
-	}
-	return false
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) GetIpaddress() int32 {
-	if x != nil && x.Ipaddress != nil {
-		return *x.Ipaddress
-	}
-	return 0
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) GetGeolocInfo() string {
-	if x != nil && x.GeolocInfo != nil {
-		return *x.GeolocInfo
-	}
-	return ""
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) GetIsRemembered() bool {
-	if x != nil && x.IsRemembered != nil {
-		return *x.IsRemembered
-	}
-	return false
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) GetMachineNameUserSupplied() string {
-	if x != nil && x.MachineNameUserSupplied != nil {
-		return *x.MachineNameUserSupplied
-	}
-	return ""
-}
-
-func (x *CCredentials_GetSteamGuardDetails_Response_NewAuthentication) GetStatus() int32 {
-	if x != nil && x.Status != nil {
-		return *x.Status
-	}
-	return 0
-}
-
 type CCredentials_GetSteamGuardDetails_Response_SessionData struct {
-	state                                       protoimpl.MessageState                                          `protogen:"open.v1"`
-	MachineId                                   *uint64                                                         `protobuf:"varint,1,opt,name=machine_id,json=machineId" json:"machine_id,omitempty"`
-	MachineNameUserchosen                       *string                                                         `protobuf:"bytes,2,opt,name=machine_name_userchosen,json=machineNameUserchosen" json:"machine_name_userchosen,omitempty"`
-	TimestampMachineSteamguardEnabled           *uint32                                                         `protobuf:"fixed32,3,opt,name=timestamp_machine_steamguard_enabled,json=timestampMachineSteamguardEnabled" json:"timestamp_machine_steamguard_enabled,omitempty"`
-	AuthenticationExistsFromGeolocBeforeMintime *bool                                                           `protobuf:"varint,4,opt,name=authentication_exists_from_geoloc_before_mintime,json=authenticationExistsFromGeolocBeforeMintime" json:"authentication_exists_from_geoloc_before_mintime,omitempty"`
-	Newauthentication                           []*CCredentials_GetSteamGuardDetails_Response_NewAuthentication `protobuf:"bytes,5,rep,name=newauthentication" json:"newauthentication,omitempty"`
-	AuthenticationExistsFromSameIpBeforeMintime *bool                                                           `protobuf:"varint,6,opt,name=authentication_exists_from_same_ip_before_mintime,json=authenticationExistsFromSameIpBeforeMintime" json:"authentication_exists_from_same_ip_before_mintime,omitempty"`
-	PublicIpv4                                  *uint32                                                         `protobuf:"varint,7,opt,name=public_ipv4,json=publicIpv4" json:"public_ipv4,omitempty"`
-	PublicIpAddress                             *string                                                         `protobuf:"bytes,8,opt,name=public_ip_address,json=publicIpAddress" json:"public_ip_address,omitempty"`
+	state                                       protoimpl.MessageState `protogen:"open.v1"`
+	MachineId                                   *uint64                `protobuf:"varint,1,opt,name=machine_id,json=machineId" json:"machine_id,omitempty"`
+	MachineNameUserchosen                       *string                `protobuf:"bytes,2,opt,name=machine_name_userchosen,json=machineNameUserchosen" json:"machine_name_userchosen,omitempty"`
+	TimestampMachineSteamguardEnabled           *uint32                `protobuf:"fixed32,3,opt,name=timestamp_machine_steamguard_enabled,json=timestampMachineSteamguardEnabled" json:"timestamp_machine_steamguard_enabled,omitempty"`
+	AuthenticationExistsFromGeolocBeforeMintime *bool                  `protobuf:"varint,4,opt,name=authentication_exists_from_geoloc_before_mintime,json=authenticationExistsFromGeolocBeforeMintime" json:"authentication_exists_from_geoloc_before_mintime,omitempty"`
+	AuthenticationExistsFromSameIpBeforeMintime *bool                  `protobuf:"varint,6,opt,name=authentication_exists_from_same_ip_before_mintime,json=authenticationExistsFromSameIpBeforeMintime" json:"authentication_exists_from_same_ip_before_mintime,omitempty"`
+	PublicIpv4                                  *uint32                `protobuf:"varint,7,opt,name=public_ipv4,json=publicIpv4" json:"public_ipv4,omitempty"`
+	PublicIpAddress                             *string                `protobuf:"bytes,8,opt,name=public_ip_address,json=publicIpAddress" json:"public_ip_address,omitempty"`
 	unknownFields                               protoimpl.UnknownFields
 	sizeCache                                   protoimpl.SizeCache
 }
 
 func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) Reset() {
 	*x = CCredentials_GetSteamGuardDetails_Response_SessionData{}
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -971,7 +778,7 @@ func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) String() string
 func (*CCredentials_GetSteamGuardDetails_Response_SessionData) ProtoMessage() {}
 
 func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_credentials_steamclient_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -984,7 +791,7 @@ func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) ProtoReflect() 
 
 // Deprecated: Use CCredentials_GetSteamGuardDetails_Response_SessionData.ProtoReflect.Descriptor instead.
 func (*CCredentials_GetSteamGuardDetails_Response_SessionData) Descriptor() ([]byte, []int) {
-	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{3, 1}
+	return file_steammessages_credentials_steamclient_proto_rawDescGZIP(), []int{3, 0}
 }
 
 func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) GetMachineId() uint64 {
@@ -1015,13 +822,6 @@ func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) GetAuthenticati
 	return false
 }
 
-func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) GetNewauthentication() []*CCredentials_GetSteamGuardDetails_Response_NewAuthentication {
-	if x != nil {
-		return x.Newauthentication
-	}
-	return nil
-}
-
 func (x *CCredentials_GetSteamGuardDetails_Response_SessionData) GetAuthenticationExistsFromSameIpBeforeMintime() bool {
 	if x != nil && x.AuthenticationExistsFromSameIpBeforeMintime != nil {
 		return *x.AuthenticationExistsFromSameIpBeforeMintime
@@ -1047,22 +847,22 @@ var File_steammessages_credentials_steamclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_credentials_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"+steammessages_credentials.steamclient.proto\x1a,steammessages_unified_base.steamclient.proto\"\x9b\x01\n" +
+	"+steammessages_credentials.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\"\x9b\x01\n" +
 	"*CCredentials_TestAvailablePassword_Request\x12\x1a\n" +
 	"\bpassword\x18\x01 \x01(\tR\bpassword\x12.\n" +
 	"\x13sha_digest_password\x18\x02 \x01(\fR\x11shaDigestPassword\x12!\n" +
 	"\faccount_name\x18\x03 \x01(\tR\vaccountName\"H\n" +
 	"+CCredentials_TestAvailablePassword_Response\x12\x19\n" +
-	"\bis_valid\x18\x03 \x01(\bR\aisValid\"\xb9\x03\n" +
-	")CCredentials_GetSteamGuardDetails_Request\x12\x90\x01\n" +
-	"\x1binclude_new_authentications\x18\x01 \x01(\b:\x04trueBJ\x82\xb5\x18FWhether or not to populate the newauthentication field in the responseR\x19includeNewAuthentications\x12\xa0\x01\n" +
-	"\twebcookie\x18\x02 \x01(\tB\x81\x01\x82\xb5\x18}The user's Steam Guard machine auth cookie. If present, it'll be used to get the user's machine ID instead of the AM session.R\twebcookie\x128\n" +
-	"\x18timestamp_minimum_wanted\x18\x03 \x01(\aR\x16timestampMinimumWanted\x12\x1c\n" +
-	"\tipaddress\x18\x04 \x01(\x05R\tipaddress\"\xf8\r\n" +
+	"\bis_valid\x18\x03 \x01(\bR\aisValid\"\xe5\x01\n" +
+	")CCredentials_GetSteamGuardDetails_Request\x12\x1c\n" +
+	"\twebcookie\x18\x02 \x01(\tR\twebcookie\x128\n" +
+	"\x18timestamp_minimum_wanted\x18\x03 \x01(\aR\x16timestampMinimumWanted\x121\n" +
+	"\x14deprecated_ipaddress\x18\x04 \x01(\x05R\x13deprecatedIpaddress\x12-\n" +
+	"\n" +
+	"ip_address\x18\x05 \x01(\v2\x0e.CMsgIPAddressR\tipAddress\"\xd3\t\n" +
 	"*CCredentials_GetSteamGuardDetails_Response\x122\n" +
 	"\x15is_steamguard_enabled\x18\x01 \x01(\bR\x13isSteamguardEnabled\x12@\n" +
-	"\x1ctimestamp_steamguard_enabled\x18\x02 \x01(\aR\x1atimestampSteamguardEnabled\x12\x80\x01\n" +
-	"\x1cdeprecated_newauthentication\x18\x03 \x03(\v2=.CCredentials_GetSteamGuardDetails_Response.NewAuthenticationR\x1bdeprecatedNewauthentication\x12K\n" +
+	"\x1ctimestamp_steamguard_enabled\x18\x02 \x01(\aR\x1atimestampSteamguardEnabled\x12K\n" +
 	"\"deprecated_machine_name_userchosen\x18\x04 \x01(\tR\x1fdeprecatedMachineNameUserchosen\x12d\n" +
 	"/deprecated_timestamp_machine_steamguard_enabled\x18\x05 \x01(\aR+deprecatedTimestampMachineSteamguardEnabled\x12z\n" +
 	";deprecated_authentication_exists_from_geoloc_before_mintime\x18\x06 \x01(\bR5deprecatedAuthenticationExistsFromGeolocBeforeMintime\x122\n" +
@@ -1071,45 +871,30 @@ const file_steammessages_credentials_steamclient_proto_rawDesc = "" +
 	"\x14is_twofactor_enabled\x18\t \x01(\bR\x12isTwofactorEnabled\x12>\n" +
 	"\x1btimestamp_twofactor_enabled\x18\n" +
 	" \x01(\aR\x19timestampTwofactorEnabled\x12*\n" +
-	"\x11is_phone_verified\x18\v \x01(\bR\x0fisPhoneVerified\x1a\xb2\x02\n" +
-	"\x11NewAuthentication\x12@\n" +
-	"\x1ctimestamp_steamguard_enabled\x18\x01 \x01(\aR\x1atimestampSteamguardEnabled\x12\"\n" +
-	"\ris_web_cookie\x18\x02 \x01(\bR\visWebCookie\x12\x1c\n" +
-	"\tipaddress\x18\x03 \x01(\x05R\tipaddress\x12\x1f\n" +
-	"\vgeoloc_info\x18\x04 \x01(\tR\n" +
-	"geolocInfo\x12#\n" +
-	"\ris_remembered\x18\x05 \x01(\bR\fisRemembered\x12;\n" +
-	"\x1amachine_name_user_supplied\x18\x06 \x01(\tR\x17machineNameUserSupplied\x12\x16\n" +
-	"\x06status\x18\a \x01(\x05R\x06status\x1a\xbe\x04\n" +
+	"\x11is_phone_verified\x18\v \x01(\bR\x0fisPhoneVerified\x1a\xd1\x03\n" +
 	"\vSessionData\x12\x1d\n" +
 	"\n" +
 	"machine_id\x18\x01 \x01(\x04R\tmachineId\x126\n" +
 	"\x17machine_name_userchosen\x18\x02 \x01(\tR\x15machineNameUserchosen\x12O\n" +
 	"$timestamp_machine_steamguard_enabled\x18\x03 \x01(\aR!timestampMachineSteamguardEnabled\x12e\n" +
-	"0authentication_exists_from_geoloc_before_mintime\x18\x04 \x01(\bR+authenticationExistsFromGeolocBeforeMintime\x12k\n" +
-	"\x11newauthentication\x18\x05 \x03(\v2=.CCredentials_GetSteamGuardDetails_Response.NewAuthenticationR\x11newauthentication\x12f\n" +
+	"0authentication_exists_from_geoloc_before_mintime\x18\x04 \x01(\bR+authenticationExistsFromGeolocBeforeMintime\x12f\n" +
 	"1authentication_exists_from_same_ip_before_mintime\x18\x06 \x01(\bR+authenticationExistsFromSameIpBeforeMintime\x12\x1f\n" +
 	"\vpublic_ipv4\x18\a \x01(\rR\n" +
 	"publicIpv4\x12*\n" +
-	"\x11public_ip_address\x18\b \x01(\tR\x0fpublicIpAddress\"\x82\x01\n" +
-	"1CCredentials_NewMachineNotificationDialog_Request\x12\x1f\n" +
-	"\vis_approved\x18\x01 \x01(\bR\n" +
-	"isApproved\x12,\n" +
-	"\x12is_wizard_complete\x18\x02 \x01(\bR\x10isWizardComplete\"4\n" +
-	"2CCredentials_NewMachineNotificationDialog_Response\"C\n" +
+	"\x11public_ip_address\x18\b \x01(\tR\x0fpublicIpAddress\"C\n" +
 	")CCredentials_ValidateEmailAddress_Request\x12\x16\n" +
 	"\x06stoken\x18\x01 \x01(\tR\x06stoken\"Q\n" +
 	"*CCredentials_ValidateEmailAddress_Response\x12#\n" +
 	"\rwas_validated\x18\x01 \x01(\bR\fwasValidated\"}\n" +
 	"-CCredentials_SteamGuardPhishingReport_Request\x12!\n" +
 	"\fparam_string\x18\x01 \x01(\tR\vparamString\x12)\n" +
-	"\x10ipaddress_actual\x18\x02 \x01(\rR\x0fipaddressActual\"\xe5\x03\n" +
+	"\x10ipaddress_actual\x18\x02 \x01(\tR\x0fipaddressActual\"\xe5\x03\n" +
 	".CCredentials_SteamGuardPhishingReport_Response\x125\n" +
-	"\x16ipaddress_loginattempt\x18\x01 \x01(\rR\x15ipaddressLoginattempt\x129\n" +
+	"\x16ipaddress_loginattempt\x18\x01 \x01(\tR\x15ipaddressLoginattempt\x129\n" +
 	"\x18countryname_loginattempt\x18\x02 \x01(\tR\x17countrynameLoginattempt\x125\n" +
 	"\x16statename_loginattempt\x18\x03 \x01(\tR\x15statenameLoginattempt\x123\n" +
 	"\x15cityname_loginattempt\x18\x04 \x01(\tR\x14citynameLoginattempt\x12)\n" +
-	"\x10ipaddress_actual\x18\x05 \x01(\rR\x0fipaddressActual\x12-\n" +
+	"\x10ipaddress_actual\x18\x05 \x01(\tR\x0fipaddressActual\x12-\n" +
 	"\x12countryname_actual\x18\x06 \x01(\tR\x11countrynameActual\x12)\n" +
 	"\x10statename_actual\x18\a \x01(\tR\x0fstatenameActual\x12'\n" +
 	"\x0fcityname_actual\x18\b \x01(\tR\x0ecitynameActual\x12'\n" +
@@ -1123,15 +908,14 @@ const file_steammessages_credentials_steamclient_proto_rawDesc = "" +
 	")CCredentials_GetAccountAuthSecret_Request\"a\n" +
 	"*CCredentials_GetAccountAuthSecret_Response\x12\x1b\n" +
 	"\tsecret_id\x18\x01 \x01(\x05R\bsecretId\x12\x16\n" +
-	"\x06secret\x18\x02 \x01(\fR\x06secret2\xed\b\n" +
-	"\vCredentials\x12\x8e\x01\n" +
-	"\x15TestAvailablePassword\x12+.CCredentials_TestAvailablePassword_Request\x1a,.CCredentials_TestAvailablePassword_Response\"\x1a\x82\xb5\x18\x16TestAvailablePassword.\x12\x8a\x01\n" +
-	"\x14GetSteamGuardDetails\x12*.CCredentials_GetSteamGuardDetails_Request\x1a+.CCredentials_GetSteamGuardDetails_Response\"\x19\x82\xb5\x18\x15GetSteamGuardDetails.\x12\xb6\x01\n" +
-	"\"NewMachineNotificationDialogResult\x122.CCredentials_NewMachineNotificationDialog_Request\x1a3.CCredentials_NewMachineNotificationDialog_Response\"'\x82\xb5\x18#NewMachineNotificationDialogResult.\x12\x9c\x01\n" +
-	"\x14ValidateEmailAddress\x12*.CCredentials_ValidateEmailAddress_Request\x1a+.CCredentials_ValidateEmailAddress_Response\"+\x82\xb5\x18'Validate an email address given a token\x12\x99\x01\n" +
-	"\x18SteamGuardPhishingReport\x12..CCredentials_SteamGuardPhishingReport_Request\x1a/.CCredentials_SteamGuardPhishingReport_Response\"\x1c\x82\xb5\x18\x18SteamGuardPhishingReport\x12\xa6\x01\n" +
-	"\x1eGetCredentialChangeTimeDetails\x12..CCredentials_LastCredentialChangeTime_Request\x1a/.CCredentials_LastCredentialChangeTime_Response\"#\x82\xb5\x18\x1fGetCredentialChangeTimeDetails.\x12\x89\x01\n" +
-	"\x14GetAccountAuthSecret\x12*.CCredentials_GetAccountAuthSecret_Request\x1a+.CCredentials_GetAccountAuthSecret_Response\"\x18\x82\xb5\x18\x14GetAccountAuthSecret\x1a\x17\x82\xb5\x18\x13Credentials serviceB\x03\x80\x01\x01"
+	"\x06secret\x18\x02 \x01(\fR\x06secret2\xd5\x05\n" +
+	"\vCredentials\x12r\n" +
+	"\x15TestAvailablePassword\x12+.CCredentials_TestAvailablePassword_Request\x1a,.CCredentials_TestAvailablePassword_Response\x12o\n" +
+	"\x14GetSteamGuardDetails\x12*.CCredentials_GetSteamGuardDetails_Request\x1a+.CCredentials_GetSteamGuardDetails_Response\x12o\n" +
+	"\x14ValidateEmailAddress\x12*.CCredentials_ValidateEmailAddress_Request\x1a+.CCredentials_ValidateEmailAddress_Response\x12{\n" +
+	"\x18SteamGuardPhishingReport\x12..CCredentials_SteamGuardPhishingReport_Request\x1a/.CCredentials_SteamGuardPhishingReport_Response\x12\x81\x01\n" +
+	"\x1eGetCredentialChangeTimeDetails\x12..CCredentials_LastCredentialChangeTime_Request\x1a/.CCredentials_LastCredentialChangeTime_Response\x12o\n" +
+	"\x14GetAccountAuthSecret\x12*.CCredentials_GetAccountAuthSecret_Request\x1a+.CCredentials_GetAccountAuthSecret_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_credentials_steamclient_proto_rawDescOnce sync.Once
@@ -1145,48 +929,43 @@ func file_steammessages_credentials_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_credentials_steamclient_proto_rawDescData
 }
 
-var file_steammessages_credentials_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
+var file_steammessages_credentials_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_steammessages_credentials_steamclient_proto_goTypes = []any{
-	(*CCredentials_TestAvailablePassword_Request)(nil),                   // 0: CCredentials_TestAvailablePassword_Request
-	(*CCredentials_TestAvailablePassword_Response)(nil),                  // 1: CCredentials_TestAvailablePassword_Response
-	(*CCredentials_GetSteamGuardDetails_Request)(nil),                    // 2: CCredentials_GetSteamGuardDetails_Request
-	(*CCredentials_GetSteamGuardDetails_Response)(nil),                   // 3: CCredentials_GetSteamGuardDetails_Response
-	(*CCredentials_NewMachineNotificationDialog_Request)(nil),            // 4: CCredentials_NewMachineNotificationDialog_Request
-	(*CCredentials_NewMachineNotificationDialog_Response)(nil),           // 5: CCredentials_NewMachineNotificationDialog_Response
-	(*CCredentials_ValidateEmailAddress_Request)(nil),                    // 6: CCredentials_ValidateEmailAddress_Request
-	(*CCredentials_ValidateEmailAddress_Response)(nil),                   // 7: CCredentials_ValidateEmailAddress_Response
-	(*CCredentials_SteamGuardPhishingReport_Request)(nil),                // 8: CCredentials_SteamGuardPhishingReport_Request
-	(*CCredentials_SteamGuardPhishingReport_Response)(nil),               // 9: CCredentials_SteamGuardPhishingReport_Response
-	(*CCredentials_LastCredentialChangeTime_Request)(nil),                // 10: CCredentials_LastCredentialChangeTime_Request
-	(*CCredentials_LastCredentialChangeTime_Response)(nil),               // 11: CCredentials_LastCredentialChangeTime_Response
-	(*CCredentials_GetAccountAuthSecret_Request)(nil),                    // 12: CCredentials_GetAccountAuthSecret_Request
-	(*CCredentials_GetAccountAuthSecret_Response)(nil),                   // 13: CCredentials_GetAccountAuthSecret_Response
-	(*CCredentials_GetSteamGuardDetails_Response_NewAuthentication)(nil), // 14: CCredentials_GetSteamGuardDetails_Response.NewAuthentication
-	(*CCredentials_GetSteamGuardDetails_Response_SessionData)(nil),       // 15: CCredentials_GetSteamGuardDetails_Response.SessionData
+	(*CCredentials_TestAvailablePassword_Request)(nil),             // 0: CCredentials_TestAvailablePassword_Request
+	(*CCredentials_TestAvailablePassword_Response)(nil),            // 1: CCredentials_TestAvailablePassword_Response
+	(*CCredentials_GetSteamGuardDetails_Request)(nil),              // 2: CCredentials_GetSteamGuardDetails_Request
+	(*CCredentials_GetSteamGuardDetails_Response)(nil),             // 3: CCredentials_GetSteamGuardDetails_Response
+	(*CCredentials_ValidateEmailAddress_Request)(nil),              // 4: CCredentials_ValidateEmailAddress_Request
+	(*CCredentials_ValidateEmailAddress_Response)(nil),             // 5: CCredentials_ValidateEmailAddress_Response
+	(*CCredentials_SteamGuardPhishingReport_Request)(nil),          // 6: CCredentials_SteamGuardPhishingReport_Request
+	(*CCredentials_SteamGuardPhishingReport_Response)(nil),         // 7: CCredentials_SteamGuardPhishingReport_Response
+	(*CCredentials_LastCredentialChangeTime_Request)(nil),          // 8: CCredentials_LastCredentialChangeTime_Request
+	(*CCredentials_LastCredentialChangeTime_Response)(nil),         // 9: CCredentials_LastCredentialChangeTime_Response
+	(*CCredentials_GetAccountAuthSecret_Request)(nil),              // 10: CCredentials_GetAccountAuthSecret_Request
+	(*CCredentials_GetAccountAuthSecret_Response)(nil),             // 11: CCredentials_GetAccountAuthSecret_Response
+	(*CCredentials_GetSteamGuardDetails_Response_SessionData)(nil), // 12: CCredentials_GetSteamGuardDetails_Response.SessionData
+	(*CMsgIPAddress)(nil),                 // 13: CMsgIPAddress
 }
 var file_steammessages_credentials_steamclient_proto_depIdxs = []int32{
-	14, // 0: CCredentials_GetSteamGuardDetails_Response.deprecated_newauthentication:type_name -> CCredentials_GetSteamGuardDetails_Response.NewAuthentication
-	15, // 1: CCredentials_GetSteamGuardDetails_Response.session_data:type_name -> CCredentials_GetSteamGuardDetails_Response.SessionData
-	14, // 2: CCredentials_GetSteamGuardDetails_Response.SessionData.newauthentication:type_name -> CCredentials_GetSteamGuardDetails_Response.NewAuthentication
-	0,  // 3: Credentials.TestAvailablePassword:input_type -> CCredentials_TestAvailablePassword_Request
-	2,  // 4: Credentials.GetSteamGuardDetails:input_type -> CCredentials_GetSteamGuardDetails_Request
-	4,  // 5: Credentials.NewMachineNotificationDialogResult:input_type -> CCredentials_NewMachineNotificationDialog_Request
-	6,  // 6: Credentials.ValidateEmailAddress:input_type -> CCredentials_ValidateEmailAddress_Request
-	8,  // 7: Credentials.SteamGuardPhishingReport:input_type -> CCredentials_SteamGuardPhishingReport_Request
-	10, // 8: Credentials.GetCredentialChangeTimeDetails:input_type -> CCredentials_LastCredentialChangeTime_Request
-	12, // 9: Credentials.GetAccountAuthSecret:input_type -> CCredentials_GetAccountAuthSecret_Request
-	1,  // 10: Credentials.TestAvailablePassword:output_type -> CCredentials_TestAvailablePassword_Response
-	3,  // 11: Credentials.GetSteamGuardDetails:output_type -> CCredentials_GetSteamGuardDetails_Response
-	5,  // 12: Credentials.NewMachineNotificationDialogResult:output_type -> CCredentials_NewMachineNotificationDialog_Response
-	7,  // 13: Credentials.ValidateEmailAddress:output_type -> CCredentials_ValidateEmailAddress_Response
-	9,  // 14: Credentials.SteamGuardPhishingReport:output_type -> CCredentials_SteamGuardPhishingReport_Response
-	11, // 15: Credentials.GetCredentialChangeTimeDetails:output_type -> CCredentials_LastCredentialChangeTime_Response
-	13, // 16: Credentials.GetAccountAuthSecret:output_type -> CCredentials_GetAccountAuthSecret_Response
-	10, // [10:17] is the sub-list for method output_type
-	3,  // [3:10] is the sub-list for method input_type
-	3,  // [3:3] is the sub-list for extension type_name
-	3,  // [3:3] is the sub-list for extension extendee
-	0,  // [0:3] is the sub-list for field type_name
+	13, // 0: CCredentials_GetSteamGuardDetails_Request.ip_address:type_name -> CMsgIPAddress
+	12, // 1: CCredentials_GetSteamGuardDetails_Response.session_data:type_name -> CCredentials_GetSteamGuardDetails_Response.SessionData
+	0,  // 2: Credentials.TestAvailablePassword:input_type -> CCredentials_TestAvailablePassword_Request
+	2,  // 3: Credentials.GetSteamGuardDetails:input_type -> CCredentials_GetSteamGuardDetails_Request
+	4,  // 4: Credentials.ValidateEmailAddress:input_type -> CCredentials_ValidateEmailAddress_Request
+	6,  // 5: Credentials.SteamGuardPhishingReport:input_type -> CCredentials_SteamGuardPhishingReport_Request
+	8,  // 6: Credentials.GetCredentialChangeTimeDetails:input_type -> CCredentials_LastCredentialChangeTime_Request
+	10, // 7: Credentials.GetAccountAuthSecret:input_type -> CCredentials_GetAccountAuthSecret_Request
+	1,  // 8: Credentials.TestAvailablePassword:output_type -> CCredentials_TestAvailablePassword_Response
+	3,  // 9: Credentials.GetSteamGuardDetails:output_type -> CCredentials_GetSteamGuardDetails_Response
+	5,  // 10: Credentials.ValidateEmailAddress:output_type -> CCredentials_ValidateEmailAddress_Response
+	7,  // 11: Credentials.SteamGuardPhishingReport:output_type -> CCredentials_SteamGuardPhishingReport_Response
+	9,  // 12: Credentials.GetCredentialChangeTimeDetails:output_type -> CCredentials_LastCredentialChangeTime_Response
+	11, // 13: Credentials.GetAccountAuthSecret:output_type -> CCredentials_GetAccountAuthSecret_Response
+	8,  // [8:14] is the sub-list for method output_type
+	2,  // [2:8] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_credentials_steamclient_proto_init() }
@@ -1200,7 +979,7 @@ func file_steammessages_credentials_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_credentials_steamclient_proto_rawDesc), len(file_steammessages_credentials_steamclient_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   16,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -1144,7 +1144,7 @@ const file_gcsystemmsgs_proto_rawDesc = "" +
 	"'k_EMsgGCRequestSubGCSessionInfoResponse\x10\x9c\x01\x12&\n" +
 	"!k_EGCToGCMsgMasterStartupComplete\x10\x9d\x01\x12!\n" +
 	"\x1ck_EMsgGCToGCSOCacheSubscribe\x10\x9e\x01\x12#\n" +
-	"\x1ek_EMsgGCToGCSOCacheUnsubscribe\x10\x9f\x01B\x05H\x01\x80\x01\x00"
+	"\x1ek_EMsgGCToGCSOCacheUnsubscribe\x10\x9f\x01B:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_gcsystemmsgs_proto_rawDescOnce sync.Once

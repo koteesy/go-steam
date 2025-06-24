@@ -107,7 +107,7 @@ const file_encrypted_app_ticket_proto_rawDesc = "" +
 	"\x13crc_encryptedticket\x18\x02 \x01(\rR\x12crcEncryptedticket\x121\n" +
 	"\x14cb_encrypteduserdata\x18\x03 \x01(\rR\x13cbEncrypteduserdata\x12F\n" +
 	"\x1fcb_encrypted_appownershipticket\x18\x04 \x01(\rR\x1dcbEncryptedAppownershipticket\x12)\n" +
-	"\x10encrypted_ticket\x18\x05 \x01(\fR\x0fencryptedTicketB\x05H\x01\x80\x01\x00"
+	"\x10encrypted_ticket\x18\x05 \x01(\fR\x0fencryptedTicketB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_encrypted_app_ticket_proto_rawDescOnce sync.Once

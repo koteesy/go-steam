@@ -155,7 +155,7 @@ const file_engine_gcmessages_proto_rawDesc = "" +
 	"\x06rcvage\x18\t \x01(\x02R\x06rcvage\x12+\n" +
 	"\x11keyframe_interval\x18\n" +
 	" \x01(\x02R\x10keyframeInterval\x12\x1a\n" +
-	"\bcdndelay\x18\v \x01(\rR\bcdndelayB\x03\x80\x01\x00"
+	"\bcdndelay\x18\v \x01(\rR\bcdndelay"
 
 var (
 	file_engine_gcmessages_proto_rawDescOnce sync.Once

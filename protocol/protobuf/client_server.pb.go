@@ -23,236 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type EMMSLobbyStatus int32
-
-const (
-	EMMSLobbyStatus_k_EMMSLobbyStatusInvalid      EMMSLobbyStatus = 0
-	EMMSLobbyStatus_k_EMMSLobbyStatusExists       EMMSLobbyStatus = 1
-	EMMSLobbyStatus_k_EMMSLobbyStatusDoesNotExist EMMSLobbyStatus = 2
-	EMMSLobbyStatus_k_EMMSLobbyStatusNotAMember   EMMSLobbyStatus = 3
-)
-
-// Enum value maps for EMMSLobbyStatus.
-var (
-	EMMSLobbyStatus_name = map[int32]string{
-		0: "k_EMMSLobbyStatusInvalid",
-		1: "k_EMMSLobbyStatusExists",
-		2: "k_EMMSLobbyStatusDoesNotExist",
-		3: "k_EMMSLobbyStatusNotAMember",
-	}
-	EMMSLobbyStatus_value = map[string]int32{
-		"k_EMMSLobbyStatusInvalid":      0,
-		"k_EMMSLobbyStatusExists":       1,
-		"k_EMMSLobbyStatusDoesNotExist": 2,
-		"k_EMMSLobbyStatusNotAMember":   3,
-	}
-)
-
-func (x EMMSLobbyStatus) Enum() *EMMSLobbyStatus {
-	p := new(EMMSLobbyStatus)
-	*p = x
-	return p
-}
-
-func (x EMMSLobbyStatus) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (EMMSLobbyStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_steammessages_clientserver_proto_enumTypes[0].Descriptor()
-}
-
-func (EMMSLobbyStatus) Type() protoreflect.EnumType {
-	return &file_steammessages_clientserver_proto_enumTypes[0]
-}
-
-func (x EMMSLobbyStatus) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Do not use.
-func (x *EMMSLobbyStatus) UnmarshalJSON(b []byte) error {
-	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
-	if err != nil {
-		return err
-	}
-	*x = EMMSLobbyStatus(num)
-	return nil
-}
-
-// Deprecated: Use EMMSLobbyStatus.Descriptor instead.
-func (EMMSLobbyStatus) EnumDescriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{0}
-}
-
-type CMsgClientUDSP2PSessionStarted struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SteamidRemote *uint64                `protobuf:"fixed64,1,opt,name=steamid_remote,json=steamidRemote" json:"steamid_remote,omitempty"`
-	Appid         *int32                 `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUDSP2PSessionStarted) Reset() {
-	*x = CMsgClientUDSP2PSessionStarted{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUDSP2PSessionStarted) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUDSP2PSessionStarted) ProtoMessage() {}
-
-func (x *CMsgClientUDSP2PSessionStarted) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUDSP2PSessionStarted.ProtoReflect.Descriptor instead.
-func (*CMsgClientUDSP2PSessionStarted) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *CMsgClientUDSP2PSessionStarted) GetSteamidRemote() uint64 {
-	if x != nil && x.SteamidRemote != nil {
-		return *x.SteamidRemote
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionStarted) GetAppid() int32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-type CMsgClientUDSP2PSessionEnded struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	SteamidRemote    *uint64                `protobuf:"fixed64,1,opt,name=steamid_remote,json=steamidRemote" json:"steamid_remote,omitempty"`
-	Appid            *int32                 `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
-	SessionLengthSec *int32                 `protobuf:"varint,3,opt,name=session_length_sec,json=sessionLengthSec" json:"session_length_sec,omitempty"`
-	SessionError     *int32                 `protobuf:"varint,4,opt,name=session_error,json=sessionError" json:"session_error,omitempty"`
-	Nattype          *int32                 `protobuf:"varint,5,opt,name=nattype" json:"nattype,omitempty"`
-	BytesRecv        *int32                 `protobuf:"varint,6,opt,name=bytes_recv,json=bytesRecv" json:"bytes_recv,omitempty"`
-	BytesSent        *int32                 `protobuf:"varint,7,opt,name=bytes_sent,json=bytesSent" json:"bytes_sent,omitempty"`
-	BytesSentRelay   *int32                 `protobuf:"varint,8,opt,name=bytes_sent_relay,json=bytesSentRelay" json:"bytes_sent_relay,omitempty"`
-	BytesRecvRelay   *int32                 `protobuf:"varint,9,opt,name=bytes_recv_relay,json=bytesRecvRelay" json:"bytes_recv_relay,omitempty"`
-	TimeToConnectMs  *int32                 `protobuf:"varint,10,opt,name=time_to_connect_ms,json=timeToConnectMs" json:"time_to_connect_ms,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) Reset() {
-	*x = CMsgClientUDSP2PSessionEnded{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUDSP2PSessionEnded) ProtoMessage() {}
-
-func (x *CMsgClientUDSP2PSessionEnded) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUDSP2PSessionEnded.ProtoReflect.Descriptor instead.
-func (*CMsgClientUDSP2PSessionEnded) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetSteamidRemote() uint64 {
-	if x != nil && x.SteamidRemote != nil {
-		return *x.SteamidRemote
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetAppid() int32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetSessionLengthSec() int32 {
-	if x != nil && x.SessionLengthSec != nil {
-		return *x.SessionLengthSec
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetSessionError() int32 {
-	if x != nil && x.SessionError != nil {
-		return *x.SessionError
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetNattype() int32 {
-	if x != nil && x.Nattype != nil {
-		return *x.Nattype
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetBytesRecv() int32 {
-	if x != nil && x.BytesRecv != nil {
-		return *x.BytesRecv
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetBytesSent() int32 {
-	if x != nil && x.BytesSent != nil {
-		return *x.BytesSent
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetBytesSentRelay() int32 {
-	if x != nil && x.BytesSentRelay != nil {
-		return *x.BytesSentRelay
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetBytesRecvRelay() int32 {
-	if x != nil && x.BytesRecvRelay != nil {
-		return *x.BytesRecvRelay
-	}
-	return 0
-}
-
-func (x *CMsgClientUDSP2PSessionEnded) GetTimeToConnectMs() int32 {
-	if x != nil && x.TimeToConnectMs != nil {
-		return *x.TimeToConnectMs
-	}
-	return 0
-}
-
 type CMsgClientRegisterAuthTicketWithCM struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	ProtocolVersion  *uint32                `protobuf:"varint,1,opt,name=protocol_version,json=protocolVersion" json:"protocol_version,omitempty"`
@@ -264,7 +34,7 @@ type CMsgClientRegisterAuthTicketWithCM struct {
 
 func (x *CMsgClientRegisterAuthTicketWithCM) Reset() {
 	*x = CMsgClientRegisterAuthTicketWithCM{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[2]
+	mi := &file_steammessages_clientserver_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -276,7 +46,7 @@ func (x *CMsgClientRegisterAuthTicketWithCM) String() string {
 func (*CMsgClientRegisterAuthTicketWithCM) ProtoMessage() {}
 
 func (x *CMsgClientRegisterAuthTicketWithCM) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[2]
+	mi := &file_steammessages_clientserver_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -289,7 +59,7 @@ func (x *CMsgClientRegisterAuthTicketWithCM) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgClientRegisterAuthTicketWithCM.ProtoReflect.Descriptor instead.
 func (*CMsgClientRegisterAuthTicketWithCM) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{2}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CMsgClientRegisterAuthTicketWithCM) GetProtocolVersion() uint32 {
@@ -329,7 +99,7 @@ type CMsgClientTicketAuthComplete struct {
 
 func (x *CMsgClientTicketAuthComplete) Reset() {
 	*x = CMsgClientTicketAuthComplete{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[3]
+	mi := &file_steammessages_clientserver_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -341,7 +111,7 @@ func (x *CMsgClientTicketAuthComplete) String() string {
 func (*CMsgClientTicketAuthComplete) ProtoMessage() {}
 
 func (x *CMsgClientTicketAuthComplete) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[3]
+	mi := &file_steammessages_clientserver_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -354,7 +124,7 @@ func (x *CMsgClientTicketAuthComplete) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientTicketAuthComplete.ProtoReflect.Descriptor instead.
 func (*CMsgClientTicketAuthComplete) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{3}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CMsgClientTicketAuthComplete) GetSteamId() uint64 {
@@ -413,89 +183,21 @@ func (x *CMsgClientTicketAuthComplete) GetOwnerSteamId() uint64 {
 	return 0
 }
 
-type CMsgClientCMList struct {
-	state                     protoimpl.MessageState `protogen:"open.v1"`
-	CmAddresses               []uint32               `protobuf:"varint,1,rep,name=cm_addresses,json=cmAddresses" json:"cm_addresses,omitempty"`
-	CmPorts                   []uint32               `protobuf:"varint,2,rep,name=cm_ports,json=cmPorts" json:"cm_ports,omitempty"`
-	CmWebsocketAddresses      []string               `protobuf:"bytes,3,rep,name=cm_websocket_addresses,json=cmWebsocketAddresses" json:"cm_websocket_addresses,omitempty"`
-	PercentDefaultToWebsocket *uint32                `protobuf:"varint,4,opt,name=percent_default_to_websocket,json=percentDefaultToWebsocket" json:"percent_default_to_websocket,omitempty"`
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
-}
-
-func (x *CMsgClientCMList) Reset() {
-	*x = CMsgClientCMList{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientCMList) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientCMList) ProtoMessage() {}
-
-func (x *CMsgClientCMList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientCMList.ProtoReflect.Descriptor instead.
-func (*CMsgClientCMList) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *CMsgClientCMList) GetCmAddresses() []uint32 {
-	if x != nil {
-		return x.CmAddresses
-	}
-	return nil
-}
-
-func (x *CMsgClientCMList) GetCmPorts() []uint32 {
-	if x != nil {
-		return x.CmPorts
-	}
-	return nil
-}
-
-func (x *CMsgClientCMList) GetCmWebsocketAddresses() []string {
-	if x != nil {
-		return x.CmWebsocketAddresses
-	}
-	return nil
-}
-
-func (x *CMsgClientCMList) GetPercentDefaultToWebsocket() uint32 {
-	if x != nil && x.PercentDefaultToWebsocket != nil {
-		return *x.PercentDefaultToWebsocket
-	}
-	return 0
-}
-
 type CMsgClientP2PConnectionInfo struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	SteamIdDest     *uint64                `protobuf:"fixed64,1,opt,name=steam_id_dest,json=steamIdDest" json:"steam_id_dest,omitempty"`
-	SteamIdSrc      *uint64                `protobuf:"fixed64,2,opt,name=steam_id_src,json=steamIdSrc" json:"steam_id_src,omitempty"`
-	AppId           *uint32                `protobuf:"varint,3,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	Candidate       []byte                 `protobuf:"bytes,4,opt,name=candidate" json:"candidate,omitempty"`
-	ConnectionIdSrc *uint64                `protobuf:"fixed64,5,opt,name=connection_id_src,json=connectionIdSrc" json:"connection_id_src,omitempty"`
-	Rendezvous      []byte                 `protobuf:"bytes,6,opt,name=rendezvous" json:"rendezvous,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	SteamIdDest           *uint64                `protobuf:"fixed64,1,opt,name=steam_id_dest,json=steamIdDest" json:"steam_id_dest,omitempty"`
+	SteamIdSrc            *uint64                `protobuf:"fixed64,2,opt,name=steam_id_src,json=steamIdSrc" json:"steam_id_src,omitempty"`
+	AppId                 *uint32                `protobuf:"varint,3,opt,name=app_id,json=appId" json:"app_id,omitempty"`
+	Candidate             []byte                 `protobuf:"bytes,4,opt,name=candidate" json:"candidate,omitempty"`
+	LegacyConnectionIdSrc *uint64                `protobuf:"fixed64,5,opt,name=legacy_connection_id_src,json=legacyConnectionIdSrc" json:"legacy_connection_id_src,omitempty"`
+	Rendezvous            []byte                 `protobuf:"bytes,6,opt,name=rendezvous" json:"rendezvous,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
 }
 
 func (x *CMsgClientP2PConnectionInfo) Reset() {
 	*x = CMsgClientP2PConnectionInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[5]
+	mi := &file_steammessages_clientserver_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -507,7 +209,7 @@ func (x *CMsgClientP2PConnectionInfo) String() string {
 func (*CMsgClientP2PConnectionInfo) ProtoMessage() {}
 
 func (x *CMsgClientP2PConnectionInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[5]
+	mi := &file_steammessages_clientserver_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -520,7 +222,7 @@ func (x *CMsgClientP2PConnectionInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientP2PConnectionInfo.ProtoReflect.Descriptor instead.
 func (*CMsgClientP2PConnectionInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CMsgClientP2PConnectionInfo) GetSteamIdDest() uint64 {
@@ -551,9 +253,9 @@ func (x *CMsgClientP2PConnectionInfo) GetCandidate() []byte {
 	return nil
 }
 
-func (x *CMsgClientP2PConnectionInfo) GetConnectionIdSrc() uint64 {
-	if x != nil && x.ConnectionIdSrc != nil {
-		return *x.ConnectionIdSrc
+func (x *CMsgClientP2PConnectionInfo) GetLegacyConnectionIdSrc() uint64 {
+	if x != nil && x.LegacyConnectionIdSrc != nil {
+		return *x.LegacyConnectionIdSrc
 	}
 	return 0
 }
@@ -580,7 +282,7 @@ type CMsgClientP2PConnectionFailInfo struct {
 
 func (x *CMsgClientP2PConnectionFailInfo) Reset() {
 	*x = CMsgClientP2PConnectionFailInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[6]
+	mi := &file_steammessages_clientserver_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -592,7 +294,7 @@ func (x *CMsgClientP2PConnectionFailInfo) String() string {
 func (*CMsgClientP2PConnectionFailInfo) ProtoMessage() {}
 
 func (x *CMsgClientP2PConnectionFailInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[6]
+	mi := &file_steammessages_clientserver_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -605,7 +307,7 @@ func (x *CMsgClientP2PConnectionFailInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientP2PConnectionFailInfo.ProtoReflect.Descriptor instead.
 func (*CMsgClientP2PConnectionFailInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CMsgClientP2PConnectionFailInfo) GetSteamIdDest() uint64 {
@@ -667,7 +369,7 @@ type CMsgClientNetworkingCertRequest struct {
 
 func (x *CMsgClientNetworkingCertRequest) Reset() {
 	*x = CMsgClientNetworkingCertRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[7]
+	mi := &file_steammessages_clientserver_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -679,7 +381,7 @@ func (x *CMsgClientNetworkingCertRequest) String() string {
 func (*CMsgClientNetworkingCertRequest) ProtoMessage() {}
 
 func (x *CMsgClientNetworkingCertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[7]
+	mi := &file_steammessages_clientserver_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -692,7 +394,7 @@ func (x *CMsgClientNetworkingCertRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientNetworkingCertRequest.ProtoReflect.Descriptor instead.
 func (*CMsgClientNetworkingCertRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CMsgClientNetworkingCertRequest) GetKeyData() []byte {
@@ -720,7 +422,7 @@ type CMsgClientNetworkingCertReply struct {
 
 func (x *CMsgClientNetworkingCertReply) Reset() {
 	*x = CMsgClientNetworkingCertReply{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[8]
+	mi := &file_steammessages_clientserver_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -732,7 +434,7 @@ func (x *CMsgClientNetworkingCertReply) String() string {
 func (*CMsgClientNetworkingCertReply) ProtoMessage() {}
 
 func (x *CMsgClientNetworkingCertReply) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[8]
+	mi := &file_steammessages_clientserver_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -745,7 +447,7 @@ func (x *CMsgClientNetworkingCertReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientNetworkingCertReply.ProtoReflect.Descriptor instead.
 func (*CMsgClientNetworkingCertReply) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CMsgClientNetworkingCertReply) GetCert() []byte {
@@ -778,7 +480,7 @@ type CMsgClientNetworkingMobileCertRequest struct {
 
 func (x *CMsgClientNetworkingMobileCertRequest) Reset() {
 	*x = CMsgClientNetworkingMobileCertRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[9]
+	mi := &file_steammessages_clientserver_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -790,7 +492,7 @@ func (x *CMsgClientNetworkingMobileCertRequest) String() string {
 func (*CMsgClientNetworkingMobileCertRequest) ProtoMessage() {}
 
 func (x *CMsgClientNetworkingMobileCertRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[9]
+	mi := &file_steammessages_clientserver_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -803,7 +505,7 @@ func (x *CMsgClientNetworkingMobileCertRequest) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgClientNetworkingMobileCertRequest.ProtoReflect.Descriptor instead.
 func (*CMsgClientNetworkingMobileCertRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CMsgClientNetworkingMobileCertRequest) GetAppId() uint32 {
@@ -822,7 +524,7 @@ type CMsgClientNetworkingMobileCertReply struct {
 
 func (x *CMsgClientNetworkingMobileCertReply) Reset() {
 	*x = CMsgClientNetworkingMobileCertReply{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[10]
+	mi := &file_steammessages_clientserver_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -834,7 +536,7 @@ func (x *CMsgClientNetworkingMobileCertReply) String() string {
 func (*CMsgClientNetworkingMobileCertReply) ProtoMessage() {}
 
 func (x *CMsgClientNetworkingMobileCertReply) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[10]
+	mi := &file_steammessages_clientserver_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -847,7 +549,7 @@ func (x *CMsgClientNetworkingMobileCertReply) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgClientNetworkingMobileCertReply.ProtoReflect.Descriptor instead.
 func (*CMsgClientNetworkingMobileCertReply) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CMsgClientNetworkingMobileCertReply) GetEncodedCert() string {
@@ -866,7 +568,7 @@ type CMsgClientGetAppOwnershipTicket struct {
 
 func (x *CMsgClientGetAppOwnershipTicket) Reset() {
 	*x = CMsgClientGetAppOwnershipTicket{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[11]
+	mi := &file_steammessages_clientserver_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -878,7 +580,7 @@ func (x *CMsgClientGetAppOwnershipTicket) String() string {
 func (*CMsgClientGetAppOwnershipTicket) ProtoMessage() {}
 
 func (x *CMsgClientGetAppOwnershipTicket) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[11]
+	mi := &file_steammessages_clientserver_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -891,7 +593,7 @@ func (x *CMsgClientGetAppOwnershipTicket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientGetAppOwnershipTicket.ProtoReflect.Descriptor instead.
 func (*CMsgClientGetAppOwnershipTicket) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CMsgClientGetAppOwnershipTicket) GetAppId() uint32 {
@@ -917,7 +619,7 @@ const (
 
 func (x *CMsgClientGetAppOwnershipTicketResponse) Reset() {
 	*x = CMsgClientGetAppOwnershipTicketResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[12]
+	mi := &file_steammessages_clientserver_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -929,7 +631,7 @@ func (x *CMsgClientGetAppOwnershipTicketResponse) String() string {
 func (*CMsgClientGetAppOwnershipTicketResponse) ProtoMessage() {}
 
 func (x *CMsgClientGetAppOwnershipTicketResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[12]
+	mi := &file_steammessages_clientserver_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -942,7 +644,7 @@ func (x *CMsgClientGetAppOwnershipTicketResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgClientGetAppOwnershipTicketResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientGetAppOwnershipTicketResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CMsgClientGetAppOwnershipTicketResponse) GetEresult() uint32 {
@@ -975,7 +677,7 @@ type CMsgClientSessionToken struct {
 
 func (x *CMsgClientSessionToken) Reset() {
 	*x = CMsgClientSessionToken{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[13]
+	mi := &file_steammessages_clientserver_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -987,7 +689,7 @@ func (x *CMsgClientSessionToken) String() string {
 func (*CMsgClientSessionToken) ProtoMessage() {}
 
 func (x *CMsgClientSessionToken) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[13]
+	mi := &file_steammessages_clientserver_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1000,7 +702,7 @@ func (x *CMsgClientSessionToken) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientSessionToken.ProtoReflect.Descriptor instead.
 func (*CMsgClientSessionToken) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CMsgClientSessionToken) GetToken() uint64 {
@@ -1025,7 +727,7 @@ const (
 
 func (x *CMsgClientGameConnectTokens) Reset() {
 	*x = CMsgClientGameConnectTokens{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[14]
+	mi := &file_steammessages_clientserver_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1037,7 +739,7 @@ func (x *CMsgClientGameConnectTokens) String() string {
 func (*CMsgClientGameConnectTokens) ProtoMessage() {}
 
 func (x *CMsgClientGameConnectTokens) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[14]
+	mi := &file_steammessages_clientserver_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1050,7 +752,7 @@ func (x *CMsgClientGameConnectTokens) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientGameConnectTokens.ProtoReflect.Descriptor instead.
 func (*CMsgClientGameConnectTokens) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CMsgClientGameConnectTokens) GetMaxTokensToKeep() uint32 {
@@ -1067,310 +769,19 @@ func (x *CMsgClientGameConnectTokens) GetTokens() [][]byte {
 	return nil
 }
 
-type CMsgGSServerType struct {
-	state                   protoimpl.MessageState `protogen:"open.v1"`
-	AppIdServed             *uint32                `protobuf:"varint,1,opt,name=app_id_served,json=appIdServed" json:"app_id_served,omitempty"`
-	Flags                   *uint32                `protobuf:"varint,2,opt,name=flags" json:"flags,omitempty"`
-	DeprecatedGameIpAddress *uint32                `protobuf:"varint,3,opt,name=deprecated_game_ip_address,json=deprecatedGameIpAddress" json:"deprecated_game_ip_address,omitempty"`
-	GamePort                *uint32                `protobuf:"varint,4,opt,name=game_port,json=gamePort" json:"game_port,omitempty"`
-	GameDir                 *string                `protobuf:"bytes,5,opt,name=game_dir,json=gameDir" json:"game_dir,omitempty"`
-	GameVersion             *string                `protobuf:"bytes,6,opt,name=game_version,json=gameVersion" json:"game_version,omitempty"`
-	GameQueryPort           *uint32                `protobuf:"varint,7,opt,name=game_query_port,json=gameQueryPort" json:"game_query_port,omitempty"`
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
-}
-
-func (x *CMsgGSServerType) Reset() {
-	*x = CMsgGSServerType{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[15]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGSServerType) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGSServerType) ProtoMessage() {}
-
-func (x *CMsgGSServerType) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[15]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGSServerType.ProtoReflect.Descriptor instead.
-func (*CMsgGSServerType) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{15}
-}
-
-func (x *CMsgGSServerType) GetAppIdServed() uint32 {
-	if x != nil && x.AppIdServed != nil {
-		return *x.AppIdServed
-	}
-	return 0
-}
-
-func (x *CMsgGSServerType) GetFlags() uint32 {
-	if x != nil && x.Flags != nil {
-		return *x.Flags
-	}
-	return 0
-}
-
-func (x *CMsgGSServerType) GetDeprecatedGameIpAddress() uint32 {
-	if x != nil && x.DeprecatedGameIpAddress != nil {
-		return *x.DeprecatedGameIpAddress
-	}
-	return 0
-}
-
-func (x *CMsgGSServerType) GetGamePort() uint32 {
-	if x != nil && x.GamePort != nil {
-		return *x.GamePort
-	}
-	return 0
-}
-
-func (x *CMsgGSServerType) GetGameDir() string {
-	if x != nil && x.GameDir != nil {
-		return *x.GameDir
-	}
-	return ""
-}
-
-func (x *CMsgGSServerType) GetGameVersion() string {
-	if x != nil && x.GameVersion != nil {
-		return *x.GameVersion
-	}
-	return ""
-}
-
-func (x *CMsgGSServerType) GetGameQueryPort() uint32 {
-	if x != nil && x.GameQueryPort != nil {
-		return *x.GameQueryPort
-	}
-	return 0
-}
-
-type CMsgGSStatusReply struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsSecure      *bool                  `protobuf:"varint,1,opt,name=is_secure,json=isSecure" json:"is_secure,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGSStatusReply) Reset() {
-	*x = CMsgGSStatusReply{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[16]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGSStatusReply) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGSStatusReply) ProtoMessage() {}
-
-func (x *CMsgGSStatusReply) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[16]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGSStatusReply.ProtoReflect.Descriptor instead.
-func (*CMsgGSStatusReply) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{16}
-}
-
-func (x *CMsgGSStatusReply) GetIsSecure() bool {
-	if x != nil && x.IsSecure != nil {
-		return *x.IsSecure
-	}
-	return false
-}
-
-type CMsgGSPlayerList struct {
-	state         protoimpl.MessageState     `protogen:"open.v1"`
-	Players       []*CMsgGSPlayerList_Player `protobuf:"bytes,1,rep,name=players" json:"players,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGSPlayerList) Reset() {
-	*x = CMsgGSPlayerList{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[17]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGSPlayerList) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGSPlayerList) ProtoMessage() {}
-
-func (x *CMsgGSPlayerList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[17]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGSPlayerList.ProtoReflect.Descriptor instead.
-func (*CMsgGSPlayerList) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{17}
-}
-
-func (x *CMsgGSPlayerList) GetPlayers() []*CMsgGSPlayerList_Player {
-	if x != nil {
-		return x.Players
-	}
-	return nil
-}
-
-type CMsgGSUserPlaying struct {
-	state              protoimpl.MessageState                  `protogen:"open.v1"`
-	SteamId            *uint64                                 `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	DeprecatedPublicIp *uint32                                 `protobuf:"varint,2,opt,name=deprecated_public_ip,json=deprecatedPublicIp" json:"deprecated_public_ip,omitempty"`
-	Token              []byte                                  `protobuf:"bytes,3,opt,name=token" json:"token,omitempty"`
-	PublicIp           *CMsgIPAddress `protobuf:"bytes,4,opt,name=public_ip,json=publicIp" json:"public_ip,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
-}
-
-func (x *CMsgGSUserPlaying) Reset() {
-	*x = CMsgGSUserPlaying{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[18]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGSUserPlaying) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGSUserPlaying) ProtoMessage() {}
-
-func (x *CMsgGSUserPlaying) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[18]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGSUserPlaying.ProtoReflect.Descriptor instead.
-func (*CMsgGSUserPlaying) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{18}
-}
-
-func (x *CMsgGSUserPlaying) GetSteamId() uint64 {
-	if x != nil && x.SteamId != nil {
-		return *x.SteamId
-	}
-	return 0
-}
-
-func (x *CMsgGSUserPlaying) GetDeprecatedPublicIp() uint32 {
-	if x != nil && x.DeprecatedPublicIp != nil {
-		return *x.DeprecatedPublicIp
-	}
-	return 0
-}
-
-func (x *CMsgGSUserPlaying) GetToken() []byte {
-	if x != nil {
-		return x.Token
-	}
-	return nil
-}
-
-func (x *CMsgGSUserPlaying) GetPublicIp() *CMsgIPAddress {
-	if x != nil {
-		return x.PublicIp
-	}
-	return nil
-}
-
-type CMsgGSDisconnectNotice struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SteamId       *uint64                `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGSDisconnectNotice) Reset() {
-	*x = CMsgGSDisconnectNotice{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[19]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGSDisconnectNotice) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGSDisconnectNotice) ProtoMessage() {}
-
-func (x *CMsgGSDisconnectNotice) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[19]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGSDisconnectNotice.ProtoReflect.Descriptor instead.
-func (*CMsgGSDisconnectNotice) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{19}
-}
-
-func (x *CMsgGSDisconnectNotice) GetSteamId() uint64 {
-	if x != nil && x.SteamId != nil {
-		return *x.SteamId
-	}
-	return 0
-}
-
 type CMsgClientGamesPlayed struct {
-	state               protoimpl.MessageState              `protogen:"open.v1"`
-	GamesPlayed         []*CMsgClientGamesPlayed_GamePlayed `protobuf:"bytes,1,rep,name=games_played,json=gamesPlayed" json:"games_played,omitempty"`
-	ClientOsType        *uint32                             `protobuf:"varint,2,opt,name=client_os_type,json=clientOsType" json:"client_os_type,omitempty"`
-	CloudGamingPlatform *uint32                             `protobuf:"varint,3,opt,name=cloud_gaming_platform,json=cloudGamingPlatform" json:"cloud_gaming_platform,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                  protoimpl.MessageState              `protogen:"open.v1"`
+	GamesPlayed            []*CMsgClientGamesPlayed_GamePlayed `protobuf:"bytes,1,rep,name=games_played,json=gamesPlayed" json:"games_played,omitempty"`
+	ClientOsType           *uint32                             `protobuf:"varint,2,opt,name=client_os_type,json=clientOsType" json:"client_os_type,omitempty"`
+	CloudGamingPlatform    *uint32                             `protobuf:"varint,3,opt,name=cloud_gaming_platform,json=cloudGamingPlatform" json:"cloud_gaming_platform,omitempty"`
+	RecentReauthentication *bool                               `protobuf:"varint,4,opt,name=recent_reauthentication,json=recentReauthentication" json:"recent_reauthentication,omitempty"`
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *CMsgClientGamesPlayed) Reset() {
 	*x = CMsgClientGamesPlayed{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[20]
+	mi := &file_steammessages_clientserver_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1382,7 +793,7 @@ func (x *CMsgClientGamesPlayed) String() string {
 func (*CMsgClientGamesPlayed) ProtoMessage() {}
 
 func (x *CMsgClientGamesPlayed) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[20]
+	mi := &file_steammessages_clientserver_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1395,7 +806,7 @@ func (x *CMsgClientGamesPlayed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientGamesPlayed.ProtoReflect.Descriptor instead.
 func (*CMsgClientGamesPlayed) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CMsgClientGamesPlayed) GetGamesPlayed() []*CMsgClientGamesPlayed_GamePlayed {
@@ -1419,6 +830,13 @@ func (x *CMsgClientGamesPlayed) GetCloudGamingPlatform() uint32 {
 	return 0
 }
 
+func (x *CMsgClientGamesPlayed) GetRecentReauthentication() bool {
+	if x != nil && x.RecentReauthentication != nil {
+		return *x.RecentReauthentication
+	}
+	return false
+}
+
 type CMsgGSApprove struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SteamId       *uint64                `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
@@ -1429,7 +847,7 @@ type CMsgGSApprove struct {
 
 func (x *CMsgGSApprove) Reset() {
 	*x = CMsgGSApprove{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[21]
+	mi := &file_steammessages_clientserver_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1441,7 +859,7 @@ func (x *CMsgGSApprove) String() string {
 func (*CMsgGSApprove) ProtoMessage() {}
 
 func (x *CMsgGSApprove) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[21]
+	mi := &file_steammessages_clientserver_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1454,7 +872,7 @@ func (x *CMsgGSApprove) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGSApprove.ProtoReflect.Descriptor instead.
 func (*CMsgGSApprove) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{21}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CMsgGSApprove) GetSteamId() uint64 {
@@ -1482,7 +900,7 @@ type CMsgGSDeny struct {
 
 func (x *CMsgGSDeny) Reset() {
 	*x = CMsgGSDeny{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[22]
+	mi := &file_steammessages_clientserver_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1494,7 +912,7 @@ func (x *CMsgGSDeny) String() string {
 func (*CMsgGSDeny) ProtoMessage() {}
 
 func (x *CMsgGSDeny) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[22]
+	mi := &file_steammessages_clientserver_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1507,7 +925,7 @@ func (x *CMsgGSDeny) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGSDeny.ProtoReflect.Descriptor instead.
 func (*CMsgGSDeny) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CMsgGSDeny) GetSteamId() uint64 {
@@ -1541,7 +959,7 @@ type CMsgGSKick struct {
 
 func (x *CMsgGSKick) Reset() {
 	*x = CMsgGSKick{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[23]
+	mi := &file_steammessages_clientserver_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1553,7 +971,7 @@ func (x *CMsgGSKick) String() string {
 func (*CMsgGSKick) ProtoMessage() {}
 
 func (x *CMsgGSKick) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[23]
+	mi := &file_steammessages_clientserver_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1566,7 +984,7 @@ func (x *CMsgGSKick) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGSKick.ProtoReflect.Descriptor instead.
 func (*CMsgGSKick) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CMsgGSKick) GetSteamId() uint64 {
@@ -1591,13 +1009,14 @@ type CMsgClientAuthList struct {
 	Tickets                  []*CMsgAuthTicket `protobuf:"bytes,4,rep,name=tickets" json:"tickets,omitempty"`
 	AppIds                   []uint32                                   `protobuf:"varint,5,rep,name=app_ids,json=appIds" json:"app_ids,omitempty"`
 	MessageSequence          *uint32                                    `protobuf:"varint,6,opt,name=message_sequence,json=messageSequence" json:"message_sequence,omitempty"`
+	Filtered                 *bool                                      `protobuf:"varint,7,opt,name=filtered" json:"filtered,omitempty"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
 
 func (x *CMsgClientAuthList) Reset() {
 	*x = CMsgClientAuthList{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[24]
+	mi := &file_steammessages_clientserver_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1609,7 +1028,7 @@ func (x *CMsgClientAuthList) String() string {
 func (*CMsgClientAuthList) ProtoMessage() {}
 
 func (x *CMsgClientAuthList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[24]
+	mi := &file_steammessages_clientserver_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1622,7 +1041,7 @@ func (x *CMsgClientAuthList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientAuthList.ProtoReflect.Descriptor instead.
 func (*CMsgClientAuthList) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CMsgClientAuthList) GetTokensLeft() uint32 {
@@ -1667,6 +1086,13 @@ func (x *CMsgClientAuthList) GetMessageSequence() uint32 {
 	return 0
 }
 
+func (x *CMsgClientAuthList) GetFiltered() bool {
+	if x != nil && x.Filtered != nil {
+		return *x.Filtered
+	}
+	return false
+}
+
 type CMsgClientAuthListAck struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	TicketCrc       []uint32               `protobuf:"varint,1,rep,name=ticket_crc,json=ticketCrc" json:"ticket_crc,omitempty"`
@@ -1678,7 +1104,7 @@ type CMsgClientAuthListAck struct {
 
 func (x *CMsgClientAuthListAck) Reset() {
 	*x = CMsgClientAuthListAck{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[25]
+	mi := &file_steammessages_clientserver_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1690,7 +1116,7 @@ func (x *CMsgClientAuthListAck) String() string {
 func (*CMsgClientAuthListAck) ProtoMessage() {}
 
 func (x *CMsgClientAuthListAck) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[25]
+	mi := &file_steammessages_clientserver_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1703,7 +1129,7 @@ func (x *CMsgClientAuthListAck) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientAuthListAck.ProtoReflect.Descriptor instead.
 func (*CMsgClientAuthListAck) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{25}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CMsgClientAuthListAck) GetTicketCrc() []uint32 {
@@ -1742,7 +1168,7 @@ const (
 
 func (x *CMsgClientLicenseList) Reset() {
 	*x = CMsgClientLicenseList{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[26]
+	mi := &file_steammessages_clientserver_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1754,7 +1180,7 @@ func (x *CMsgClientLicenseList) String() string {
 func (*CMsgClientLicenseList) ProtoMessage() {}
 
 func (x *CMsgClientLicenseList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[26]
+	mi := &file_steammessages_clientserver_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1767,7 +1193,7 @@ func (x *CMsgClientLicenseList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientLicenseList.ProtoReflect.Descriptor instead.
 func (*CMsgClientLicenseList) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{26}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CMsgClientLicenseList) GetEresult() int32 {
@@ -1784,632 +1210,6 @@ func (x *CMsgClientLicenseList) GetLicenses() []*CMsgClientLicenseList_License {
 	return nil
 }
 
-type CMsgClientLBSSetScore struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	AppId             *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	LeaderboardId     *int32                 `protobuf:"varint,2,opt,name=leaderboard_id,json=leaderboardId" json:"leaderboard_id,omitempty"`
-	Score             *int32                 `protobuf:"varint,3,opt,name=score" json:"score,omitempty"`
-	Details           []byte                 `protobuf:"bytes,4,opt,name=details" json:"details,omitempty"`
-	UploadScoreMethod *int32                 `protobuf:"varint,5,opt,name=upload_score_method,json=uploadScoreMethod" json:"upload_score_method,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-func (x *CMsgClientLBSSetScore) Reset() {
-	*x = CMsgClientLBSSetScore{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[27]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSSetScore) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSSetScore) ProtoMessage() {}
-
-func (x *CMsgClientLBSSetScore) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[27]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSSetScore.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSSetScore) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{27}
-}
-
-func (x *CMsgClientLBSSetScore) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSSetScore) GetLeaderboardId() int32 {
-	if x != nil && x.LeaderboardId != nil {
-		return *x.LeaderboardId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSSetScore) GetScore() int32 {
-	if x != nil && x.Score != nil {
-		return *x.Score
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSSetScore) GetDetails() []byte {
-	if x != nil {
-		return x.Details
-	}
-	return nil
-}
-
-func (x *CMsgClientLBSSetScore) GetUploadScoreMethod() int32 {
-	if x != nil && x.UploadScoreMethod != nil {
-		return *x.UploadScoreMethod
-	}
-	return 0
-}
-
-type CMsgClientLBSSetScoreResponse struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	Eresult               *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	LeaderboardEntryCount *int32                 `protobuf:"varint,2,opt,name=leaderboard_entry_count,json=leaderboardEntryCount" json:"leaderboard_entry_count,omitempty"`
-	ScoreChanged          *bool                  `protobuf:"varint,3,opt,name=score_changed,json=scoreChanged" json:"score_changed,omitempty"`
-	GlobalRankPrevious    *int32                 `protobuf:"varint,4,opt,name=global_rank_previous,json=globalRankPrevious" json:"global_rank_previous,omitempty"`
-	GlobalRankNew         *int32                 `protobuf:"varint,5,opt,name=global_rank_new,json=globalRankNew" json:"global_rank_new,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-// Default values for CMsgClientLBSSetScoreResponse fields.
-const (
-	Default_CMsgClientLBSSetScoreResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientLBSSetScoreResponse) Reset() {
-	*x = CMsgClientLBSSetScoreResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[28]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSSetScoreResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSSetScoreResponse) ProtoMessage() {}
-
-func (x *CMsgClientLBSSetScoreResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[28]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSSetScoreResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSSetScoreResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{28}
-}
-
-func (x *CMsgClientLBSSetScoreResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientLBSSetScoreResponse_Eresult
-}
-
-func (x *CMsgClientLBSSetScoreResponse) GetLeaderboardEntryCount() int32 {
-	if x != nil && x.LeaderboardEntryCount != nil {
-		return *x.LeaderboardEntryCount
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSSetScoreResponse) GetScoreChanged() bool {
-	if x != nil && x.ScoreChanged != nil {
-		return *x.ScoreChanged
-	}
-	return false
-}
-
-func (x *CMsgClientLBSSetScoreResponse) GetGlobalRankPrevious() int32 {
-	if x != nil && x.GlobalRankPrevious != nil {
-		return *x.GlobalRankPrevious
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSSetScoreResponse) GetGlobalRankNew() int32 {
-	if x != nil && x.GlobalRankNew != nil {
-		return *x.GlobalRankNew
-	}
-	return 0
-}
-
-type CMsgClientLBSSetUGC struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	LeaderboardId *int32                 `protobuf:"varint,2,opt,name=leaderboard_id,json=leaderboardId" json:"leaderboard_id,omitempty"`
-	UgcId         *uint64                `protobuf:"fixed64,3,opt,name=ugc_id,json=ugcId" json:"ugc_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientLBSSetUGC) Reset() {
-	*x = CMsgClientLBSSetUGC{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[29]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSSetUGC) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSSetUGC) ProtoMessage() {}
-
-func (x *CMsgClientLBSSetUGC) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[29]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSSetUGC.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSSetUGC) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{29}
-}
-
-func (x *CMsgClientLBSSetUGC) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSSetUGC) GetLeaderboardId() int32 {
-	if x != nil && x.LeaderboardId != nil {
-		return *x.LeaderboardId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSSetUGC) GetUgcId() uint64 {
-	if x != nil && x.UgcId != nil {
-		return *x.UgcId
-	}
-	return 0
-}
-
-type CMsgClientLBSSetUGCResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientLBSSetUGCResponse fields.
-const (
-	Default_CMsgClientLBSSetUGCResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientLBSSetUGCResponse) Reset() {
-	*x = CMsgClientLBSSetUGCResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[30]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSSetUGCResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSSetUGCResponse) ProtoMessage() {}
-
-func (x *CMsgClientLBSSetUGCResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[30]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSSetUGCResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSSetUGCResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{30}
-}
-
-func (x *CMsgClientLBSSetUGCResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientLBSSetUGCResponse_Eresult
-}
-
-type CMsgClientLBSFindOrCreateLB struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	AppId                  *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	LeaderboardSortMethod  *int32                 `protobuf:"varint,2,opt,name=leaderboard_sort_method,json=leaderboardSortMethod" json:"leaderboard_sort_method,omitempty"`
-	LeaderboardDisplayType *int32                 `protobuf:"varint,3,opt,name=leaderboard_display_type,json=leaderboardDisplayType" json:"leaderboard_display_type,omitempty"`
-	CreateIfNotFound       *bool                  `protobuf:"varint,4,opt,name=create_if_not_found,json=createIfNotFound" json:"create_if_not_found,omitempty"`
-	LeaderboardName        *string                `protobuf:"bytes,5,opt,name=leaderboard_name,json=leaderboardName" json:"leaderboard_name,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *CMsgClientLBSFindOrCreateLB) Reset() {
-	*x = CMsgClientLBSFindOrCreateLB{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[31]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSFindOrCreateLB) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSFindOrCreateLB) ProtoMessage() {}
-
-func (x *CMsgClientLBSFindOrCreateLB) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[31]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSFindOrCreateLB.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSFindOrCreateLB) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{31}
-}
-
-func (x *CMsgClientLBSFindOrCreateLB) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSFindOrCreateLB) GetLeaderboardSortMethod() int32 {
-	if x != nil && x.LeaderboardSortMethod != nil {
-		return *x.LeaderboardSortMethod
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSFindOrCreateLB) GetLeaderboardDisplayType() int32 {
-	if x != nil && x.LeaderboardDisplayType != nil {
-		return *x.LeaderboardDisplayType
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSFindOrCreateLB) GetCreateIfNotFound() bool {
-	if x != nil && x.CreateIfNotFound != nil {
-		return *x.CreateIfNotFound
-	}
-	return false
-}
-
-func (x *CMsgClientLBSFindOrCreateLB) GetLeaderboardName() string {
-	if x != nil && x.LeaderboardName != nil {
-		return *x.LeaderboardName
-	}
-	return ""
-}
-
-type CMsgClientLBSFindOrCreateLBResponse struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	Eresult                *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	LeaderboardId          *int32                 `protobuf:"varint,2,opt,name=leaderboard_id,json=leaderboardId" json:"leaderboard_id,omitempty"`
-	LeaderboardEntryCount  *int32                 `protobuf:"varint,3,opt,name=leaderboard_entry_count,json=leaderboardEntryCount" json:"leaderboard_entry_count,omitempty"`
-	LeaderboardSortMethod  *int32                 `protobuf:"varint,4,opt,name=leaderboard_sort_method,json=leaderboardSortMethod,def=0" json:"leaderboard_sort_method,omitempty"`
-	LeaderboardDisplayType *int32                 `protobuf:"varint,5,opt,name=leaderboard_display_type,json=leaderboardDisplayType,def=0" json:"leaderboard_display_type,omitempty"`
-	LeaderboardName        *string                `protobuf:"bytes,6,opt,name=leaderboard_name,json=leaderboardName" json:"leaderboard_name,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-// Default values for CMsgClientLBSFindOrCreateLBResponse fields.
-const (
-	Default_CMsgClientLBSFindOrCreateLBResponse_Eresult                = int32(2)
-	Default_CMsgClientLBSFindOrCreateLBResponse_LeaderboardSortMethod  = int32(0)
-	Default_CMsgClientLBSFindOrCreateLBResponse_LeaderboardDisplayType = int32(0)
-)
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) Reset() {
-	*x = CMsgClientLBSFindOrCreateLBResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[32]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSFindOrCreateLBResponse) ProtoMessage() {}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[32]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSFindOrCreateLBResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSFindOrCreateLBResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{32}
-}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientLBSFindOrCreateLBResponse_Eresult
-}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) GetLeaderboardId() int32 {
-	if x != nil && x.LeaderboardId != nil {
-		return *x.LeaderboardId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) GetLeaderboardEntryCount() int32 {
-	if x != nil && x.LeaderboardEntryCount != nil {
-		return *x.LeaderboardEntryCount
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) GetLeaderboardSortMethod() int32 {
-	if x != nil && x.LeaderboardSortMethod != nil {
-		return *x.LeaderboardSortMethod
-	}
-	return Default_CMsgClientLBSFindOrCreateLBResponse_LeaderboardSortMethod
-}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) GetLeaderboardDisplayType() int32 {
-	if x != nil && x.LeaderboardDisplayType != nil {
-		return *x.LeaderboardDisplayType
-	}
-	return Default_CMsgClientLBSFindOrCreateLBResponse_LeaderboardDisplayType
-}
-
-func (x *CMsgClientLBSFindOrCreateLBResponse) GetLeaderboardName() string {
-	if x != nil && x.LeaderboardName != nil {
-		return *x.LeaderboardName
-	}
-	return ""
-}
-
-type CMsgClientLBSGetLBEntries struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	AppId                  *int32                 `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	LeaderboardId          *int32                 `protobuf:"varint,2,opt,name=leaderboard_id,json=leaderboardId" json:"leaderboard_id,omitempty"`
-	RangeStart             *int32                 `protobuf:"varint,3,opt,name=range_start,json=rangeStart" json:"range_start,omitempty"`
-	RangeEnd               *int32                 `protobuf:"varint,4,opt,name=range_end,json=rangeEnd" json:"range_end,omitempty"`
-	LeaderboardDataRequest *int32                 `protobuf:"varint,5,opt,name=leaderboard_data_request,json=leaderboardDataRequest" json:"leaderboard_data_request,omitempty"`
-	Steamids               []uint64               `protobuf:"fixed64,6,rep,name=steamids" json:"steamids,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *CMsgClientLBSGetLBEntries) Reset() {
-	*x = CMsgClientLBSGetLBEntries{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[33]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSGetLBEntries) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSGetLBEntries) ProtoMessage() {}
-
-func (x *CMsgClientLBSGetLBEntries) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[33]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSGetLBEntries.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSGetLBEntries) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{33}
-}
-
-func (x *CMsgClientLBSGetLBEntries) GetAppId() int32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntries) GetLeaderboardId() int32 {
-	if x != nil && x.LeaderboardId != nil {
-		return *x.LeaderboardId
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntries) GetRangeStart() int32 {
-	if x != nil && x.RangeStart != nil {
-		return *x.RangeStart
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntries) GetRangeEnd() int32 {
-	if x != nil && x.RangeEnd != nil {
-		return *x.RangeEnd
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntries) GetLeaderboardDataRequest() int32 {
-	if x != nil && x.LeaderboardDataRequest != nil {
-		return *x.LeaderboardDataRequest
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntries) GetSteamids() []uint64 {
-	if x != nil {
-		return x.Steamids
-	}
-	return nil
-}
-
-type CMsgClientLBSGetLBEntriesResponse struct {
-	state                 protoimpl.MessageState                     `protogen:"open.v1"`
-	Eresult               *int32                                     `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	LeaderboardEntryCount *int32                                     `protobuf:"varint,2,opt,name=leaderboard_entry_count,json=leaderboardEntryCount" json:"leaderboard_entry_count,omitempty"`
-	Entries               []*CMsgClientLBSGetLBEntriesResponse_Entry `protobuf:"bytes,3,rep,name=entries" json:"entries,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-// Default values for CMsgClientLBSGetLBEntriesResponse fields.
-const (
-	Default_CMsgClientLBSGetLBEntriesResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientLBSGetLBEntriesResponse) Reset() {
-	*x = CMsgClientLBSGetLBEntriesResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[34]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSGetLBEntriesResponse) ProtoMessage() {}
-
-func (x *CMsgClientLBSGetLBEntriesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[34]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSGetLBEntriesResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSGetLBEntriesResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{34}
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientLBSGetLBEntriesResponse_Eresult
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse) GetLeaderboardEntryCount() int32 {
-	if x != nil && x.LeaderboardEntryCount != nil {
-		return *x.LeaderboardEntryCount
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse) GetEntries() []*CMsgClientLBSGetLBEntriesResponse_Entry {
-	if x != nil {
-		return x.Entries
-	}
-	return nil
-}
-
-type CMsgClientAppMinutesPlayedData struct {
-	state         protoimpl.MessageState                                 `protogen:"open.v1"`
-	MinutesPlayed []*CMsgClientAppMinutesPlayedData_AppMinutesPlayedData `protobuf:"bytes,1,rep,name=minutes_played,json=minutesPlayed" json:"minutes_played,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppMinutesPlayedData) Reset() {
-	*x = CMsgClientAppMinutesPlayedData{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[35]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppMinutesPlayedData) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppMinutesPlayedData) ProtoMessage() {}
-
-func (x *CMsgClientAppMinutesPlayedData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[35]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppMinutesPlayedData.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppMinutesPlayedData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{35}
-}
-
-func (x *CMsgClientAppMinutesPlayedData) GetMinutesPlayed() []*CMsgClientAppMinutesPlayedData_AppMinutesPlayedData {
-	if x != nil {
-		return x.MinutesPlayed
-	}
-	return nil
-}
-
 type CMsgClientIsLimitedAccount struct {
 	state                                   protoimpl.MessageState `protogen:"open.v1"`
 	BisLimitedAccount                       *bool                  `protobuf:"varint,1,opt,name=bis_limited_account,json=bisLimitedAccount" json:"bis_limited_account,omitempty"`
@@ -2422,7 +1222,7 @@ type CMsgClientIsLimitedAccount struct {
 
 func (x *CMsgClientIsLimitedAccount) Reset() {
 	*x = CMsgClientIsLimitedAccount{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[36]
+	mi := &file_steammessages_clientserver_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2434,7 +1234,7 @@ func (x *CMsgClientIsLimitedAccount) String() string {
 func (*CMsgClientIsLimitedAccount) ProtoMessage() {}
 
 func (x *CMsgClientIsLimitedAccount) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[36]
+	mi := &file_steammessages_clientserver_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2447,7 +1247,7 @@ func (x *CMsgClientIsLimitedAccount) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientIsLimitedAccount.ProtoReflect.Descriptor instead.
 func (*CMsgClientIsLimitedAccount) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{36}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CMsgClientIsLimitedAccount) GetBisLimitedAccount() bool {
@@ -2487,7 +1287,7 @@ type CMsgClientRequestedClientStats struct {
 
 func (x *CMsgClientRequestedClientStats) Reset() {
 	*x = CMsgClientRequestedClientStats{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[37]
+	mi := &file_steammessages_clientserver_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2499,7 +1299,7 @@ func (x *CMsgClientRequestedClientStats) String() string {
 func (*CMsgClientRequestedClientStats) ProtoMessage() {}
 
 func (x *CMsgClientRequestedClientStats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[37]
+	mi := &file_steammessages_clientserver_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2512,7 +1312,7 @@ func (x *CMsgClientRequestedClientStats) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientRequestedClientStats.ProtoReflect.Descriptor instead.
 func (*CMsgClientRequestedClientStats) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{37}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CMsgClientRequestedClientStats) GetStatsToSend() []*CMsgClientRequestedClientStats_StatsToSend {
@@ -2531,7 +1331,7 @@ type CMsgClientStat2 struct {
 
 func (x *CMsgClientStat2) Reset() {
 	*x = CMsgClientStat2{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[38]
+	mi := &file_steammessages_clientserver_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2543,7 +1343,7 @@ func (x *CMsgClientStat2) String() string {
 func (*CMsgClientStat2) ProtoMessage() {}
 
 func (x *CMsgClientStat2) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[38]
+	mi := &file_steammessages_clientserver_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2556,7 +1356,7 @@ func (x *CMsgClientStat2) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientStat2.ProtoReflect.Descriptor instead.
 func (*CMsgClientStat2) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{38}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CMsgClientStat2) GetStatDetail() []*CMsgClientStat2_StatDetail {
@@ -2564,1832 +1364,6 @@ func (x *CMsgClientStat2) GetStatDetail() []*CMsgClientStat2_StatDetail {
 		return x.StatDetail
 	}
 	return nil
-}
-
-type CMsgClientMMSSetRatelimitPolicyOnClient struct {
-	state                     protoimpl.MessageState `protogen:"open.v1"`
-	AppId                     *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	EnableRateLimits          *bool                  `protobuf:"varint,2,opt,name=enable_rate_limits,json=enableRateLimits" json:"enable_rate_limits,omitempty"`
-	SecondsPerMessage         *int32                 `protobuf:"varint,3,opt,name=seconds_per_message,json=secondsPerMessage" json:"seconds_per_message,omitempty"`
-	MillisecondsPerDataUpdate *int32                 `protobuf:"varint,4,opt,name=milliseconds_per_data_update,json=millisecondsPerDataUpdate" json:"milliseconds_per_data_update,omitempty"`
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSSetRatelimitPolicyOnClient) Reset() {
-	*x = CMsgClientMMSSetRatelimitPolicyOnClient{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[39]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSetRatelimitPolicyOnClient) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSetRatelimitPolicyOnClient) ProtoMessage() {}
-
-func (x *CMsgClientMMSSetRatelimitPolicyOnClient) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[39]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSetRatelimitPolicyOnClient.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSetRatelimitPolicyOnClient) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{39}
-}
-
-func (x *CMsgClientMMSSetRatelimitPolicyOnClient) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetRatelimitPolicyOnClient) GetEnableRateLimits() bool {
-	if x != nil && x.EnableRateLimits != nil {
-		return *x.EnableRateLimits
-	}
-	return false
-}
-
-func (x *CMsgClientMMSSetRatelimitPolicyOnClient) GetSecondsPerMessage() int32 {
-	if x != nil && x.SecondsPerMessage != nil {
-		return *x.SecondsPerMessage
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetRatelimitPolicyOnClient) GetMillisecondsPerDataUpdate() int32 {
-	if x != nil && x.MillisecondsPerDataUpdate != nil {
-		return *x.MillisecondsPerDataUpdate
-	}
-	return 0
-}
-
-type CMsgClientMMSCreateLobby struct {
-	state              protoimpl.MessageState                  `protogen:"open.v1"`
-	AppId              *uint32                                 `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	MaxMembers         *int32                                  `protobuf:"varint,2,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
-	LobbyType          *int32                                  `protobuf:"varint,3,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
-	LobbyFlags         *int32                                  `protobuf:"varint,4,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
-	CellId             *uint32                                 `protobuf:"varint,5,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
-	DeprecatedPublicIp *uint32                                 `protobuf:"varint,6,opt,name=deprecated_public_ip,json=deprecatedPublicIp" json:"deprecated_public_ip,omitempty"`
-	Metadata           []byte                                  `protobuf:"bytes,7,opt,name=metadata" json:"metadata,omitempty"`
-	PersonaNameOwner   *string                                 `protobuf:"bytes,8,opt,name=persona_name_owner,json=personaNameOwner" json:"persona_name_owner,omitempty"`
-	PublicIp           *CMsgIPAddress `protobuf:"bytes,9,opt,name=public_ip,json=publicIp" json:"public_ip,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSCreateLobby) Reset() {
-	*x = CMsgClientMMSCreateLobby{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[40]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSCreateLobby) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSCreateLobby) ProtoMessage() {}
-
-func (x *CMsgClientMMSCreateLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[40]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSCreateLobby.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSCreateLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{40}
-}
-
-func (x *CMsgClientMMSCreateLobby) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobby) GetMaxMembers() int32 {
-	if x != nil && x.MaxMembers != nil {
-		return *x.MaxMembers
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobby) GetLobbyType() int32 {
-	if x != nil && x.LobbyType != nil {
-		return *x.LobbyType
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobby) GetLobbyFlags() int32 {
-	if x != nil && x.LobbyFlags != nil {
-		return *x.LobbyFlags
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobby) GetCellId() uint32 {
-	if x != nil && x.CellId != nil {
-		return *x.CellId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobby) GetDeprecatedPublicIp() uint32 {
-	if x != nil && x.DeprecatedPublicIp != nil {
-		return *x.DeprecatedPublicIp
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobby) GetMetadata() []byte {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-func (x *CMsgClientMMSCreateLobby) GetPersonaNameOwner() string {
-	if x != nil && x.PersonaNameOwner != nil {
-		return *x.PersonaNameOwner
-	}
-	return ""
-}
-
-func (x *CMsgClientMMSCreateLobby) GetPublicIp() *CMsgIPAddress {
-	if x != nil {
-		return x.PublicIp
-	}
-	return nil
-}
-
-type CMsgClientMMSCreateLobbyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	Eresult       *int32                 `protobuf:"varint,3,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientMMSCreateLobbyResponse fields.
-const (
-	Default_CMsgClientMMSCreateLobbyResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientMMSCreateLobbyResponse) Reset() {
-	*x = CMsgClientMMSCreateLobbyResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[41]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSCreateLobbyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSCreateLobbyResponse) ProtoMessage() {}
-
-func (x *CMsgClientMMSCreateLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[41]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSCreateLobbyResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSCreateLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{41}
-}
-
-func (x *CMsgClientMMSCreateLobbyResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobbyResponse) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSCreateLobbyResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientMMSCreateLobbyResponse_Eresult
-}
-
-type CMsgClientMMSJoinLobby struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	PersonaName   *string                `protobuf:"bytes,3,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSJoinLobby) Reset() {
-	*x = CMsgClientMMSJoinLobby{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSJoinLobby) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSJoinLobby) ProtoMessage() {}
-
-func (x *CMsgClientMMSJoinLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSJoinLobby.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSJoinLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *CMsgClientMMSJoinLobby) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobby) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobby) GetPersonaName() string {
-	if x != nil && x.PersonaName != nil {
-		return *x.PersonaName
-	}
-	return ""
-}
-
-type CMsgClientMMSJoinLobbyResponse struct {
-	state                 protoimpl.MessageState                   `protogen:"open.v1"`
-	AppId                 *uint32                                  `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby          *uint64                                  `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	ChatRoomEnterResponse *int32                                   `protobuf:"varint,3,opt,name=chat_room_enter_response,json=chatRoomEnterResponse" json:"chat_room_enter_response,omitempty"`
-	MaxMembers            *int32                                   `protobuf:"varint,4,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
-	LobbyType             *int32                                   `protobuf:"varint,5,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
-	LobbyFlags            *int32                                   `protobuf:"varint,6,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
-	SteamIdOwner          *uint64                                  `protobuf:"fixed64,7,opt,name=steam_id_owner,json=steamIdOwner" json:"steam_id_owner,omitempty"`
-	Metadata              []byte                                   `protobuf:"bytes,8,opt,name=metadata" json:"metadata,omitempty"`
-	Members               []*CMsgClientMMSJoinLobbyResponse_Member `protobuf:"bytes,9,rep,name=members" json:"members,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) Reset() {
-	*x = CMsgClientMMSJoinLobbyResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSJoinLobbyResponse) ProtoMessage() {}
-
-func (x *CMsgClientMMSJoinLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSJoinLobbyResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSJoinLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetChatRoomEnterResponse() int32 {
-	if x != nil && x.ChatRoomEnterResponse != nil {
-		return *x.ChatRoomEnterResponse
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetMaxMembers() int32 {
-	if x != nil && x.MaxMembers != nil {
-		return *x.MaxMembers
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetLobbyType() int32 {
-	if x != nil && x.LobbyType != nil {
-		return *x.LobbyType
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetLobbyFlags() int32 {
-	if x != nil && x.LobbyFlags != nil {
-		return *x.LobbyFlags
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetSteamIdOwner() uint64 {
-	if x != nil && x.SteamIdOwner != nil {
-		return *x.SteamIdOwner
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetMetadata() []byte {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse) GetMembers() []*CMsgClientMMSJoinLobbyResponse_Member {
-	if x != nil {
-		return x.Members
-	}
-	return nil
-}
-
-type CMsgClientMMSLeaveLobby struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSLeaveLobby) Reset() {
-	*x = CMsgClientMMSLeaveLobby{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[44]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSLeaveLobby) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSLeaveLobby) ProtoMessage() {}
-
-func (x *CMsgClientMMSLeaveLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[44]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSLeaveLobby.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSLeaveLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{44}
-}
-
-func (x *CMsgClientMMSLeaveLobby) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLeaveLobby) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-type CMsgClientMMSLeaveLobbyResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	Eresult       *int32                 `protobuf:"varint,3,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientMMSLeaveLobbyResponse fields.
-const (
-	Default_CMsgClientMMSLeaveLobbyResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientMMSLeaveLobbyResponse) Reset() {
-	*x = CMsgClientMMSLeaveLobbyResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[45]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSLeaveLobbyResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSLeaveLobbyResponse) ProtoMessage() {}
-
-func (x *CMsgClientMMSLeaveLobbyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[45]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSLeaveLobbyResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSLeaveLobbyResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{45}
-}
-
-func (x *CMsgClientMMSLeaveLobbyResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLeaveLobbyResponse) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLeaveLobbyResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientMMSLeaveLobbyResponse_Eresult
-}
-
-type CMsgClientMMSGetLobbyList struct {
-	state               protoimpl.MessageState                  `protogen:"open.v1"`
-	AppId               *uint32                                 `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	NumLobbiesRequested *int32                                  `protobuf:"varint,3,opt,name=num_lobbies_requested,json=numLobbiesRequested" json:"num_lobbies_requested,omitempty"`
-	CellId              *uint32                                 `protobuf:"varint,4,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
-	DeprecatedPublicIp  *uint32                                 `protobuf:"varint,5,opt,name=deprecated_public_ip,json=deprecatedPublicIp" json:"deprecated_public_ip,omitempty"`
-	Filters             []*CMsgClientMMSGetLobbyList_Filter     `protobuf:"bytes,6,rep,name=filters" json:"filters,omitempty"`
-	PublicIp            *CMsgIPAddress `protobuf:"bytes,7,opt,name=public_ip,json=publicIp" json:"public_ip,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSGetLobbyList) Reset() {
-	*x = CMsgClientMMSGetLobbyList{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[46]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSGetLobbyList) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSGetLobbyList) ProtoMessage() {}
-
-func (x *CMsgClientMMSGetLobbyList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[46]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSGetLobbyList.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSGetLobbyList) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{46}
-}
-
-func (x *CMsgClientMMSGetLobbyList) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyList) GetNumLobbiesRequested() int32 {
-	if x != nil && x.NumLobbiesRequested != nil {
-		return *x.NumLobbiesRequested
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyList) GetCellId() uint32 {
-	if x != nil && x.CellId != nil {
-		return *x.CellId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyList) GetDeprecatedPublicIp() uint32 {
-	if x != nil && x.DeprecatedPublicIp != nil {
-		return *x.DeprecatedPublicIp
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyList) GetFilters() []*CMsgClientMMSGetLobbyList_Filter {
-	if x != nil {
-		return x.Filters
-	}
-	return nil
-}
-
-func (x *CMsgClientMMSGetLobbyList) GetPublicIp() *CMsgIPAddress {
-	if x != nil {
-		return x.PublicIp
-	}
-	return nil
-}
-
-type CMsgClientMMSGetLobbyListResponse struct {
-	state         protoimpl.MessageState                     `protogen:"open.v1"`
-	AppId         *uint32                                    `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	Eresult       *int32                                     `protobuf:"varint,3,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	Lobbies       []*CMsgClientMMSGetLobbyListResponse_Lobby `protobuf:"bytes,4,rep,name=lobbies" json:"lobbies,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientMMSGetLobbyListResponse fields.
-const (
-	Default_CMsgClientMMSGetLobbyListResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientMMSGetLobbyListResponse) Reset() {
-	*x = CMsgClientMMSGetLobbyListResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[47]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSGetLobbyListResponse) ProtoMessage() {}
-
-func (x *CMsgClientMMSGetLobbyListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[47]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSGetLobbyListResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSGetLobbyListResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{47}
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientMMSGetLobbyListResponse_Eresult
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse) GetLobbies() []*CMsgClientMMSGetLobbyListResponse_Lobby {
-	if x != nil {
-		return x.Lobbies
-	}
-	return nil
-}
-
-type CMsgClientMMSSetLobbyData struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdMember *uint64                `protobuf:"fixed64,3,opt,name=steam_id_member,json=steamIdMember" json:"steam_id_member,omitempty"`
-	MaxMembers    *int32                 `protobuf:"varint,4,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
-	LobbyType     *int32                 `protobuf:"varint,5,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
-	LobbyFlags    *int32                 `protobuf:"varint,6,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
-	Metadata      []byte                 `protobuf:"bytes,7,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSSetLobbyData) Reset() {
-	*x = CMsgClientMMSSetLobbyData{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[48]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSetLobbyData) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSetLobbyData) ProtoMessage() {}
-
-func (x *CMsgClientMMSSetLobbyData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[48]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSetLobbyData.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSetLobbyData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{48}
-}
-
-func (x *CMsgClientMMSSetLobbyData) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyData) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyData) GetSteamIdMember() uint64 {
-	if x != nil && x.SteamIdMember != nil {
-		return *x.SteamIdMember
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyData) GetMaxMembers() int32 {
-	if x != nil && x.MaxMembers != nil {
-		return *x.MaxMembers
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyData) GetLobbyType() int32 {
-	if x != nil && x.LobbyType != nil {
-		return *x.LobbyType
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyData) GetLobbyFlags() int32 {
-	if x != nil && x.LobbyFlags != nil {
-		return *x.LobbyFlags
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyData) GetMetadata() []byte {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-type CMsgClientMMSSetLobbyDataResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	Eresult       *int32                 `protobuf:"varint,3,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientMMSSetLobbyDataResponse fields.
-const (
-	Default_CMsgClientMMSSetLobbyDataResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientMMSSetLobbyDataResponse) Reset() {
-	*x = CMsgClientMMSSetLobbyDataResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[49]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSetLobbyDataResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSetLobbyDataResponse) ProtoMessage() {}
-
-func (x *CMsgClientMMSSetLobbyDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[49]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSetLobbyDataResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSetLobbyDataResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{49}
-}
-
-func (x *CMsgClientMMSSetLobbyDataResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyDataResponse) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyDataResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientMMSSetLobbyDataResponse_Eresult
-}
-
-type CMsgClientMMSGetLobbyData struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSGetLobbyData) Reset() {
-	*x = CMsgClientMMSGetLobbyData{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[50]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSGetLobbyData) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSGetLobbyData) ProtoMessage() {}
-
-func (x *CMsgClientMMSGetLobbyData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[50]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSGetLobbyData.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSGetLobbyData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{50}
-}
-
-func (x *CMsgClientMMSGetLobbyData) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyData) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-type CMsgClientMMSLobbyData struct {
-	state                    protoimpl.MessageState           `protogen:"open.v1"`
-	AppId                    *uint32                          `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby             *uint64                          `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	NumMembers               *int32                           `protobuf:"varint,3,opt,name=num_members,json=numMembers" json:"num_members,omitempty"`
-	MaxMembers               *int32                           `protobuf:"varint,4,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
-	LobbyType                *int32                           `protobuf:"varint,5,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
-	LobbyFlags               *int32                           `protobuf:"varint,6,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
-	SteamIdOwner             *uint64                          `protobuf:"fixed64,7,opt,name=steam_id_owner,json=steamIdOwner" json:"steam_id_owner,omitempty"`
-	Metadata                 []byte                           `protobuf:"bytes,8,opt,name=metadata" json:"metadata,omitempty"`
-	Members                  []*CMsgClientMMSLobbyData_Member `protobuf:"bytes,9,rep,name=members" json:"members,omitempty"`
-	LobbyCellid              *uint32                          `protobuf:"varint,10,opt,name=lobby_cellid,json=lobbyCellid" json:"lobby_cellid,omitempty"`
-	OwnerShouldAcceptChanges *bool                            `protobuf:"varint,11,opt,name=owner_should_accept_changes,json=ownerShouldAcceptChanges" json:"owner_should_accept_changes,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSLobbyData) Reset() {
-	*x = CMsgClientMMSLobbyData{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[51]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSLobbyData) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSLobbyData) ProtoMessage() {}
-
-func (x *CMsgClientMMSLobbyData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[51]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSLobbyData.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSLobbyData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{51}
-}
-
-func (x *CMsgClientMMSLobbyData) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetNumMembers() int32 {
-	if x != nil && x.NumMembers != nil {
-		return *x.NumMembers
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetMaxMembers() int32 {
-	if x != nil && x.MaxMembers != nil {
-		return *x.MaxMembers
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetLobbyType() int32 {
-	if x != nil && x.LobbyType != nil {
-		return *x.LobbyType
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetLobbyFlags() int32 {
-	if x != nil && x.LobbyFlags != nil {
-		return *x.LobbyFlags
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetSteamIdOwner() uint64 {
-	if x != nil && x.SteamIdOwner != nil {
-		return *x.SteamIdOwner
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetMetadata() []byte {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-func (x *CMsgClientMMSLobbyData) GetMembers() []*CMsgClientMMSLobbyData_Member {
-	if x != nil {
-		return x.Members
-	}
-	return nil
-}
-
-func (x *CMsgClientMMSLobbyData) GetLobbyCellid() uint32 {
-	if x != nil && x.LobbyCellid != nil {
-		return *x.LobbyCellid
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData) GetOwnerShouldAcceptChanges() bool {
-	if x != nil && x.OwnerShouldAcceptChanges != nil {
-		return *x.OwnerShouldAcceptChanges
-	}
-	return false
-}
-
-type CMsgClientMMSSendLobbyChatMsg struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdTarget *uint64                `protobuf:"fixed64,3,opt,name=steam_id_target,json=steamIdTarget" json:"steam_id_target,omitempty"`
-	LobbyMessage  []byte                 `protobuf:"bytes,4,opt,name=lobby_message,json=lobbyMessage" json:"lobby_message,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSSendLobbyChatMsg) Reset() {
-	*x = CMsgClientMMSSendLobbyChatMsg{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[52]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSendLobbyChatMsg) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSendLobbyChatMsg) ProtoMessage() {}
-
-func (x *CMsgClientMMSSendLobbyChatMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[52]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSendLobbyChatMsg.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSendLobbyChatMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{52}
-}
-
-func (x *CMsgClientMMSSendLobbyChatMsg) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSendLobbyChatMsg) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSendLobbyChatMsg) GetSteamIdTarget() uint64 {
-	if x != nil && x.SteamIdTarget != nil {
-		return *x.SteamIdTarget
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSendLobbyChatMsg) GetLobbyMessage() []byte {
-	if x != nil {
-		return x.LobbyMessage
-	}
-	return nil
-}
-
-type CMsgClientMMSLobbyChatMsg struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdSender *uint64                `protobuf:"fixed64,3,opt,name=steam_id_sender,json=steamIdSender" json:"steam_id_sender,omitempty"`
-	LobbyMessage  []byte                 `protobuf:"bytes,4,opt,name=lobby_message,json=lobbyMessage" json:"lobby_message,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSLobbyChatMsg) Reset() {
-	*x = CMsgClientMMSLobbyChatMsg{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[53]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSLobbyChatMsg) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSLobbyChatMsg) ProtoMessage() {}
-
-func (x *CMsgClientMMSLobbyChatMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[53]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSLobbyChatMsg.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSLobbyChatMsg) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{53}
-}
-
-func (x *CMsgClientMMSLobbyChatMsg) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyChatMsg) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyChatMsg) GetSteamIdSender() uint64 {
-	if x != nil && x.SteamIdSender != nil {
-		return *x.SteamIdSender
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyChatMsg) GetLobbyMessage() []byte {
-	if x != nil {
-		return x.LobbyMessage
-	}
-	return nil
-}
-
-type CMsgClientMMSSetLobbyOwner struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	AppId           *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby    *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdNewOwner *uint64                `protobuf:"fixed64,3,opt,name=steam_id_new_owner,json=steamIdNewOwner" json:"steam_id_new_owner,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSSetLobbyOwner) Reset() {
-	*x = CMsgClientMMSSetLobbyOwner{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[54]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSetLobbyOwner) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSetLobbyOwner) ProtoMessage() {}
-
-func (x *CMsgClientMMSSetLobbyOwner) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[54]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSetLobbyOwner.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSetLobbyOwner) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{54}
-}
-
-func (x *CMsgClientMMSSetLobbyOwner) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyOwner) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyOwner) GetSteamIdNewOwner() uint64 {
-	if x != nil && x.SteamIdNewOwner != nil {
-		return *x.SteamIdNewOwner
-	}
-	return 0
-}
-
-type CMsgClientMMSSetLobbyOwnerResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	Eresult       *int32                 `protobuf:"varint,3,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientMMSSetLobbyOwnerResponse fields.
-const (
-	Default_CMsgClientMMSSetLobbyOwnerResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientMMSSetLobbyOwnerResponse) Reset() {
-	*x = CMsgClientMMSSetLobbyOwnerResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[55]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSetLobbyOwnerResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSetLobbyOwnerResponse) ProtoMessage() {}
-
-func (x *CMsgClientMMSSetLobbyOwnerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[55]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSetLobbyOwnerResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSetLobbyOwnerResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{55}
-}
-
-func (x *CMsgClientMMSSetLobbyOwnerResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyOwnerResponse) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyOwnerResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientMMSSetLobbyOwnerResponse_Eresult
-}
-
-type CMsgClientMMSSetLobbyLinked struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdLobby2 *uint64                `protobuf:"fixed64,3,opt,name=steam_id_lobby2,json=steamIdLobby2" json:"steam_id_lobby2,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSSetLobbyLinked) Reset() {
-	*x = CMsgClientMMSSetLobbyLinked{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[56]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSetLobbyLinked) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSetLobbyLinked) ProtoMessage() {}
-
-func (x *CMsgClientMMSSetLobbyLinked) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[56]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSetLobbyLinked.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSetLobbyLinked) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{56}
-}
-
-func (x *CMsgClientMMSSetLobbyLinked) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyLinked) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyLinked) GetSteamIdLobby2() uint64 {
-	if x != nil && x.SteamIdLobby2 != nil {
-		return *x.SteamIdLobby2
-	}
-	return 0
-}
-
-type CMsgClientMMSSetLobbyGameServer struct {
-	state                  protoimpl.MessageState                  `protogen:"open.v1"`
-	AppId                  *uint32                                 `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby           *uint64                                 `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	DeprecatedGameServerIp *uint32                                 `protobuf:"varint,3,opt,name=deprecated_game_server_ip,json=deprecatedGameServerIp" json:"deprecated_game_server_ip,omitempty"`
-	GameServerPort         *uint32                                 `protobuf:"varint,4,opt,name=game_server_port,json=gameServerPort" json:"game_server_port,omitempty"`
-	GameServerSteamId      *uint64                                 `protobuf:"fixed64,5,opt,name=game_server_steam_id,json=gameServerSteamId" json:"game_server_steam_id,omitempty"`
-	GameServerIp           *CMsgIPAddress `protobuf:"bytes,6,opt,name=game_server_ip,json=gameServerIp" json:"game_server_ip,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) Reset() {
-	*x = CMsgClientMMSSetLobbyGameServer{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[57]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSSetLobbyGameServer) ProtoMessage() {}
-
-func (x *CMsgClientMMSSetLobbyGameServer) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[57]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSSetLobbyGameServer.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSSetLobbyGameServer) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{57}
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) GetDeprecatedGameServerIp() uint32 {
-	if x != nil && x.DeprecatedGameServerIp != nil {
-		return *x.DeprecatedGameServerIp
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) GetGameServerPort() uint32 {
-	if x != nil && x.GameServerPort != nil {
-		return *x.GameServerPort
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) GetGameServerSteamId() uint64 {
-	if x != nil && x.GameServerSteamId != nil {
-		return *x.GameServerSteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSSetLobbyGameServer) GetGameServerIp() *CMsgIPAddress {
-	if x != nil {
-		return x.GameServerIp
-	}
-	return nil
-}
-
-type CMsgClientMMSLobbyGameServerSet struct {
-	state                  protoimpl.MessageState                  `protogen:"open.v1"`
-	AppId                  *uint32                                 `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby           *uint64                                 `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	DeprecatedGameServerIp *uint32                                 `protobuf:"varint,3,opt,name=deprecated_game_server_ip,json=deprecatedGameServerIp" json:"deprecated_game_server_ip,omitempty"`
-	GameServerPort         *uint32                                 `protobuf:"varint,4,opt,name=game_server_port,json=gameServerPort" json:"game_server_port,omitempty"`
-	GameServerSteamId      *uint64                                 `protobuf:"fixed64,5,opt,name=game_server_steam_id,json=gameServerSteamId" json:"game_server_steam_id,omitempty"`
-	GameServerIp           *CMsgIPAddress `protobuf:"bytes,6,opt,name=game_server_ip,json=gameServerIp" json:"game_server_ip,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) Reset() {
-	*x = CMsgClientMMSLobbyGameServerSet{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[58]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSLobbyGameServerSet) ProtoMessage() {}
-
-func (x *CMsgClientMMSLobbyGameServerSet) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[58]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSLobbyGameServerSet.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSLobbyGameServerSet) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{58}
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) GetDeprecatedGameServerIp() uint32 {
-	if x != nil && x.DeprecatedGameServerIp != nil {
-		return *x.DeprecatedGameServerIp
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) GetGameServerPort() uint32 {
-	if x != nil && x.GameServerPort != nil {
-		return *x.GameServerPort
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) GetGameServerSteamId() uint64 {
-	if x != nil && x.GameServerSteamId != nil {
-		return *x.GameServerSteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyGameServerSet) GetGameServerIp() *CMsgIPAddress {
-	if x != nil {
-		return x.GameServerIp
-	}
-	return nil
-}
-
-type CMsgClientMMSUserJoinedLobby struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdUser   *uint64                `protobuf:"fixed64,3,opt,name=steam_id_user,json=steamIdUser" json:"steam_id_user,omitempty"`
-	PersonaName   *string                `protobuf:"bytes,4,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSUserJoinedLobby) Reset() {
-	*x = CMsgClientMMSUserJoinedLobby{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[59]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSUserJoinedLobby) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSUserJoinedLobby) ProtoMessage() {}
-
-func (x *CMsgClientMMSUserJoinedLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[59]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSUserJoinedLobby.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSUserJoinedLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{59}
-}
-
-func (x *CMsgClientMMSUserJoinedLobby) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSUserJoinedLobby) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSUserJoinedLobby) GetSteamIdUser() uint64 {
-	if x != nil && x.SteamIdUser != nil {
-		return *x.SteamIdUser
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSUserJoinedLobby) GetPersonaName() string {
-	if x != nil && x.PersonaName != nil {
-		return *x.PersonaName
-	}
-	return ""
-}
-
-type CMsgClientMMSUserLeftLobby struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdUser   *uint64                `protobuf:"fixed64,3,opt,name=steam_id_user,json=steamIdUser" json:"steam_id_user,omitempty"`
-	PersonaName   *string                `protobuf:"bytes,4,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSUserLeftLobby) Reset() {
-	*x = CMsgClientMMSUserLeftLobby{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[60]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSUserLeftLobby) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSUserLeftLobby) ProtoMessage() {}
-
-func (x *CMsgClientMMSUserLeftLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[60]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSUserLeftLobby.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSUserLeftLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{60}
-}
-
-func (x *CMsgClientMMSUserLeftLobby) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSUserLeftLobby) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSUserLeftLobby) GetSteamIdUser() uint64 {
-	if x != nil && x.SteamIdUser != nil {
-		return *x.SteamIdUser
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSUserLeftLobby) GetPersonaName() string {
-	if x != nil && x.PersonaName != nil {
-		return *x.PersonaName
-	}
-	return ""
-}
-
-type CMsgClientMMSInviteToLobby struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	AppId              *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby       *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	SteamIdUserInvited *uint64                `protobuf:"fixed64,3,opt,name=steam_id_user_invited,json=steamIdUserInvited" json:"steam_id_user_invited,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSInviteToLobby) Reset() {
-	*x = CMsgClientMMSInviteToLobby{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[61]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSInviteToLobby) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSInviteToLobby) ProtoMessage() {}
-
-func (x *CMsgClientMMSInviteToLobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[61]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSInviteToLobby.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSInviteToLobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{61}
-}
-
-func (x *CMsgClientMMSInviteToLobby) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSInviteToLobby) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSInviteToLobby) GetSteamIdUserInvited() uint64 {
-	if x != nil && x.SteamIdUserInvited != nil {
-		return *x.SteamIdUserInvited
-	}
-	return 0
-}
-
-type CMsgClientMMSGetLobbyStatus struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	AppId           *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby    *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	ClaimMembership *bool                  `protobuf:"varint,3,opt,name=claim_membership,json=claimMembership" json:"claim_membership,omitempty"`
-	ClaimOwnership  *bool                  `protobuf:"varint,4,opt,name=claim_ownership,json=claimOwnership" json:"claim_ownership,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSGetLobbyStatus) Reset() {
-	*x = CMsgClientMMSGetLobbyStatus{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[62]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSGetLobbyStatus) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSGetLobbyStatus) ProtoMessage() {}
-
-func (x *CMsgClientMMSGetLobbyStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[62]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSGetLobbyStatus.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSGetLobbyStatus) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{62}
-}
-
-func (x *CMsgClientMMSGetLobbyStatus) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyStatus) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyStatus) GetClaimMembership() bool {
-	if x != nil && x.ClaimMembership != nil {
-		return *x.ClaimMembership
-	}
-	return false
-}
-
-func (x *CMsgClientMMSGetLobbyStatus) GetClaimOwnership() bool {
-	if x != nil && x.ClaimOwnership != nil {
-		return *x.ClaimOwnership
-	}
-	return false
-}
-
-type CMsgClientMMSGetLobbyStatusResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SteamIdLobby  *uint64                `protobuf:"fixed64,2,opt,name=steam_id_lobby,json=steamIdLobby" json:"steam_id_lobby,omitempty"`
-	LobbyStatus   *EMMSLobbyStatus       `protobuf:"varint,3,opt,name=lobby_status,json=lobbyStatus,enum=EMMSLobbyStatus,def=0" json:"lobby_status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientMMSGetLobbyStatusResponse fields.
-const (
-	Default_CMsgClientMMSGetLobbyStatusResponse_LobbyStatus = EMMSLobbyStatus_k_EMMSLobbyStatusInvalid
-)
-
-func (x *CMsgClientMMSGetLobbyStatusResponse) Reset() {
-	*x = CMsgClientMMSGetLobbyStatusResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[63]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSGetLobbyStatusResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSGetLobbyStatusResponse) ProtoMessage() {}
-
-func (x *CMsgClientMMSGetLobbyStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[63]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSGetLobbyStatusResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSGetLobbyStatusResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{63}
-}
-
-func (x *CMsgClientMMSGetLobbyStatusResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyStatusResponse) GetSteamIdLobby() uint64 {
-	if x != nil && x.SteamIdLobby != nil {
-		return *x.SteamIdLobby
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyStatusResponse) GetLobbyStatus() EMMSLobbyStatus {
-	if x != nil && x.LobbyStatus != nil {
-		return *x.LobbyStatus
-	}
-	return Default_CMsgClientMMSGetLobbyStatusResponse_LobbyStatus
 }
 
 type CMsgClientInviteToGame struct {
@@ -4404,7 +1378,7 @@ type CMsgClientInviteToGame struct {
 
 func (x *CMsgClientInviteToGame) Reset() {
 	*x = CMsgClientInviteToGame{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[64]
+	mi := &file_steammessages_clientserver_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4416,7 +1390,7 @@ func (x *CMsgClientInviteToGame) String() string {
 func (*CMsgClientInviteToGame) ProtoMessage() {}
 
 func (x *CMsgClientInviteToGame) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[64]
+	mi := &file_steammessages_clientserver_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4429,7 +1403,7 @@ func (x *CMsgClientInviteToGame) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientInviteToGame.ProtoReflect.Descriptor instead.
 func (*CMsgClientInviteToGame) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{64}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CMsgClientInviteToGame) GetSteamIdDest() uint64 {
@@ -4475,7 +1449,7 @@ type CMsgClientChatInvite struct {
 
 func (x *CMsgClientChatInvite) Reset() {
 	*x = CMsgClientChatInvite{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[65]
+	mi := &file_steammessages_clientserver_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4487,7 +1461,7 @@ func (x *CMsgClientChatInvite) String() string {
 func (*CMsgClientChatInvite) ProtoMessage() {}
 
 func (x *CMsgClientChatInvite) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[65]
+	mi := &file_steammessages_clientserver_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4500,7 +1474,7 @@ func (x *CMsgClientChatInvite) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientChatInvite.ProtoReflect.Descriptor instead.
 func (*CMsgClientChatInvite) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{65}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *CMsgClientChatInvite) GetSteamIdInvited() uint64 {
@@ -4562,7 +1536,7 @@ type CMsgClientConnectionStats struct {
 
 func (x *CMsgClientConnectionStats) Reset() {
 	*x = CMsgClientConnectionStats{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[66]
+	mi := &file_steammessages_clientserver_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4574,7 +1548,7 @@ func (x *CMsgClientConnectionStats) String() string {
 func (*CMsgClientConnectionStats) ProtoMessage() {}
 
 func (x *CMsgClientConnectionStats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[66]
+	mi := &file_steammessages_clientserver_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4587,7 +1561,7 @@ func (x *CMsgClientConnectionStats) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientConnectionStats.ProtoReflect.Descriptor instead.
 func (*CMsgClientConnectionStats) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{66}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CMsgClientConnectionStats) GetStatsLogon() *CMsgClientConnectionStats_Stats_Logon {
@@ -4614,7 +1588,7 @@ type CMsgClientServersAvailable struct {
 
 func (x *CMsgClientServersAvailable) Reset() {
 	*x = CMsgClientServersAvailable{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[67]
+	mi := &file_steammessages_clientserver_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4626,7 +1600,7 @@ func (x *CMsgClientServersAvailable) String() string {
 func (*CMsgClientServersAvailable) ProtoMessage() {}
 
 func (x *CMsgClientServersAvailable) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[67]
+	mi := &file_steammessages_clientserver_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4639,7 +1613,7 @@ func (x *CMsgClientServersAvailable) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientServersAvailable.ProtoReflect.Descriptor instead.
 func (*CMsgClientServersAvailable) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{67}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CMsgClientServersAvailable) GetServerTypesAvailable() []*CMsgClientServersAvailable_Server_Types_Available {
@@ -4656,492 +1630,6 @@ func (x *CMsgClientServersAvailable) GetServerTypeForAuthServices() uint32 {
 	return 0
 }
 
-type CMsgClientGetUserStats struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	GameId             *uint64                `protobuf:"fixed64,1,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
-	CrcStats           *uint32                `protobuf:"varint,2,opt,name=crc_stats,json=crcStats" json:"crc_stats,omitempty"`
-	SchemaLocalVersion *int32                 `protobuf:"varint,3,opt,name=schema_local_version,json=schemaLocalVersion" json:"schema_local_version,omitempty"`
-	SteamIdForUser     *uint64                `protobuf:"fixed64,4,opt,name=steam_id_for_user,json=steamIdForUser" json:"steam_id_for_user,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetUserStats) Reset() {
-	*x = CMsgClientGetUserStats{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[68]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetUserStats) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetUserStats) ProtoMessage() {}
-
-func (x *CMsgClientGetUserStats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[68]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetUserStats.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetUserStats) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{68}
-}
-
-func (x *CMsgClientGetUserStats) GetGameId() uint64 {
-	if x != nil && x.GameId != nil {
-		return *x.GameId
-	}
-	return 0
-}
-
-func (x *CMsgClientGetUserStats) GetCrcStats() uint32 {
-	if x != nil && x.CrcStats != nil {
-		return *x.CrcStats
-	}
-	return 0
-}
-
-func (x *CMsgClientGetUserStats) GetSchemaLocalVersion() int32 {
-	if x != nil && x.SchemaLocalVersion != nil {
-		return *x.SchemaLocalVersion
-	}
-	return 0
-}
-
-func (x *CMsgClientGetUserStats) GetSteamIdForUser() uint64 {
-	if x != nil && x.SteamIdForUser != nil {
-		return *x.SteamIdForUser
-	}
-	return 0
-}
-
-type CMsgClientGetUserStatsResponse struct {
-	state             protoimpl.MessageState                               `protogen:"open.v1"`
-	GameId            *uint64                                              `protobuf:"fixed64,1,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
-	Eresult           *int32                                               `protobuf:"varint,2,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	CrcStats          *uint32                                              `protobuf:"varint,3,opt,name=crc_stats,json=crcStats" json:"crc_stats,omitempty"`
-	Schema            []byte                                               `protobuf:"bytes,4,opt,name=schema" json:"schema,omitempty"`
-	Stats             []*CMsgClientGetUserStatsResponse_Stats              `protobuf:"bytes,5,rep,name=stats" json:"stats,omitempty"`
-	AchievementBlocks []*CMsgClientGetUserStatsResponse_Achievement_Blocks `protobuf:"bytes,6,rep,name=achievement_blocks,json=achievementBlocks" json:"achievement_blocks,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-// Default values for CMsgClientGetUserStatsResponse fields.
-const (
-	Default_CMsgClientGetUserStatsResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientGetUserStatsResponse) Reset() {
-	*x = CMsgClientGetUserStatsResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[69]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetUserStatsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetUserStatsResponse) ProtoMessage() {}
-
-func (x *CMsgClientGetUserStatsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[69]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetUserStatsResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetUserStatsResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{69}
-}
-
-func (x *CMsgClientGetUserStatsResponse) GetGameId() uint64 {
-	if x != nil && x.GameId != nil {
-		return *x.GameId
-	}
-	return 0
-}
-
-func (x *CMsgClientGetUserStatsResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientGetUserStatsResponse_Eresult
-}
-
-func (x *CMsgClientGetUserStatsResponse) GetCrcStats() uint32 {
-	if x != nil && x.CrcStats != nil {
-		return *x.CrcStats
-	}
-	return 0
-}
-
-func (x *CMsgClientGetUserStatsResponse) GetSchema() []byte {
-	if x != nil {
-		return x.Schema
-	}
-	return nil
-}
-
-func (x *CMsgClientGetUserStatsResponse) GetStats() []*CMsgClientGetUserStatsResponse_Stats {
-	if x != nil {
-		return x.Stats
-	}
-	return nil
-}
-
-func (x *CMsgClientGetUserStatsResponse) GetAchievementBlocks() []*CMsgClientGetUserStatsResponse_Achievement_Blocks {
-	if x != nil {
-		return x.AchievementBlocks
-	}
-	return nil
-}
-
-type CMsgClientStoreUserStatsResponse struct {
-	state                 protoimpl.MessageState                                      `protogen:"open.v1"`
-	GameId                *uint64                                                     `protobuf:"fixed64,1,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
-	Eresult               *int32                                                      `protobuf:"varint,2,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	CrcStats              *uint32                                                     `protobuf:"varint,3,opt,name=crc_stats,json=crcStats" json:"crc_stats,omitempty"`
-	StatsFailedValidation []*CMsgClientStoreUserStatsResponse_Stats_Failed_Validation `protobuf:"bytes,4,rep,name=stats_failed_validation,json=statsFailedValidation" json:"stats_failed_validation,omitempty"`
-	StatsOutOfDate        *bool                                                       `protobuf:"varint,5,opt,name=stats_out_of_date,json=statsOutOfDate" json:"stats_out_of_date,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-// Default values for CMsgClientStoreUserStatsResponse fields.
-const (
-	Default_CMsgClientStoreUserStatsResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientStoreUserStatsResponse) Reset() {
-	*x = CMsgClientStoreUserStatsResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[70]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStoreUserStatsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStoreUserStatsResponse) ProtoMessage() {}
-
-func (x *CMsgClientStoreUserStatsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[70]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStoreUserStatsResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientStoreUserStatsResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{70}
-}
-
-func (x *CMsgClientStoreUserStatsResponse) GetGameId() uint64 {
-	if x != nil && x.GameId != nil {
-		return *x.GameId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStatsResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientStoreUserStatsResponse_Eresult
-}
-
-func (x *CMsgClientStoreUserStatsResponse) GetCrcStats() uint32 {
-	if x != nil && x.CrcStats != nil {
-		return *x.CrcStats
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStatsResponse) GetStatsFailedValidation() []*CMsgClientStoreUserStatsResponse_Stats_Failed_Validation {
-	if x != nil {
-		return x.StatsFailedValidation
-	}
-	return nil
-}
-
-func (x *CMsgClientStoreUserStatsResponse) GetStatsOutOfDate() bool {
-	if x != nil && x.StatsOutOfDate != nil {
-		return *x.StatsOutOfDate
-	}
-	return false
-}
-
-type CMsgClientStoreUserStats2 struct {
-	state         protoimpl.MessageState             `protogen:"open.v1"`
-	GameId        *uint64                            `protobuf:"fixed64,1,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
-	SettorSteamId *uint64                            `protobuf:"fixed64,2,opt,name=settor_steam_id,json=settorSteamId" json:"settor_steam_id,omitempty"`
-	SetteeSteamId *uint64                            `protobuf:"fixed64,3,opt,name=settee_steam_id,json=setteeSteamId" json:"settee_steam_id,omitempty"`
-	CrcStats      *uint32                            `protobuf:"varint,4,opt,name=crc_stats,json=crcStats" json:"crc_stats,omitempty"`
-	ExplicitReset *bool                              `protobuf:"varint,5,opt,name=explicit_reset,json=explicitReset" json:"explicit_reset,omitempty"`
-	Stats         []*CMsgClientStoreUserStats2_Stats `protobuf:"bytes,6,rep,name=stats" json:"stats,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientStoreUserStats2) Reset() {
-	*x = CMsgClientStoreUserStats2{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[71]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStoreUserStats2) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStoreUserStats2) ProtoMessage() {}
-
-func (x *CMsgClientStoreUserStats2) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[71]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStoreUserStats2.ProtoReflect.Descriptor instead.
-func (*CMsgClientStoreUserStats2) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{71}
-}
-
-func (x *CMsgClientStoreUserStats2) GetGameId() uint64 {
-	if x != nil && x.GameId != nil {
-		return *x.GameId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStats2) GetSettorSteamId() uint64 {
-	if x != nil && x.SettorSteamId != nil {
-		return *x.SettorSteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStats2) GetSetteeSteamId() uint64 {
-	if x != nil && x.SetteeSteamId != nil {
-		return *x.SetteeSteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStats2) GetCrcStats() uint32 {
-	if x != nil && x.CrcStats != nil {
-		return *x.CrcStats
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStats2) GetExplicitReset() bool {
-	if x != nil && x.ExplicitReset != nil {
-		return *x.ExplicitReset
-	}
-	return false
-}
-
-func (x *CMsgClientStoreUserStats2) GetStats() []*CMsgClientStoreUserStats2_Stats {
-	if x != nil {
-		return x.Stats
-	}
-	return nil
-}
-
-type CMsgClientStatsUpdated struct {
-	state         protoimpl.MessageState                  `protogen:"open.v1"`
-	SteamId       *uint64                                 `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	GameId        *uint64                                 `protobuf:"fixed64,2,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
-	CrcStats      *uint32                                 `protobuf:"varint,3,opt,name=crc_stats,json=crcStats" json:"crc_stats,omitempty"`
-	UpdatedStats  []*CMsgClientStatsUpdated_Updated_Stats `protobuf:"bytes,4,rep,name=updated_stats,json=updatedStats" json:"updated_stats,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientStatsUpdated) Reset() {
-	*x = CMsgClientStatsUpdated{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStatsUpdated) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStatsUpdated) ProtoMessage() {}
-
-func (x *CMsgClientStatsUpdated) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStatsUpdated.ProtoReflect.Descriptor instead.
-func (*CMsgClientStatsUpdated) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *CMsgClientStatsUpdated) GetSteamId() uint64 {
-	if x != nil && x.SteamId != nil {
-		return *x.SteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientStatsUpdated) GetGameId() uint64 {
-	if x != nil && x.GameId != nil {
-		return *x.GameId
-	}
-	return 0
-}
-
-func (x *CMsgClientStatsUpdated) GetCrcStats() uint32 {
-	if x != nil && x.CrcStats != nil {
-		return *x.CrcStats
-	}
-	return 0
-}
-
-func (x *CMsgClientStatsUpdated) GetUpdatedStats() []*CMsgClientStatsUpdated_Updated_Stats {
-	if x != nil {
-		return x.UpdatedStats
-	}
-	return nil
-}
-
-type CMsgClientStoreUserStats struct {
-	state         protoimpl.MessageState                     `protogen:"open.v1"`
-	GameId        *uint64                                    `protobuf:"fixed64,1,opt,name=game_id,json=gameId" json:"game_id,omitempty"`
-	ExplicitReset *bool                                      `protobuf:"varint,2,opt,name=explicit_reset,json=explicitReset" json:"explicit_reset,omitempty"`
-	StatsToStore  []*CMsgClientStoreUserStats_Stats_To_Store `protobuf:"bytes,3,rep,name=stats_to_store,json=statsToStore" json:"stats_to_store,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientStoreUserStats) Reset() {
-	*x = CMsgClientStoreUserStats{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[73]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStoreUserStats) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStoreUserStats) ProtoMessage() {}
-
-func (x *CMsgClientStoreUserStats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[73]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStoreUserStats.ProtoReflect.Descriptor instead.
-func (*CMsgClientStoreUserStats) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{73}
-}
-
-func (x *CMsgClientStoreUserStats) GetGameId() uint64 {
-	if x != nil && x.GameId != nil {
-		return *x.GameId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStats) GetExplicitReset() bool {
-	if x != nil && x.ExplicitReset != nil {
-		return *x.ExplicitReset
-	}
-	return false
-}
-
-func (x *CMsgClientStoreUserStats) GetStatsToStore() []*CMsgClientStoreUserStats_Stats_To_Store {
-	if x != nil {
-		return x.StatsToStore
-	}
-	return nil
-}
-
-type CMsgClientGetClientDetails struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetClientDetails) Reset() {
-	*x = CMsgClientGetClientDetails{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[74]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetClientDetails) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetClientDetails) ProtoMessage() {}
-
-func (x *CMsgClientGetClientDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[74]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetClientDetails.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetClientDetails) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{74}
-}
-
 type CMsgClientReportOverlayDetourFailure struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	FailureStrings []string               `protobuf:"bytes,1,rep,name=failure_strings,json=failureStrings" json:"failure_strings,omitempty"`
@@ -5151,7 +1639,7 @@ type CMsgClientReportOverlayDetourFailure struct {
 
 func (x *CMsgClientReportOverlayDetourFailure) Reset() {
 	*x = CMsgClientReportOverlayDetourFailure{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[75]
+	mi := &file_steammessages_clientserver_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5163,7 +1651,7 @@ func (x *CMsgClientReportOverlayDetourFailure) String() string {
 func (*CMsgClientReportOverlayDetourFailure) ProtoMessage() {}
 
 func (x *CMsgClientReportOverlayDetourFailure) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[75]
+	mi := &file_steammessages_clientserver_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5176,7 +1664,7 @@ func (x *CMsgClientReportOverlayDetourFailure) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgClientReportOverlayDetourFailure.ProtoReflect.Descriptor instead.
 func (*CMsgClientReportOverlayDetourFailure) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{75}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CMsgClientReportOverlayDetourFailure) GetFailureStrings() []string {
@@ -5184,1516 +1672,6 @@ func (x *CMsgClientReportOverlayDetourFailure) GetFailureStrings() []string {
 		return x.FailureStrings
 	}
 	return nil
-}
-
-type CMsgClientGetClientDetailsResponse struct {
-	state           protoimpl.MessageState                     `protogen:"open.v1"`
-	PackageVersion  *uint32                                    `protobuf:"varint,1,opt,name=package_version,json=packageVersion" json:"package_version,omitempty"`
-	ProtocolVersion *uint32                                    `protobuf:"varint,8,opt,name=protocol_version,json=protocolVersion" json:"protocol_version,omitempty"`
-	Os              *string                                    `protobuf:"bytes,2,opt,name=os" json:"os,omitempty"`
-	MachineName     *string                                    `protobuf:"bytes,3,opt,name=machine_name,json=machineName" json:"machine_name,omitempty"`
-	IpPublic        *string                                    `protobuf:"bytes,4,opt,name=ip_public,json=ipPublic" json:"ip_public,omitempty"`
-	IpPrivate       *string                                    `protobuf:"bytes,5,opt,name=ip_private,json=ipPrivate" json:"ip_private,omitempty"`
-	BytesAvailable  *uint64                                    `protobuf:"varint,7,opt,name=bytes_available,json=bytesAvailable" json:"bytes_available,omitempty"`
-	GamesRunning    []*CMsgClientGetClientDetailsResponse_Game `protobuf:"bytes,6,rep,name=games_running,json=gamesRunning" json:"games_running,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetClientDetailsResponse) Reset() {
-	*x = CMsgClientGetClientDetailsResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[76]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetClientDetailsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetClientDetailsResponse) ProtoMessage() {}
-
-func (x *CMsgClientGetClientDetailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[76]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetClientDetailsResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetClientDetailsResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{76}
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetPackageVersion() uint32 {
-	if x != nil && x.PackageVersion != nil {
-		return *x.PackageVersion
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetProtocolVersion() uint32 {
-	if x != nil && x.ProtocolVersion != nil {
-		return *x.ProtocolVersion
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetOs() string {
-	if x != nil && x.Os != nil {
-		return *x.Os
-	}
-	return ""
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetMachineName() string {
-	if x != nil && x.MachineName != nil {
-		return *x.MachineName
-	}
-	return ""
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetIpPublic() string {
-	if x != nil && x.IpPublic != nil {
-		return *x.IpPublic
-	}
-	return ""
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetIpPrivate() string {
-	if x != nil && x.IpPrivate != nil {
-		return *x.IpPrivate
-	}
-	return ""
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetBytesAvailable() uint64 {
-	if x != nil && x.BytesAvailable != nil {
-		return *x.BytesAvailable
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientDetailsResponse) GetGamesRunning() []*CMsgClientGetClientDetailsResponse_Game {
-	if x != nil {
-		return x.GamesRunning
-	}
-	return nil
-}
-
-type CMsgClientGetClientAppList struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Media         *bool                  `protobuf:"varint,1,opt,name=media" json:"media,omitempty"`
-	Tools         *bool                  `protobuf:"varint,2,opt,name=tools" json:"tools,omitempty"`
-	Games         *bool                  `protobuf:"varint,3,opt,name=games" json:"games,omitempty"`
-	OnlyInstalled *bool                  `protobuf:"varint,4,opt,name=only_installed,json=onlyInstalled" json:"only_installed,omitempty"`
-	OnlyChanging  *bool                  `protobuf:"varint,5,opt,name=only_changing,json=onlyChanging" json:"only_changing,omitempty"`
-	Comics        *bool                  `protobuf:"varint,6,opt,name=comics" json:"comics,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetClientAppList) Reset() {
-	*x = CMsgClientGetClientAppList{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[77]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetClientAppList) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetClientAppList) ProtoMessage() {}
-
-func (x *CMsgClientGetClientAppList) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[77]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetClientAppList.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetClientAppList) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{77}
-}
-
-func (x *CMsgClientGetClientAppList) GetMedia() bool {
-	if x != nil && x.Media != nil {
-		return *x.Media
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppList) GetTools() bool {
-	if x != nil && x.Tools != nil {
-		return *x.Tools
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppList) GetGames() bool {
-	if x != nil && x.Games != nil {
-		return *x.Games
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppList) GetOnlyInstalled() bool {
-	if x != nil && x.OnlyInstalled != nil {
-		return *x.OnlyInstalled
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppList) GetOnlyChanging() bool {
-	if x != nil && x.OnlyChanging != nil {
-		return *x.OnlyChanging
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppList) GetComics() bool {
-	if x != nil && x.Comics != nil {
-		return *x.Comics
-	}
-	return false
-}
-
-type CMsgClientGetClientAppListResponse struct {
-	state          protoimpl.MessageState                    `protogen:"open.v1"`
-	Apps           []*CMsgClientGetClientAppListResponse_App `protobuf:"bytes,1,rep,name=apps" json:"apps,omitempty"`
-	BytesAvailable *uint64                                   `protobuf:"varint,2,opt,name=bytes_available,json=bytesAvailable" json:"bytes_available,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetClientAppListResponse) Reset() {
-	*x = CMsgClientGetClientAppListResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[78]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetClientAppListResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetClientAppListResponse) ProtoMessage() {}
-
-func (x *CMsgClientGetClientAppListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[78]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetClientAppListResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetClientAppListResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{78}
-}
-
-func (x *CMsgClientGetClientAppListResponse) GetApps() []*CMsgClientGetClientAppListResponse_App {
-	if x != nil {
-		return x.Apps
-	}
-	return nil
-}
-
-func (x *CMsgClientGetClientAppListResponse) GetBytesAvailable() uint64 {
-	if x != nil && x.BytesAvailable != nil {
-		return *x.BytesAvailable
-	}
-	return 0
-}
-
-type CMsgClientInstallClientApp struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientInstallClientApp) Reset() {
-	*x = CMsgClientInstallClientApp{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[79]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientInstallClientApp) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientInstallClientApp) ProtoMessage() {}
-
-func (x *CMsgClientInstallClientApp) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[79]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientInstallClientApp.ProtoReflect.Descriptor instead.
-func (*CMsgClientInstallClientApp) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{79}
-}
-
-func (x *CMsgClientInstallClientApp) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-type CMsgClientInstallClientAppResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        *uint32                `protobuf:"varint,1,opt,name=result" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientInstallClientAppResponse) Reset() {
-	*x = CMsgClientInstallClientAppResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[80]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientInstallClientAppResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientInstallClientAppResponse) ProtoMessage() {}
-
-func (x *CMsgClientInstallClientAppResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[80]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientInstallClientAppResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientInstallClientAppResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{80}
-}
-
-func (x *CMsgClientInstallClientAppResponse) GetResult() uint32 {
-	if x != nil && x.Result != nil {
-		return *x.Result
-	}
-	return 0
-}
-
-type CMsgClientUninstallClientApp struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUninstallClientApp) Reset() {
-	*x = CMsgClientUninstallClientApp{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[81]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUninstallClientApp) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUninstallClientApp) ProtoMessage() {}
-
-func (x *CMsgClientUninstallClientApp) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[81]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUninstallClientApp.ProtoReflect.Descriptor instead.
-func (*CMsgClientUninstallClientApp) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{81}
-}
-
-func (x *CMsgClientUninstallClientApp) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-type CMsgClientUninstallClientAppResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        *uint32                `protobuf:"varint,1,opt,name=result" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUninstallClientAppResponse) Reset() {
-	*x = CMsgClientUninstallClientAppResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[82]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUninstallClientAppResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUninstallClientAppResponse) ProtoMessage() {}
-
-func (x *CMsgClientUninstallClientAppResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[82]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUninstallClientAppResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUninstallClientAppResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{82}
-}
-
-func (x *CMsgClientUninstallClientAppResponse) GetResult() uint32 {
-	if x != nil && x.Result != nil {
-		return *x.Result
-	}
-	return 0
-}
-
-type CMsgClientSetClientAppUpdateState struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	Update        *bool                  `protobuf:"varint,2,opt,name=update" json:"update,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientSetClientAppUpdateState) Reset() {
-	*x = CMsgClientSetClientAppUpdateState{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[83]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientSetClientAppUpdateState) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientSetClientAppUpdateState) ProtoMessage() {}
-
-func (x *CMsgClientSetClientAppUpdateState) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[83]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientSetClientAppUpdateState.ProtoReflect.Descriptor instead.
-func (*CMsgClientSetClientAppUpdateState) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{83}
-}
-
-func (x *CMsgClientSetClientAppUpdateState) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientSetClientAppUpdateState) GetUpdate() bool {
-	if x != nil && x.Update != nil {
-		return *x.Update
-	}
-	return false
-}
-
-type CMsgClientSetClientAppUpdateStateResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Result        *uint32                `protobuf:"varint,1,opt,name=result" json:"result,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientSetClientAppUpdateStateResponse) Reset() {
-	*x = CMsgClientSetClientAppUpdateStateResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[84]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientSetClientAppUpdateStateResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientSetClientAppUpdateStateResponse) ProtoMessage() {}
-
-func (x *CMsgClientSetClientAppUpdateStateResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[84]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientSetClientAppUpdateStateResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientSetClientAppUpdateStateResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{84}
-}
-
-func (x *CMsgClientSetClientAppUpdateStateResponse) GetResult() uint32 {
-	if x != nil && x.Result != nil {
-		return *x.Result
-	}
-	return 0
-}
-
-type CMsgClientUFSUploadFileRequest struct {
-	state                     protoimpl.MessageState `protogen:"open.v1"`
-	AppId                     *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileSize                  *uint32                `protobuf:"varint,2,opt,name=file_size,json=fileSize" json:"file_size,omitempty"`
-	RawFileSize               *uint32                `protobuf:"varint,3,opt,name=raw_file_size,json=rawFileSize" json:"raw_file_size,omitempty"`
-	ShaFile                   []byte                 `protobuf:"bytes,4,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	TimeStamp                 *uint64                `protobuf:"varint,5,opt,name=time_stamp,json=timeStamp" json:"time_stamp,omitempty"`
-	FileName                  *string                `protobuf:"bytes,6,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	PlatformsToSyncDeprecated *uint32                `protobuf:"varint,7,opt,name=platforms_to_sync_deprecated,json=platformsToSyncDeprecated" json:"platforms_to_sync_deprecated,omitempty"`
-	PlatformsToSync           *uint32                `protobuf:"varint,8,opt,name=platforms_to_sync,json=platformsToSync,def=4294967295" json:"platforms_to_sync,omitempty"`
-	CellId                    *uint32                `protobuf:"varint,9,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
-	CanEncrypt                *bool                  `protobuf:"varint,10,opt,name=can_encrypt,json=canEncrypt" json:"can_encrypt,omitempty"`
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSUploadFileRequest fields.
-const (
-	Default_CMsgClientUFSUploadFileRequest_PlatformsToSync = uint32(4294967295)
-)
-
-func (x *CMsgClientUFSUploadFileRequest) Reset() {
-	*x = CMsgClientUFSUploadFileRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[85]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSUploadFileRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSUploadFileRequest) ProtoMessage() {}
-
-func (x *CMsgClientUFSUploadFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[85]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSUploadFileRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSUploadFileRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{85}
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetFileSize() uint32 {
-	if x != nil && x.FileSize != nil {
-		return *x.FileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetRawFileSize() uint32 {
-	if x != nil && x.RawFileSize != nil {
-		return *x.RawFileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetTimeStamp() uint64 {
-	if x != nil && x.TimeStamp != nil {
-		return *x.TimeStamp
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetPlatformsToSyncDeprecated() uint32 {
-	if x != nil && x.PlatformsToSyncDeprecated != nil {
-		return *x.PlatformsToSyncDeprecated
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetPlatformsToSync() uint32 {
-	if x != nil && x.PlatformsToSync != nil {
-		return *x.PlatformsToSync
-	}
-	return Default_CMsgClientUFSUploadFileRequest_PlatformsToSync
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetCellId() uint32 {
-	if x != nil && x.CellId != nil {
-		return *x.CellId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadFileRequest) GetCanEncrypt() bool {
-	if x != nil && x.CanEncrypt != nil {
-		return *x.CanEncrypt
-	}
-	return false
-}
-
-type CMsgClientUFSUploadFileResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	ShaFile       []byte                 `protobuf:"bytes,2,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	UseHttp       *bool                  `protobuf:"varint,3,opt,name=use_http,json=useHttp" json:"use_http,omitempty"`
-	HttpHost      *string                `protobuf:"bytes,4,opt,name=http_host,json=httpHost" json:"http_host,omitempty"`
-	HttpUrl       *string                `protobuf:"bytes,5,opt,name=http_url,json=httpUrl" json:"http_url,omitempty"`
-	KvHeaders     []byte                 `protobuf:"bytes,6,opt,name=kv_headers,json=kvHeaders" json:"kv_headers,omitempty"`
-	UseHttps      *bool                  `protobuf:"varint,7,opt,name=use_https,json=useHttps" json:"use_https,omitempty"`
-	EncryptFile   *bool                  `protobuf:"varint,8,opt,name=encrypt_file,json=encryptFile" json:"encrypt_file,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSUploadFileResponse fields.
-const (
-	Default_CMsgClientUFSUploadFileResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSUploadFileResponse) Reset() {
-	*x = CMsgClientUFSUploadFileResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[86]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSUploadFileResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSUploadFileResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSUploadFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[86]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSUploadFileResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSUploadFileResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{86}
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSUploadFileResponse_Eresult
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetUseHttp() bool {
-	if x != nil && x.UseHttp != nil {
-		return *x.UseHttp
-	}
-	return false
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetHttpHost() string {
-	if x != nil && x.HttpHost != nil {
-		return *x.HttpHost
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetHttpUrl() string {
-	if x != nil && x.HttpUrl != nil {
-		return *x.HttpUrl
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetKvHeaders() []byte {
-	if x != nil {
-		return x.KvHeaders
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetUseHttps() bool {
-	if x != nil && x.UseHttps != nil {
-		return *x.UseHttps
-	}
-	return false
-}
-
-func (x *CMsgClientUFSUploadFileResponse) GetEncryptFile() bool {
-	if x != nil && x.EncryptFile != nil {
-		return *x.EncryptFile
-	}
-	return false
-}
-
-type CMsgClientUFSUploadCommit struct {
-	state         protoimpl.MessageState            `protogen:"open.v1"`
-	Files         []*CMsgClientUFSUploadCommit_File `protobuf:"bytes,1,rep,name=files" json:"files,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSUploadCommit) Reset() {
-	*x = CMsgClientUFSUploadCommit{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[87]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSUploadCommit) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSUploadCommit) ProtoMessage() {}
-
-func (x *CMsgClientUFSUploadCommit) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[87]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSUploadCommit.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSUploadCommit) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{87}
-}
-
-func (x *CMsgClientUFSUploadCommit) GetFiles() []*CMsgClientUFSUploadCommit_File {
-	if x != nil {
-		return x.Files
-	}
-	return nil
-}
-
-type CMsgClientUFSUploadCommitResponse struct {
-	state         protoimpl.MessageState                    `protogen:"open.v1"`
-	Files         []*CMsgClientUFSUploadCommitResponse_File `protobuf:"bytes,1,rep,name=files" json:"files,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSUploadCommitResponse) Reset() {
-	*x = CMsgClientUFSUploadCommitResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[88]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSUploadCommitResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSUploadCommitResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSUploadCommitResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[88]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSUploadCommitResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSUploadCommitResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{88}
-}
-
-func (x *CMsgClientUFSUploadCommitResponse) GetFiles() []*CMsgClientUFSUploadCommitResponse_File {
-	if x != nil {
-		return x.Files
-	}
-	return nil
-}
-
-type CMsgClientUFSFileChunk struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ShaFile       []byte                 `protobuf:"bytes,1,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	FileStart     *uint32                `protobuf:"varint,2,opt,name=file_start,json=fileStart" json:"file_start,omitempty"`
-	Data          []byte                 `protobuf:"bytes,3,opt,name=data" json:"data,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSFileChunk) Reset() {
-	*x = CMsgClientUFSFileChunk{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[89]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSFileChunk) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSFileChunk) ProtoMessage() {}
-
-func (x *CMsgClientUFSFileChunk) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[89]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSFileChunk.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSFileChunk) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{89}
-}
-
-func (x *CMsgClientUFSFileChunk) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSFileChunk) GetFileStart() uint32 {
-	if x != nil && x.FileStart != nil {
-		return *x.FileStart
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSFileChunk) GetData() []byte {
-	if x != nil {
-		return x.Data
-	}
-	return nil
-}
-
-type CMsgClientUFSTransferHeartbeat struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSTransferHeartbeat) Reset() {
-	*x = CMsgClientUFSTransferHeartbeat{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[90]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSTransferHeartbeat) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSTransferHeartbeat) ProtoMessage() {}
-
-func (x *CMsgClientUFSTransferHeartbeat) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[90]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSTransferHeartbeat.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSTransferHeartbeat) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{90}
-}
-
-type CMsgClientUFSUploadFileFinished struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	ShaFile       []byte                 `protobuf:"bytes,2,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSUploadFileFinished fields.
-const (
-	Default_CMsgClientUFSUploadFileFinished_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSUploadFileFinished) Reset() {
-	*x = CMsgClientUFSUploadFileFinished{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[91]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSUploadFileFinished) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSUploadFileFinished) ProtoMessage() {}
-
-func (x *CMsgClientUFSUploadFileFinished) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[91]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSUploadFileFinished.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSUploadFileFinished) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{91}
-}
-
-func (x *CMsgClientUFSUploadFileFinished) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSUploadFileFinished_Eresult
-}
-
-func (x *CMsgClientUFSUploadFileFinished) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-type CMsgClientUFSDeleteFileRequest struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	AppId            *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileName         *string                `protobuf:"bytes,2,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	IsExplicitDelete *bool                  `protobuf:"varint,3,opt,name=is_explicit_delete,json=isExplicitDelete" json:"is_explicit_delete,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSDeleteFileRequest) Reset() {
-	*x = CMsgClientUFSDeleteFileRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[92]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSDeleteFileRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSDeleteFileRequest) ProtoMessage() {}
-
-func (x *CMsgClientUFSDeleteFileRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[92]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSDeleteFileRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSDeleteFileRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{92}
-}
-
-func (x *CMsgClientUFSDeleteFileRequest) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSDeleteFileRequest) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSDeleteFileRequest) GetIsExplicitDelete() bool {
-	if x != nil && x.IsExplicitDelete != nil {
-		return *x.IsExplicitDelete
-	}
-	return false
-}
-
-type CMsgClientUFSDeleteFileResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	FileName      *string                `protobuf:"bytes,2,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSDeleteFileResponse fields.
-const (
-	Default_CMsgClientUFSDeleteFileResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSDeleteFileResponse) Reset() {
-	*x = CMsgClientUFSDeleteFileResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[93]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSDeleteFileResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSDeleteFileResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSDeleteFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[93]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSDeleteFileResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSDeleteFileResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{93}
-}
-
-func (x *CMsgClientUFSDeleteFileResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSDeleteFileResponse_Eresult
-}
-
-func (x *CMsgClientUFSDeleteFileResponse) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-type CMsgClientUFSGetFileListForApp struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	AppsToQuery      []uint32               `protobuf:"varint,1,rep,name=apps_to_query,json=appsToQuery" json:"apps_to_query,omitempty"`
-	SendPathPrefixes *bool                  `protobuf:"varint,2,opt,name=send_path_prefixes,json=sendPathPrefixes" json:"send_path_prefixes,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSGetFileListForApp) Reset() {
-	*x = CMsgClientUFSGetFileListForApp{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[94]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSGetFileListForApp) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSGetFileListForApp) ProtoMessage() {}
-
-func (x *CMsgClientUFSGetFileListForApp) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[94]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSGetFileListForApp.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSGetFileListForApp) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{94}
-}
-
-func (x *CMsgClientUFSGetFileListForApp) GetAppsToQuery() []uint32 {
-	if x != nil {
-		return x.AppsToQuery
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSGetFileListForApp) GetSendPathPrefixes() bool {
-	if x != nil && x.SendPathPrefixes != nil {
-		return *x.SendPathPrefixes
-	}
-	return false
-}
-
-type CMsgClientUFSGetFileListForAppResponse struct {
-	state         protoimpl.MessageState                         `protogen:"open.v1"`
-	Files         []*CMsgClientUFSGetFileListForAppResponse_File `protobuf:"bytes,1,rep,name=files" json:"files,omitempty"`
-	PathPrefixes  []string                                       `protobuf:"bytes,2,rep,name=path_prefixes,json=pathPrefixes" json:"path_prefixes,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse) Reset() {
-	*x = CMsgClientUFSGetFileListForAppResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSGetFileListForAppResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSGetFileListForAppResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSGetFileListForAppResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSGetFileListForAppResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse) GetFiles() []*CMsgClientUFSGetFileListForAppResponse_File {
-	if x != nil {
-		return x.Files
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse) GetPathPrefixes() []string {
-	if x != nil {
-		return x.PathPrefixes
-	}
-	return nil
-}
-
-type CMsgClientUFSDownloadRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileName      *string                `protobuf:"bytes,2,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	CanHandleHttp *bool                  `protobuf:"varint,3,opt,name=can_handle_http,json=canHandleHttp" json:"can_handle_http,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSDownloadRequest) Reset() {
-	*x = CMsgClientUFSDownloadRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[96]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSDownloadRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSDownloadRequest) ProtoMessage() {}
-
-func (x *CMsgClientUFSDownloadRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[96]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSDownloadRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSDownloadRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{96}
-}
-
-func (x *CMsgClientUFSDownloadRequest) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSDownloadRequest) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSDownloadRequest) GetCanHandleHttp() bool {
-	if x != nil && x.CanHandleHttp != nil {
-		return *x.CanHandleHttp
-	}
-	return false
-}
-
-type CMsgClientUFSDownloadResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Eresult          *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	AppId            *uint32                `protobuf:"varint,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileSize         *uint32                `protobuf:"varint,3,opt,name=file_size,json=fileSize" json:"file_size,omitempty"`
-	RawFileSize      *uint32                `protobuf:"varint,4,opt,name=raw_file_size,json=rawFileSize" json:"raw_file_size,omitempty"`
-	ShaFile          []byte                 `protobuf:"bytes,5,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	TimeStamp        *uint64                `protobuf:"varint,6,opt,name=time_stamp,json=timeStamp" json:"time_stamp,omitempty"`
-	IsExplicitDelete *bool                  `protobuf:"varint,7,opt,name=is_explicit_delete,json=isExplicitDelete" json:"is_explicit_delete,omitempty"`
-	UseHttp          *bool                  `protobuf:"varint,8,opt,name=use_http,json=useHttp" json:"use_http,omitempty"`
-	HttpHost         *string                `protobuf:"bytes,9,opt,name=http_host,json=httpHost" json:"http_host,omitempty"`
-	HttpUrl          *string                `protobuf:"bytes,10,opt,name=http_url,json=httpUrl" json:"http_url,omitempty"`
-	KvHeaders        []byte                 `protobuf:"bytes,11,opt,name=kv_headers,json=kvHeaders" json:"kv_headers,omitempty"`
-	UseHttps         *bool                  `protobuf:"varint,12,opt,name=use_https,json=useHttps" json:"use_https,omitempty"`
-	Encrypted        *bool                  `protobuf:"varint,13,opt,name=encrypted" json:"encrypted,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSDownloadResponse fields.
-const (
-	Default_CMsgClientUFSDownloadResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSDownloadResponse) Reset() {
-	*x = CMsgClientUFSDownloadResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[97]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSDownloadResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSDownloadResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSDownloadResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[97]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSDownloadResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSDownloadResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{97}
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSDownloadResponse_Eresult
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetFileSize() uint32 {
-	if x != nil && x.FileSize != nil {
-		return *x.FileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetRawFileSize() uint32 {
-	if x != nil && x.RawFileSize != nil {
-		return *x.RawFileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetTimeStamp() uint64 {
-	if x != nil && x.TimeStamp != nil {
-		return *x.TimeStamp
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetIsExplicitDelete() bool {
-	if x != nil && x.IsExplicitDelete != nil {
-		return *x.IsExplicitDelete
-	}
-	return false
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetUseHttp() bool {
-	if x != nil && x.UseHttp != nil {
-		return *x.UseHttp
-	}
-	return false
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetHttpHost() string {
-	if x != nil && x.HttpHost != nil {
-		return *x.HttpHost
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetHttpUrl() string {
-	if x != nil && x.HttpUrl != nil {
-		return *x.HttpUrl
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetKvHeaders() []byte {
-	if x != nil {
-		return x.KvHeaders
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetUseHttps() bool {
-	if x != nil && x.UseHttps != nil {
-		return *x.UseHttps
-	}
-	return false
-}
-
-func (x *CMsgClientUFSDownloadResponse) GetEncrypted() bool {
-	if x != nil && x.Encrypted != nil {
-		return *x.Encrypted
-	}
-	return false
-}
-
-type CMsgClientUFSLoginRequest struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	ProtocolVersion *uint32                `protobuf:"varint,1,opt,name=protocol_version,json=protocolVersion" json:"protocol_version,omitempty"`
-	AmSessionToken  *uint64                `protobuf:"varint,2,opt,name=am_session_token,json=amSessionToken" json:"am_session_token,omitempty"`
-	Apps            []uint32               `protobuf:"varint,3,rep,name=apps" json:"apps,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSLoginRequest) Reset() {
-	*x = CMsgClientUFSLoginRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[98]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSLoginRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSLoginRequest) ProtoMessage() {}
-
-func (x *CMsgClientUFSLoginRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[98]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSLoginRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSLoginRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{98}
-}
-
-func (x *CMsgClientUFSLoginRequest) GetProtocolVersion() uint32 {
-	if x != nil && x.ProtocolVersion != nil {
-		return *x.ProtocolVersion
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSLoginRequest) GetAmSessionToken() uint64 {
-	if x != nil && x.AmSessionToken != nil {
-		return *x.AmSessionToken
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSLoginRequest) GetApps() []uint32 {
-	if x != nil {
-		return x.Apps
-	}
-	return nil
-}
-
-type CMsgClientUFSLoginResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSLoginResponse fields.
-const (
-	Default_CMsgClientUFSLoginResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSLoginResponse) Reset() {
-	*x = CMsgClientUFSLoginResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[99]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSLoginResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSLoginResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSLoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[99]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSLoginResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSLoginResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{99}
-}
-
-func (x *CMsgClientUFSLoginResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSLoginResponse_Eresult
 }
 
 type CMsgClientRequestEncryptedAppTicket struct {
@@ -6706,7 +1684,7 @@ type CMsgClientRequestEncryptedAppTicket struct {
 
 func (x *CMsgClientRequestEncryptedAppTicket) Reset() {
 	*x = CMsgClientRequestEncryptedAppTicket{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[100]
+	mi := &file_steammessages_clientserver_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6718,7 +1696,7 @@ func (x *CMsgClientRequestEncryptedAppTicket) String() string {
 func (*CMsgClientRequestEncryptedAppTicket) ProtoMessage() {}
 
 func (x *CMsgClientRequestEncryptedAppTicket) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[100]
+	mi := &file_steammessages_clientserver_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6731,7 +1709,7 @@ func (x *CMsgClientRequestEncryptedAppTicket) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgClientRequestEncryptedAppTicket.ProtoReflect.Descriptor instead.
 func (*CMsgClientRequestEncryptedAppTicket) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{100}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CMsgClientRequestEncryptedAppTicket) GetAppId() uint32 {
@@ -6764,7 +1742,7 @@ const (
 
 func (x *CMsgClientRequestEncryptedAppTicketResponse) Reset() {
 	*x = CMsgClientRequestEncryptedAppTicketResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[101]
+	mi := &file_steammessages_clientserver_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6776,7 +1754,7 @@ func (x *CMsgClientRequestEncryptedAppTicketResponse) String() string {
 func (*CMsgClientRequestEncryptedAppTicketResponse) ProtoMessage() {}
 
 func (x *CMsgClientRequestEncryptedAppTicketResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[101]
+	mi := &file_steammessages_clientserver_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6789,7 +1767,7 @@ func (x *CMsgClientRequestEncryptedAppTicketResponse) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgClientRequestEncryptedAppTicketResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientRequestEncryptedAppTicketResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{101}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CMsgClientRequestEncryptedAppTicketResponse) GetAppId() uint32 {
@@ -6821,13 +1799,14 @@ type CMsgClientWalletInfoUpdate struct {
 	BalanceDelayed   *int32                 `protobuf:"varint,4,opt,name=balance_delayed,json=balanceDelayed" json:"balance_delayed,omitempty"`
 	Balance64        *int64                 `protobuf:"varint,5,opt,name=balance64" json:"balance64,omitempty"`
 	Balance64Delayed *int64                 `protobuf:"varint,6,opt,name=balance64_delayed,json=balance64Delayed" json:"balance64_delayed,omitempty"`
+	Realm            *int32                 `protobuf:"varint,7,opt,name=realm" json:"realm,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
 func (x *CMsgClientWalletInfoUpdate) Reset() {
 	*x = CMsgClientWalletInfoUpdate{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[102]
+	mi := &file_steammessages_clientserver_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6839,7 +1818,7 @@ func (x *CMsgClientWalletInfoUpdate) String() string {
 func (*CMsgClientWalletInfoUpdate) ProtoMessage() {}
 
 func (x *CMsgClientWalletInfoUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[102]
+	mi := &file_steammessages_clientserver_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6852,7 +1831,7 @@ func (x *CMsgClientWalletInfoUpdate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientWalletInfoUpdate.ProtoReflect.Descriptor instead.
 func (*CMsgClientWalletInfoUpdate) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{102}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CMsgClientWalletInfoUpdate) GetHasWallet() bool {
@@ -6897,1230 +1876,11 @@ func (x *CMsgClientWalletInfoUpdate) GetBalance64Delayed() int64 {
 	return 0
 }
 
-type CMsgClientAppInfoUpdate struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	LastChangenumber *uint32                `protobuf:"varint,1,opt,name=last_changenumber,json=lastChangenumber" json:"last_changenumber,omitempty"`
-	SendChangelist   *bool                  `protobuf:"varint,2,opt,name=send_changelist,json=sendChangelist" json:"send_changelist,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppInfoUpdate) Reset() {
-	*x = CMsgClientAppInfoUpdate{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[103]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppInfoUpdate) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppInfoUpdate) ProtoMessage() {}
-
-func (x *CMsgClientAppInfoUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[103]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppInfoUpdate.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppInfoUpdate) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{103}
-}
-
-func (x *CMsgClientAppInfoUpdate) GetLastChangenumber() uint32 {
-	if x != nil && x.LastChangenumber != nil {
-		return *x.LastChangenumber
+func (x *CMsgClientWalletInfoUpdate) GetRealm() int32 {
+	if x != nil && x.Realm != nil {
+		return *x.Realm
 	}
 	return 0
-}
-
-func (x *CMsgClientAppInfoUpdate) GetSendChangelist() bool {
-	if x != nil && x.SendChangelist != nil {
-		return *x.SendChangelist
-	}
-	return false
-}
-
-type CMsgClientAppInfoChanges struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	CurrentChangeNumber *uint32                `protobuf:"varint,1,opt,name=current_change_number,json=currentChangeNumber" json:"current_change_number,omitempty"`
-	ForceFullUpdate     *bool                  `protobuf:"varint,2,opt,name=force_full_update,json=forceFullUpdate" json:"force_full_update,omitempty"`
-	AppIDs              []uint32               `protobuf:"varint,3,rep,name=appIDs" json:"appIDs,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppInfoChanges) Reset() {
-	*x = CMsgClientAppInfoChanges{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[104]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppInfoChanges) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppInfoChanges) ProtoMessage() {}
-
-func (x *CMsgClientAppInfoChanges) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[104]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppInfoChanges.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppInfoChanges) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{104}
-}
-
-func (x *CMsgClientAppInfoChanges) GetCurrentChangeNumber() uint32 {
-	if x != nil && x.CurrentChangeNumber != nil {
-		return *x.CurrentChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientAppInfoChanges) GetForceFullUpdate() bool {
-	if x != nil && x.ForceFullUpdate != nil {
-		return *x.ForceFullUpdate
-	}
-	return false
-}
-
-func (x *CMsgClientAppInfoChanges) GetAppIDs() []uint32 {
-	if x != nil {
-		return x.AppIDs
-	}
-	return nil
-}
-
-type CMsgClientAppInfoRequest struct {
-	state           protoimpl.MessageState          `protogen:"open.v1"`
-	Apps            []*CMsgClientAppInfoRequest_App `protobuf:"bytes,1,rep,name=apps" json:"apps,omitempty"`
-	SupportsBatches *bool                           `protobuf:"varint,2,opt,name=supports_batches,json=supportsBatches,def=0" json:"supports_batches,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
-}
-
-// Default values for CMsgClientAppInfoRequest fields.
-const (
-	Default_CMsgClientAppInfoRequest_SupportsBatches = bool(false)
-)
-
-func (x *CMsgClientAppInfoRequest) Reset() {
-	*x = CMsgClientAppInfoRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[105]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppInfoRequest) ProtoMessage() {}
-
-func (x *CMsgClientAppInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[105]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppInfoRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppInfoRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{105}
-}
-
-func (x *CMsgClientAppInfoRequest) GetApps() []*CMsgClientAppInfoRequest_App {
-	if x != nil {
-		return x.Apps
-	}
-	return nil
-}
-
-func (x *CMsgClientAppInfoRequest) GetSupportsBatches() bool {
-	if x != nil && x.SupportsBatches != nil {
-		return *x.SupportsBatches
-	}
-	return Default_CMsgClientAppInfoRequest_SupportsBatches
-}
-
-type CMsgClientAppInfoResponse struct {
-	state         protoimpl.MessageState           `protogen:"open.v1"`
-	Apps          []*CMsgClientAppInfoResponse_App `protobuf:"bytes,1,rep,name=apps" json:"apps,omitempty"`
-	AppsUnknown   []uint32                         `protobuf:"varint,2,rep,name=apps_unknown,json=appsUnknown" json:"apps_unknown,omitempty"`
-	AppsPending   *uint32                          `protobuf:"varint,3,opt,name=apps_pending,json=appsPending" json:"apps_pending,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppInfoResponse) Reset() {
-	*x = CMsgClientAppInfoResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[106]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppInfoResponse) ProtoMessage() {}
-
-func (x *CMsgClientAppInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[106]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppInfoResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppInfoResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{106}
-}
-
-func (x *CMsgClientAppInfoResponse) GetApps() []*CMsgClientAppInfoResponse_App {
-	if x != nil {
-		return x.Apps
-	}
-	return nil
-}
-
-func (x *CMsgClientAppInfoResponse) GetAppsUnknown() []uint32 {
-	if x != nil {
-		return x.AppsUnknown
-	}
-	return nil
-}
-
-func (x *CMsgClientAppInfoResponse) GetAppsPending() uint32 {
-	if x != nil && x.AppsPending != nil {
-		return *x.AppsPending
-	}
-	return 0
-}
-
-type CMsgClientPackageInfoRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PackageIds    []uint32               `protobuf:"varint,1,rep,name=package_ids,json=packageIds" json:"package_ids,omitempty"`
-	MetaDataOnly  *bool                  `protobuf:"varint,2,opt,name=meta_data_only,json=metaDataOnly" json:"meta_data_only,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPackageInfoRequest) Reset() {
-	*x = CMsgClientPackageInfoRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[107]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPackageInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPackageInfoRequest) ProtoMessage() {}
-
-func (x *CMsgClientPackageInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[107]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPackageInfoRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientPackageInfoRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{107}
-}
-
-func (x *CMsgClientPackageInfoRequest) GetPackageIds() []uint32 {
-	if x != nil {
-		return x.PackageIds
-	}
-	return nil
-}
-
-func (x *CMsgClientPackageInfoRequest) GetMetaDataOnly() bool {
-	if x != nil && x.MetaDataOnly != nil {
-		return *x.MetaDataOnly
-	}
-	return false
-}
-
-type CMsgClientPackageInfoResponse struct {
-	state           protoimpl.MessageState                   `protogen:"open.v1"`
-	Packages        []*CMsgClientPackageInfoResponse_Package `protobuf:"bytes,1,rep,name=packages" json:"packages,omitempty"`
-	PackagesUnknown []uint32                                 `protobuf:"varint,2,rep,name=packages_unknown,json=packagesUnknown" json:"packages_unknown,omitempty"`
-	PackagesPending *uint32                                  `protobuf:"varint,3,opt,name=packages_pending,json=packagesPending" json:"packages_pending,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
-}
-
-func (x *CMsgClientPackageInfoResponse) Reset() {
-	*x = CMsgClientPackageInfoResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[108]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPackageInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPackageInfoResponse) ProtoMessage() {}
-
-func (x *CMsgClientPackageInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[108]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPackageInfoResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientPackageInfoResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{108}
-}
-
-func (x *CMsgClientPackageInfoResponse) GetPackages() []*CMsgClientPackageInfoResponse_Package {
-	if x != nil {
-		return x.Packages
-	}
-	return nil
-}
-
-func (x *CMsgClientPackageInfoResponse) GetPackagesUnknown() []uint32 {
-	if x != nil {
-		return x.PackagesUnknown
-	}
-	return nil
-}
-
-func (x *CMsgClientPackageInfoResponse) GetPackagesPending() uint32 {
-	if x != nil && x.PackagesPending != nil {
-		return *x.PackagesPending
-	}
-	return 0
-}
-
-type CMsgClientPICSChangesSinceRequest struct {
-	state                  protoimpl.MessageState `protogen:"open.v1"`
-	SinceChangeNumber      *uint32                `protobuf:"varint,1,opt,name=since_change_number,json=sinceChangeNumber" json:"since_change_number,omitempty"`
-	SendAppInfoChanges     *bool                  `protobuf:"varint,2,opt,name=send_app_info_changes,json=sendAppInfoChanges" json:"send_app_info_changes,omitempty"`
-	SendPackageInfoChanges *bool                  `protobuf:"varint,3,opt,name=send_package_info_changes,json=sendPackageInfoChanges" json:"send_package_info_changes,omitempty"`
-	NumAppInfoCached       *uint32                `protobuf:"varint,4,opt,name=num_app_info_cached,json=numAppInfoCached" json:"num_app_info_cached,omitempty"`
-	NumPackageInfoCached   *uint32                `protobuf:"varint,5,opt,name=num_package_info_cached,json=numPackageInfoCached" json:"num_package_info_cached,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSChangesSinceRequest) Reset() {
-	*x = CMsgClientPICSChangesSinceRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[109]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSChangesSinceRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSChangesSinceRequest) ProtoMessage() {}
-
-func (x *CMsgClientPICSChangesSinceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[109]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSChangesSinceRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSChangesSinceRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{109}
-}
-
-func (x *CMsgClientPICSChangesSinceRequest) GetSinceChangeNumber() uint32 {
-	if x != nil && x.SinceChangeNumber != nil {
-		return *x.SinceChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceRequest) GetSendAppInfoChanges() bool {
-	if x != nil && x.SendAppInfoChanges != nil {
-		return *x.SendAppInfoChanges
-	}
-	return false
-}
-
-func (x *CMsgClientPICSChangesSinceRequest) GetSendPackageInfoChanges() bool {
-	if x != nil && x.SendPackageInfoChanges != nil {
-		return *x.SendPackageInfoChanges
-	}
-	return false
-}
-
-func (x *CMsgClientPICSChangesSinceRequest) GetNumAppInfoCached() uint32 {
-	if x != nil && x.NumAppInfoCached != nil {
-		return *x.NumAppInfoCached
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceRequest) GetNumPackageInfoCached() uint32 {
-	if x != nil && x.NumPackageInfoCached != nil {
-		return *x.NumPackageInfoCached
-	}
-	return 0
-}
-
-type CMsgClientPICSChangesSinceResponse struct {
-	state                  protoimpl.MessageState                              `protogen:"open.v1"`
-	CurrentChangeNumber    *uint32                                             `protobuf:"varint,1,opt,name=current_change_number,json=currentChangeNumber" json:"current_change_number,omitempty"`
-	SinceChangeNumber      *uint32                                             `protobuf:"varint,2,opt,name=since_change_number,json=sinceChangeNumber" json:"since_change_number,omitempty"`
-	ForceFullUpdate        *bool                                               `protobuf:"varint,3,opt,name=force_full_update,json=forceFullUpdate" json:"force_full_update,omitempty"`
-	PackageChanges         []*CMsgClientPICSChangesSinceResponse_PackageChange `protobuf:"bytes,4,rep,name=package_changes,json=packageChanges" json:"package_changes,omitempty"`
-	AppChanges             []*CMsgClientPICSChangesSinceResponse_AppChange     `protobuf:"bytes,5,rep,name=app_changes,json=appChanges" json:"app_changes,omitempty"`
-	ForceFullAppUpdate     *bool                                               `protobuf:"varint,6,opt,name=force_full_app_update,json=forceFullAppUpdate" json:"force_full_app_update,omitempty"`
-	ForceFullPackageUpdate *bool                                               `protobuf:"varint,7,opt,name=force_full_package_update,json=forceFullPackageUpdate" json:"force_full_package_update,omitempty"`
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) Reset() {
-	*x = CMsgClientPICSChangesSinceResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[110]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSChangesSinceResponse) ProtoMessage() {}
-
-func (x *CMsgClientPICSChangesSinceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[110]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSChangesSinceResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSChangesSinceResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{110}
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) GetCurrentChangeNumber() uint32 {
-	if x != nil && x.CurrentChangeNumber != nil {
-		return *x.CurrentChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) GetSinceChangeNumber() uint32 {
-	if x != nil && x.SinceChangeNumber != nil {
-		return *x.SinceChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) GetForceFullUpdate() bool {
-	if x != nil && x.ForceFullUpdate != nil {
-		return *x.ForceFullUpdate
-	}
-	return false
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) GetPackageChanges() []*CMsgClientPICSChangesSinceResponse_PackageChange {
-	if x != nil {
-		return x.PackageChanges
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) GetAppChanges() []*CMsgClientPICSChangesSinceResponse_AppChange {
-	if x != nil {
-		return x.AppChanges
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) GetForceFullAppUpdate() bool {
-	if x != nil && x.ForceFullAppUpdate != nil {
-		return *x.ForceFullAppUpdate
-	}
-	return false
-}
-
-func (x *CMsgClientPICSChangesSinceResponse) GetForceFullPackageUpdate() bool {
-	if x != nil && x.ForceFullPackageUpdate != nil {
-		return *x.ForceFullPackageUpdate
-	}
-	return false
-}
-
-type CMsgClientPICSProductInfoRequest struct {
-	state                 protoimpl.MessageState                          `protogen:"open.v1"`
-	Packages              []*CMsgClientPICSProductInfoRequest_PackageInfo `protobuf:"bytes,1,rep,name=packages" json:"packages,omitempty"`
-	Apps                  []*CMsgClientPICSProductInfoRequest_AppInfo     `protobuf:"bytes,2,rep,name=apps" json:"apps,omitempty"`
-	MetaDataOnly          *bool                                           `protobuf:"varint,3,opt,name=meta_data_only,json=metaDataOnly" json:"meta_data_only,omitempty"`
-	NumPrevFailed         *uint32                                         `protobuf:"varint,4,opt,name=num_prev_failed,json=numPrevFailed" json:"num_prev_failed,omitempty"`
-	SupportsPackageTokens *uint32                                         `protobuf:"varint,5,opt,name=supports_package_tokens,json=supportsPackageTokens" json:"supports_package_tokens,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSProductInfoRequest) Reset() {
-	*x = CMsgClientPICSProductInfoRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[111]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSProductInfoRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSProductInfoRequest) ProtoMessage() {}
-
-func (x *CMsgClientPICSProductInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[111]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSProductInfoRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSProductInfoRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{111}
-}
-
-func (x *CMsgClientPICSProductInfoRequest) GetPackages() []*CMsgClientPICSProductInfoRequest_PackageInfo {
-	if x != nil {
-		return x.Packages
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoRequest) GetApps() []*CMsgClientPICSProductInfoRequest_AppInfo {
-	if x != nil {
-		return x.Apps
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoRequest) GetMetaDataOnly() bool {
-	if x != nil && x.MetaDataOnly != nil {
-		return *x.MetaDataOnly
-	}
-	return false
-}
-
-func (x *CMsgClientPICSProductInfoRequest) GetNumPrevFailed() uint32 {
-	if x != nil && x.NumPrevFailed != nil {
-		return *x.NumPrevFailed
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoRequest) GetSupportsPackageTokens() uint32 {
-	if x != nil && x.SupportsPackageTokens != nil {
-		return *x.SupportsPackageTokens
-	}
-	return 0
-}
-
-type CMsgClientPICSProductInfoResponse struct {
-	state             protoimpl.MessageState                           `protogen:"open.v1"`
-	Apps              []*CMsgClientPICSProductInfoResponse_AppInfo     `protobuf:"bytes,1,rep,name=apps" json:"apps,omitempty"`
-	UnknownAppids     []uint32                                         `protobuf:"varint,2,rep,name=unknown_appids,json=unknownAppids" json:"unknown_appids,omitempty"`
-	Packages          []*CMsgClientPICSProductInfoResponse_PackageInfo `protobuf:"bytes,3,rep,name=packages" json:"packages,omitempty"`
-	UnknownPackageids []uint32                                         `protobuf:"varint,4,rep,name=unknown_packageids,json=unknownPackageids" json:"unknown_packageids,omitempty"`
-	MetaDataOnly      *bool                                            `protobuf:"varint,5,opt,name=meta_data_only,json=metaDataOnly" json:"meta_data_only,omitempty"`
-	ResponsePending   *bool                                            `protobuf:"varint,6,opt,name=response_pending,json=responsePending" json:"response_pending,omitempty"`
-	HttpMinSize       *uint32                                          `protobuf:"varint,7,opt,name=http_min_size,json=httpMinSize" json:"http_min_size,omitempty"`
-	HttpHost          *string                                          `protobuf:"bytes,8,opt,name=http_host,json=httpHost" json:"http_host,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSProductInfoResponse) Reset() {
-	*x = CMsgClientPICSProductInfoResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[112]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSProductInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSProductInfoResponse) ProtoMessage() {}
-
-func (x *CMsgClientPICSProductInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[112]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSProductInfoResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSProductInfoResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{112}
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetApps() []*CMsgClientPICSProductInfoResponse_AppInfo {
-	if x != nil {
-		return x.Apps
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetUnknownAppids() []uint32 {
-	if x != nil {
-		return x.UnknownAppids
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetPackages() []*CMsgClientPICSProductInfoResponse_PackageInfo {
-	if x != nil {
-		return x.Packages
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetUnknownPackageids() []uint32 {
-	if x != nil {
-		return x.UnknownPackageids
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetMetaDataOnly() bool {
-	if x != nil && x.MetaDataOnly != nil {
-		return *x.MetaDataOnly
-	}
-	return false
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetResponsePending() bool {
-	if x != nil && x.ResponsePending != nil {
-		return *x.ResponsePending
-	}
-	return false
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetHttpMinSize() uint32 {
-	if x != nil && x.HttpMinSize != nil {
-		return *x.HttpMinSize
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoResponse) GetHttpHost() string {
-	if x != nil && x.HttpHost != nil {
-		return *x.HttpHost
-	}
-	return ""
-}
-
-type CMsgClientPICSAccessTokenRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Packageids    []uint32               `protobuf:"varint,1,rep,name=packageids" json:"packageids,omitempty"`
-	Appids        []uint32               `protobuf:"varint,2,rep,name=appids" json:"appids,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSAccessTokenRequest) Reset() {
-	*x = CMsgClientPICSAccessTokenRequest{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[113]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSAccessTokenRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSAccessTokenRequest) ProtoMessage() {}
-
-func (x *CMsgClientPICSAccessTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[113]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSAccessTokenRequest.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSAccessTokenRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{113}
-}
-
-func (x *CMsgClientPICSAccessTokenRequest) GetPackageids() []uint32 {
-	if x != nil {
-		return x.Packageids
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSAccessTokenRequest) GetAppids() []uint32 {
-	if x != nil {
-		return x.Appids
-	}
-	return nil
-}
-
-type CMsgClientPICSAccessTokenResponse struct {
-	state               protoimpl.MessageState                            `protogen:"open.v1"`
-	PackageAccessTokens []*CMsgClientPICSAccessTokenResponse_PackageToken `protobuf:"bytes,1,rep,name=package_access_tokens,json=packageAccessTokens" json:"package_access_tokens,omitempty"`
-	PackageDeniedTokens []uint32                                          `protobuf:"varint,2,rep,name=package_denied_tokens,json=packageDeniedTokens" json:"package_denied_tokens,omitempty"`
-	AppAccessTokens     []*CMsgClientPICSAccessTokenResponse_AppToken     `protobuf:"bytes,3,rep,name=app_access_tokens,json=appAccessTokens" json:"app_access_tokens,omitempty"`
-	AppDeniedTokens     []uint32                                          `protobuf:"varint,4,rep,name=app_denied_tokens,json=appDeniedTokens" json:"app_denied_tokens,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSAccessTokenResponse) Reset() {
-	*x = CMsgClientPICSAccessTokenResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[114]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSAccessTokenResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSAccessTokenResponse) ProtoMessage() {}
-
-func (x *CMsgClientPICSAccessTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[114]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSAccessTokenResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSAccessTokenResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{114}
-}
-
-func (x *CMsgClientPICSAccessTokenResponse) GetPackageAccessTokens() []*CMsgClientPICSAccessTokenResponse_PackageToken {
-	if x != nil {
-		return x.PackageAccessTokens
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSAccessTokenResponse) GetPackageDeniedTokens() []uint32 {
-	if x != nil {
-		return x.PackageDeniedTokens
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSAccessTokenResponse) GetAppAccessTokens() []*CMsgClientPICSAccessTokenResponse_AppToken {
-	if x != nil {
-		return x.AppAccessTokens
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSAccessTokenResponse) GetAppDeniedTokens() []uint32 {
-	if x != nil {
-		return x.AppDeniedTokens
-	}
-	return nil
-}
-
-type CMsgClientUFSGetUGCDetails struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Hcontent      *uint64                `protobuf:"fixed64,1,opt,name=hcontent,def=18446744073709551615" json:"hcontent,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSGetUGCDetails fields.
-const (
-	Default_CMsgClientUFSGetUGCDetails_Hcontent = uint64(18446744073709551615)
-)
-
-func (x *CMsgClientUFSGetUGCDetails) Reset() {
-	*x = CMsgClientUFSGetUGCDetails{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[115]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSGetUGCDetails) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSGetUGCDetails) ProtoMessage() {}
-
-func (x *CMsgClientUFSGetUGCDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[115]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSGetUGCDetails.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSGetUGCDetails) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{115}
-}
-
-func (x *CMsgClientUFSGetUGCDetails) GetHcontent() uint64 {
-	if x != nil && x.Hcontent != nil {
-		return *x.Hcontent
-	}
-	return Default_CMsgClientUFSGetUGCDetails_Hcontent
-}
-
-type CMsgClientUFSGetUGCDetailsResponse struct {
-	state              protoimpl.MessageState `protogen:"open.v1"`
-	Eresult            *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	Url                *string                `protobuf:"bytes,2,opt,name=url" json:"url,omitempty"`
-	AppId              *uint32                `protobuf:"varint,3,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	Filename           *string                `protobuf:"bytes,4,opt,name=filename" json:"filename,omitempty"`
-	SteamidCreator     *uint64                `protobuf:"fixed64,5,opt,name=steamid_creator,json=steamidCreator" json:"steamid_creator,omitempty"`
-	FileSize           *uint32                `protobuf:"varint,6,opt,name=file_size,json=fileSize" json:"file_size,omitempty"`
-	CompressedFileSize *uint32                `protobuf:"varint,7,opt,name=compressed_file_size,json=compressedFileSize" json:"compressed_file_size,omitempty"`
-	RangecheckHost     *string                `protobuf:"bytes,8,opt,name=rangecheck_host,json=rangecheckHost" json:"rangecheck_host,omitempty"`
-	FileEncodedSha1    *string                `protobuf:"bytes,9,opt,name=file_encoded_sha1,json=fileEncodedSha1" json:"file_encoded_sha1,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSGetUGCDetailsResponse fields.
-const (
-	Default_CMsgClientUFSGetUGCDetailsResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) Reset() {
-	*x = CMsgClientUFSGetUGCDetailsResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[116]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSGetUGCDetailsResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[116]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSGetUGCDetailsResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSGetUGCDetailsResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{116}
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSGetUGCDetailsResponse_Eresult
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetUrl() string {
-	if x != nil && x.Url != nil {
-		return *x.Url
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetFilename() string {
-	if x != nil && x.Filename != nil {
-		return *x.Filename
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetSteamidCreator() uint64 {
-	if x != nil && x.SteamidCreator != nil {
-		return *x.SteamidCreator
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetFileSize() uint32 {
-	if x != nil && x.FileSize != nil {
-		return *x.FileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetCompressedFileSize() uint32 {
-	if x != nil && x.CompressedFileSize != nil {
-		return *x.CompressedFileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetRangecheckHost() string {
-	if x != nil && x.RangecheckHost != nil {
-		return *x.RangecheckHost
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSGetUGCDetailsResponse) GetFileEncodedSha1() string {
-	if x != nil && x.FileEncodedSha1 != nil {
-		return *x.FileEncodedSha1
-	}
-	return ""
-}
-
-type CMsgClientUFSGetSingleFileInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileName      *string                `protobuf:"bytes,2,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSGetSingleFileInfo) Reset() {
-	*x = CMsgClientUFSGetSingleFileInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[117]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSGetSingleFileInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSGetSingleFileInfo) ProtoMessage() {}
-
-func (x *CMsgClientUFSGetSingleFileInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[117]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSGetSingleFileInfo.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSGetSingleFileInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{117}
-}
-
-func (x *CMsgClientUFSGetSingleFileInfo) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetSingleFileInfo) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-type CMsgClientUFSGetSingleFileInfoResponse struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	Eresult          *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	AppId            *uint32                `protobuf:"varint,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileName         *string                `protobuf:"bytes,3,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	ShaFile          []byte                 `protobuf:"bytes,4,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	TimeStamp        *uint64                `protobuf:"varint,5,opt,name=time_stamp,json=timeStamp" json:"time_stamp,omitempty"`
-	RawFileSize      *uint32                `protobuf:"varint,6,opt,name=raw_file_size,json=rawFileSize" json:"raw_file_size,omitempty"`
-	IsExplicitDelete *bool                  `protobuf:"varint,7,opt,name=is_explicit_delete,json=isExplicitDelete" json:"is_explicit_delete,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSGetSingleFileInfoResponse fields.
-const (
-	Default_CMsgClientUFSGetSingleFileInfoResponse_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) Reset() {
-	*x = CMsgClientUFSGetSingleFileInfoResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[118]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSGetSingleFileInfoResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[118]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSGetSingleFileInfoResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSGetSingleFileInfoResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{118}
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSGetSingleFileInfoResponse_Eresult
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) GetTimeStamp() uint64 {
-	if x != nil && x.TimeStamp != nil {
-		return *x.TimeStamp
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) GetRawFileSize() uint32 {
-	if x != nil && x.RawFileSize != nil {
-		return *x.RawFileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetSingleFileInfoResponse) GetIsExplicitDelete() bool {
-	if x != nil && x.IsExplicitDelete != nil {
-		return *x.IsExplicitDelete
-	}
-	return false
-}
-
-type CMsgClientUFSShareFile struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileName      *string                `protobuf:"bytes,2,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSShareFile) Reset() {
-	*x = CMsgClientUFSShareFile{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[119]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSShareFile) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSShareFile) ProtoMessage() {}
-
-func (x *CMsgClientUFSShareFile) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[119]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSShareFile.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSShareFile) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{119}
-}
-
-func (x *CMsgClientUFSShareFile) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSShareFile) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-type CMsgClientUFSShareFileResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	Hcontent      *uint64                `protobuf:"fixed64,2,opt,name=hcontent,def=18446744073709551615" json:"hcontent,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSShareFileResponse fields.
-const (
-	Default_CMsgClientUFSShareFileResponse_Eresult  = int32(2)
-	Default_CMsgClientUFSShareFileResponse_Hcontent = uint64(18446744073709551615)
-)
-
-func (x *CMsgClientUFSShareFileResponse) Reset() {
-	*x = CMsgClientUFSShareFileResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[120]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSShareFileResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSShareFileResponse) ProtoMessage() {}
-
-func (x *CMsgClientUFSShareFileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[120]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSShareFileResponse.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSShareFileResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{120}
-}
-
-func (x *CMsgClientUFSShareFileResponse) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSShareFileResponse_Eresult
-}
-
-func (x *CMsgClientUFSShareFileResponse) GetHcontent() uint64 {
-	if x != nil && x.Hcontent != nil {
-		return *x.Hcontent
-	}
-	return Default_CMsgClientUFSShareFileResponse_Hcontent
 }
 
 type CMsgClientAMGetClanOfficers struct {
@@ -8132,7 +1892,7 @@ type CMsgClientAMGetClanOfficers struct {
 
 func (x *CMsgClientAMGetClanOfficers) Reset() {
 	*x = CMsgClientAMGetClanOfficers{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[121]
+	mi := &file_steammessages_clientserver_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8144,7 +1904,7 @@ func (x *CMsgClientAMGetClanOfficers) String() string {
 func (*CMsgClientAMGetClanOfficers) ProtoMessage() {}
 
 func (x *CMsgClientAMGetClanOfficers) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[121]
+	mi := &file_steammessages_clientserver_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8157,7 +1917,7 @@ func (x *CMsgClientAMGetClanOfficers) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientAMGetClanOfficers.ProtoReflect.Descriptor instead.
 func (*CMsgClientAMGetClanOfficers) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{121}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CMsgClientAMGetClanOfficers) GetSteamidClan() uint64 {
@@ -8183,7 +1943,7 @@ const (
 
 func (x *CMsgClientAMGetClanOfficersResponse) Reset() {
 	*x = CMsgClientAMGetClanOfficersResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[122]
+	mi := &file_steammessages_clientserver_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8195,7 +1955,7 @@ func (x *CMsgClientAMGetClanOfficersResponse) String() string {
 func (*CMsgClientAMGetClanOfficersResponse) ProtoMessage() {}
 
 func (x *CMsgClientAMGetClanOfficersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[122]
+	mi := &file_steammessages_clientserver_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8208,7 +1968,7 @@ func (x *CMsgClientAMGetClanOfficersResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgClientAMGetClanOfficersResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientAMGetClanOfficersResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{122}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CMsgClientAMGetClanOfficersResponse) GetEresult() int32 {
@@ -8242,7 +2002,7 @@ type CMsgClientAMGetPersonaNameHistory struct {
 
 func (x *CMsgClientAMGetPersonaNameHistory) Reset() {
 	*x = CMsgClientAMGetPersonaNameHistory{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[123]
+	mi := &file_steammessages_clientserver_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8254,7 +2014,7 @@ func (x *CMsgClientAMGetPersonaNameHistory) String() string {
 func (*CMsgClientAMGetPersonaNameHistory) ProtoMessage() {}
 
 func (x *CMsgClientAMGetPersonaNameHistory) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[123]
+	mi := &file_steammessages_clientserver_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8267,7 +2027,7 @@ func (x *CMsgClientAMGetPersonaNameHistory) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgClientAMGetPersonaNameHistory.ProtoReflect.Descriptor instead.
 func (*CMsgClientAMGetPersonaNameHistory) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{123}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *CMsgClientAMGetPersonaNameHistory) GetIdCount() int32 {
@@ -8293,7 +2053,7 @@ type CMsgClientAMGetPersonaNameHistoryResponse struct {
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse) Reset() {
 	*x = CMsgClientAMGetPersonaNameHistoryResponse{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[124]
+	mi := &file_steammessages_clientserver_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8305,7 +2065,7 @@ func (x *CMsgClientAMGetPersonaNameHistoryResponse) String() string {
 func (*CMsgClientAMGetPersonaNameHistoryResponse) ProtoMessage() {}
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[124]
+	mi := &file_steammessages_clientserver_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8318,7 +2078,7 @@ func (x *CMsgClientAMGetPersonaNameHistoryResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgClientAMGetPersonaNameHistoryResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientAMGetPersonaNameHistoryResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{124}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse) GetResponses() []*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance {
@@ -8338,7 +2098,7 @@ type CMsgClientDeregisterWithServer struct {
 
 func (x *CMsgClientDeregisterWithServer) Reset() {
 	*x = CMsgClientDeregisterWithServer{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[125]
+	mi := &file_steammessages_clientserver_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8350,7 +2110,7 @@ func (x *CMsgClientDeregisterWithServer) String() string {
 func (*CMsgClientDeregisterWithServer) ProtoMessage() {}
 
 func (x *CMsgClientDeregisterWithServer) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[125]
+	mi := &file_steammessages_clientserver_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8363,7 +2123,7 @@ func (x *CMsgClientDeregisterWithServer) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientDeregisterWithServer.ProtoReflect.Descriptor instead.
 func (*CMsgClientDeregisterWithServer) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{125}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CMsgClientDeregisterWithServer) GetEservertype() uint32 {
@@ -8395,7 +2155,7 @@ type CMsgClientClanState struct {
 
 func (x *CMsgClientClanState) Reset() {
 	*x = CMsgClientClanState{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[126]
+	mi := &file_steammessages_clientserver_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8407,7 +2167,7 @@ func (x *CMsgClientClanState) String() string {
 func (*CMsgClientClanState) ProtoMessage() {}
 
 func (x *CMsgClientClanState) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[126]
+	mi := &file_steammessages_clientserver_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8420,7 +2180,7 @@ func (x *CMsgClientClanState) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientClanState.ProtoReflect.Descriptor instead.
 func (*CMsgClientClanState) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{126}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *CMsgClientClanState) GetSteamidClan() uint64 {
@@ -8472,34 +2232,30 @@ func (x *CMsgClientClanState) GetChatRoomPrivate() bool {
 	return false
 }
 
-type CMsgClientUnsignedInstallScript struct {
+type CMsgClientGamesPlayed_ProcessInfo struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
-	AppId           *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileName        *string                `protobuf:"bytes,2,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	FileSize        *uint32                `protobuf:"varint,3,opt,name=file_size,json=fileSize" json:"file_size,omitempty"`
-	SignatureBroken *bool                  `protobuf:"varint,4,opt,name=signature_broken,json=signatureBroken" json:"signature_broken,omitempty"`
-	DepotId         *uint32                `protobuf:"varint,5,opt,name=depot_id,json=depotId" json:"depot_id,omitempty"`
-	ManifestId      *uint64                `protobuf:"varint,6,opt,name=manifest_id,json=manifestId" json:"manifest_id,omitempty"`
-	FileFlags       *uint32                `protobuf:"varint,7,opt,name=file_flags,json=fileFlags" json:"file_flags,omitempty"`
+	ProcessId       *uint32                `protobuf:"varint,1,opt,name=process_id,json=processId" json:"process_id,omitempty"`
+	ProcessIdParent *uint32                `protobuf:"varint,2,opt,name=process_id_parent,json=processIdParent" json:"process_id_parent,omitempty"`
+	ParentIsSteam   *bool                  `protobuf:"varint,3,opt,name=parent_is_steam,json=parentIsSteam" json:"parent_is_steam,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
-func (x *CMsgClientUnsignedInstallScript) Reset() {
-	*x = CMsgClientUnsignedInstallScript{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[127]
+func (x *CMsgClientGamesPlayed_ProcessInfo) Reset() {
+	*x = CMsgClientGamesPlayed_ProcessInfo{}
+	mi := &file_steammessages_clientserver_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CMsgClientUnsignedInstallScript) String() string {
+func (x *CMsgClientGamesPlayed_ProcessInfo) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CMsgClientUnsignedInstallScript) ProtoMessage() {}
+func (*CMsgClientGamesPlayed_ProcessInfo) ProtoMessage() {}
 
-func (x *CMsgClientUnsignedInstallScript) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[127]
+func (x *CMsgClientGamesPlayed_ProcessInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_clientserver_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8510,126 +2266,30 @@ func (x *CMsgClientUnsignedInstallScript) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CMsgClientUnsignedInstallScript.ProtoReflect.Descriptor instead.
-func (*CMsgClientUnsignedInstallScript) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{127}
+// Deprecated: Use CMsgClientGamesPlayed_ProcessInfo.ProtoReflect.Descriptor instead.
+func (*CMsgClientGamesPlayed_ProcessInfo) Descriptor() ([]byte, []int) {
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{12, 0}
 }
 
-func (x *CMsgClientUnsignedInstallScript) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
+func (x *CMsgClientGamesPlayed_ProcessInfo) GetProcessId() uint32 {
+	if x != nil && x.ProcessId != nil {
+		return *x.ProcessId
 	}
 	return 0
 }
 
-func (x *CMsgClientUnsignedInstallScript) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-func (x *CMsgClientUnsignedInstallScript) GetFileSize() uint32 {
-	if x != nil && x.FileSize != nil {
-		return *x.FileSize
+func (x *CMsgClientGamesPlayed_ProcessInfo) GetProcessIdParent() uint32 {
+	if x != nil && x.ProcessIdParent != nil {
+		return *x.ProcessIdParent
 	}
 	return 0
 }
 
-func (x *CMsgClientUnsignedInstallScript) GetSignatureBroken() bool {
-	if x != nil && x.SignatureBroken != nil {
-		return *x.SignatureBroken
+func (x *CMsgClientGamesPlayed_ProcessInfo) GetParentIsSteam() bool {
+	if x != nil && x.ParentIsSteam != nil {
+		return *x.ParentIsSteam
 	}
 	return false
-}
-
-func (x *CMsgClientUnsignedInstallScript) GetDepotId() uint32 {
-	if x != nil && x.DepotId != nil {
-		return *x.DepotId
-	}
-	return 0
-}
-
-func (x *CMsgClientUnsignedInstallScript) GetManifestId() uint64 {
-	if x != nil && x.ManifestId != nil {
-		return *x.ManifestId
-	}
-	return 0
-}
-
-func (x *CMsgClientUnsignedInstallScript) GetFileFlags() uint32 {
-	if x != nil && x.FileFlags != nil {
-		return *x.FileFlags
-	}
-	return 0
-}
-
-type CMsgGSPlayerList_Player struct {
-	state              protoimpl.MessageState                  `protogen:"open.v1"`
-	SteamId            *uint64                                 `protobuf:"varint,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	DeprecatedPublicIp *uint32                                 `protobuf:"varint,2,opt,name=deprecated_public_ip,json=deprecatedPublicIp" json:"deprecated_public_ip,omitempty"`
-	Token              []byte                                  `protobuf:"bytes,3,opt,name=token" json:"token,omitempty"`
-	PublicIp           *CMsgIPAddress `protobuf:"bytes,4,opt,name=public_ip,json=publicIp" json:"public_ip,omitempty"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
-}
-
-func (x *CMsgGSPlayerList_Player) Reset() {
-	*x = CMsgGSPlayerList_Player{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[128]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGSPlayerList_Player) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGSPlayerList_Player) ProtoMessage() {}
-
-func (x *CMsgGSPlayerList_Player) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[128]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGSPlayerList_Player.ProtoReflect.Descriptor instead.
-func (*CMsgGSPlayerList_Player) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{17, 0}
-}
-
-func (x *CMsgGSPlayerList_Player) GetSteamId() uint64 {
-	if x != nil && x.SteamId != nil {
-		return *x.SteamId
-	}
-	return 0
-}
-
-func (x *CMsgGSPlayerList_Player) GetDeprecatedPublicIp() uint32 {
-	if x != nil && x.DeprecatedPublicIp != nil {
-		return *x.DeprecatedPublicIp
-	}
-	return 0
-}
-
-func (x *CMsgGSPlayerList_Player) GetToken() []byte {
-	if x != nil {
-		return x.Token
-	}
-	return nil
-}
-
-func (x *CMsgGSPlayerList_Player) GetPublicIp() *CMsgIPAddress {
-	if x != nil {
-		return x.PublicIp
-	}
-	return nil
 }
 
 type CMsgClientGamesPlayed_GamePlayed struct {
@@ -8658,6 +2318,14 @@ type CMsgClientGamesPlayed_GamePlayed struct {
 	VrHmdRuntime                 *uint32                                 `protobuf:"varint,22,opt,name=vr_hmd_runtime,json=vrHmdRuntime" json:"vr_hmd_runtime,omitempty"`
 	GameIpAddress                *CMsgIPAddress `protobuf:"bytes,23,opt,name=game_ip_address,json=gameIpAddress" json:"game_ip_address,omitempty"`
 	ControllerConnectionType     *uint32                                 `protobuf:"varint,24,opt,name=controller_connection_type,json=controllerConnectionType,def=0" json:"controller_connection_type,omitempty"`
+	GameOsPlatform               *int32                                  `protobuf:"varint,25,opt,name=game_os_platform,json=gameOsPlatform" json:"game_os_platform,omitempty"`
+	GameBuildId                  *uint32                                 `protobuf:"varint,26,opt,name=game_build_id,json=gameBuildId" json:"game_build_id,omitempty"`
+	CompatToolId                 *uint32                                 `protobuf:"varint,27,opt,name=compat_tool_id,json=compatToolId,def=0" json:"compat_tool_id,omitempty"`
+	CompatToolCmd                *string                                 `protobuf:"bytes,28,opt,name=compat_tool_cmd,json=compatToolCmd" json:"compat_tool_cmd,omitempty"`
+	CompatToolBuildId            *uint32                                 `protobuf:"varint,29,opt,name=compat_tool_build_id,json=compatToolBuildId" json:"compat_tool_build_id,omitempty"`
+	BetaName                     *string                                 `protobuf:"bytes,30,opt,name=beta_name,json=betaName" json:"beta_name,omitempty"`
+	DlcContext                   *uint32                                 `protobuf:"varint,31,opt,name=dlc_context,json=dlcContext" json:"dlc_context,omitempty"`
+	ProcessIdList                []*CMsgClientGamesPlayed_ProcessInfo    `protobuf:"bytes,32,rep,name=process_id_list,json=processIdList" json:"process_id_list,omitempty"`
 	unknownFields                protoimpl.UnknownFields
 	sizeCache                    protoimpl.SizeCache
 }
@@ -8671,11 +2339,12 @@ const (
 	Default_CMsgClientGamesPlayed_GamePlayed_ControllerWorkshopFileId     = uint64(0)
 	Default_CMsgClientGamesPlayed_GamePlayed_LaunchSource                 = uint32(0)
 	Default_CMsgClientGamesPlayed_GamePlayed_ControllerConnectionType     = uint32(0)
+	Default_CMsgClientGamesPlayed_GamePlayed_CompatToolId                 = uint32(0)
 )
 
 func (x *CMsgClientGamesPlayed_GamePlayed) Reset() {
 	*x = CMsgClientGamesPlayed_GamePlayed{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[129]
+	mi := &file_steammessages_clientserver_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8687,7 +2356,7 @@ func (x *CMsgClientGamesPlayed_GamePlayed) String() string {
 func (*CMsgClientGamesPlayed_GamePlayed) ProtoMessage() {}
 
 func (x *CMsgClientGamesPlayed_GamePlayed) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[129]
+	mi := &file_steammessages_clientserver_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8700,7 +2369,7 @@ func (x *CMsgClientGamesPlayed_GamePlayed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientGamesPlayed_GamePlayed.ProtoReflect.Descriptor instead.
 func (*CMsgClientGamesPlayed_GamePlayed) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{20, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{12, 1}
 }
 
 func (x *CMsgClientGamesPlayed_GamePlayed) GetSteamIdGs() uint64 {
@@ -8871,6 +2540,62 @@ func (x *CMsgClientGamesPlayed_GamePlayed) GetControllerConnectionType() uint32 
 	return Default_CMsgClientGamesPlayed_GamePlayed_ControllerConnectionType
 }
 
+func (x *CMsgClientGamesPlayed_GamePlayed) GetGameOsPlatform() int32 {
+	if x != nil && x.GameOsPlatform != nil {
+		return *x.GameOsPlatform
+	}
+	return 0
+}
+
+func (x *CMsgClientGamesPlayed_GamePlayed) GetGameBuildId() uint32 {
+	if x != nil && x.GameBuildId != nil {
+		return *x.GameBuildId
+	}
+	return 0
+}
+
+func (x *CMsgClientGamesPlayed_GamePlayed) GetCompatToolId() uint32 {
+	if x != nil && x.CompatToolId != nil {
+		return *x.CompatToolId
+	}
+	return Default_CMsgClientGamesPlayed_GamePlayed_CompatToolId
+}
+
+func (x *CMsgClientGamesPlayed_GamePlayed) GetCompatToolCmd() string {
+	if x != nil && x.CompatToolCmd != nil {
+		return *x.CompatToolCmd
+	}
+	return ""
+}
+
+func (x *CMsgClientGamesPlayed_GamePlayed) GetCompatToolBuildId() uint32 {
+	if x != nil && x.CompatToolBuildId != nil {
+		return *x.CompatToolBuildId
+	}
+	return 0
+}
+
+func (x *CMsgClientGamesPlayed_GamePlayed) GetBetaName() string {
+	if x != nil && x.BetaName != nil {
+		return *x.BetaName
+	}
+	return ""
+}
+
+func (x *CMsgClientGamesPlayed_GamePlayed) GetDlcContext() uint32 {
+	if x != nil && x.DlcContext != nil {
+		return *x.DlcContext
+	}
+	return 0
+}
+
+func (x *CMsgClientGamesPlayed_GamePlayed) GetProcessIdList() []*CMsgClientGamesPlayed_ProcessInfo {
+	if x != nil {
+		return x.ProcessIdList
+	}
+	return nil
+}
+
 type CMsgClientLicenseList_License struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	PackageId           *uint32                `protobuf:"varint,1,opt,name=package_id,json=packageId" json:"package_id,omitempty"`
@@ -8897,7 +2622,7 @@ type CMsgClientLicenseList_License struct {
 
 func (x *CMsgClientLicenseList_License) Reset() {
 	*x = CMsgClientLicenseList_License{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[130]
+	mi := &file_steammessages_clientserver_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8909,7 +2634,7 @@ func (x *CMsgClientLicenseList_License) String() string {
 func (*CMsgClientLicenseList_License) ProtoMessage() {}
 
 func (x *CMsgClientLicenseList_License) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[130]
+	mi := &file_steammessages_clientserver_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8922,7 +2647,7 @@ func (x *CMsgClientLicenseList_License) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientLicenseList_License.ProtoReflect.Descriptor instead.
 func (*CMsgClientLicenseList_License) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{26, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{18, 0}
 }
 
 func (x *CMsgClientLicenseList_License) GetPackageId() uint32 {
@@ -9051,142 +2776,6 @@ func (x *CMsgClientLicenseList_License) GetMasterPackageId() uint32 {
 	return 0
 }
 
-type CMsgClientLBSGetLBEntriesResponse_Entry struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SteamIdUser   *uint64                `protobuf:"fixed64,1,opt,name=steam_id_user,json=steamIdUser" json:"steam_id_user,omitempty"`
-	GlobalRank    *int32                 `protobuf:"varint,2,opt,name=global_rank,json=globalRank" json:"global_rank,omitempty"`
-	Score         *int32                 `protobuf:"varint,3,opt,name=score" json:"score,omitempty"`
-	Details       []byte                 `protobuf:"bytes,4,opt,name=details" json:"details,omitempty"`
-	UgcId         *uint64                `protobuf:"fixed64,5,opt,name=ugc_id,json=ugcId" json:"ugc_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) Reset() {
-	*x = CMsgClientLBSGetLBEntriesResponse_Entry{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[131]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientLBSGetLBEntriesResponse_Entry) ProtoMessage() {}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[131]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientLBSGetLBEntriesResponse_Entry.ProtoReflect.Descriptor instead.
-func (*CMsgClientLBSGetLBEntriesResponse_Entry) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{34, 0}
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) GetSteamIdUser() uint64 {
-	if x != nil && x.SteamIdUser != nil {
-		return *x.SteamIdUser
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) GetGlobalRank() int32 {
-	if x != nil && x.GlobalRank != nil {
-		return *x.GlobalRank
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) GetScore() int32 {
-	if x != nil && x.Score != nil {
-		return *x.Score
-	}
-	return 0
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) GetDetails() []byte {
-	if x != nil {
-		return x.Details
-	}
-	return nil
-}
-
-func (x *CMsgClientLBSGetLBEntriesResponse_Entry) GetUgcId() uint64 {
-	if x != nil && x.UgcId != nil {
-		return *x.UgcId
-	}
-	return 0
-}
-
-type CMsgClientAppMinutesPlayedData_AppMinutesPlayedData struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	Forever       *int32                 `protobuf:"varint,2,opt,name=forever" json:"forever,omitempty"`
-	LastTwoWeeks  *int32                 `protobuf:"varint,3,opt,name=last_two_weeks,json=lastTwoWeeks" json:"last_two_weeks,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) Reset() {
-	*x = CMsgClientAppMinutesPlayedData_AppMinutesPlayedData{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[132]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) ProtoMessage() {}
-
-func (x *CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[132]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppMinutesPlayedData_AppMinutesPlayedData.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{35, 0}
-}
-
-func (x *CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) GetForever() int32 {
-	if x != nil && x.Forever != nil {
-		return *x.Forever
-	}
-	return 0
-}
-
-func (x *CMsgClientAppMinutesPlayedData_AppMinutesPlayedData) GetLastTwoWeeks() int32 {
-	if x != nil && x.LastTwoWeeks != nil {
-		return *x.LastTwoWeeks
-	}
-	return 0
-}
-
 type CMsgClientRequestedClientStats_StatsToSend struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	ClientStat          *uint32                `protobuf:"varint,1,opt,name=client_stat,json=clientStat" json:"client_stat,omitempty"`
@@ -9197,7 +2786,7 @@ type CMsgClientRequestedClientStats_StatsToSend struct {
 
 func (x *CMsgClientRequestedClientStats_StatsToSend) Reset() {
 	*x = CMsgClientRequestedClientStats_StatsToSend{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[133]
+	mi := &file_steammessages_clientserver_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9209,7 +2798,7 @@ func (x *CMsgClientRequestedClientStats_StatsToSend) String() string {
 func (*CMsgClientRequestedClientStats_StatsToSend) ProtoMessage() {}
 
 func (x *CMsgClientRequestedClientStats_StatsToSend) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[133]
+	mi := &file_steammessages_clientserver_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9222,7 +2811,7 @@ func (x *CMsgClientRequestedClientStats_StatsToSend) ProtoReflect() protoreflect
 
 // Deprecated: Use CMsgClientRequestedClientStats_StatsToSend.ProtoReflect.Descriptor instead.
 func (*CMsgClientRequestedClientStats_StatsToSend) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{37, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{20, 0}
 }
 
 func (x *CMsgClientRequestedClientStats_StatsToSend) GetClientStat() uint32 {
@@ -9253,7 +2842,7 @@ type CMsgClientStat2_StatDetail struct {
 
 func (x *CMsgClientStat2_StatDetail) Reset() {
 	*x = CMsgClientStat2_StatDetail{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[134]
+	mi := &file_steammessages_clientserver_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9265,7 +2854,7 @@ func (x *CMsgClientStat2_StatDetail) String() string {
 func (*CMsgClientStat2_StatDetail) ProtoMessage() {}
 
 func (x *CMsgClientStat2_StatDetail) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[134]
+	mi := &file_steammessages_clientserver_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9278,7 +2867,7 @@ func (x *CMsgClientStat2_StatDetail) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientStat2_StatDetail.ProtoReflect.Descriptor instead.
 func (*CMsgClientStat2_StatDetail) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{38, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{21, 0}
 }
 
 func (x *CMsgClientStat2_StatDetail) GetClientStat() uint32 {
@@ -9323,310 +2912,26 @@ func (x *CMsgClientStat2_StatDetail) GetAppId() uint32 {
 	return 0
 }
 
-type CMsgClientMMSJoinLobbyResponse_Member struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SteamId       *uint64                `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	PersonaName   *string                `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	Metadata      []byte                 `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse_Member) Reset() {
-	*x = CMsgClientMMSJoinLobbyResponse_Member{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[135]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse_Member) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSJoinLobbyResponse_Member) ProtoMessage() {}
-
-func (x *CMsgClientMMSJoinLobbyResponse_Member) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[135]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSJoinLobbyResponse_Member.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSJoinLobbyResponse_Member) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{43, 0}
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse_Member) GetSteamId() uint64 {
-	if x != nil && x.SteamId != nil {
-		return *x.SteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse_Member) GetPersonaName() string {
-	if x != nil && x.PersonaName != nil {
-		return *x.PersonaName
-	}
-	return ""
-}
-
-func (x *CMsgClientMMSJoinLobbyResponse_Member) GetMetadata() []byte {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-type CMsgClientMMSGetLobbyList_Filter struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Key           *string                `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
-	Value         *string                `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
-	Comparision   *int32                 `protobuf:"varint,3,opt,name=comparision" json:"comparision,omitempty"`
-	FilterType    *int32                 `protobuf:"varint,4,opt,name=filter_type,json=filterType" json:"filter_type,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSGetLobbyList_Filter) Reset() {
-	*x = CMsgClientMMSGetLobbyList_Filter{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[136]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSGetLobbyList_Filter) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSGetLobbyList_Filter) ProtoMessage() {}
-
-func (x *CMsgClientMMSGetLobbyList_Filter) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[136]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSGetLobbyList_Filter.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSGetLobbyList_Filter) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{46, 0}
-}
-
-func (x *CMsgClientMMSGetLobbyList_Filter) GetKey() string {
-	if x != nil && x.Key != nil {
-		return *x.Key
-	}
-	return ""
-}
-
-func (x *CMsgClientMMSGetLobbyList_Filter) GetValue() string {
-	if x != nil && x.Value != nil {
-		return *x.Value
-	}
-	return ""
-}
-
-func (x *CMsgClientMMSGetLobbyList_Filter) GetComparision() int32 {
-	if x != nil && x.Comparision != nil {
-		return *x.Comparision
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyList_Filter) GetFilterType() int32 {
-	if x != nil && x.FilterType != nil {
-		return *x.FilterType
-	}
-	return 0
-}
-
-type CMsgClientMMSGetLobbyListResponse_Lobby struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SteamId       *uint64                `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	MaxMembers    *int32                 `protobuf:"varint,2,opt,name=max_members,json=maxMembers" json:"max_members,omitempty"`
-	LobbyType     *int32                 `protobuf:"varint,3,opt,name=lobby_type,json=lobbyType" json:"lobby_type,omitempty"`
-	LobbyFlags    *int32                 `protobuf:"varint,4,opt,name=lobby_flags,json=lobbyFlags" json:"lobby_flags,omitempty"`
-	Metadata      []byte                 `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
-	NumMembers    *int32                 `protobuf:"varint,6,opt,name=num_members,json=numMembers" json:"num_members,omitempty"`
-	Distance      *float32               `protobuf:"fixed32,7,opt,name=distance" json:"distance,omitempty"`
-	Weight        *int64                 `protobuf:"varint,8,opt,name=weight" json:"weight,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) Reset() {
-	*x = CMsgClientMMSGetLobbyListResponse_Lobby{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[137]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSGetLobbyListResponse_Lobby) ProtoMessage() {}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[137]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSGetLobbyListResponse_Lobby.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSGetLobbyListResponse_Lobby) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{47, 0}
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetSteamId() uint64 {
-	if x != nil && x.SteamId != nil {
-		return *x.SteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetMaxMembers() int32 {
-	if x != nil && x.MaxMembers != nil {
-		return *x.MaxMembers
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetLobbyType() int32 {
-	if x != nil && x.LobbyType != nil {
-		return *x.LobbyType
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetLobbyFlags() int32 {
-	if x != nil && x.LobbyFlags != nil {
-		return *x.LobbyFlags
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetMetadata() []byte {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetNumMembers() int32 {
-	if x != nil && x.NumMembers != nil {
-		return *x.NumMembers
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetDistance() float32 {
-	if x != nil && x.Distance != nil {
-		return *x.Distance
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSGetLobbyListResponse_Lobby) GetWeight() int64 {
-	if x != nil && x.Weight != nil {
-		return *x.Weight
-	}
-	return 0
-}
-
-type CMsgClientMMSLobbyData_Member struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SteamId       *uint64                `protobuf:"fixed64,1,opt,name=steam_id,json=steamId" json:"steam_id,omitempty"`
-	PersonaName   *string                `protobuf:"bytes,2,opt,name=persona_name,json=personaName" json:"persona_name,omitempty"`
-	Metadata      []byte                 `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientMMSLobbyData_Member) Reset() {
-	*x = CMsgClientMMSLobbyData_Member{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientMMSLobbyData_Member) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientMMSLobbyData_Member) ProtoMessage() {}
-
-func (x *CMsgClientMMSLobbyData_Member) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientMMSLobbyData_Member.ProtoReflect.Descriptor instead.
-func (*CMsgClientMMSLobbyData_Member) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{51, 0}
-}
-
-func (x *CMsgClientMMSLobbyData_Member) GetSteamId() uint64 {
-	if x != nil && x.SteamId != nil {
-		return *x.SteamId
-	}
-	return 0
-}
-
-func (x *CMsgClientMMSLobbyData_Member) GetPersonaName() string {
-	if x != nil && x.PersonaName != nil {
-		return *x.PersonaName
-	}
-	return ""
-}
-
-func (x *CMsgClientMMSLobbyData_Member) GetMetadata() []byte {
-	if x != nil {
-		return x.Metadata
-	}
-	return nil
-}
-
 type CMsgClientConnectionStats_Stats_Logon struct {
-	state               protoimpl.MessageState `protogen:"open.v1"`
-	ConnectAttempts     *int32                 `protobuf:"varint,1,opt,name=connect_attempts,json=connectAttempts" json:"connect_attempts,omitempty"`
-	ConnectSuccesses    *int32                 `protobuf:"varint,2,opt,name=connect_successes,json=connectSuccesses" json:"connect_successes,omitempty"`
-	ConnectFailures     *int32                 `protobuf:"varint,3,opt,name=connect_failures,json=connectFailures" json:"connect_failures,omitempty"`
-	ConnectionsDropped  *int32                 `protobuf:"varint,4,opt,name=connections_dropped,json=connectionsDropped" json:"connections_dropped,omitempty"`
-	SecondsRunning      *uint32                `protobuf:"varint,5,opt,name=seconds_running,json=secondsRunning" json:"seconds_running,omitempty"`
-	MsecTologonthistime *uint32                `protobuf:"varint,6,opt,name=msec_tologonthistime,json=msecTologonthistime" json:"msec_tologonthistime,omitempty"`
-	CountBadCms         *uint32                `protobuf:"varint,7,opt,name=count_bad_cms,json=countBadCms" json:"count_bad_cms,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                          protoimpl.MessageState `protogen:"open.v1"`
+	ConnectAttempts                *int32                 `protobuf:"varint,1,opt,name=connect_attempts,json=connectAttempts" json:"connect_attempts,omitempty"`
+	ConnectSuccesses               *int32                 `protobuf:"varint,2,opt,name=connect_successes,json=connectSuccesses" json:"connect_successes,omitempty"`
+	ConnectFailures                *int32                 `protobuf:"varint,3,opt,name=connect_failures,json=connectFailures" json:"connect_failures,omitempty"`
+	ConnectionsDropped             *int32                 `protobuf:"varint,4,opt,name=connections_dropped,json=connectionsDropped" json:"connections_dropped,omitempty"`
+	SecondsRunning                 *uint32                `protobuf:"varint,5,opt,name=seconds_running,json=secondsRunning" json:"seconds_running,omitempty"`
+	MsecTologonthistime            *uint32                `protobuf:"varint,6,opt,name=msec_tologonthistime,json=msecTologonthistime" json:"msec_tologonthistime,omitempty"`
+	CountBadCms                    *uint32                `protobuf:"varint,7,opt,name=count_bad_cms,json=countBadCms" json:"count_bad_cms,omitempty"`
+	NoUdpConnectivity              *bool                  `protobuf:"varint,8,opt,name=no_udp_connectivity,json=noUdpConnectivity" json:"no_udp_connectivity,omitempty"`
+	NoTcpConnectivity              *bool                  `protobuf:"varint,9,opt,name=no_tcp_connectivity,json=noTcpConnectivity" json:"no_tcp_connectivity,omitempty"`
+	NoWebsocket_443Connectivity    *bool                  `protobuf:"varint,10,opt,name=no_websocket_443_connectivity,json=noWebsocket443Connectivity" json:"no_websocket_443_connectivity,omitempty"`
+	NoWebsocketNon_443Connectivity *bool                  `protobuf:"varint,11,opt,name=no_websocket_non_443_connectivity,json=noWebsocketNon443Connectivity" json:"no_websocket_non_443_connectivity,omitempty"`
+	unknownFields                  protoimpl.UnknownFields
+	sizeCache                      protoimpl.SizeCache
 }
 
 func (x *CMsgClientConnectionStats_Stats_Logon) Reset() {
 	*x = CMsgClientConnectionStats_Stats_Logon{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[139]
+	mi := &file_steammessages_clientserver_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9638,7 +2943,7 @@ func (x *CMsgClientConnectionStats_Stats_Logon) String() string {
 func (*CMsgClientConnectionStats_Stats_Logon) ProtoMessage() {}
 
 func (x *CMsgClientConnectionStats_Stats_Logon) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[139]
+	mi := &file_steammessages_clientserver_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9651,7 +2956,7 @@ func (x *CMsgClientConnectionStats_Stats_Logon) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgClientConnectionStats_Stats_Logon.ProtoReflect.Descriptor instead.
 func (*CMsgClientConnectionStats_Stats_Logon) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{66, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{24, 0}
 }
 
 func (x *CMsgClientConnectionStats_Stats_Logon) GetConnectAttempts() int32 {
@@ -9703,6 +3008,34 @@ func (x *CMsgClientConnectionStats_Stats_Logon) GetCountBadCms() uint32 {
 	return 0
 }
 
+func (x *CMsgClientConnectionStats_Stats_Logon) GetNoUdpConnectivity() bool {
+	if x != nil && x.NoUdpConnectivity != nil {
+		return *x.NoUdpConnectivity
+	}
+	return false
+}
+
+func (x *CMsgClientConnectionStats_Stats_Logon) GetNoTcpConnectivity() bool {
+	if x != nil && x.NoTcpConnectivity != nil {
+		return *x.NoTcpConnectivity
+	}
+	return false
+}
+
+func (x *CMsgClientConnectionStats_Stats_Logon) GetNoWebsocket_443Connectivity() bool {
+	if x != nil && x.NoWebsocket_443Connectivity != nil {
+		return *x.NoWebsocket_443Connectivity
+	}
+	return false
+}
+
+func (x *CMsgClientConnectionStats_Stats_Logon) GetNoWebsocketNon_443Connectivity() bool {
+	if x != nil && x.NoWebsocketNon_443Connectivity != nil {
+		return *x.NoWebsocketNon_443Connectivity
+	}
+	return false
+}
+
 type CMsgClientConnectionStats_Stats_UDP struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PktsSent      *uint64                `protobuf:"varint,1,opt,name=pkts_sent,json=pktsSent" json:"pkts_sent,omitempty"`
@@ -9716,7 +3049,7 @@ type CMsgClientConnectionStats_Stats_UDP struct {
 
 func (x *CMsgClientConnectionStats_Stats_UDP) Reset() {
 	*x = CMsgClientConnectionStats_Stats_UDP{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[140]
+	mi := &file_steammessages_clientserver_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9728,7 +3061,7 @@ func (x *CMsgClientConnectionStats_Stats_UDP) String() string {
 func (*CMsgClientConnectionStats_Stats_UDP) ProtoMessage() {}
 
 func (x *CMsgClientConnectionStats_Stats_UDP) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[140]
+	mi := &file_steammessages_clientserver_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9741,7 +3074,7 @@ func (x *CMsgClientConnectionStats_Stats_UDP) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgClientConnectionStats_Stats_UDP.ProtoReflect.Descriptor instead.
 func (*CMsgClientConnectionStats_Stats_UDP) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{66, 1}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{24, 1}
 }
 
 func (x *CMsgClientConnectionStats_Stats_UDP) GetPktsSent() uint64 {
@@ -9800,14 +3133,13 @@ type CMsgClientConnectionStats_Stats_VConn struct {
 	MicroSecAvgLatency      *uint32                              `protobuf:"varint,17,opt,name=micro_sec_avg_latency,json=microSecAvgLatency" json:"micro_sec_avg_latency,omitempty"`
 	MicroSecMinLatency      *uint32                              `protobuf:"varint,18,opt,name=micro_sec_min_latency,json=microSecMinLatency" json:"micro_sec_min_latency,omitempty"`
 	MicroSecMaxLatency      *uint32                              `protobuf:"varint,19,opt,name=micro_sec_max_latency,json=microSecMaxLatency" json:"micro_sec_max_latency,omitempty"`
-	MemPoolMsgInUse         *uint32                              `protobuf:"varint,20,opt,name=mem_pool_msg_in_use,json=memPoolMsgInUse" json:"mem_pool_msg_in_use,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
 
 func (x *CMsgClientConnectionStats_Stats_VConn) Reset() {
 	*x = CMsgClientConnectionStats_Stats_VConn{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[141]
+	mi := &file_steammessages_clientserver_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9819,7 +3151,7 @@ func (x *CMsgClientConnectionStats_Stats_VConn) String() string {
 func (*CMsgClientConnectionStats_Stats_VConn) ProtoMessage() {}
 
 func (x *CMsgClientConnectionStats_Stats_VConn) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[141]
+	mi := &file_steammessages_clientserver_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9832,7 +3164,7 @@ func (x *CMsgClientConnectionStats_Stats_VConn) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgClientConnectionStats_Stats_VConn.ProtoReflect.Descriptor instead.
 func (*CMsgClientConnectionStats_Stats_VConn) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{66, 2}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{24, 2}
 }
 
 func (x *CMsgClientConnectionStats_Stats_VConn) GetConnectionsUdp() uint32 {
@@ -9968,13 +3300,6 @@ func (x *CMsgClientConnectionStats_Stats_VConn) GetMicroSecMaxLatency() uint32 {
 	return 0
 }
 
-func (x *CMsgClientConnectionStats_Stats_VConn) GetMemPoolMsgInUse() uint32 {
-	if x != nil && x.MemPoolMsgInUse != nil {
-		return *x.MemPoolMsgInUse
-	}
-	return 0
-}
-
 type CMsgClientServersAvailable_Server_Types_Available struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Server        *uint32                `protobuf:"varint,1,opt,name=server" json:"server,omitempty"`
@@ -9985,7 +3310,7 @@ type CMsgClientServersAvailable_Server_Types_Available struct {
 
 func (x *CMsgClientServersAvailable_Server_Types_Available) Reset() {
 	*x = CMsgClientServersAvailable_Server_Types_Available{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[142]
+	mi := &file_steammessages_clientserver_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9997,7 +3322,7 @@ func (x *CMsgClientServersAvailable_Server_Types_Available) String() string {
 func (*CMsgClientServersAvailable_Server_Types_Available) ProtoMessage() {}
 
 func (x *CMsgClientServersAvailable_Server_Types_Available) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[142]
+	mi := &file_steammessages_clientserver_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10010,7 +3335,7 @@ func (x *CMsgClientServersAvailable_Server_Types_Available) ProtoReflect() proto
 
 // Deprecated: Use CMsgClientServersAvailable_Server_Types_Available.ProtoReflect.Descriptor instead.
 func (*CMsgClientServersAvailable_Server_Types_Available) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{67, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{25, 0}
 }
 
 func (x *CMsgClientServersAvailable_Server_Types_Available) GetServer() uint32 {
@@ -10027,1584 +3352,6 @@ func (x *CMsgClientServersAvailable_Server_Types_Available) GetChanged() bool {
 	return false
 }
 
-type CMsgClientGetUserStatsResponse_Stats struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StatId        *uint32                `protobuf:"varint,1,opt,name=stat_id,json=statId" json:"stat_id,omitempty"`
-	StatValue     *uint32                `protobuf:"varint,2,opt,name=stat_value,json=statValue" json:"stat_value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetUserStatsResponse_Stats) Reset() {
-	*x = CMsgClientGetUserStatsResponse_Stats{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[143]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetUserStatsResponse_Stats) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetUserStatsResponse_Stats) ProtoMessage() {}
-
-func (x *CMsgClientGetUserStatsResponse_Stats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[143]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetUserStatsResponse_Stats.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetUserStatsResponse_Stats) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{69, 0}
-}
-
-func (x *CMsgClientGetUserStatsResponse_Stats) GetStatId() uint32 {
-	if x != nil && x.StatId != nil {
-		return *x.StatId
-	}
-	return 0
-}
-
-func (x *CMsgClientGetUserStatsResponse_Stats) GetStatValue() uint32 {
-	if x != nil && x.StatValue != nil {
-		return *x.StatValue
-	}
-	return 0
-}
-
-type CMsgClientGetUserStatsResponse_Achievement_Blocks struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AchievementId *uint32                `protobuf:"varint,1,opt,name=achievement_id,json=achievementId" json:"achievement_id,omitempty"`
-	UnlockTime    []uint32               `protobuf:"fixed32,2,rep,name=unlock_time,json=unlockTime" json:"unlock_time,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetUserStatsResponse_Achievement_Blocks) Reset() {
-	*x = CMsgClientGetUserStatsResponse_Achievement_Blocks{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[144]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetUserStatsResponse_Achievement_Blocks) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetUserStatsResponse_Achievement_Blocks) ProtoMessage() {}
-
-func (x *CMsgClientGetUserStatsResponse_Achievement_Blocks) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[144]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetUserStatsResponse_Achievement_Blocks.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetUserStatsResponse_Achievement_Blocks) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{69, 1}
-}
-
-func (x *CMsgClientGetUserStatsResponse_Achievement_Blocks) GetAchievementId() uint32 {
-	if x != nil && x.AchievementId != nil {
-		return *x.AchievementId
-	}
-	return 0
-}
-
-func (x *CMsgClientGetUserStatsResponse_Achievement_Blocks) GetUnlockTime() []uint32 {
-	if x != nil {
-		return x.UnlockTime
-	}
-	return nil
-}
-
-type CMsgClientStoreUserStatsResponse_Stats_Failed_Validation struct {
-	state             protoimpl.MessageState `protogen:"open.v1"`
-	StatId            *uint32                `protobuf:"varint,1,opt,name=stat_id,json=statId" json:"stat_id,omitempty"`
-	RevertedStatValue *uint32                `protobuf:"varint,2,opt,name=reverted_stat_value,json=revertedStatValue" json:"reverted_stat_value,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-func (x *CMsgClientStoreUserStatsResponse_Stats_Failed_Validation) Reset() {
-	*x = CMsgClientStoreUserStatsResponse_Stats_Failed_Validation{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[145]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStoreUserStatsResponse_Stats_Failed_Validation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStoreUserStatsResponse_Stats_Failed_Validation) ProtoMessage() {}
-
-func (x *CMsgClientStoreUserStatsResponse_Stats_Failed_Validation) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[145]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStoreUserStatsResponse_Stats_Failed_Validation.ProtoReflect.Descriptor instead.
-func (*CMsgClientStoreUserStatsResponse_Stats_Failed_Validation) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{70, 0}
-}
-
-func (x *CMsgClientStoreUserStatsResponse_Stats_Failed_Validation) GetStatId() uint32 {
-	if x != nil && x.StatId != nil {
-		return *x.StatId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStatsResponse_Stats_Failed_Validation) GetRevertedStatValue() uint32 {
-	if x != nil && x.RevertedStatValue != nil {
-		return *x.RevertedStatValue
-	}
-	return 0
-}
-
-type CMsgClientStoreUserStats2_Stats struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StatId        *uint32                `protobuf:"varint,1,opt,name=stat_id,json=statId" json:"stat_id,omitempty"`
-	StatValue     *uint32                `protobuf:"varint,2,opt,name=stat_value,json=statValue" json:"stat_value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientStoreUserStats2_Stats) Reset() {
-	*x = CMsgClientStoreUserStats2_Stats{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[146]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStoreUserStats2_Stats) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStoreUserStats2_Stats) ProtoMessage() {}
-
-func (x *CMsgClientStoreUserStats2_Stats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[146]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStoreUserStats2_Stats.ProtoReflect.Descriptor instead.
-func (*CMsgClientStoreUserStats2_Stats) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{71, 0}
-}
-
-func (x *CMsgClientStoreUserStats2_Stats) GetStatId() uint32 {
-	if x != nil && x.StatId != nil {
-		return *x.StatId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStats2_Stats) GetStatValue() uint32 {
-	if x != nil && x.StatValue != nil {
-		return *x.StatValue
-	}
-	return 0
-}
-
-type CMsgClientStatsUpdated_Updated_Stats struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StatId        *uint32                `protobuf:"varint,1,opt,name=stat_id,json=statId" json:"stat_id,omitempty"`
-	StatValue     *uint32                `protobuf:"varint,2,opt,name=stat_value,json=statValue" json:"stat_value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientStatsUpdated_Updated_Stats) Reset() {
-	*x = CMsgClientStatsUpdated_Updated_Stats{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[147]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStatsUpdated_Updated_Stats) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStatsUpdated_Updated_Stats) ProtoMessage() {}
-
-func (x *CMsgClientStatsUpdated_Updated_Stats) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[147]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStatsUpdated_Updated_Stats.ProtoReflect.Descriptor instead.
-func (*CMsgClientStatsUpdated_Updated_Stats) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{72, 0}
-}
-
-func (x *CMsgClientStatsUpdated_Updated_Stats) GetStatId() uint32 {
-	if x != nil && x.StatId != nil {
-		return *x.StatId
-	}
-	return 0
-}
-
-func (x *CMsgClientStatsUpdated_Updated_Stats) GetStatValue() uint32 {
-	if x != nil && x.StatValue != nil {
-		return *x.StatValue
-	}
-	return 0
-}
-
-type CMsgClientStoreUserStats_Stats_To_Store struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	StatId        *uint32                `protobuf:"varint,1,opt,name=stat_id,json=statId" json:"stat_id,omitempty"`
-	StatValue     *uint32                `protobuf:"varint,2,opt,name=stat_value,json=statValue" json:"stat_value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientStoreUserStats_Stats_To_Store) Reset() {
-	*x = CMsgClientStoreUserStats_Stats_To_Store{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[148]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientStoreUserStats_Stats_To_Store) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientStoreUserStats_Stats_To_Store) ProtoMessage() {}
-
-func (x *CMsgClientStoreUserStats_Stats_To_Store) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[148]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientStoreUserStats_Stats_To_Store.ProtoReflect.Descriptor instead.
-func (*CMsgClientStoreUserStats_Stats_To_Store) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{73, 0}
-}
-
-func (x *CMsgClientStoreUserStats_Stats_To_Store) GetStatId() uint32 {
-	if x != nil && x.StatId != nil {
-		return *x.StatId
-	}
-	return 0
-}
-
-func (x *CMsgClientStoreUserStats_Stats_To_Store) GetStatValue() uint32 {
-	if x != nil && x.StatValue != nil {
-		return *x.StatValue
-	}
-	return 0
-}
-
-type CMsgClientGetClientDetailsResponse_Game struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Appid          *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	ExtraInfo      *string                `protobuf:"bytes,2,opt,name=extra_info,json=extraInfo" json:"extra_info,omitempty"`
-	TimeRunningSec *uint32                `protobuf:"varint,3,opt,name=time_running_sec,json=timeRunningSec" json:"time_running_sec,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetClientDetailsResponse_Game) Reset() {
-	*x = CMsgClientGetClientDetailsResponse_Game{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[149]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetClientDetailsResponse_Game) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetClientDetailsResponse_Game) ProtoMessage() {}
-
-func (x *CMsgClientGetClientDetailsResponse_Game) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[149]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetClientDetailsResponse_Game.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetClientDetailsResponse_Game) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{76, 0}
-}
-
-func (x *CMsgClientGetClientDetailsResponse_Game) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientDetailsResponse_Game) GetExtraInfo() string {
-	if x != nil && x.ExtraInfo != nil {
-		return *x.ExtraInfo
-	}
-	return ""
-}
-
-func (x *CMsgClientGetClientDetailsResponse_Game) GetTimeRunningSec() uint32 {
-	if x != nil && x.TimeRunningSec != nil {
-		return *x.TimeRunningSec
-	}
-	return 0
-}
-
-type CMsgClientGetClientAppListResponse_App struct {
-	state               protoimpl.MessageState                        `protogen:"open.v1"`
-	Appid               *uint32                                       `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	Category            *string                                       `protobuf:"bytes,2,opt,name=category" json:"category,omitempty"`
-	AppType             *string                                       `protobuf:"bytes,10,opt,name=app_type,json=appType" json:"app_type,omitempty"`
-	Favorite            *bool                                         `protobuf:"varint,3,opt,name=favorite" json:"favorite,omitempty"`
-	Installed           *bool                                         `protobuf:"varint,4,opt,name=installed" json:"installed,omitempty"`
-	AutoUpdate          *bool                                         `protobuf:"varint,5,opt,name=auto_update,json=autoUpdate" json:"auto_update,omitempty"`
-	BytesDownloaded     *uint64                                       `protobuf:"varint,6,opt,name=bytes_downloaded,json=bytesDownloaded" json:"bytes_downloaded,omitempty"`
-	BytesNeeded         *uint64                                       `protobuf:"varint,7,opt,name=bytes_needed,json=bytesNeeded" json:"bytes_needed,omitempty"`
-	BytesDownloadRate   *uint32                                       `protobuf:"varint,8,opt,name=bytes_download_rate,json=bytesDownloadRate" json:"bytes_download_rate,omitempty"`
-	DownloadPaused      *bool                                         `protobuf:"varint,11,opt,name=download_paused,json=downloadPaused" json:"download_paused,omitempty"`
-	NumDownloading      *uint32                                       `protobuf:"varint,12,opt,name=num_downloading,json=numDownloading" json:"num_downloading,omitempty"`
-	NumPaused           *uint32                                       `protobuf:"varint,13,opt,name=num_paused,json=numPaused" json:"num_paused,omitempty"`
-	Changing            *bool                                         `protobuf:"varint,14,opt,name=changing" json:"changing,omitempty"`
-	AvailableOnPlatform *bool                                         `protobuf:"varint,15,opt,name=available_on_platform,json=availableOnPlatform" json:"available_on_platform,omitempty"`
-	Dlcs                []*CMsgClientGetClientAppListResponse_App_DLC `protobuf:"bytes,9,rep,name=dlcs" json:"dlcs,omitempty"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) Reset() {
-	*x = CMsgClientGetClientAppListResponse_App{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[150]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetClientAppListResponse_App) ProtoMessage() {}
-
-func (x *CMsgClientGetClientAppListResponse_App) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[150]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetClientAppListResponse_App.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetClientAppListResponse_App) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{78, 0}
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetCategory() string {
-	if x != nil && x.Category != nil {
-		return *x.Category
-	}
-	return ""
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetAppType() string {
-	if x != nil && x.AppType != nil {
-		return *x.AppType
-	}
-	return ""
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetFavorite() bool {
-	if x != nil && x.Favorite != nil {
-		return *x.Favorite
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetInstalled() bool {
-	if x != nil && x.Installed != nil {
-		return *x.Installed
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetAutoUpdate() bool {
-	if x != nil && x.AutoUpdate != nil {
-		return *x.AutoUpdate
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetBytesDownloaded() uint64 {
-	if x != nil && x.BytesDownloaded != nil {
-		return *x.BytesDownloaded
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetBytesNeeded() uint64 {
-	if x != nil && x.BytesNeeded != nil {
-		return *x.BytesNeeded
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetBytesDownloadRate() uint32 {
-	if x != nil && x.BytesDownloadRate != nil {
-		return *x.BytesDownloadRate
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetDownloadPaused() bool {
-	if x != nil && x.DownloadPaused != nil {
-		return *x.DownloadPaused
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetNumDownloading() uint32 {
-	if x != nil && x.NumDownloading != nil {
-		return *x.NumDownloading
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetNumPaused() uint32 {
-	if x != nil && x.NumPaused != nil {
-		return *x.NumPaused
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetChanging() bool {
-	if x != nil && x.Changing != nil {
-		return *x.Changing
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetAvailableOnPlatform() bool {
-	if x != nil && x.AvailableOnPlatform != nil {
-		return *x.AvailableOnPlatform
-	}
-	return false
-}
-
-func (x *CMsgClientGetClientAppListResponse_App) GetDlcs() []*CMsgClientGetClientAppListResponse_App_DLC {
-	if x != nil {
-		return x.Dlcs
-	}
-	return nil
-}
-
-type CMsgClientGetClientAppListResponse_App_DLC struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	Installed     *bool                  `protobuf:"varint,2,opt,name=installed" json:"installed,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientGetClientAppListResponse_App_DLC) Reset() {
-	*x = CMsgClientGetClientAppListResponse_App_DLC{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[151]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientGetClientAppListResponse_App_DLC) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientGetClientAppListResponse_App_DLC) ProtoMessage() {}
-
-func (x *CMsgClientGetClientAppListResponse_App_DLC) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[151]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientGetClientAppListResponse_App_DLC.ProtoReflect.Descriptor instead.
-func (*CMsgClientGetClientAppListResponse_App_DLC) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{78, 0, 0}
-}
-
-func (x *CMsgClientGetClientAppListResponse_App_DLC) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientGetClientAppListResponse_App_DLC) GetInstalled() bool {
-	if x != nil && x.Installed != nil {
-		return *x.Installed
-	}
-	return false
-}
-
-type CMsgClientUFSUploadCommit_File struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	AppId         *uint32                `protobuf:"varint,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	ShaFile       []byte                 `protobuf:"bytes,3,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	CubFile       *uint32                `protobuf:"varint,4,opt,name=cub_file,json=cubFile" json:"cub_file,omitempty"`
-	FileName      *string                `protobuf:"bytes,5,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSUploadCommit_File fields.
-const (
-	Default_CMsgClientUFSUploadCommit_File_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSUploadCommit_File) Reset() {
-	*x = CMsgClientUFSUploadCommit_File{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[152]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSUploadCommit_File) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSUploadCommit_File) ProtoMessage() {}
-
-func (x *CMsgClientUFSUploadCommit_File) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[152]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSUploadCommit_File.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSUploadCommit_File) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{87, 0}
-}
-
-func (x *CMsgClientUFSUploadCommit_File) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSUploadCommit_File_Eresult
-}
-
-func (x *CMsgClientUFSUploadCommit_File) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadCommit_File) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSUploadCommit_File) GetCubFile() uint32 {
-	if x != nil && x.CubFile != nil {
-		return *x.CubFile
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadCommit_File) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-type CMsgClientUFSUploadCommitResponse_File struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Eresult       *int32                 `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	AppId         *uint32                `protobuf:"varint,2,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	ShaFile       []byte                 `protobuf:"bytes,3,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-// Default values for CMsgClientUFSUploadCommitResponse_File fields.
-const (
-	Default_CMsgClientUFSUploadCommitResponse_File_Eresult = int32(2)
-)
-
-func (x *CMsgClientUFSUploadCommitResponse_File) Reset() {
-	*x = CMsgClientUFSUploadCommitResponse_File{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[153]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSUploadCommitResponse_File) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSUploadCommitResponse_File) ProtoMessage() {}
-
-func (x *CMsgClientUFSUploadCommitResponse_File) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[153]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSUploadCommitResponse_File.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSUploadCommitResponse_File) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{88, 0}
-}
-
-func (x *CMsgClientUFSUploadCommitResponse_File) GetEresult() int32 {
-	if x != nil && x.Eresult != nil {
-		return *x.Eresult
-	}
-	return Default_CMsgClientUFSUploadCommitResponse_File_Eresult
-}
-
-func (x *CMsgClientUFSUploadCommitResponse_File) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSUploadCommitResponse_File) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-type CMsgClientUFSGetFileListForAppResponse_File struct {
-	state            protoimpl.MessageState `protogen:"open.v1"`
-	AppId            *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	FileName         *string                `protobuf:"bytes,2,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
-	ShaFile          []byte                 `protobuf:"bytes,3,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
-	TimeStamp        *uint64                `protobuf:"varint,4,opt,name=time_stamp,json=timeStamp" json:"time_stamp,omitempty"`
-	RawFileSize      *uint32                `protobuf:"varint,5,opt,name=raw_file_size,json=rawFileSize" json:"raw_file_size,omitempty"`
-	IsExplicitDelete *bool                  `protobuf:"varint,6,opt,name=is_explicit_delete,json=isExplicitDelete" json:"is_explicit_delete,omitempty"`
-	PlatformsToSync  *uint32                `protobuf:"varint,7,opt,name=platforms_to_sync,json=platformsToSync" json:"platforms_to_sync,omitempty"`
-	PathPrefixIndex  *uint32                `protobuf:"varint,8,opt,name=path_prefix_index,json=pathPrefixIndex" json:"path_prefix_index,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) Reset() {
-	*x = CMsgClientUFSGetFileListForAppResponse_File{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[154]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientUFSGetFileListForAppResponse_File) ProtoMessage() {}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[154]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientUFSGetFileListForAppResponse_File.ProtoReflect.Descriptor instead.
-func (*CMsgClientUFSGetFileListForAppResponse_File) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{95, 0}
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetFileName() string {
-	if x != nil && x.FileName != nil {
-		return *x.FileName
-	}
-	return ""
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetShaFile() []byte {
-	if x != nil {
-		return x.ShaFile
-	}
-	return nil
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetTimeStamp() uint64 {
-	if x != nil && x.TimeStamp != nil {
-		return *x.TimeStamp
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetRawFileSize() uint32 {
-	if x != nil && x.RawFileSize != nil {
-		return *x.RawFileSize
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetIsExplicitDelete() bool {
-	if x != nil && x.IsExplicitDelete != nil {
-		return *x.IsExplicitDelete
-	}
-	return false
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetPlatformsToSync() uint32 {
-	if x != nil && x.PlatformsToSync != nil {
-		return *x.PlatformsToSync
-	}
-	return 0
-}
-
-func (x *CMsgClientUFSGetFileListForAppResponse_File) GetPathPrefixIndex() uint32 {
-	if x != nil && x.PathPrefixIndex != nil {
-		return *x.PathPrefixIndex
-	}
-	return 0
-}
-
-type CMsgClientAppInfoRequest_App struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AppId         *uint32                `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	SectionFlags  *uint32                `protobuf:"varint,2,opt,name=section_flags,json=sectionFlags" json:"section_flags,omitempty"`
-	Section_CRC   []uint32               `protobuf:"varint,3,rep,name=section_CRC,json=sectionCRC" json:"section_CRC,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppInfoRequest_App) Reset() {
-	*x = CMsgClientAppInfoRequest_App{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[155]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppInfoRequest_App) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppInfoRequest_App) ProtoMessage() {}
-
-func (x *CMsgClientAppInfoRequest_App) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[155]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppInfoRequest_App.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppInfoRequest_App) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{105, 0}
-}
-
-func (x *CMsgClientAppInfoRequest_App) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientAppInfoRequest_App) GetSectionFlags() uint32 {
-	if x != nil && x.SectionFlags != nil {
-		return *x.SectionFlags
-	}
-	return 0
-}
-
-func (x *CMsgClientAppInfoRequest_App) GetSection_CRC() []uint32 {
-	if x != nil {
-		return x.Section_CRC
-	}
-	return nil
-}
-
-type CMsgClientAppInfoResponse_App struct {
-	state         protoimpl.MessageState                   `protogen:"open.v1"`
-	AppId         *uint32                                  `protobuf:"varint,1,opt,name=app_id,json=appId" json:"app_id,omitempty"`
-	ChangeNumber  *uint32                                  `protobuf:"varint,2,opt,name=change_number,json=changeNumber" json:"change_number,omitempty"`
-	Sections      []*CMsgClientAppInfoResponse_App_Section `protobuf:"bytes,3,rep,name=sections" json:"sections,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppInfoResponse_App) Reset() {
-	*x = CMsgClientAppInfoResponse_App{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[156]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppInfoResponse_App) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppInfoResponse_App) ProtoMessage() {}
-
-func (x *CMsgClientAppInfoResponse_App) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[156]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppInfoResponse_App.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppInfoResponse_App) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{106, 0}
-}
-
-func (x *CMsgClientAppInfoResponse_App) GetAppId() uint32 {
-	if x != nil && x.AppId != nil {
-		return *x.AppId
-	}
-	return 0
-}
-
-func (x *CMsgClientAppInfoResponse_App) GetChangeNumber() uint32 {
-	if x != nil && x.ChangeNumber != nil {
-		return *x.ChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientAppInfoResponse_App) GetSections() []*CMsgClientAppInfoResponse_App_Section {
-	if x != nil {
-		return x.Sections
-	}
-	return nil
-}
-
-type CMsgClientAppInfoResponse_App_Section struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	SectionId     *uint32                `protobuf:"varint,1,opt,name=section_id,json=sectionId" json:"section_id,omitempty"`
-	SectionKv     []byte                 `protobuf:"bytes,2,opt,name=section_kv,json=sectionKv" json:"section_kv,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientAppInfoResponse_App_Section) Reset() {
-	*x = CMsgClientAppInfoResponse_App_Section{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[157]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientAppInfoResponse_App_Section) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientAppInfoResponse_App_Section) ProtoMessage() {}
-
-func (x *CMsgClientAppInfoResponse_App_Section) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[157]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientAppInfoResponse_App_Section.ProtoReflect.Descriptor instead.
-func (*CMsgClientAppInfoResponse_App_Section) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{106, 0, 0}
-}
-
-func (x *CMsgClientAppInfoResponse_App_Section) GetSectionId() uint32 {
-	if x != nil && x.SectionId != nil {
-		return *x.SectionId
-	}
-	return 0
-}
-
-func (x *CMsgClientAppInfoResponse_App_Section) GetSectionKv() []byte {
-	if x != nil {
-		return x.SectionKv
-	}
-	return nil
-}
-
-type CMsgClientPackageInfoResponse_Package struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	PackageId     *uint32                `protobuf:"varint,1,opt,name=package_id,json=packageId" json:"package_id,omitempty"`
-	ChangeNumber  *uint32                `protobuf:"varint,2,opt,name=change_number,json=changeNumber" json:"change_number,omitempty"`
-	Sha           []byte                 `protobuf:"bytes,3,opt,name=sha" json:"sha,omitempty"`
-	Buffer        []byte                 `protobuf:"bytes,4,opt,name=buffer" json:"buffer,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPackageInfoResponse_Package) Reset() {
-	*x = CMsgClientPackageInfoResponse_Package{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[158]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPackageInfoResponse_Package) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPackageInfoResponse_Package) ProtoMessage() {}
-
-func (x *CMsgClientPackageInfoResponse_Package) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[158]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPackageInfoResponse_Package.ProtoReflect.Descriptor instead.
-func (*CMsgClientPackageInfoResponse_Package) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{108, 0}
-}
-
-func (x *CMsgClientPackageInfoResponse_Package) GetPackageId() uint32 {
-	if x != nil && x.PackageId != nil {
-		return *x.PackageId
-	}
-	return 0
-}
-
-func (x *CMsgClientPackageInfoResponse_Package) GetChangeNumber() uint32 {
-	if x != nil && x.ChangeNumber != nil {
-		return *x.ChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPackageInfoResponse_Package) GetSha() []byte {
-	if x != nil {
-		return x.Sha
-	}
-	return nil
-}
-
-func (x *CMsgClientPackageInfoResponse_Package) GetBuffer() []byte {
-	if x != nil {
-		return x.Buffer
-	}
-	return nil
-}
-
-type CMsgClientPICSChangesSinceResponse_PackageChange struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Packageid     *uint32                `protobuf:"varint,1,opt,name=packageid" json:"packageid,omitempty"`
-	ChangeNumber  *uint32                `protobuf:"varint,2,opt,name=change_number,json=changeNumber" json:"change_number,omitempty"`
-	NeedsToken    *bool                  `protobuf:"varint,3,opt,name=needs_token,json=needsToken" json:"needs_token,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_PackageChange) Reset() {
-	*x = CMsgClientPICSChangesSinceResponse_PackageChange{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[159]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_PackageChange) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSChangesSinceResponse_PackageChange) ProtoMessage() {}
-
-func (x *CMsgClientPICSChangesSinceResponse_PackageChange) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[159]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSChangesSinceResponse_PackageChange.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSChangesSinceResponse_PackageChange) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{110, 0}
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_PackageChange) GetPackageid() uint32 {
-	if x != nil && x.Packageid != nil {
-		return *x.Packageid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_PackageChange) GetChangeNumber() uint32 {
-	if x != nil && x.ChangeNumber != nil {
-		return *x.ChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_PackageChange) GetNeedsToken() bool {
-	if x != nil && x.NeedsToken != nil {
-		return *x.NeedsToken
-	}
-	return false
-}
-
-type CMsgClientPICSChangesSinceResponse_AppChange struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	ChangeNumber  *uint32                `protobuf:"varint,2,opt,name=change_number,json=changeNumber" json:"change_number,omitempty"`
-	NeedsToken    *bool                  `protobuf:"varint,3,opt,name=needs_token,json=needsToken" json:"needs_token,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_AppChange) Reset() {
-	*x = CMsgClientPICSChangesSinceResponse_AppChange{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[160]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_AppChange) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSChangesSinceResponse_AppChange) ProtoMessage() {}
-
-func (x *CMsgClientPICSChangesSinceResponse_AppChange) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[160]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSChangesSinceResponse_AppChange.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSChangesSinceResponse_AppChange) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{110, 1}
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_AppChange) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_AppChange) GetChangeNumber() uint32 {
-	if x != nil && x.ChangeNumber != nil {
-		return *x.ChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSChangesSinceResponse_AppChange) GetNeedsToken() bool {
-	if x != nil && x.NeedsToken != nil {
-		return *x.NeedsToken
-	}
-	return false
-}
-
-type CMsgClientPICSProductInfoRequest_AppInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	AccessToken   *uint64                `protobuf:"varint,2,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
-	OnlyPublic    *bool                  `protobuf:"varint,3,opt,name=only_public,json=onlyPublic" json:"only_public,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSProductInfoRequest_AppInfo) Reset() {
-	*x = CMsgClientPICSProductInfoRequest_AppInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[161]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSProductInfoRequest_AppInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSProductInfoRequest_AppInfo) ProtoMessage() {}
-
-func (x *CMsgClientPICSProductInfoRequest_AppInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[161]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSProductInfoRequest_AppInfo.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSProductInfoRequest_AppInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{111, 0}
-}
-
-func (x *CMsgClientPICSProductInfoRequest_AppInfo) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoRequest_AppInfo) GetAccessToken() uint64 {
-	if x != nil && x.AccessToken != nil {
-		return *x.AccessToken
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoRequest_AppInfo) GetOnlyPublic() bool {
-	if x != nil && x.OnlyPublic != nil {
-		return *x.OnlyPublic
-	}
-	return false
-}
-
-type CMsgClientPICSProductInfoRequest_PackageInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Packageid     *uint32                `protobuf:"varint,1,opt,name=packageid" json:"packageid,omitempty"`
-	AccessToken   *uint64                `protobuf:"varint,2,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSProductInfoRequest_PackageInfo) Reset() {
-	*x = CMsgClientPICSProductInfoRequest_PackageInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[162]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSProductInfoRequest_PackageInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSProductInfoRequest_PackageInfo) ProtoMessage() {}
-
-func (x *CMsgClientPICSProductInfoRequest_PackageInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[162]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSProductInfoRequest_PackageInfo.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSProductInfoRequest_PackageInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{111, 1}
-}
-
-func (x *CMsgClientPICSProductInfoRequest_PackageInfo) GetPackageid() uint32 {
-	if x != nil && x.Packageid != nil {
-		return *x.Packageid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoRequest_PackageInfo) GetAccessToken() uint64 {
-	if x != nil && x.AccessToken != nil {
-		return *x.AccessToken
-	}
-	return 0
-}
-
-type CMsgClientPICSProductInfoResponse_AppInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	ChangeNumber  *uint32                `protobuf:"varint,2,opt,name=change_number,json=changeNumber" json:"change_number,omitempty"`
-	MissingToken  *bool                  `protobuf:"varint,3,opt,name=missing_token,json=missingToken" json:"missing_token,omitempty"`
-	Sha           []byte                 `protobuf:"bytes,4,opt,name=sha" json:"sha,omitempty"`
-	Buffer        []byte                 `protobuf:"bytes,5,opt,name=buffer" json:"buffer,omitempty"`
-	OnlyPublic    *bool                  `protobuf:"varint,6,opt,name=only_public,json=onlyPublic" json:"only_public,omitempty"`
-	Size          *uint32                `protobuf:"varint,7,opt,name=size" json:"size,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) Reset() {
-	*x = CMsgClientPICSProductInfoResponse_AppInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[163]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSProductInfoResponse_AppInfo) ProtoMessage() {}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[163]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSProductInfoResponse_AppInfo.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSProductInfoResponse_AppInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{112, 0}
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) GetChangeNumber() uint32 {
-	if x != nil && x.ChangeNumber != nil {
-		return *x.ChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) GetMissingToken() bool {
-	if x != nil && x.MissingToken != nil {
-		return *x.MissingToken
-	}
-	return false
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) GetSha() []byte {
-	if x != nil {
-		return x.Sha
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) GetBuffer() []byte {
-	if x != nil {
-		return x.Buffer
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) GetOnlyPublic() bool {
-	if x != nil && x.OnlyPublic != nil {
-		return *x.OnlyPublic
-	}
-	return false
-}
-
-func (x *CMsgClientPICSProductInfoResponse_AppInfo) GetSize() uint32 {
-	if x != nil && x.Size != nil {
-		return *x.Size
-	}
-	return 0
-}
-
-type CMsgClientPICSProductInfoResponse_PackageInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Packageid     *uint32                `protobuf:"varint,1,opt,name=packageid" json:"packageid,omitempty"`
-	ChangeNumber  *uint32                `protobuf:"varint,2,opt,name=change_number,json=changeNumber" json:"change_number,omitempty"`
-	MissingToken  *bool                  `protobuf:"varint,3,opt,name=missing_token,json=missingToken" json:"missing_token,omitempty"`
-	Sha           []byte                 `protobuf:"bytes,4,opt,name=sha" json:"sha,omitempty"`
-	Buffer        []byte                 `protobuf:"bytes,5,opt,name=buffer" json:"buffer,omitempty"`
-	Size          *uint32                `protobuf:"varint,6,opt,name=size" json:"size,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) Reset() {
-	*x = CMsgClientPICSProductInfoResponse_PackageInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[164]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSProductInfoResponse_PackageInfo) ProtoMessage() {}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[164]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSProductInfoResponse_PackageInfo.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSProductInfoResponse_PackageInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{112, 1}
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) GetPackageid() uint32 {
-	if x != nil && x.Packageid != nil {
-		return *x.Packageid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) GetChangeNumber() uint32 {
-	if x != nil && x.ChangeNumber != nil {
-		return *x.ChangeNumber
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) GetMissingToken() bool {
-	if x != nil && x.MissingToken != nil {
-		return *x.MissingToken
-	}
-	return false
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) GetSha() []byte {
-	if x != nil {
-		return x.Sha
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) GetBuffer() []byte {
-	if x != nil {
-		return x.Buffer
-	}
-	return nil
-}
-
-func (x *CMsgClientPICSProductInfoResponse_PackageInfo) GetSize() uint32 {
-	if x != nil && x.Size != nil {
-		return *x.Size
-	}
-	return 0
-}
-
-type CMsgClientPICSAccessTokenResponse_PackageToken struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Packageid     *uint32                `protobuf:"varint,1,opt,name=packageid" json:"packageid,omitempty"`
-	AccessToken   *uint64                `protobuf:"varint,2,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_PackageToken) Reset() {
-	*x = CMsgClientPICSAccessTokenResponse_PackageToken{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[165]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_PackageToken) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSAccessTokenResponse_PackageToken) ProtoMessage() {}
-
-func (x *CMsgClientPICSAccessTokenResponse_PackageToken) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[165]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSAccessTokenResponse_PackageToken.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSAccessTokenResponse_PackageToken) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{114, 0}
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_PackageToken) GetPackageid() uint32 {
-	if x != nil && x.Packageid != nil {
-		return *x.Packageid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_PackageToken) GetAccessToken() uint64 {
-	if x != nil && x.AccessToken != nil {
-		return *x.AccessToken
-	}
-	return 0
-}
-
-type CMsgClientPICSAccessTokenResponse_AppToken struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	AccessToken   *uint64                `protobuf:"varint,2,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_AppToken) Reset() {
-	*x = CMsgClientPICSAccessTokenResponse_AppToken{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[166]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_AppToken) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgClientPICSAccessTokenResponse_AppToken) ProtoMessage() {}
-
-func (x *CMsgClientPICSAccessTokenResponse_AppToken) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[166]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgClientPICSAccessTokenResponse_AppToken.ProtoReflect.Descriptor instead.
-func (*CMsgClientPICSAccessTokenResponse_AppToken) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{114, 1}
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_AppToken) GetAppid() uint32 {
-	if x != nil && x.Appid != nil {
-		return *x.Appid
-	}
-	return 0
-}
-
-func (x *CMsgClientPICSAccessTokenResponse_AppToken) GetAccessToken() uint64 {
-	if x != nil && x.AccessToken != nil {
-		return *x.AccessToken
-	}
-	return 0
-}
-
 type CMsgClientAMGetPersonaNameHistory_IdInstance struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Steamid       *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
@@ -11614,7 +3361,7 @@ type CMsgClientAMGetPersonaNameHistory_IdInstance struct {
 
 func (x *CMsgClientAMGetPersonaNameHistory_IdInstance) Reset() {
 	*x = CMsgClientAMGetPersonaNameHistory_IdInstance{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[167]
+	mi := &file_steammessages_clientserver_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11626,7 +3373,7 @@ func (x *CMsgClientAMGetPersonaNameHistory_IdInstance) String() string {
 func (*CMsgClientAMGetPersonaNameHistory_IdInstance) ProtoMessage() {}
 
 func (x *CMsgClientAMGetPersonaNameHistory_IdInstance) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[167]
+	mi := &file_steammessages_clientserver_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11639,7 +3386,7 @@ func (x *CMsgClientAMGetPersonaNameHistory_IdInstance) ProtoReflect() protorefle
 
 // Deprecated: Use CMsgClientAMGetPersonaNameHistory_IdInstance.ProtoReflect.Descriptor instead.
 func (*CMsgClientAMGetPersonaNameHistory_IdInstance) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{123, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{32, 0}
 }
 
 func (x *CMsgClientAMGetPersonaNameHistory_IdInstance) GetSteamid() uint64 {
@@ -11665,7 +3412,7 @@ const (
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance) Reset() {
 	*x = CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[168]
+	mi := &file_steammessages_clientserver_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11677,7 +3424,7 @@ func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance) String() s
 func (*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance) ProtoMessage() {}
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[168]
+	mi := &file_steammessages_clientserver_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11690,7 +3437,7 @@ func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance) ProtoRefle
 
 // Deprecated: Use CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance.ProtoReflect.Descriptor instead.
 func (*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{124, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{33, 0}
 }
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance) GetEresult() int32 {
@@ -11724,7 +3471,7 @@ type CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance st
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance) Reset() {
 	*x = CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[169]
+	mi := &file_steammessages_clientserver_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11736,7 +3483,7 @@ func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstanc
 func (*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance) ProtoMessage() {}
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[169]
+	mi := &file_steammessages_clientserver_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11749,7 +3496,7 @@ func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstanc
 
 // Deprecated: Use CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance.ProtoReflect.Descriptor instead.
 func (*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{124, 0, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{33, 0, 0}
 }
 
 func (x *CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance) GetNameSince() uint32 {
@@ -11776,7 +3523,7 @@ type CMsgClientClanState_NameInfo struct {
 
 func (x *CMsgClientClanState_NameInfo) Reset() {
 	*x = CMsgClientClanState_NameInfo{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[170]
+	mi := &file_steammessages_clientserver_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11788,7 +3535,7 @@ func (x *CMsgClientClanState_NameInfo) String() string {
 func (*CMsgClientClanState_NameInfo) ProtoMessage() {}
 
 func (x *CMsgClientClanState_NameInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[170]
+	mi := &file_steammessages_clientserver_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11801,7 +3548,7 @@ func (x *CMsgClientClanState_NameInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientClanState_NameInfo.ProtoReflect.Descriptor instead.
 func (*CMsgClientClanState_NameInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{126, 0}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{35, 0}
 }
 
 func (x *CMsgClientClanState_NameInfo) GetClanName() string {
@@ -11831,7 +3578,7 @@ type CMsgClientClanState_UserCounts struct {
 
 func (x *CMsgClientClanState_UserCounts) Reset() {
 	*x = CMsgClientClanState_UserCounts{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[171]
+	mi := &file_steammessages_clientserver_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11843,7 +3590,7 @@ func (x *CMsgClientClanState_UserCounts) String() string {
 func (*CMsgClientClanState_UserCounts) ProtoMessage() {}
 
 func (x *CMsgClientClanState_UserCounts) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[171]
+	mi := &file_steammessages_clientserver_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11856,7 +3603,7 @@ func (x *CMsgClientClanState_UserCounts) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientClanState_UserCounts.ProtoReflect.Descriptor instead.
 func (*CMsgClientClanState_UserCounts) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{126, 1}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{35, 1}
 }
 
 func (x *CMsgClientClanState_UserCounts) GetMembers() uint32 {
@@ -11907,7 +3654,7 @@ type CMsgClientClanState_Event struct {
 
 func (x *CMsgClientClanState_Event) Reset() {
 	*x = CMsgClientClanState_Event{}
-	mi := &file_steammessages_clientserver_proto_msgTypes[172]
+	mi := &file_steammessages_clientserver_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11919,7 +3666,7 @@ func (x *CMsgClientClanState_Event) String() string {
 func (*CMsgClientClanState_Event) ProtoMessage() {}
 
 func (x *CMsgClientClanState_Event) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_proto_msgTypes[172]
+	mi := &file_steammessages_clientserver_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11932,7 +3679,7 @@ func (x *CMsgClientClanState_Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientClanState_Event.ProtoReflect.Descriptor instead.
 func (*CMsgClientClanState_Event) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{126, 2}
+	return file_steammessages_clientserver_proto_rawDescGZIP(), []int{35, 2}
 }
 
 func (x *CMsgClientClanState_Event) GetGid() uint64 {
@@ -11974,24 +3721,7 @@ var File_steammessages_clientserver_proto protoreflect.FileDescriptor
 
 const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\n" +
-	" steammessages_clientserver.proto\x1a\x18steammessages_base.proto\x1a\x1aencrypted_app_ticket.proto\"]\n" +
-	"\x1eCMsgClientUDSP2PSessionStarted\x12%\n" +
-	"\x0esteamid_remote\x18\x01 \x01(\x06R\rsteamidRemote\x12\x14\n" +
-	"\x05appid\x18\x02 \x01(\x05R\x05appid\"\x87\x03\n" +
-	"\x1cCMsgClientUDSP2PSessionEnded\x12%\n" +
-	"\x0esteamid_remote\x18\x01 \x01(\x06R\rsteamidRemote\x12\x14\n" +
-	"\x05appid\x18\x02 \x01(\x05R\x05appid\x12,\n" +
-	"\x12session_length_sec\x18\x03 \x01(\x05R\x10sessionLengthSec\x12#\n" +
-	"\rsession_error\x18\x04 \x01(\x05R\fsessionError\x12\x18\n" +
-	"\anattype\x18\x05 \x01(\x05R\anattype\x12\x1d\n" +
-	"\n" +
-	"bytes_recv\x18\x06 \x01(\x05R\tbytesRecv\x12\x1d\n" +
-	"\n" +
-	"bytes_sent\x18\a \x01(\x05R\tbytesSent\x12(\n" +
-	"\x10bytes_sent_relay\x18\b \x01(\x05R\x0ebytesSentRelay\x12(\n" +
-	"\x10bytes_recv_relay\x18\t \x01(\x05R\x0ebytesRecvRelay\x12+\n" +
-	"\x12time_to_connect_ms\x18\n" +
-	" \x01(\x05R\x0ftimeToConnectMs\"\x95\x01\n" +
+	" steammessages_clientserver.proto\x1a\x18steammessages_base.proto\x1a\x1aencrypted_app_ticket.proto\"\x95\x01\n" +
 	"\"CMsgClientRegisterAuthTicketWithCM\x12)\n" +
 	"\x10protocol_version\x18\x01 \x01(\rR\x0fprotocolVersion\x12\x16\n" +
 	"\x06ticket\x18\x03 \x01(\fR\x06ticket\x12,\n" +
@@ -12005,19 +3735,14 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\n" +
 	"ticket_crc\x18\x06 \x01(\rR\tticketCrc\x12'\n" +
 	"\x0fticket_sequence\x18\a \x01(\rR\x0eticketSequence\x12$\n" +
-	"\x0eowner_steam_id\x18\b \x01(\x06R\fownerSteamId\"\xc7\x01\n" +
-	"\x10CMsgClientCMList\x12!\n" +
-	"\fcm_addresses\x18\x01 \x03(\rR\vcmAddresses\x12\x19\n" +
-	"\bcm_ports\x18\x02 \x03(\rR\acmPorts\x124\n" +
-	"\x16cm_websocket_addresses\x18\x03 \x03(\tR\x14cmWebsocketAddresses\x12?\n" +
-	"\x1cpercent_default_to_websocket\x18\x04 \x01(\rR\x19percentDefaultToWebsocket\"\xe4\x01\n" +
+	"\x0eowner_steam_id\x18\b \x01(\x06R\fownerSteamId\"\xf1\x01\n" +
 	"\x1bCMsgClientP2PConnectionInfo\x12\"\n" +
 	"\rsteam_id_dest\x18\x01 \x01(\x06R\vsteamIdDest\x12 \n" +
 	"\fsteam_id_src\x18\x02 \x01(\x06R\n" +
 	"steamIdSrc\x12\x15\n" +
 	"\x06app_id\x18\x03 \x01(\rR\x05appId\x12\x1c\n" +
-	"\tcandidate\x18\x04 \x01(\fR\tcandidate\x12*\n" +
-	"\x11connection_id_src\x18\x05 \x01(\x06R\x0fconnectionIdSrc\x12\x1e\n" +
+	"\tcandidate\x18\x04 \x01(\fR\tcandidate\x127\n" +
+	"\x18legacy_connection_id_src\x18\x05 \x01(\x06R\x15legacyConnectionIdSrc\x12\x1e\n" +
 	"\n" +
 	"rendezvous\x18\x06 \x01(\fR\n" +
 	"rendezvous\"\xa2\x02\n" +
@@ -12051,35 +3776,17 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\x05token\x18\x01 \x01(\x04R\x05token\"f\n" +
 	"\x1bCMsgClientGameConnectTokens\x12/\n" +
 	"\x12max_tokens_to_keep\x18\x01 \x01(\r:\x0210R\x0fmaxTokensToKeep\x12\x16\n" +
-	"\x06tokens\x18\x02 \x03(\fR\x06tokens\"\x8c\x02\n" +
-	"\x10CMsgGSServerType\x12\"\n" +
-	"\rapp_id_served\x18\x01 \x01(\rR\vappIdServed\x12\x14\n" +
-	"\x05flags\x18\x02 \x01(\rR\x05flags\x12;\n" +
-	"\x1adeprecated_game_ip_address\x18\x03 \x01(\rR\x17deprecatedGameIpAddress\x12\x1b\n" +
-	"\tgame_port\x18\x04 \x01(\rR\bgamePort\x12\x19\n" +
-	"\bgame_dir\x18\x05 \x01(\tR\agameDir\x12!\n" +
-	"\fgame_version\x18\x06 \x01(\tR\vgameVersion\x12&\n" +
-	"\x0fgame_query_port\x18\a \x01(\rR\rgameQueryPort\"0\n" +
-	"\x11CMsgGSStatusReply\x12\x1b\n" +
-	"\tis_secure\x18\x01 \x01(\bR\bisSecure\"\xe1\x01\n" +
-	"\x10CMsgGSPlayerList\x122\n" +
-	"\aplayers\x18\x01 \x03(\v2\x18.CMsgGSPlayerList.PlayerR\aplayers\x1a\x98\x01\n" +
-	"\x06Player\x12\x19\n" +
-	"\bsteam_id\x18\x01 \x01(\x04R\asteamId\x120\n" +
-	"\x14deprecated_public_ip\x18\x02 \x01(\rR\x12deprecatedPublicIp\x12\x14\n" +
-	"\x05token\x18\x03 \x01(\fR\x05token\x12+\n" +
-	"\tpublic_ip\x18\x04 \x01(\v2\x0e.CMsgIPAddressR\bpublicIp\"\xa3\x01\n" +
-	"\x11CMsgGSUserPlaying\x12\x19\n" +
-	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x120\n" +
-	"\x14deprecated_public_ip\x18\x02 \x01(\rR\x12deprecatedPublicIp\x12\x14\n" +
-	"\x05token\x18\x03 \x01(\fR\x05token\x12+\n" +
-	"\tpublic_ip\x18\x04 \x01(\v2\x0e.CMsgIPAddressR\bpublicIp\"3\n" +
-	"\x16CMsgGSDisconnectNotice\x12\x19\n" +
-	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\"\xf9\t\n" +
+	"\x06tokens\x18\x02 \x03(\fR\x06tokens\"\x8f\x0e\n" +
 	"\x15CMsgClientGamesPlayed\x12D\n" +
 	"\fgames_played\x18\x01 \x03(\v2!.CMsgClientGamesPlayed.GamePlayedR\vgamesPlayed\x12$\n" +
 	"\x0eclient_os_type\x18\x02 \x01(\rR\fclientOsType\x122\n" +
-	"\x15cloud_gaming_platform\x18\x03 \x01(\rR\x13cloudGamingPlatform\x1a\xbf\b\n" +
+	"\x15cloud_gaming_platform\x18\x03 \x01(\rR\x13cloudGamingPlatform\x127\n" +
+	"\x17recent_reauthentication\x18\x04 \x01(\bR\x16recentReauthentication\x1a\x80\x01\n" +
+	"\vProcessInfo\x12\x1d\n" +
+	"\n" +
+	"process_id\x18\x01 \x01(\rR\tprocessId\x12*\n" +
+	"\x11process_id_parent\x18\x02 \x01(\rR\x0fprocessIdParent\x12&\n" +
+	"\x0fparent_is_steam\x18\x03 \x01(\bR\rparentIsSteam\x1a\x99\v\n" +
 	"\n" +
 	"GamePlayed\x12\x1e\n" +
 	"\vsteam_id_gs\x18\x01 \x01(\x04R\tsteamIdGs\x12\x17\n" +
@@ -12109,7 +3816,16 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\rlaunch_source\x18\x15 \x01(\r:\x010R\flaunchSource\x12$\n" +
 	"\x0evr_hmd_runtime\x18\x16 \x01(\rR\fvrHmdRuntime\x126\n" +
 	"\x0fgame_ip_address\x18\x17 \x01(\v2\x0e.CMsgIPAddressR\rgameIpAddress\x12?\n" +
-	"\x1acontroller_connection_type\x18\x18 \x01(\r:\x010R\x18controllerConnectionType\"P\n" +
+	"\x1acontroller_connection_type\x18\x18 \x01(\r:\x010R\x18controllerConnectionType\x12(\n" +
+	"\x10game_os_platform\x18\x19 \x01(\x05R\x0egameOsPlatform\x12\"\n" +
+	"\rgame_build_id\x18\x1a \x01(\rR\vgameBuildId\x12'\n" +
+	"\x0ecompat_tool_id\x18\x1b \x01(\r:\x010R\fcompatToolId\x12&\n" +
+	"\x0fcompat_tool_cmd\x18\x1c \x01(\tR\rcompatToolCmd\x12/\n" +
+	"\x14compat_tool_build_id\x18\x1d \x01(\rR\x11compatToolBuildId\x12\x1b\n" +
+	"\tbeta_name\x18\x1e \x01(\tR\bbetaName\x12\x1f\n" +
+	"\vdlc_context\x18\x1f \x01(\rR\n" +
+	"dlcContext\x12J\n" +
+	"\x0fprocess_id_list\x18  \x03(\v2\".CMsgClientGamesPlayed.ProcessInfoR\rprocessIdList\"P\n" +
 	"\rCMsgGSApprove\x12\x19\n" +
 	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12$\n" +
 	"\x0eowner_steam_id\x18\x02 \x01(\x06R\fownerSteamId\"k\n" +
@@ -12122,7 +3838,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\n" +
 	"CMsgGSKick\x12\x19\n" +
 	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12!\n" +
-	"\fedeny_reason\x18\x02 \x01(\x05R\vedenyReason\"\x8e\x02\n" +
+	"\fedeny_reason\x18\x02 \x01(\x05R\vedenyReason\"\xaa\x02\n" +
 	"\x12CMsgClientAuthList\x12\x1f\n" +
 	"\vtokens_left\x18\x01 \x01(\rR\n" +
 	"tokensLeft\x12(\n" +
@@ -12130,7 +3846,8 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\x1clast_request_seq_from_server\x18\x03 \x01(\rR\x18lastRequestSeqFromServer\x12)\n" +
 	"\atickets\x18\x04 \x03(\v2\x0f.CMsgAuthTicketR\atickets\x12\x17\n" +
 	"\aapp_ids\x18\x05 \x03(\rR\x06appIds\x12)\n" +
-	"\x10message_sequence\x18\x06 \x01(\rR\x0fmessageSequence\"z\n" +
+	"\x10message_sequence\x18\x06 \x01(\rR\x0fmessageSequence\x12\x1a\n" +
+	"\bfiltered\x18\a \x01(\bR\bfiltered\"z\n" +
 	"\x15CMsgClientAuthListAck\x12\x1d\n" +
 	"\n" +
 	"ticket_crc\x18\x01 \x03(\rR\tticketCrc\x12\x17\n" +
@@ -12159,63 +3876,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\x0erenewal_period\x18\x0f \x01(\rR\rrenewalPeriod\x12*\n" +
 	"\x11renewal_time_unit\x18\x10 \x01(\rR\x0frenewalTimeUnit\x12!\n" +
 	"\faccess_token\x18\x11 \x01(\x04R\vaccessToken\x12*\n" +
-	"\x11master_package_id\x18\x12 \x01(\rR\x0fmasterPackageId\"\xb5\x01\n" +
-	"\x15CMsgClientLBSSetScore\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12%\n" +
-	"\x0eleaderboard_id\x18\x02 \x01(\x05R\rleaderboardId\x12\x14\n" +
-	"\x05score\x18\x03 \x01(\x05R\x05score\x12\x18\n" +
-	"\adetails\x18\x04 \x01(\fR\adetails\x12.\n" +
-	"\x13upload_score_method\x18\x05 \x01(\x05R\x11uploadScoreMethod\"\xf3\x01\n" +
-	"\x1dCMsgClientLBSSetScoreResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x126\n" +
-	"\x17leaderboard_entry_count\x18\x02 \x01(\x05R\x15leaderboardEntryCount\x12#\n" +
-	"\rscore_changed\x18\x03 \x01(\bR\fscoreChanged\x120\n" +
-	"\x14global_rank_previous\x18\x04 \x01(\x05R\x12globalRankPrevious\x12&\n" +
-	"\x0fglobal_rank_new\x18\x05 \x01(\x05R\rglobalRankNew\"j\n" +
-	"\x13CMsgClientLBSSetUGC\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12%\n" +
-	"\x0eleaderboard_id\x18\x02 \x01(\x05R\rleaderboardId\x12\x15\n" +
-	"\x06ugc_id\x18\x03 \x01(\x06R\x05ugcId\":\n" +
-	"\x1bCMsgClientLBSSetUGCResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\"\x80\x02\n" +
-	"\x1bCMsgClientLBSFindOrCreateLB\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x126\n" +
-	"\x17leaderboard_sort_method\x18\x02 \x01(\x05R\x15leaderboardSortMethod\x128\n" +
-	"\x18leaderboard_display_type\x18\x03 \x01(\x05R\x16leaderboardDisplayType\x12-\n" +
-	"\x13create_if_not_found\x18\x04 \x01(\bR\x10createIfNotFound\x12)\n" +
-	"\x10leaderboard_name\x18\x05 \x01(\tR\x0fleaderboardName\"\xc4\x02\n" +
-	"#CMsgClientLBSFindOrCreateLBResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12%\n" +
-	"\x0eleaderboard_id\x18\x02 \x01(\x05R\rleaderboardId\x126\n" +
-	"\x17leaderboard_entry_count\x18\x03 \x01(\x05R\x15leaderboardEntryCount\x129\n" +
-	"\x17leaderboard_sort_method\x18\x04 \x01(\x05:\x010R\x15leaderboardSortMethod\x12;\n" +
-	"\x18leaderboard_display_type\x18\x05 \x01(\x05:\x010R\x16leaderboardDisplayType\x12)\n" +
-	"\x10leaderboard_name\x18\x06 \x01(\tR\x0fleaderboardName\"\xed\x01\n" +
-	"\x19CMsgClientLBSGetLBEntries\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\x05R\x05appId\x12%\n" +
-	"\x0eleaderboard_id\x18\x02 \x01(\x05R\rleaderboardId\x12\x1f\n" +
-	"\vrange_start\x18\x03 \x01(\x05R\n" +
-	"rangeStart\x12\x1b\n" +
-	"\trange_end\x18\x04 \x01(\x05R\brangeEnd\x128\n" +
-	"\x18leaderboard_data_request\x18\x05 \x01(\x05R\x16leaderboardDataRequest\x12\x1a\n" +
-	"\bsteamids\x18\x06 \x03(\x06R\bsteamids\"\xd2\x02\n" +
-	"!CMsgClientLBSGetLBEntriesResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x126\n" +
-	"\x17leaderboard_entry_count\x18\x02 \x01(\x05R\x15leaderboardEntryCount\x12B\n" +
-	"\aentries\x18\x03 \x03(\v2(.CMsgClientLBSGetLBEntriesResponse.EntryR\aentries\x1a\x93\x01\n" +
-	"\x05Entry\x12\"\n" +
-	"\rsteam_id_user\x18\x01 \x01(\x06R\vsteamIdUser\x12\x1f\n" +
-	"\vglobal_rank\x18\x02 \x01(\x05R\n" +
-	"globalRank\x12\x14\n" +
-	"\x05score\x18\x03 \x01(\x05R\x05score\x12\x18\n" +
-	"\adetails\x18\x04 \x01(\fR\adetails\x12\x15\n" +
-	"\x06ugc_id\x18\x05 \x01(\x06R\x05ugcId\"\xec\x01\n" +
-	"\x1eCMsgClientAppMinutesPlayedData\x12[\n" +
-	"\x0eminutes_played\x18\x01 \x03(\v24.CMsgClientAppMinutesPlayedData.AppMinutesPlayedDataR\rminutesPlayed\x1am\n" +
-	"\x14AppMinutesPlayedData\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x18\n" +
-	"\aforever\x18\x02 \x01(\x05R\aforever\x12$\n" +
-	"\x0elast_two_weeks\x18\x03 \x01(\x05R\flastTwoWeeks\"\x8c\x02\n" +
+	"\x11master_package_id\x18\x12 \x01(\rR\x0fmasterPackageId\"\x8c\x02\n" +
 	"\x1aCMsgClientIsLimitedAccount\x12.\n" +
 	"\x13bis_limited_account\x18\x01 \x01(\bR\x11bisLimitedAccount\x120\n" +
 	"\x14bis_community_banned\x18\x02 \x01(\bR\x12bisCommunityBanned\x12,\n" +
@@ -12238,185 +3899,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\vtime_of_day\x18\x03 \x01(\rR\ttimeOfDay\x12\x17\n" +
 	"\acell_id\x18\x04 \x01(\rR\x06cellId\x12\x19\n" +
 	"\bdepot_id\x18\x05 \x01(\rR\adepotId\x12\x15\n" +
-	"\x06app_id\x18\x06 \x01(\rR\x05appId\"\xdf\x01\n" +
-	"'CMsgClientMMSSetRatelimitPolicyOnClient\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12,\n" +
-	"\x12enable_rate_limits\x18\x02 \x01(\bR\x10enableRateLimits\x12.\n" +
-	"\x13seconds_per_message\x18\x03 \x01(\x05R\x11secondsPerMessage\x12?\n" +
-	"\x1cmilliseconds_per_data_update\x18\x04 \x01(\x05R\x19millisecondsPerDataUpdate\"\xd4\x02\n" +
-	"\x18CMsgClientMMSCreateLobby\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1f\n" +
-	"\vmax_members\x18\x02 \x01(\x05R\n" +
-	"maxMembers\x12\x1d\n" +
-	"\n" +
-	"lobby_type\x18\x03 \x01(\x05R\tlobbyType\x12\x1f\n" +
-	"\vlobby_flags\x18\x04 \x01(\x05R\n" +
-	"lobbyFlags\x12\x17\n" +
-	"\acell_id\x18\x05 \x01(\rR\x06cellId\x120\n" +
-	"\x14deprecated_public_ip\x18\x06 \x01(\rR\x12deprecatedPublicIp\x12\x1a\n" +
-	"\bmetadata\x18\a \x01(\fR\bmetadata\x12,\n" +
-	"\x12persona_name_owner\x18\b \x01(\tR\x10personaNameOwner\x12+\n" +
-	"\tpublic_ip\x18\t \x01(\v2\x0e.CMsgIPAddressR\bpublicIp\"|\n" +
-	" CMsgClientMMSCreateLobbyResponse\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1b\n" +
-	"\aeresult\x18\x03 \x01(\x05:\x012R\aeresult\"x\n" +
-	"\x16CMsgClientMMSJoinLobby\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12!\n" +
-	"\fpersona_name\x18\x03 \x01(\tR\vpersonaName\"\xdf\x03\n" +
-	"\x1eCMsgClientMMSJoinLobbyResponse\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x127\n" +
-	"\x18chat_room_enter_response\x18\x03 \x01(\x05R\x15chatRoomEnterResponse\x12\x1f\n" +
-	"\vmax_members\x18\x04 \x01(\x05R\n" +
-	"maxMembers\x12\x1d\n" +
-	"\n" +
-	"lobby_type\x18\x05 \x01(\x05R\tlobbyType\x12\x1f\n" +
-	"\vlobby_flags\x18\x06 \x01(\x05R\n" +
-	"lobbyFlags\x12$\n" +
-	"\x0esteam_id_owner\x18\a \x01(\x06R\fsteamIdOwner\x12\x1a\n" +
-	"\bmetadata\x18\b \x01(\fR\bmetadata\x12@\n" +
-	"\amembers\x18\t \x03(\v2&.CMsgClientMMSJoinLobbyResponse.MemberR\amembers\x1ab\n" +
-	"\x06Member\x12\x19\n" +
-	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12!\n" +
-	"\fpersona_name\x18\x02 \x01(\tR\vpersonaName\x12\x1a\n" +
-	"\bmetadata\x18\x03 \x01(\fR\bmetadata\"V\n" +
-	"\x17CMsgClientMMSLeaveLobby\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\"{\n" +
-	"\x1fCMsgClientMMSLeaveLobbyResponse\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1b\n" +
-	"\aeresult\x18\x03 \x01(\x05:\x012R\aeresult\"\x90\x03\n" +
-	"\x19CMsgClientMMSGetLobbyList\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x122\n" +
-	"\x15num_lobbies_requested\x18\x03 \x01(\x05R\x13numLobbiesRequested\x12\x17\n" +
-	"\acell_id\x18\x04 \x01(\rR\x06cellId\x120\n" +
-	"\x14deprecated_public_ip\x18\x05 \x01(\rR\x12deprecatedPublicIp\x12;\n" +
-	"\afilters\x18\x06 \x03(\v2!.CMsgClientMMSGetLobbyList.FilterR\afilters\x12+\n" +
-	"\tpublic_ip\x18\a \x01(\v2\x0e.CMsgIPAddressR\bpublicIp\x1as\n" +
-	"\x06Filter\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value\x12 \n" +
-	"\vcomparision\x18\x03 \x01(\x05R\vcomparision\x12\x1f\n" +
-	"\vfilter_type\x18\x04 \x01(\x05R\n" +
-	"filterType\"\x92\x03\n" +
-	"!CMsgClientMMSGetLobbyListResponse\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\aeresult\x18\x03 \x01(\x05:\x012R\aeresult\x12B\n" +
-	"\alobbies\x18\x04 \x03(\v2(.CMsgClientMMSGetLobbyListResponse.LobbyR\alobbies\x1a\xf4\x01\n" +
-	"\x05Lobby\x12\x19\n" +
-	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12\x1f\n" +
-	"\vmax_members\x18\x02 \x01(\x05R\n" +
-	"maxMembers\x12\x1d\n" +
-	"\n" +
-	"lobby_type\x18\x03 \x01(\x05R\tlobbyType\x12\x1f\n" +
-	"\vlobby_flags\x18\x04 \x01(\x05R\n" +
-	"lobbyFlags\x12\x1a\n" +
-	"\bmetadata\x18\x05 \x01(\fR\bmetadata\x12\x1f\n" +
-	"\vnum_members\x18\x06 \x01(\x05R\n" +
-	"numMembers\x12\x1a\n" +
-	"\bdistance\x18\a \x01(\x02R\bdistance\x12\x16\n" +
-	"\x06weight\x18\b \x01(\x03R\x06weight\"\xfd\x01\n" +
-	"\x19CMsgClientMMSSetLobbyData\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12&\n" +
-	"\x0fsteam_id_member\x18\x03 \x01(\x06R\rsteamIdMember\x12\x1f\n" +
-	"\vmax_members\x18\x04 \x01(\x05R\n" +
-	"maxMembers\x12\x1d\n" +
-	"\n" +
-	"lobby_type\x18\x05 \x01(\x05R\tlobbyType\x12\x1f\n" +
-	"\vlobby_flags\x18\x06 \x01(\x05R\n" +
-	"lobbyFlags\x12\x1a\n" +
-	"\bmetadata\x18\a \x01(\fR\bmetadata\"}\n" +
-	"!CMsgClientMMSSetLobbyDataResponse\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1b\n" +
-	"\aeresult\x18\x03 \x01(\x05:\x012R\aeresult\"X\n" +
-	"\x19CMsgClientMMSGetLobbyData\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\"\x99\x04\n" +
-	"\x16CMsgClientMMSLobbyData\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1f\n" +
-	"\vnum_members\x18\x03 \x01(\x05R\n" +
-	"numMembers\x12\x1f\n" +
-	"\vmax_members\x18\x04 \x01(\x05R\n" +
-	"maxMembers\x12\x1d\n" +
-	"\n" +
-	"lobby_type\x18\x05 \x01(\x05R\tlobbyType\x12\x1f\n" +
-	"\vlobby_flags\x18\x06 \x01(\x05R\n" +
-	"lobbyFlags\x12$\n" +
-	"\x0esteam_id_owner\x18\a \x01(\x06R\fsteamIdOwner\x12\x1a\n" +
-	"\bmetadata\x18\b \x01(\fR\bmetadata\x128\n" +
-	"\amembers\x18\t \x03(\v2\x1e.CMsgClientMMSLobbyData.MemberR\amembers\x12!\n" +
-	"\flobby_cellid\x18\n" +
-	" \x01(\rR\vlobbyCellid\x12=\n" +
-	"\x1bowner_should_accept_changes\x18\v \x01(\bR\x18ownerShouldAcceptChanges\x1ab\n" +
-	"\x06Member\x12\x19\n" +
-	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12!\n" +
-	"\fpersona_name\x18\x02 \x01(\tR\vpersonaName\x12\x1a\n" +
-	"\bmetadata\x18\x03 \x01(\fR\bmetadata\"\xa9\x01\n" +
-	"\x1dCMsgClientMMSSendLobbyChatMsg\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12&\n" +
-	"\x0fsteam_id_target\x18\x03 \x01(\x06R\rsteamIdTarget\x12#\n" +
-	"\rlobby_message\x18\x04 \x01(\fR\flobbyMessage\"\xa5\x01\n" +
-	"\x19CMsgClientMMSLobbyChatMsg\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12&\n" +
-	"\x0fsteam_id_sender\x18\x03 \x01(\x06R\rsteamIdSender\x12#\n" +
-	"\rlobby_message\x18\x04 \x01(\fR\flobbyMessage\"\x86\x01\n" +
-	"\x1aCMsgClientMMSSetLobbyOwner\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12+\n" +
-	"\x12steam_id_new_owner\x18\x03 \x01(\x06R\x0fsteamIdNewOwner\"~\n" +
-	"\"CMsgClientMMSSetLobbyOwnerResponse\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\x1b\n" +
-	"\aeresult\x18\x03 \x01(\x05:\x012R\aeresult\"\x82\x01\n" +
-	"\x1bCMsgClientMMSSetLobbyLinked\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12&\n" +
-	"\x0fsteam_id_lobby2\x18\x03 \x01(\x06R\rsteamIdLobby2\"\xaa\x02\n" +
-	"\x1fCMsgClientMMSSetLobbyGameServer\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x129\n" +
-	"\x19deprecated_game_server_ip\x18\x03 \x01(\rR\x16deprecatedGameServerIp\x12(\n" +
-	"\x10game_server_port\x18\x04 \x01(\rR\x0egameServerPort\x12/\n" +
-	"\x14game_server_steam_id\x18\x05 \x01(\x06R\x11gameServerSteamId\x124\n" +
-	"\x0egame_server_ip\x18\x06 \x01(\v2\x0e.CMsgIPAddressR\fgameServerIp\"\xaa\x02\n" +
-	"\x1fCMsgClientMMSLobbyGameServerSet\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x129\n" +
-	"\x19deprecated_game_server_ip\x18\x03 \x01(\rR\x16deprecatedGameServerIp\x12(\n" +
-	"\x10game_server_port\x18\x04 \x01(\rR\x0egameServerPort\x12/\n" +
-	"\x14game_server_steam_id\x18\x05 \x01(\x06R\x11gameServerSteamId\x124\n" +
-	"\x0egame_server_ip\x18\x06 \x01(\v2\x0e.CMsgIPAddressR\fgameServerIp\"\xa2\x01\n" +
-	"\x1cCMsgClientMMSUserJoinedLobby\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\"\n" +
-	"\rsteam_id_user\x18\x03 \x01(\x06R\vsteamIdUser\x12!\n" +
-	"\fpersona_name\x18\x04 \x01(\tR\vpersonaName\"\xa0\x01\n" +
-	"\x1aCMsgClientMMSUserLeftLobby\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12\"\n" +
-	"\rsteam_id_user\x18\x03 \x01(\x06R\vsteamIdUser\x12!\n" +
-	"\fpersona_name\x18\x04 \x01(\tR\vpersonaName\"\x8c\x01\n" +
-	"\x1aCMsgClientMMSInviteToLobby\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x121\n" +
-	"\x15steam_id_user_invited\x18\x03 \x01(\x06R\x12steamIdUserInvited\"\xae\x01\n" +
-	"\x1bCMsgClientMMSGetLobbyStatus\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12)\n" +
-	"\x10claim_membership\x18\x03 \x01(\bR\x0fclaimMembership\x12'\n" +
-	"\x0fclaim_ownership\x18\x04 \x01(\bR\x0eclaimOwnership\"\xb1\x01\n" +
-	"#CMsgClientMMSGetLobbyStatusResponse\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12$\n" +
-	"\x0esteam_id_lobby\x18\x02 \x01(\x06R\fsteamIdLobby\x12M\n" +
-	"\flobby_status\x18\x03 \x01(\x0e2\x10.EMMSLobbyStatus:\x18k_EMMSLobbyStatusInvalidR\vlobbyStatus\"\xa6\x01\n" +
+	"\x06app_id\x18\x06 \x01(\rR\x05appId\"\xa6\x01\n" +
 	"\x16CMsgClientInviteToGame\x12\"\n" +
 	"\rsteam_id_dest\x18\x01 \x01(\x06R\vsteamIdDest\x12 \n" +
 	"\fsteam_id_src\x18\x02 \x01(\x06R\n" +
@@ -12431,12 +3914,12 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\rchatroom_type\x18\x04 \x01(\x05R\fchatroomType\x12/\n" +
 	"\x14steam_id_friend_chat\x18\x05 \x01(\x06R\x11steamIdFriendChat\x12\x1b\n" +
 	"\tchat_name\x18\x06 \x01(\tR\bchatName\x12\x17\n" +
-	"\agame_id\x18\a \x01(\x06R\x06gameId\"\x93\f\n" +
+	"\agame_id\x18\a \x01(\x06R\x06gameId\"\xd2\r\n" +
 	"\x19CMsgClientConnectionStats\x12G\n" +
 	"\vstats_logon\x18\x01 \x01(\v2&.CMsgClientConnectionStats.Stats_LogonR\n" +
 	"statsLogon\x12G\n" +
 	"\vstats_vconn\x18\x02 \x01(\v2&.CMsgClientConnectionStats.Stats_VConnR\n" +
-	"statsVconn\x1a\xc1\x02\n" +
+	"statsVconn\x1a\xae\x04\n" +
 	"\vStats_Logon\x12)\n" +
 	"\x10connect_attempts\x18\x01 \x01(\x05R\x0fconnectAttempts\x12+\n" +
 	"\x11connect_successes\x18\x02 \x01(\x05R\x10connectSuccesses\x12)\n" +
@@ -12444,7 +3927,12 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\x13connections_dropped\x18\x04 \x01(\x05R\x12connectionsDropped\x12'\n" +
 	"\x0fseconds_running\x18\x05 \x01(\rR\x0esecondsRunning\x121\n" +
 	"\x14msec_tologonthistime\x18\x06 \x01(\rR\x13msecTologonthistime\x12\"\n" +
-	"\rcount_bad_cms\x18\a \x01(\rR\vcountBadCms\x1a\xaa\x01\n" +
+	"\rcount_bad_cms\x18\a \x01(\rR\vcountBadCms\x12.\n" +
+	"\x13no_udp_connectivity\x18\b \x01(\bR\x11noUdpConnectivity\x12.\n" +
+	"\x13no_tcp_connectivity\x18\t \x01(\bR\x11noTcpConnectivity\x12A\n" +
+	"\x1dno_websocket_443_connectivity\x18\n" +
+	" \x01(\bR\x1anoWebsocket443Connectivity\x12H\n" +
+	"!no_websocket_non_443_connectivity\x18\v \x01(\bR\x1dnoWebsocketNon443Connectivity\x1a\xaa\x01\n" +
 	"\tStats_UDP\x12\x1b\n" +
 	"\tpkts_sent\x18\x01 \x01(\x04R\bpktsSent\x12\x1d\n" +
 	"\n" +
@@ -12452,7 +3940,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\tpkts_recv\x18\x03 \x01(\x04R\bpktsRecv\x12%\n" +
 	"\x0epkts_processed\x18\x04 \x01(\x04R\rpktsProcessed\x12\x1d\n" +
 	"\n" +
-	"bytes_recv\x18\x05 \x01(\x04R\tbytesRecv\x1a\xf2\x06\n" +
+	"bytes_recv\x18\x05 \x01(\x04R\tbytesRecv\x1a\xc4\x06\n" +
 	"\vStats_VConn\x12'\n" +
 	"\x0fconnections_udp\x18\x01 \x01(\rR\x0econnectionsUdp\x12'\n" +
 	"\x0fconnections_tcp\x18\x02 \x01(\rR\x0econnectionsTcp\x12A\n" +
@@ -12474,239 +3962,22 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\x19failed_connect_challenges\x18\x10 \x01(\x04R\x17failedConnectChallenges\x121\n" +
 	"\x15micro_sec_avg_latency\x18\x11 \x01(\rR\x12microSecAvgLatency\x121\n" +
 	"\x15micro_sec_min_latency\x18\x12 \x01(\rR\x12microSecMinLatency\x121\n" +
-	"\x15micro_sec_max_latency\x18\x13 \x01(\rR\x12microSecMaxLatency\x12,\n" +
-	"\x13mem_pool_msg_in_use\x18\x14 \x01(\rR\x0fmemPoolMsgInUse\"\x94\x02\n" +
+	"\x15micro_sec_max_latency\x18\x13 \x01(\rR\x12microSecMaxLatency\"\x94\x02\n" +
 	"\x1aCMsgClientServersAvailable\x12h\n" +
 	"\x16server_types_available\x18\x01 \x03(\v22.CMsgClientServersAvailable.Server_Types_AvailableR\x14serverTypesAvailable\x12@\n" +
 	"\x1dserver_type_for_auth_services\x18\x02 \x01(\rR\x19serverTypeForAuthServices\x1aJ\n" +
 	"\x16Server_Types_Available\x12\x16\n" +
 	"\x06server\x18\x01 \x01(\rR\x06server\x12\x18\n" +
-	"\achanged\x18\x02 \x01(\bR\achanged\"\xab\x01\n" +
-	"\x16CMsgClientGetUserStats\x12\x17\n" +
-	"\agame_id\x18\x01 \x01(\x06R\x06gameId\x12\x1b\n" +
-	"\tcrc_stats\x18\x02 \x01(\rR\bcrcStats\x120\n" +
-	"\x14schema_local_version\x18\x03 \x01(\x05R\x12schemaLocalVersion\x12)\n" +
-	"\x11steam_id_for_user\x18\x04 \x01(\x06R\x0esteamIdForUser\"\xca\x03\n" +
-	"\x1eCMsgClientGetUserStatsResponse\x12\x17\n" +
-	"\agame_id\x18\x01 \x01(\x06R\x06gameId\x12\x1b\n" +
-	"\aeresult\x18\x02 \x01(\x05:\x012R\aeresult\x12\x1b\n" +
-	"\tcrc_stats\x18\x03 \x01(\rR\bcrcStats\x12\x16\n" +
-	"\x06schema\x18\x04 \x01(\fR\x06schema\x12;\n" +
-	"\x05stats\x18\x05 \x03(\v2%.CMsgClientGetUserStatsResponse.StatsR\x05stats\x12a\n" +
-	"\x12achievement_blocks\x18\x06 \x03(\v22.CMsgClientGetUserStatsResponse.Achievement_BlocksR\x11achievementBlocks\x1a?\n" +
-	"\x05Stats\x12\x17\n" +
-	"\astat_id\x18\x01 \x01(\rR\x06statId\x12\x1d\n" +
-	"\n" +
-	"stat_value\x18\x02 \x01(\rR\tstatValue\x1a\\\n" +
-	"\x12Achievement_Blocks\x12%\n" +
-	"\x0eachievement_id\x18\x01 \x01(\rR\rachievementId\x12\x1f\n" +
-	"\vunlock_time\x18\x02 \x03(\aR\n" +
-	"unlockTime\"\xf7\x02\n" +
-	" CMsgClientStoreUserStatsResponse\x12\x17\n" +
-	"\agame_id\x18\x01 \x01(\x06R\x06gameId\x12\x1b\n" +
-	"\aeresult\x18\x02 \x01(\x05:\x012R\aeresult\x12\x1b\n" +
-	"\tcrc_stats\x18\x03 \x01(\rR\bcrcStats\x12q\n" +
-	"\x17stats_failed_validation\x18\x04 \x03(\v29.CMsgClientStoreUserStatsResponse.Stats_Failed_ValidationR\x15statsFailedValidation\x12)\n" +
-	"\x11stats_out_of_date\x18\x05 \x01(\bR\x0estatsOutOfDate\x1ab\n" +
-	"\x17Stats_Failed_Validation\x12\x17\n" +
-	"\astat_id\x18\x01 \x01(\rR\x06statId\x12.\n" +
-	"\x13reverted_stat_value\x18\x02 \x01(\rR\x11revertedStatValue\"\xc1\x02\n" +
-	"\x19CMsgClientStoreUserStats2\x12\x17\n" +
-	"\agame_id\x18\x01 \x01(\x06R\x06gameId\x12&\n" +
-	"\x0fsettor_steam_id\x18\x02 \x01(\x06R\rsettorSteamId\x12&\n" +
-	"\x0fsettee_steam_id\x18\x03 \x01(\x06R\rsetteeSteamId\x12\x1b\n" +
-	"\tcrc_stats\x18\x04 \x01(\rR\bcrcStats\x12%\n" +
-	"\x0eexplicit_reset\x18\x05 \x01(\bR\rexplicitReset\x126\n" +
-	"\x05stats\x18\x06 \x03(\v2 .CMsgClientStoreUserStats2.StatsR\x05stats\x1a?\n" +
-	"\x05Stats\x12\x17\n" +
-	"\astat_id\x18\x01 \x01(\rR\x06statId\x12\x1d\n" +
-	"\n" +
-	"stat_value\x18\x02 \x01(\rR\tstatValue\"\xfe\x01\n" +
-	"\x16CMsgClientStatsUpdated\x12\x19\n" +
-	"\bsteam_id\x18\x01 \x01(\x06R\asteamId\x12\x17\n" +
-	"\agame_id\x18\x02 \x01(\x06R\x06gameId\x12\x1b\n" +
-	"\tcrc_stats\x18\x03 \x01(\rR\bcrcStats\x12J\n" +
-	"\rupdated_stats\x18\x04 \x03(\v2%.CMsgClientStatsUpdated.Updated_StatsR\fupdatedStats\x1aG\n" +
-	"\rUpdated_Stats\x12\x17\n" +
-	"\astat_id\x18\x01 \x01(\rR\x06statId\x12\x1d\n" +
-	"\n" +
-	"stat_value\x18\x02 \x01(\rR\tstatValue\"\xf4\x01\n" +
-	"\x18CMsgClientStoreUserStats\x12\x17\n" +
-	"\agame_id\x18\x01 \x01(\x06R\x06gameId\x12%\n" +
-	"\x0eexplicit_reset\x18\x02 \x01(\bR\rexplicitReset\x12N\n" +
-	"\x0estats_to_store\x18\x03 \x03(\v2(.CMsgClientStoreUserStats.Stats_To_StoreR\fstatsToStore\x1aH\n" +
-	"\x0eStats_To_Store\x12\x17\n" +
-	"\astat_id\x18\x01 \x01(\rR\x06statId\x12\x1d\n" +
-	"\n" +
-	"stat_value\x18\x02 \x01(\rR\tstatValue\"\x1c\n" +
-	"\x1aCMsgClientGetClientDetails\"O\n" +
+	"\achanged\x18\x02 \x01(\bR\achanged\"O\n" +
 	"$CMsgClientReportOverlayDetourFailure\x12'\n" +
-	"\x0ffailure_strings\x18\x01 \x03(\tR\x0efailureStrings\"\xc6\x03\n" +
-	"\"CMsgClientGetClientDetailsResponse\x12'\n" +
-	"\x0fpackage_version\x18\x01 \x01(\rR\x0epackageVersion\x12)\n" +
-	"\x10protocol_version\x18\b \x01(\rR\x0fprotocolVersion\x12\x0e\n" +
-	"\x02os\x18\x02 \x01(\tR\x02os\x12!\n" +
-	"\fmachine_name\x18\x03 \x01(\tR\vmachineName\x12\x1b\n" +
-	"\tip_public\x18\x04 \x01(\tR\bipPublic\x12\x1d\n" +
-	"\n" +
-	"ip_private\x18\x05 \x01(\tR\tipPrivate\x12'\n" +
-	"\x0fbytes_available\x18\a \x01(\x04R\x0ebytesAvailable\x12M\n" +
-	"\rgames_running\x18\x06 \x03(\v2(.CMsgClientGetClientDetailsResponse.GameR\fgamesRunning\x1ae\n" +
-	"\x04Game\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1d\n" +
-	"\n" +
-	"extra_info\x18\x02 \x01(\tR\textraInfo\x12(\n" +
-	"\x10time_running_sec\x18\x03 \x01(\rR\x0etimeRunningSec\"\xc2\x01\n" +
-	"\x1aCMsgClientGetClientAppList\x12\x14\n" +
-	"\x05media\x18\x01 \x01(\bR\x05media\x12\x14\n" +
-	"\x05tools\x18\x02 \x01(\bR\x05tools\x12\x14\n" +
-	"\x05games\x18\x03 \x01(\bR\x05games\x12%\n" +
-	"\x0eonly_installed\x18\x04 \x01(\bR\ronlyInstalled\x12#\n" +
-	"\ronly_changing\x18\x05 \x01(\bR\fonlyChanging\x12\x16\n" +
-	"\x06comics\x18\x06 \x01(\bR\x06comics\"\xf5\x05\n" +
-	"\"CMsgClientGetClientAppListResponse\x12;\n" +
-	"\x04apps\x18\x01 \x03(\v2'.CMsgClientGetClientAppListResponse.AppR\x04apps\x12'\n" +
-	"\x0fbytes_available\x18\x02 \x01(\x04R\x0ebytesAvailable\x1a\xe8\x04\n" +
-	"\x03App\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1a\n" +
-	"\bcategory\x18\x02 \x01(\tR\bcategory\x12\x19\n" +
-	"\bapp_type\x18\n" +
-	" \x01(\tR\aappType\x12\x1a\n" +
-	"\bfavorite\x18\x03 \x01(\bR\bfavorite\x12\x1c\n" +
-	"\tinstalled\x18\x04 \x01(\bR\tinstalled\x12\x1f\n" +
-	"\vauto_update\x18\x05 \x01(\bR\n" +
-	"autoUpdate\x12)\n" +
-	"\x10bytes_downloaded\x18\x06 \x01(\x04R\x0fbytesDownloaded\x12!\n" +
-	"\fbytes_needed\x18\a \x01(\x04R\vbytesNeeded\x12.\n" +
-	"\x13bytes_download_rate\x18\b \x01(\rR\x11bytesDownloadRate\x12'\n" +
-	"\x0fdownload_paused\x18\v \x01(\bR\x0edownloadPaused\x12'\n" +
-	"\x0fnum_downloading\x18\f \x01(\rR\x0enumDownloading\x12\x1d\n" +
-	"\n" +
-	"num_paused\x18\r \x01(\rR\tnumPaused\x12\x1a\n" +
-	"\bchanging\x18\x0e \x01(\bR\bchanging\x122\n" +
-	"\x15available_on_platform\x18\x0f \x01(\bR\x13availableOnPlatform\x12?\n" +
-	"\x04dlcs\x18\t \x03(\v2+.CMsgClientGetClientAppListResponse.App.DLCR\x04dlcs\x1a9\n" +
-	"\x03DLC\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1c\n" +
-	"\tinstalled\x18\x02 \x01(\bR\tinstalled\"2\n" +
-	"\x1aCMsgClientInstallClientApp\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\"<\n" +
-	"\"CMsgClientInstallClientAppResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\rR\x06result\"4\n" +
-	"\x1cCMsgClientUninstallClientApp\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\">\n" +
-	"$CMsgClientUninstallClientAppResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\rR\x06result\"Q\n" +
-	"!CMsgClientSetClientAppUpdateState\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x16\n" +
-	"\x06update\x18\x02 \x01(\bR\x06update\"C\n" +
-	")CMsgClientSetClientAppUpdateStateResponse\x12\x16\n" +
-	"\x06result\x18\x01 \x01(\rR\x06result\"\x82\x03\n" +
-	"\x1eCMsgClientUFSUploadFileRequest\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_size\x18\x02 \x01(\rR\bfileSize\x12\"\n" +
-	"\rraw_file_size\x18\x03 \x01(\rR\vrawFileSize\x12\x19\n" +
-	"\bsha_file\x18\x04 \x01(\fR\ashaFile\x12\x1d\n" +
-	"\n" +
-	"time_stamp\x18\x05 \x01(\x04R\ttimeStamp\x12\x1b\n" +
-	"\tfile_name\x18\x06 \x01(\tR\bfileName\x12?\n" +
-	"\x1cplatforms_to_sync_deprecated\x18\a \x01(\rR\x19platformsToSyncDeprecated\x126\n" +
-	"\x11platforms_to_sync\x18\b \x01(\r:\n" +
-	"4294967295R\x0fplatformsToSync\x12\x17\n" +
-	"\acell_id\x18\t \x01(\rR\x06cellId\x12\x1f\n" +
-	"\vcan_encrypt\x18\n" +
-	" \x01(\bR\n" +
-	"canEncrypt\"\x8b\x02\n" +
-	"\x1fCMsgClientUFSUploadFileResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x19\n" +
-	"\bsha_file\x18\x02 \x01(\fR\ashaFile\x12\x19\n" +
-	"\buse_http\x18\x03 \x01(\bR\auseHttp\x12\x1b\n" +
-	"\thttp_host\x18\x04 \x01(\tR\bhttpHost\x12\x19\n" +
-	"\bhttp_url\x18\x05 \x01(\tR\ahttpUrl\x12\x1d\n" +
-	"\n" +
-	"kv_headers\x18\x06 \x01(\fR\tkvHeaders\x12\x1b\n" +
-	"\tuse_https\x18\a \x01(\bR\buseHttps\x12!\n" +
-	"\fencrypt_file\x18\b \x01(\bR\vencryptFile\"\xe2\x01\n" +
-	"\x19CMsgClientUFSUploadCommit\x125\n" +
-	"\x05files\x18\x01 \x03(\v2\x1f.CMsgClientUFSUploadCommit.FileR\x05files\x1a\x8d\x01\n" +
-	"\x04File\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\rR\x05appId\x12\x19\n" +
-	"\bsha_file\x18\x03 \x01(\fR\ashaFile\x12\x19\n" +
-	"\bcub_file\x18\x04 \x01(\rR\acubFile\x12\x1b\n" +
-	"\tfile_name\x18\x05 \x01(\tR\bfileName\"\xb9\x01\n" +
-	"!CMsgClientUFSUploadCommitResponse\x12=\n" +
-	"\x05files\x18\x01 \x03(\v2'.CMsgClientUFSUploadCommitResponse.FileR\x05files\x1aU\n" +
-	"\x04File\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\rR\x05appId\x12\x19\n" +
-	"\bsha_file\x18\x03 \x01(\fR\ashaFile\"f\n" +
-	"\x16CMsgClientUFSFileChunk\x12\x19\n" +
-	"\bsha_file\x18\x01 \x01(\fR\ashaFile\x12\x1d\n" +
-	"\n" +
-	"file_start\x18\x02 \x01(\rR\tfileStart\x12\x12\n" +
-	"\x04data\x18\x03 \x01(\fR\x04data\" \n" +
-	"\x1eCMsgClientUFSTransferHeartbeat\"Y\n" +
-	"\x1fCMsgClientUFSUploadFileFinished\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x19\n" +
-	"\bsha_file\x18\x02 \x01(\fR\ashaFile\"\x82\x01\n" +
-	"\x1eCMsgClientUFSDeleteFileRequest\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_name\x18\x02 \x01(\tR\bfileName\x12,\n" +
-	"\x12is_explicit_delete\x18\x03 \x01(\bR\x10isExplicitDelete\"[\n" +
-	"\x1fCMsgClientUFSDeleteFileResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x1b\n" +
-	"\tfile_name\x18\x02 \x01(\tR\bfileName\"r\n" +
-	"\x1eCMsgClientUFSGetFileListForApp\x12\"\n" +
-	"\rapps_to_query\x18\x01 \x03(\rR\vappsToQuery\x12,\n" +
-	"\x12send_path_prefixes\x18\x02 \x01(\bR\x10sendPathPrefixes\"\xbc\x03\n" +
-	"&CMsgClientUFSGetFileListForAppResponse\x12B\n" +
-	"\x05files\x18\x01 \x03(\v2,.CMsgClientUFSGetFileListForAppResponse.FileR\x05files\x12#\n" +
-	"\rpath_prefixes\x18\x02 \x03(\tR\fpathPrefixes\x1a\x9e\x02\n" +
-	"\x04File\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_name\x18\x02 \x01(\tR\bfileName\x12\x19\n" +
-	"\bsha_file\x18\x03 \x01(\fR\ashaFile\x12\x1d\n" +
-	"\n" +
-	"time_stamp\x18\x04 \x01(\x04R\ttimeStamp\x12\"\n" +
-	"\rraw_file_size\x18\x05 \x01(\rR\vrawFileSize\x12,\n" +
-	"\x12is_explicit_delete\x18\x06 \x01(\bR\x10isExplicitDelete\x12*\n" +
-	"\x11platforms_to_sync\x18\a \x01(\rR\x0fplatformsToSync\x12*\n" +
-	"\x11path_prefix_index\x18\b \x01(\rR\x0fpathPrefixIndex:\b\x80\xb5\x18\b\x88\xb5\x18\x10\"z\n" +
-	"\x1cCMsgClientUFSDownloadRequest\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_name\x18\x02 \x01(\tR\bfileName\x12&\n" +
-	"\x0fcan_handle_http\x18\x03 \x01(\bR\rcanHandleHttp\"\xa9\x03\n" +
-	"\x1dCMsgClientUFSDownloadResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_size\x18\x03 \x01(\rR\bfileSize\x12\"\n" +
-	"\rraw_file_size\x18\x04 \x01(\rR\vrawFileSize\x12\x19\n" +
-	"\bsha_file\x18\x05 \x01(\fR\ashaFile\x12\x1d\n" +
-	"\n" +
-	"time_stamp\x18\x06 \x01(\x04R\ttimeStamp\x12,\n" +
-	"\x12is_explicit_delete\x18\a \x01(\bR\x10isExplicitDelete\x12\x19\n" +
-	"\buse_http\x18\b \x01(\bR\auseHttp\x12\x1b\n" +
-	"\thttp_host\x18\t \x01(\tR\bhttpHost\x12\x19\n" +
-	"\bhttp_url\x18\n" +
-	" \x01(\tR\ahttpUrl\x12\x1d\n" +
-	"\n" +
-	"kv_headers\x18\v \x01(\fR\tkvHeaders\x12\x1b\n" +
-	"\tuse_https\x18\f \x01(\bR\buseHttps\x12\x1c\n" +
-	"\tencrypted\x18\r \x01(\bR\tencrypted\"\x84\x01\n" +
-	"\x19CMsgClientUFSLoginRequest\x12)\n" +
-	"\x10protocol_version\x18\x01 \x01(\rR\x0fprotocolVersion\x12(\n" +
-	"\x10am_session_token\x18\x02 \x01(\x04R\x0eamSessionToken\x12\x12\n" +
-	"\x04apps\x18\x03 \x03(\rR\x04apps\"9\n" +
-	"\x1aCMsgClientUFSLoginResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\"X\n" +
+	"\x0ffailure_strings\x18\x01 \x03(\tR\x0efailureStrings\"X\n" +
 	"#CMsgClientRequestEncryptedAppTicket\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1a\n" +
 	"\buserdata\x18\x02 \x01(\fR\buserdata\"\xa8\x01\n" +
 	"+CMsgClientRequestEncryptedAppTicketResponse\x12\x15\n" +
 	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
 	"\aeresult\x18\x02 \x01(\x05:\x012R\aeresult\x12E\n" +
-	"\x14encrypted_app_ticket\x18\x03 \x01(\v2\x13.EncryptedAppTicketR\x12encryptedAppTicket\"\xf1\x01\n" +
+	"\x14encrypted_app_ticket\x18\x03 \x01(\v2\x13.EncryptedAppTicketR\x12encryptedAppTicket\"\x87\x02\n" +
 	"\x1aCMsgClientWalletInfoUpdate\x12\x1d\n" +
 	"\n" +
 	"has_wallet\x18\x01 \x01(\bR\thasWallet\x12\x18\n" +
@@ -12714,159 +3985,8 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\bcurrency\x18\x03 \x01(\x05R\bcurrency\x12'\n" +
 	"\x0fbalance_delayed\x18\x04 \x01(\x05R\x0ebalanceDelayed\x12\"\n" +
 	"\tbalance64\x18\x05 \x01(\x03B\x04\xa0\xb6\x18\x01R\tbalance64\x121\n" +
-	"\x11balance64_delayed\x18\x06 \x01(\x03B\x04\xa0\xb6\x18\x01R\x10balance64Delayed\"o\n" +
-	"\x17CMsgClientAppInfoUpdate\x12+\n" +
-	"\x11last_changenumber\x18\x01 \x01(\rR\x10lastChangenumber\x12'\n" +
-	"\x0fsend_changelist\x18\x02 \x01(\bR\x0esendChangelist\"\x92\x01\n" +
-	"\x18CMsgClientAppInfoChanges\x122\n" +
-	"\x15current_change_number\x18\x01 \x01(\rR\x13currentChangeNumber\x12*\n" +
-	"\x11force_full_update\x18\x02 \x01(\bR\x0fforceFullUpdate\x12\x16\n" +
-	"\x06appIDs\x18\x03 \x03(\rR\x06appIDs\"\xe3\x01\n" +
-	"\x18CMsgClientAppInfoRequest\x121\n" +
-	"\x04apps\x18\x01 \x03(\v2\x1d.CMsgClientAppInfoRequest.AppR\x04apps\x120\n" +
-	"\x10supports_batches\x18\x02 \x01(\b:\x05falseR\x0fsupportsBatches\x1ab\n" +
-	"\x03App\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12#\n" +
-	"\rsection_flags\x18\x02 \x01(\rR\fsectionFlags\x12\x1f\n" +
-	"\vsection_CRC\x18\x03 \x03(\rR\n" +
-	"sectionCRC\"\xec\x02\n" +
-	"\x19CMsgClientAppInfoResponse\x122\n" +
-	"\x04apps\x18\x01 \x03(\v2\x1e.CMsgClientAppInfoResponse.AppR\x04apps\x12!\n" +
-	"\fapps_unknown\x18\x02 \x03(\rR\vappsUnknown\x12!\n" +
-	"\fapps_pending\x18\x03 \x01(\rR\vappsPending\x1a\xce\x01\n" +
-	"\x03App\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12#\n" +
-	"\rchange_number\x18\x02 \x01(\rR\fchangeNumber\x12B\n" +
-	"\bsections\x18\x03 \x03(\v2&.CMsgClientAppInfoResponse.App.SectionR\bsections\x1aG\n" +
-	"\aSection\x12\x1d\n" +
-	"\n" +
-	"section_id\x18\x01 \x01(\rR\tsectionId\x12\x1d\n" +
-	"\n" +
-	"section_kv\x18\x02 \x01(\fR\tsectionKv:\x04\x88\xb5\x18\x00\"e\n" +
-	"\x1cCMsgClientPackageInfoRequest\x12\x1f\n" +
-	"\vpackage_ids\x18\x01 \x03(\rR\n" +
-	"packageIds\x12$\n" +
-	"\x0emeta_data_only\x18\x02 \x01(\bR\fmetaDataOnly\"\xb2\x02\n" +
-	"\x1dCMsgClientPackageInfoResponse\x12B\n" +
-	"\bpackages\x18\x01 \x03(\v2&.CMsgClientPackageInfoResponse.PackageR\bpackages\x12)\n" +
-	"\x10packages_unknown\x18\x02 \x03(\rR\x0fpackagesUnknown\x12)\n" +
-	"\x10packages_pending\x18\x03 \x01(\rR\x0fpackagesPending\x1aw\n" +
-	"\aPackage\x12\x1d\n" +
-	"\n" +
-	"package_id\x18\x01 \x01(\rR\tpackageId\x12#\n" +
-	"\rchange_number\x18\x02 \x01(\rR\fchangeNumber\x12\x10\n" +
-	"\x03sha\x18\x03 \x01(\fR\x03sha\x12\x16\n" +
-	"\x06buffer\x18\x04 \x01(\fR\x06buffer\"\xa7\x02\n" +
-	"!CMsgClientPICSChangesSinceRequest\x12.\n" +
-	"\x13since_change_number\x18\x01 \x01(\rR\x11sinceChangeNumber\x121\n" +
-	"\x15send_app_info_changes\x18\x02 \x01(\bR\x12sendAppInfoChanges\x129\n" +
-	"\x19send_package_info_changes\x18\x03 \x01(\bR\x16sendPackageInfoChanges\x12-\n" +
-	"\x13num_app_info_cached\x18\x04 \x01(\rR\x10numAppInfoCached\x125\n" +
-	"\x17num_package_info_cached\x18\x05 \x01(\rR\x14numPackageInfoCached\"\xac\x05\n" +
-	"\"CMsgClientPICSChangesSinceResponse\x122\n" +
-	"\x15current_change_number\x18\x01 \x01(\rR\x13currentChangeNumber\x12.\n" +
-	"\x13since_change_number\x18\x02 \x01(\rR\x11sinceChangeNumber\x12*\n" +
-	"\x11force_full_update\x18\x03 \x01(\bR\x0fforceFullUpdate\x12Z\n" +
-	"\x0fpackage_changes\x18\x04 \x03(\v21.CMsgClientPICSChangesSinceResponse.PackageChangeR\x0epackageChanges\x12N\n" +
-	"\vapp_changes\x18\x05 \x03(\v2-.CMsgClientPICSChangesSinceResponse.AppChangeR\n" +
-	"appChanges\x121\n" +
-	"\x15force_full_app_update\x18\x06 \x01(\bR\x12forceFullAppUpdate\x129\n" +
-	"\x19force_full_package_update\x18\a \x01(\bR\x16forceFullPackageUpdate\x1as\n" +
-	"\rPackageChange\x12\x1c\n" +
-	"\tpackageid\x18\x01 \x01(\rR\tpackageid\x12#\n" +
-	"\rchange_number\x18\x02 \x01(\rR\fchangeNumber\x12\x1f\n" +
-	"\vneeds_token\x18\x03 \x01(\bR\n" +
-	"needsToken\x1ag\n" +
-	"\tAppChange\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12#\n" +
-	"\rchange_number\x18\x02 \x01(\rR\fchangeNumber\x12\x1f\n" +
-	"\vneeds_token\x18\x03 \x01(\bR\n" +
-	"needsToken\"\xe7\x03\n" +
-	" CMsgClientPICSProductInfoRequest\x12I\n" +
-	"\bpackages\x18\x01 \x03(\v2-.CMsgClientPICSProductInfoRequest.PackageInfoR\bpackages\x12=\n" +
-	"\x04apps\x18\x02 \x03(\v2).CMsgClientPICSProductInfoRequest.AppInfoR\x04apps\x12$\n" +
-	"\x0emeta_data_only\x18\x03 \x01(\bR\fmetaDataOnly\x12&\n" +
-	"\x0fnum_prev_failed\x18\x04 \x01(\rR\rnumPrevFailed\x126\n" +
-	"\x17supports_package_tokens\x18\x05 \x01(\rR\x15supportsPackageTokens\x1ac\n" +
-	"\aAppInfo\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12!\n" +
-	"\faccess_token\x18\x02 \x01(\x04R\vaccessToken\x12\x1f\n" +
-	"\vonly_public\x18\x03 \x01(\bR\n" +
-	"onlyPublic\x1aN\n" +
-	"\vPackageInfo\x12\x1c\n" +
-	"\tpackageid\x18\x01 \x01(\rR\tpackageid\x12!\n" +
-	"\faccess_token\x18\x02 \x01(\x04R\vaccessToken\"\x9e\x06\n" +
-	"!CMsgClientPICSProductInfoResponse\x12>\n" +
-	"\x04apps\x18\x01 \x03(\v2*.CMsgClientPICSProductInfoResponse.AppInfoR\x04apps\x12%\n" +
-	"\x0eunknown_appids\x18\x02 \x03(\rR\runknownAppids\x12J\n" +
-	"\bpackages\x18\x03 \x03(\v2..CMsgClientPICSProductInfoResponse.PackageInfoR\bpackages\x12-\n" +
-	"\x12unknown_packageids\x18\x04 \x03(\rR\x11unknownPackageids\x12$\n" +
-	"\x0emeta_data_only\x18\x05 \x01(\bR\fmetaDataOnly\x12)\n" +
-	"\x10response_pending\x18\x06 \x01(\bR\x0fresponsePending\x12\"\n" +
-	"\rhttp_min_size\x18\a \x01(\rR\vhttpMinSize\x12\x1b\n" +
-	"\thttp_host\x18\b \x01(\tR\bhttpHost\x1a\xc8\x01\n" +
-	"\aAppInfo\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12#\n" +
-	"\rchange_number\x18\x02 \x01(\rR\fchangeNumber\x12#\n" +
-	"\rmissing_token\x18\x03 \x01(\bR\fmissingToken\x12\x10\n" +
-	"\x03sha\x18\x04 \x01(\fR\x03sha\x12\x16\n" +
-	"\x06buffer\x18\x05 \x01(\fR\x06buffer\x12\x1f\n" +
-	"\vonly_public\x18\x06 \x01(\bR\n" +
-	"onlyPublic\x12\x12\n" +
-	"\x04size\x18\a \x01(\rR\x04size\x1a\xb3\x01\n" +
-	"\vPackageInfo\x12\x1c\n" +
-	"\tpackageid\x18\x01 \x01(\rR\tpackageid\x12#\n" +
-	"\rchange_number\x18\x02 \x01(\rR\fchangeNumber\x12#\n" +
-	"\rmissing_token\x18\x03 \x01(\bR\fmissingToken\x12\x10\n" +
-	"\x03sha\x18\x04 \x01(\fR\x03sha\x12\x16\n" +
-	"\x06buffer\x18\x05 \x01(\fR\x06buffer\x12\x12\n" +
-	"\x04size\x18\x06 \x01(\rR\x04size:\x04\x88\xb5\x18\x00\"Z\n" +
-	" CMsgClientPICSAccessTokenRequest\x12\x1e\n" +
-	"\n" +
-	"packageids\x18\x01 \x03(\rR\n" +
-	"packageids\x12\x16\n" +
-	"\x06appids\x18\x02 \x03(\rR\x06appids\"\xd7\x03\n" +
-	"!CMsgClientPICSAccessTokenResponse\x12c\n" +
-	"\x15package_access_tokens\x18\x01 \x03(\v2/.CMsgClientPICSAccessTokenResponse.PackageTokenR\x13packageAccessTokens\x122\n" +
-	"\x15package_denied_tokens\x18\x02 \x03(\rR\x13packageDeniedTokens\x12W\n" +
-	"\x11app_access_tokens\x18\x03 \x03(\v2+.CMsgClientPICSAccessTokenResponse.AppTokenR\x0fappAccessTokens\x12*\n" +
-	"\x11app_denied_tokens\x18\x04 \x03(\rR\x0fappDeniedTokens\x1aO\n" +
-	"\fPackageToken\x12\x1c\n" +
-	"\tpackageid\x18\x01 \x01(\rR\tpackageid\x12!\n" +
-	"\faccess_token\x18\x02 \x01(\x04R\vaccessToken\x1aC\n" +
-	"\bAppToken\x12\x14\n" +
-	"\x05appid\x18\x01 \x01(\rR\x05appid\x12!\n" +
-	"\faccess_token\x18\x02 \x01(\x04R\vaccessToken\"N\n" +
-	"\x1aCMsgClientUFSGetUGCDetails\x120\n" +
-	"\bhcontent\x18\x01 \x01(\x06:\x1418446744073709551615R\bhcontent\"\xd3\x02\n" +
-	"\"CMsgClientUFSGetUGCDetailsResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x10\n" +
-	"\x03url\x18\x02 \x01(\tR\x03url\x12\x15\n" +
-	"\x06app_id\x18\x03 \x01(\rR\x05appId\x12\x1a\n" +
-	"\bfilename\x18\x04 \x01(\tR\bfilename\x12'\n" +
-	"\x0fsteamid_creator\x18\x05 \x01(\x06R\x0esteamidCreator\x12\x1b\n" +
-	"\tfile_size\x18\x06 \x01(\rR\bfileSize\x120\n" +
-	"\x14compressed_file_size\x18\a \x01(\rR\x12compressedFileSize\x12'\n" +
-	"\x0frangecheck_host\x18\b \x01(\tR\x0erangecheckHost\x12*\n" +
-	"\x11file_encoded_sha1\x18\t \x01(\tR\x0ffileEncodedSha1\"T\n" +
-	"\x1eCMsgClientUFSGetSingleFileInfo\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_name\x18\x02 \x01(\tR\bfileName\"\x85\x02\n" +
-	"&CMsgClientUFSGetSingleFileInfoResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_name\x18\x03 \x01(\tR\bfileName\x12\x19\n" +
-	"\bsha_file\x18\x04 \x01(\fR\ashaFile\x12\x1d\n" +
-	"\n" +
-	"time_stamp\x18\x05 \x01(\x04R\ttimeStamp\x12\"\n" +
-	"\rraw_file_size\x18\x06 \x01(\rR\vrawFileSize\x12,\n" +
-	"\x12is_explicit_delete\x18\a \x01(\bR\x10isExplicitDelete\"L\n" +
-	"\x16CMsgClientUFSShareFile\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_name\x18\x02 \x01(\tR\bfileName\"o\n" +
-	"\x1eCMsgClientUFSShareFileResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x120\n" +
-	"\bhcontent\x18\x02 \x01(\x06:\x1418446744073709551615R\bhcontent\"@\n" +
+	"\x11balance64_delayed\x18\x06 \x01(\x03B\x04\xa0\xb6\x18\x01R\x10balance64Delayed\x12\x14\n" +
+	"\x05realm\x18\a \x01(\x05R\x05realm\"@\n" +
 	"\x1bCMsgClientAMGetClanOfficers\x12!\n" +
 	"\fsteamid_clan\x18\x01 \x01(\x06R\vsteamidClan\"\x8a\x01\n" +
 	"#CMsgClientAMGetClanOfficersResponse\x12\x1b\n" +
@@ -12919,22 +4039,7 @@ const file_steammessages_clientserver_proto_rawDesc = "" +
 	"\bheadline\x18\x03 \x01(\tR\bheadline\x12\x17\n" +
 	"\agame_id\x18\x04 \x01(\x06R\x06gameId\x12\x1f\n" +
 	"\vjust_posted\x18\x05 \x01(\bR\n" +
-	"justPosted\"\xf8\x01\n" +
-	"\x1fCMsgClientUnsignedInstallScript\x12\x15\n" +
-	"\x06app_id\x18\x01 \x01(\rR\x05appId\x12\x1b\n" +
-	"\tfile_name\x18\x02 \x01(\tR\bfileName\x12\x1b\n" +
-	"\tfile_size\x18\x03 \x01(\rR\bfileSize\x12)\n" +
-	"\x10signature_broken\x18\x04 \x01(\bR\x0fsignatureBroken\x12\x19\n" +
-	"\bdepot_id\x18\x05 \x01(\rR\adepotId\x12\x1f\n" +
-	"\vmanifest_id\x18\x06 \x01(\x04R\n" +
-	"manifestId\x12\x1d\n" +
-	"\n" +
-	"file_flags\x18\a \x01(\rR\tfileFlags*\x90\x01\n" +
-	"\x0fEMMSLobbyStatus\x12\x1c\n" +
-	"\x18k_EMMSLobbyStatusInvalid\x10\x00\x12\x1b\n" +
-	"\x17k_EMMSLobbyStatusExists\x10\x01\x12!\n" +
-	"\x1dk_EMMSLobbyStatusDoesNotExist\x10\x02\x12\x1f\n" +
-	"\x1bk_EMMSLobbyStatusNotAMember\x10\x03B\x05H\x01\x80\x01\x00"
+	"justPostedB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_clientserver_proto_rawDescOnce sync.Once
@@ -12948,249 +4053,88 @@ func file_steammessages_clientserver_proto_rawDescGZIP() []byte {
 	return file_steammessages_clientserver_proto_rawDescData
 }
 
-var file_steammessages_clientserver_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_steammessages_clientserver_proto_msgTypes = make([]protoimpl.MessageInfo, 173)
+var file_steammessages_clientserver_proto_msgTypes = make([]protoimpl.MessageInfo, 51)
 var file_steammessages_clientserver_proto_goTypes = []any{
-	(EMMSLobbyStatus)(0),                                                             // 0: EMMSLobbyStatus
-	(*CMsgClientUDSP2PSessionStarted)(nil),                                           // 1: CMsgClientUDSP2PSessionStarted
-	(*CMsgClientUDSP2PSessionEnded)(nil),                                             // 2: CMsgClientUDSP2PSessionEnded
-	(*CMsgClientRegisterAuthTicketWithCM)(nil),                                       // 3: CMsgClientRegisterAuthTicketWithCM
-	(*CMsgClientTicketAuthComplete)(nil),                                             // 4: CMsgClientTicketAuthComplete
-	(*CMsgClientCMList)(nil),                                                         // 5: CMsgClientCMList
-	(*CMsgClientP2PConnectionInfo)(nil),                                              // 6: CMsgClientP2PConnectionInfo
-	(*CMsgClientP2PConnectionFailInfo)(nil),                                          // 7: CMsgClientP2PConnectionFailInfo
-	(*CMsgClientNetworkingCertRequest)(nil),                                          // 8: CMsgClientNetworkingCertRequest
-	(*CMsgClientNetworkingCertReply)(nil),                                            // 9: CMsgClientNetworkingCertReply
-	(*CMsgClientNetworkingMobileCertRequest)(nil),                                    // 10: CMsgClientNetworkingMobileCertRequest
-	(*CMsgClientNetworkingMobileCertReply)(nil),                                      // 11: CMsgClientNetworkingMobileCertReply
-	(*CMsgClientGetAppOwnershipTicket)(nil),                                          // 12: CMsgClientGetAppOwnershipTicket
-	(*CMsgClientGetAppOwnershipTicketResponse)(nil),                                  // 13: CMsgClientGetAppOwnershipTicketResponse
-	(*CMsgClientSessionToken)(nil),                                                   // 14: CMsgClientSessionToken
-	(*CMsgClientGameConnectTokens)(nil),                                              // 15: CMsgClientGameConnectTokens
-	(*CMsgGSServerType)(nil),                                                         // 16: CMsgGSServerType
-	(*CMsgGSStatusReply)(nil),                                                        // 17: CMsgGSStatusReply
-	(*CMsgGSPlayerList)(nil),                                                         // 18: CMsgGSPlayerList
-	(*CMsgGSUserPlaying)(nil),                                                        // 19: CMsgGSUserPlaying
-	(*CMsgGSDisconnectNotice)(nil),                                                   // 20: CMsgGSDisconnectNotice
-	(*CMsgClientGamesPlayed)(nil),                                                    // 21: CMsgClientGamesPlayed
-	(*CMsgGSApprove)(nil),                                                            // 22: CMsgGSApprove
-	(*CMsgGSDeny)(nil),                                                               // 23: CMsgGSDeny
-	(*CMsgGSKick)(nil),                                                               // 24: CMsgGSKick
-	(*CMsgClientAuthList)(nil),                                                       // 25: CMsgClientAuthList
-	(*CMsgClientAuthListAck)(nil),                                                    // 26: CMsgClientAuthListAck
-	(*CMsgClientLicenseList)(nil),                                                    // 27: CMsgClientLicenseList
-	(*CMsgClientLBSSetScore)(nil),                                                    // 28: CMsgClientLBSSetScore
-	(*CMsgClientLBSSetScoreResponse)(nil),                                            // 29: CMsgClientLBSSetScoreResponse
-	(*CMsgClientLBSSetUGC)(nil),                                                      // 30: CMsgClientLBSSetUGC
-	(*CMsgClientLBSSetUGCResponse)(nil),                                              // 31: CMsgClientLBSSetUGCResponse
-	(*CMsgClientLBSFindOrCreateLB)(nil),                                              // 32: CMsgClientLBSFindOrCreateLB
-	(*CMsgClientLBSFindOrCreateLBResponse)(nil),                                      // 33: CMsgClientLBSFindOrCreateLBResponse
-	(*CMsgClientLBSGetLBEntries)(nil),                                                // 34: CMsgClientLBSGetLBEntries
-	(*CMsgClientLBSGetLBEntriesResponse)(nil),                                        // 35: CMsgClientLBSGetLBEntriesResponse
-	(*CMsgClientAppMinutesPlayedData)(nil),                                           // 36: CMsgClientAppMinutesPlayedData
-	(*CMsgClientIsLimitedAccount)(nil),                                               // 37: CMsgClientIsLimitedAccount
-	(*CMsgClientRequestedClientStats)(nil),                                           // 38: CMsgClientRequestedClientStats
-	(*CMsgClientStat2)(nil),                                                          // 39: CMsgClientStat2
-	(*CMsgClientMMSSetRatelimitPolicyOnClient)(nil),                                  // 40: CMsgClientMMSSetRatelimitPolicyOnClient
-	(*CMsgClientMMSCreateLobby)(nil),                                                 // 41: CMsgClientMMSCreateLobby
-	(*CMsgClientMMSCreateLobbyResponse)(nil),                                         // 42: CMsgClientMMSCreateLobbyResponse
-	(*CMsgClientMMSJoinLobby)(nil),                                                   // 43: CMsgClientMMSJoinLobby
-	(*CMsgClientMMSJoinLobbyResponse)(nil),                                           // 44: CMsgClientMMSJoinLobbyResponse
-	(*CMsgClientMMSLeaveLobby)(nil),                                                  // 45: CMsgClientMMSLeaveLobby
-	(*CMsgClientMMSLeaveLobbyResponse)(nil),                                          // 46: CMsgClientMMSLeaveLobbyResponse
-	(*CMsgClientMMSGetLobbyList)(nil),                                                // 47: CMsgClientMMSGetLobbyList
-	(*CMsgClientMMSGetLobbyListResponse)(nil),                                        // 48: CMsgClientMMSGetLobbyListResponse
-	(*CMsgClientMMSSetLobbyData)(nil),                                                // 49: CMsgClientMMSSetLobbyData
-	(*CMsgClientMMSSetLobbyDataResponse)(nil),                                        // 50: CMsgClientMMSSetLobbyDataResponse
-	(*CMsgClientMMSGetLobbyData)(nil),                                                // 51: CMsgClientMMSGetLobbyData
-	(*CMsgClientMMSLobbyData)(nil),                                                   // 52: CMsgClientMMSLobbyData
-	(*CMsgClientMMSSendLobbyChatMsg)(nil),                                            // 53: CMsgClientMMSSendLobbyChatMsg
-	(*CMsgClientMMSLobbyChatMsg)(nil),                                                // 54: CMsgClientMMSLobbyChatMsg
-	(*CMsgClientMMSSetLobbyOwner)(nil),                                               // 55: CMsgClientMMSSetLobbyOwner
-	(*CMsgClientMMSSetLobbyOwnerResponse)(nil),                                       // 56: CMsgClientMMSSetLobbyOwnerResponse
-	(*CMsgClientMMSSetLobbyLinked)(nil),                                              // 57: CMsgClientMMSSetLobbyLinked
-	(*CMsgClientMMSSetLobbyGameServer)(nil),                                          // 58: CMsgClientMMSSetLobbyGameServer
-	(*CMsgClientMMSLobbyGameServerSet)(nil),                                          // 59: CMsgClientMMSLobbyGameServerSet
-	(*CMsgClientMMSUserJoinedLobby)(nil),                                             // 60: CMsgClientMMSUserJoinedLobby
-	(*CMsgClientMMSUserLeftLobby)(nil),                                               // 61: CMsgClientMMSUserLeftLobby
-	(*CMsgClientMMSInviteToLobby)(nil),                                               // 62: CMsgClientMMSInviteToLobby
-	(*CMsgClientMMSGetLobbyStatus)(nil),                                              // 63: CMsgClientMMSGetLobbyStatus
-	(*CMsgClientMMSGetLobbyStatusResponse)(nil),                                      // 64: CMsgClientMMSGetLobbyStatusResponse
-	(*CMsgClientInviteToGame)(nil),                                                   // 65: CMsgClientInviteToGame
-	(*CMsgClientChatInvite)(nil),                                                     // 66: CMsgClientChatInvite
-	(*CMsgClientConnectionStats)(nil),                                                // 67: CMsgClientConnectionStats
-	(*CMsgClientServersAvailable)(nil),                                               // 68: CMsgClientServersAvailable
-	(*CMsgClientGetUserStats)(nil),                                                   // 69: CMsgClientGetUserStats
-	(*CMsgClientGetUserStatsResponse)(nil),                                           // 70: CMsgClientGetUserStatsResponse
-	(*CMsgClientStoreUserStatsResponse)(nil),                                         // 71: CMsgClientStoreUserStatsResponse
-	(*CMsgClientStoreUserStats2)(nil),                                                // 72: CMsgClientStoreUserStats2
-	(*CMsgClientStatsUpdated)(nil),                                                   // 73: CMsgClientStatsUpdated
-	(*CMsgClientStoreUserStats)(nil),                                                 // 74: CMsgClientStoreUserStats
-	(*CMsgClientGetClientDetails)(nil),                                               // 75: CMsgClientGetClientDetails
-	(*CMsgClientReportOverlayDetourFailure)(nil),                                     // 76: CMsgClientReportOverlayDetourFailure
-	(*CMsgClientGetClientDetailsResponse)(nil),                                       // 77: CMsgClientGetClientDetailsResponse
-	(*CMsgClientGetClientAppList)(nil),                                               // 78: CMsgClientGetClientAppList
-	(*CMsgClientGetClientAppListResponse)(nil),                                       // 79: CMsgClientGetClientAppListResponse
-	(*CMsgClientInstallClientApp)(nil),                                               // 80: CMsgClientInstallClientApp
-	(*CMsgClientInstallClientAppResponse)(nil),                                       // 81: CMsgClientInstallClientAppResponse
-	(*CMsgClientUninstallClientApp)(nil),                                             // 82: CMsgClientUninstallClientApp
-	(*CMsgClientUninstallClientAppResponse)(nil),                                     // 83: CMsgClientUninstallClientAppResponse
-	(*CMsgClientSetClientAppUpdateState)(nil),                                        // 84: CMsgClientSetClientAppUpdateState
-	(*CMsgClientSetClientAppUpdateStateResponse)(nil),                                // 85: CMsgClientSetClientAppUpdateStateResponse
-	(*CMsgClientUFSUploadFileRequest)(nil),                                           // 86: CMsgClientUFSUploadFileRequest
-	(*CMsgClientUFSUploadFileResponse)(nil),                                          // 87: CMsgClientUFSUploadFileResponse
-	(*CMsgClientUFSUploadCommit)(nil),                                                // 88: CMsgClientUFSUploadCommit
-	(*CMsgClientUFSUploadCommitResponse)(nil),                                        // 89: CMsgClientUFSUploadCommitResponse
-	(*CMsgClientUFSFileChunk)(nil),                                                   // 90: CMsgClientUFSFileChunk
-	(*CMsgClientUFSTransferHeartbeat)(nil),                                           // 91: CMsgClientUFSTransferHeartbeat
-	(*CMsgClientUFSUploadFileFinished)(nil),                                          // 92: CMsgClientUFSUploadFileFinished
-	(*CMsgClientUFSDeleteFileRequest)(nil),                                           // 93: CMsgClientUFSDeleteFileRequest
-	(*CMsgClientUFSDeleteFileResponse)(nil),                                          // 94: CMsgClientUFSDeleteFileResponse
-	(*CMsgClientUFSGetFileListForApp)(nil),                                           // 95: CMsgClientUFSGetFileListForApp
-	(*CMsgClientUFSGetFileListForAppResponse)(nil),                                   // 96: CMsgClientUFSGetFileListForAppResponse
-	(*CMsgClientUFSDownloadRequest)(nil),                                             // 97: CMsgClientUFSDownloadRequest
-	(*CMsgClientUFSDownloadResponse)(nil),                                            // 98: CMsgClientUFSDownloadResponse
-	(*CMsgClientUFSLoginRequest)(nil),                                                // 99: CMsgClientUFSLoginRequest
-	(*CMsgClientUFSLoginResponse)(nil),                                               // 100: CMsgClientUFSLoginResponse
-	(*CMsgClientRequestEncryptedAppTicket)(nil),                                      // 101: CMsgClientRequestEncryptedAppTicket
-	(*CMsgClientRequestEncryptedAppTicketResponse)(nil),                              // 102: CMsgClientRequestEncryptedAppTicketResponse
-	(*CMsgClientWalletInfoUpdate)(nil),                                               // 103: CMsgClientWalletInfoUpdate
-	(*CMsgClientAppInfoUpdate)(nil),                                                  // 104: CMsgClientAppInfoUpdate
-	(*CMsgClientAppInfoChanges)(nil),                                                 // 105: CMsgClientAppInfoChanges
-	(*CMsgClientAppInfoRequest)(nil),                                                 // 106: CMsgClientAppInfoRequest
-	(*CMsgClientAppInfoResponse)(nil),                                                // 107: CMsgClientAppInfoResponse
-	(*CMsgClientPackageInfoRequest)(nil),                                             // 108: CMsgClientPackageInfoRequest
-	(*CMsgClientPackageInfoResponse)(nil),                                            // 109: CMsgClientPackageInfoResponse
-	(*CMsgClientPICSChangesSinceRequest)(nil),                                        // 110: CMsgClientPICSChangesSinceRequest
-	(*CMsgClientPICSChangesSinceResponse)(nil),                                       // 111: CMsgClientPICSChangesSinceResponse
-	(*CMsgClientPICSProductInfoRequest)(nil),                                         // 112: CMsgClientPICSProductInfoRequest
-	(*CMsgClientPICSProductInfoResponse)(nil),                                        // 113: CMsgClientPICSProductInfoResponse
-	(*CMsgClientPICSAccessTokenRequest)(nil),                                         // 114: CMsgClientPICSAccessTokenRequest
-	(*CMsgClientPICSAccessTokenResponse)(nil),                                        // 115: CMsgClientPICSAccessTokenResponse
-	(*CMsgClientUFSGetUGCDetails)(nil),                                               // 116: CMsgClientUFSGetUGCDetails
-	(*CMsgClientUFSGetUGCDetailsResponse)(nil),                                       // 117: CMsgClientUFSGetUGCDetailsResponse
-	(*CMsgClientUFSGetSingleFileInfo)(nil),                                           // 118: CMsgClientUFSGetSingleFileInfo
-	(*CMsgClientUFSGetSingleFileInfoResponse)(nil),                                   // 119: CMsgClientUFSGetSingleFileInfoResponse
-	(*CMsgClientUFSShareFile)(nil),                                                   // 120: CMsgClientUFSShareFile
-	(*CMsgClientUFSShareFileResponse)(nil),                                           // 121: CMsgClientUFSShareFileResponse
-	(*CMsgClientAMGetClanOfficers)(nil),                                              // 122: CMsgClientAMGetClanOfficers
-	(*CMsgClientAMGetClanOfficersResponse)(nil),                                      // 123: CMsgClientAMGetClanOfficersResponse
-	(*CMsgClientAMGetPersonaNameHistory)(nil),                                        // 124: CMsgClientAMGetPersonaNameHistory
-	(*CMsgClientAMGetPersonaNameHistoryResponse)(nil),                                // 125: CMsgClientAMGetPersonaNameHistoryResponse
-	(*CMsgClientDeregisterWithServer)(nil),                                           // 126: CMsgClientDeregisterWithServer
-	(*CMsgClientClanState)(nil),                                                      // 127: CMsgClientClanState
-	(*CMsgClientUnsignedInstallScript)(nil),                                          // 128: CMsgClientUnsignedInstallScript
-	(*CMsgGSPlayerList_Player)(nil),                                                  // 129: CMsgGSPlayerList.Player
-	(*CMsgClientGamesPlayed_GamePlayed)(nil),                                         // 130: CMsgClientGamesPlayed.GamePlayed
-	(*CMsgClientLicenseList_License)(nil),                                            // 131: CMsgClientLicenseList.License
-	(*CMsgClientLBSGetLBEntriesResponse_Entry)(nil),                                  // 132: CMsgClientLBSGetLBEntriesResponse.Entry
-	(*CMsgClientAppMinutesPlayedData_AppMinutesPlayedData)(nil),                      // 133: CMsgClientAppMinutesPlayedData.AppMinutesPlayedData
-	(*CMsgClientRequestedClientStats_StatsToSend)(nil),                               // 134: CMsgClientRequestedClientStats.StatsToSend
-	(*CMsgClientStat2_StatDetail)(nil),                                               // 135: CMsgClientStat2.StatDetail
-	(*CMsgClientMMSJoinLobbyResponse_Member)(nil),                                    // 136: CMsgClientMMSJoinLobbyResponse.Member
-	(*CMsgClientMMSGetLobbyList_Filter)(nil),                                         // 137: CMsgClientMMSGetLobbyList.Filter
-	(*CMsgClientMMSGetLobbyListResponse_Lobby)(nil),                                  // 138: CMsgClientMMSGetLobbyListResponse.Lobby
-	(*CMsgClientMMSLobbyData_Member)(nil),                                            // 139: CMsgClientMMSLobbyData.Member
-	(*CMsgClientConnectionStats_Stats_Logon)(nil),                                    // 140: CMsgClientConnectionStats.Stats_Logon
-	(*CMsgClientConnectionStats_Stats_UDP)(nil),                                      // 141: CMsgClientConnectionStats.Stats_UDP
-	(*CMsgClientConnectionStats_Stats_VConn)(nil),                                    // 142: CMsgClientConnectionStats.Stats_VConn
-	(*CMsgClientServersAvailable_Server_Types_Available)(nil),                        // 143: CMsgClientServersAvailable.Server_Types_Available
-	(*CMsgClientGetUserStatsResponse_Stats)(nil),                                     // 144: CMsgClientGetUserStatsResponse.Stats
-	(*CMsgClientGetUserStatsResponse_Achievement_Blocks)(nil),                        // 145: CMsgClientGetUserStatsResponse.Achievement_Blocks
-	(*CMsgClientStoreUserStatsResponse_Stats_Failed_Validation)(nil),                 // 146: CMsgClientStoreUserStatsResponse.Stats_Failed_Validation
-	(*CMsgClientStoreUserStats2_Stats)(nil),                                          // 147: CMsgClientStoreUserStats2.Stats
-	(*CMsgClientStatsUpdated_Updated_Stats)(nil),                                     // 148: CMsgClientStatsUpdated.Updated_Stats
-	(*CMsgClientStoreUserStats_Stats_To_Store)(nil),                                  // 149: CMsgClientStoreUserStats.Stats_To_Store
-	(*CMsgClientGetClientDetailsResponse_Game)(nil),                                  // 150: CMsgClientGetClientDetailsResponse.Game
-	(*CMsgClientGetClientAppListResponse_App)(nil),                                   // 151: CMsgClientGetClientAppListResponse.App
-	(*CMsgClientGetClientAppListResponse_App_DLC)(nil),                               // 152: CMsgClientGetClientAppListResponse.App.DLC
-	(*CMsgClientUFSUploadCommit_File)(nil),                                           // 153: CMsgClientUFSUploadCommit.File
-	(*CMsgClientUFSUploadCommitResponse_File)(nil),                                   // 154: CMsgClientUFSUploadCommitResponse.File
-	(*CMsgClientUFSGetFileListForAppResponse_File)(nil),                              // 155: CMsgClientUFSGetFileListForAppResponse.File
-	(*CMsgClientAppInfoRequest_App)(nil),                                             // 156: CMsgClientAppInfoRequest.App
-	(*CMsgClientAppInfoResponse_App)(nil),                                            // 157: CMsgClientAppInfoResponse.App
-	(*CMsgClientAppInfoResponse_App_Section)(nil),                                    // 158: CMsgClientAppInfoResponse.App.Section
-	(*CMsgClientPackageInfoResponse_Package)(nil),                                    // 159: CMsgClientPackageInfoResponse.Package
-	(*CMsgClientPICSChangesSinceResponse_PackageChange)(nil),                         // 160: CMsgClientPICSChangesSinceResponse.PackageChange
-	(*CMsgClientPICSChangesSinceResponse_AppChange)(nil),                             // 161: CMsgClientPICSChangesSinceResponse.AppChange
-	(*CMsgClientPICSProductInfoRequest_AppInfo)(nil),                                 // 162: CMsgClientPICSProductInfoRequest.AppInfo
-	(*CMsgClientPICSProductInfoRequest_PackageInfo)(nil),                             // 163: CMsgClientPICSProductInfoRequest.PackageInfo
-	(*CMsgClientPICSProductInfoResponse_AppInfo)(nil),                                // 164: CMsgClientPICSProductInfoResponse.AppInfo
-	(*CMsgClientPICSProductInfoResponse_PackageInfo)(nil),                            // 165: CMsgClientPICSProductInfoResponse.PackageInfo
-	(*CMsgClientPICSAccessTokenResponse_PackageToken)(nil),                           // 166: CMsgClientPICSAccessTokenResponse.PackageToken
-	(*CMsgClientPICSAccessTokenResponse_AppToken)(nil),                               // 167: CMsgClientPICSAccessTokenResponse.AppToken
-	(*CMsgClientAMGetPersonaNameHistory_IdInstance)(nil),                             // 168: CMsgClientAMGetPersonaNameHistory.IdInstance
-	(*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance)(nil),              // 169: CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance
-	(*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance)(nil), // 170: CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance.NameInstance
-	(*CMsgClientClanState_NameInfo)(nil),                                             // 171: CMsgClientClanState.NameInfo
-	(*CMsgClientClanState_UserCounts)(nil),                                           // 172: CMsgClientClanState.UserCounts
-	(*CMsgClientClanState_Event)(nil),                                                // 173: CMsgClientClanState.Event
-	(*CMsgIPAddress)(nil),                                   // 174: CMsgIPAddress
-	(*CMsgAuthTicket)(nil),                                  // 175: CMsgAuthTicket
-	(*EncryptedAppTicket)(nil),                            // 176: EncryptedAppTicket
+	(*CMsgClientRegisterAuthTicketWithCM)(nil),                                       // 0: CMsgClientRegisterAuthTicketWithCM
+	(*CMsgClientTicketAuthComplete)(nil),                                             // 1: CMsgClientTicketAuthComplete
+	(*CMsgClientP2PConnectionInfo)(nil),                                              // 2: CMsgClientP2PConnectionInfo
+	(*CMsgClientP2PConnectionFailInfo)(nil),                                          // 3: CMsgClientP2PConnectionFailInfo
+	(*CMsgClientNetworkingCertRequest)(nil),                                          // 4: CMsgClientNetworkingCertRequest
+	(*CMsgClientNetworkingCertReply)(nil),                                            // 5: CMsgClientNetworkingCertReply
+	(*CMsgClientNetworkingMobileCertRequest)(nil),                                    // 6: CMsgClientNetworkingMobileCertRequest
+	(*CMsgClientNetworkingMobileCertReply)(nil),                                      // 7: CMsgClientNetworkingMobileCertReply
+	(*CMsgClientGetAppOwnershipTicket)(nil),                                          // 8: CMsgClientGetAppOwnershipTicket
+	(*CMsgClientGetAppOwnershipTicketResponse)(nil),                                  // 9: CMsgClientGetAppOwnershipTicketResponse
+	(*CMsgClientSessionToken)(nil),                                                   // 10: CMsgClientSessionToken
+	(*CMsgClientGameConnectTokens)(nil),                                              // 11: CMsgClientGameConnectTokens
+	(*CMsgClientGamesPlayed)(nil),                                                    // 12: CMsgClientGamesPlayed
+	(*CMsgGSApprove)(nil),                                                            // 13: CMsgGSApprove
+	(*CMsgGSDeny)(nil),                                                               // 14: CMsgGSDeny
+	(*CMsgGSKick)(nil),                                                               // 15: CMsgGSKick
+	(*CMsgClientAuthList)(nil),                                                       // 16: CMsgClientAuthList
+	(*CMsgClientAuthListAck)(nil),                                                    // 17: CMsgClientAuthListAck
+	(*CMsgClientLicenseList)(nil),                                                    // 18: CMsgClientLicenseList
+	(*CMsgClientIsLimitedAccount)(nil),                                               // 19: CMsgClientIsLimitedAccount
+	(*CMsgClientRequestedClientStats)(nil),                                           // 20: CMsgClientRequestedClientStats
+	(*CMsgClientStat2)(nil),                                                          // 21: CMsgClientStat2
+	(*CMsgClientInviteToGame)(nil),                                                   // 22: CMsgClientInviteToGame
+	(*CMsgClientChatInvite)(nil),                                                     // 23: CMsgClientChatInvite
+	(*CMsgClientConnectionStats)(nil),                                                // 24: CMsgClientConnectionStats
+	(*CMsgClientServersAvailable)(nil),                                               // 25: CMsgClientServersAvailable
+	(*CMsgClientReportOverlayDetourFailure)(nil),                                     // 26: CMsgClientReportOverlayDetourFailure
+	(*CMsgClientRequestEncryptedAppTicket)(nil),                                      // 27: CMsgClientRequestEncryptedAppTicket
+	(*CMsgClientRequestEncryptedAppTicketResponse)(nil),                              // 28: CMsgClientRequestEncryptedAppTicketResponse
+	(*CMsgClientWalletInfoUpdate)(nil),                                               // 29: CMsgClientWalletInfoUpdate
+	(*CMsgClientAMGetClanOfficers)(nil),                                              // 30: CMsgClientAMGetClanOfficers
+	(*CMsgClientAMGetClanOfficersResponse)(nil),                                      // 31: CMsgClientAMGetClanOfficersResponse
+	(*CMsgClientAMGetPersonaNameHistory)(nil),                                        // 32: CMsgClientAMGetPersonaNameHistory
+	(*CMsgClientAMGetPersonaNameHistoryResponse)(nil),                                // 33: CMsgClientAMGetPersonaNameHistoryResponse
+	(*CMsgClientDeregisterWithServer)(nil),                                           // 34: CMsgClientDeregisterWithServer
+	(*CMsgClientClanState)(nil),                                                      // 35: CMsgClientClanState
+	(*CMsgClientGamesPlayed_ProcessInfo)(nil),                                        // 36: CMsgClientGamesPlayed.ProcessInfo
+	(*CMsgClientGamesPlayed_GamePlayed)(nil),                                         // 37: CMsgClientGamesPlayed.GamePlayed
+	(*CMsgClientLicenseList_License)(nil),                                            // 38: CMsgClientLicenseList.License
+	(*CMsgClientRequestedClientStats_StatsToSend)(nil),                               // 39: CMsgClientRequestedClientStats.StatsToSend
+	(*CMsgClientStat2_StatDetail)(nil),                                               // 40: CMsgClientStat2.StatDetail
+	(*CMsgClientConnectionStats_Stats_Logon)(nil),                                    // 41: CMsgClientConnectionStats.Stats_Logon
+	(*CMsgClientConnectionStats_Stats_UDP)(nil),                                      // 42: CMsgClientConnectionStats.Stats_UDP
+	(*CMsgClientConnectionStats_Stats_VConn)(nil),                                    // 43: CMsgClientConnectionStats.Stats_VConn
+	(*CMsgClientServersAvailable_Server_Types_Available)(nil),                        // 44: CMsgClientServersAvailable.Server_Types_Available
+	(*CMsgClientAMGetPersonaNameHistory_IdInstance)(nil),                             // 45: CMsgClientAMGetPersonaNameHistory.IdInstance
+	(*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance)(nil),              // 46: CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance
+	(*CMsgClientAMGetPersonaNameHistoryResponse_NameTableInstance_NameInstance)(nil), // 47: CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance.NameInstance
+	(*CMsgClientClanState_NameInfo)(nil),                                             // 48: CMsgClientClanState.NameInfo
+	(*CMsgClientClanState_UserCounts)(nil),                                           // 49: CMsgClientClanState.UserCounts
+	(*CMsgClientClanState_Event)(nil),                                                // 50: CMsgClientClanState.Event
+	(*CMsgAuthTicket)(nil),                                  // 51: CMsgAuthTicket
+	(*EncryptedAppTicket)(nil),                            // 52: EncryptedAppTicket
+	(*CMsgIPAddress)(nil),                                   // 53: CMsgIPAddress
 }
 var file_steammessages_clientserver_proto_depIdxs = []int32{
-	129, // 0: CMsgGSPlayerList.players:type_name -> CMsgGSPlayerList.Player
-	174, // 1: CMsgGSUserPlaying.public_ip:type_name -> CMsgIPAddress
-	130, // 2: CMsgClientGamesPlayed.games_played:type_name -> CMsgClientGamesPlayed.GamePlayed
-	175, // 3: CMsgClientAuthList.tickets:type_name -> CMsgAuthTicket
-	131, // 4: CMsgClientLicenseList.licenses:type_name -> CMsgClientLicenseList.License
-	132, // 5: CMsgClientLBSGetLBEntriesResponse.entries:type_name -> CMsgClientLBSGetLBEntriesResponse.Entry
-	133, // 6: CMsgClientAppMinutesPlayedData.minutes_played:type_name -> CMsgClientAppMinutesPlayedData.AppMinutesPlayedData
-	134, // 7: CMsgClientRequestedClientStats.stats_to_send:type_name -> CMsgClientRequestedClientStats.StatsToSend
-	135, // 8: CMsgClientStat2.stat_detail:type_name -> CMsgClientStat2.StatDetail
-	174, // 9: CMsgClientMMSCreateLobby.public_ip:type_name -> CMsgIPAddress
-	136, // 10: CMsgClientMMSJoinLobbyResponse.members:type_name -> CMsgClientMMSJoinLobbyResponse.Member
-	137, // 11: CMsgClientMMSGetLobbyList.filters:type_name -> CMsgClientMMSGetLobbyList.Filter
-	174, // 12: CMsgClientMMSGetLobbyList.public_ip:type_name -> CMsgIPAddress
-	138, // 13: CMsgClientMMSGetLobbyListResponse.lobbies:type_name -> CMsgClientMMSGetLobbyListResponse.Lobby
-	139, // 14: CMsgClientMMSLobbyData.members:type_name -> CMsgClientMMSLobbyData.Member
-	174, // 15: CMsgClientMMSSetLobbyGameServer.game_server_ip:type_name -> CMsgIPAddress
-	174, // 16: CMsgClientMMSLobbyGameServerSet.game_server_ip:type_name -> CMsgIPAddress
-	0,   // 17: CMsgClientMMSGetLobbyStatusResponse.lobby_status:type_name -> EMMSLobbyStatus
-	140, // 18: CMsgClientConnectionStats.stats_logon:type_name -> CMsgClientConnectionStats.Stats_Logon
-	142, // 19: CMsgClientConnectionStats.stats_vconn:type_name -> CMsgClientConnectionStats.Stats_VConn
-	143, // 20: CMsgClientServersAvailable.server_types_available:type_name -> CMsgClientServersAvailable.Server_Types_Available
-	144, // 21: CMsgClientGetUserStatsResponse.stats:type_name -> CMsgClientGetUserStatsResponse.Stats
-	145, // 22: CMsgClientGetUserStatsResponse.achievement_blocks:type_name -> CMsgClientGetUserStatsResponse.Achievement_Blocks
-	146, // 23: CMsgClientStoreUserStatsResponse.stats_failed_validation:type_name -> CMsgClientStoreUserStatsResponse.Stats_Failed_Validation
-	147, // 24: CMsgClientStoreUserStats2.stats:type_name -> CMsgClientStoreUserStats2.Stats
-	148, // 25: CMsgClientStatsUpdated.updated_stats:type_name -> CMsgClientStatsUpdated.Updated_Stats
-	149, // 26: CMsgClientStoreUserStats.stats_to_store:type_name -> CMsgClientStoreUserStats.Stats_To_Store
-	150, // 27: CMsgClientGetClientDetailsResponse.games_running:type_name -> CMsgClientGetClientDetailsResponse.Game
-	151, // 28: CMsgClientGetClientAppListResponse.apps:type_name -> CMsgClientGetClientAppListResponse.App
-	153, // 29: CMsgClientUFSUploadCommit.files:type_name -> CMsgClientUFSUploadCommit.File
-	154, // 30: CMsgClientUFSUploadCommitResponse.files:type_name -> CMsgClientUFSUploadCommitResponse.File
-	155, // 31: CMsgClientUFSGetFileListForAppResponse.files:type_name -> CMsgClientUFSGetFileListForAppResponse.File
-	176, // 32: CMsgClientRequestEncryptedAppTicketResponse.encrypted_app_ticket:type_name -> EncryptedAppTicket
-	156, // 33: CMsgClientAppInfoRequest.apps:type_name -> CMsgClientAppInfoRequest.App
-	157, // 34: CMsgClientAppInfoResponse.apps:type_name -> CMsgClientAppInfoResponse.App
-	159, // 35: CMsgClientPackageInfoResponse.packages:type_name -> CMsgClientPackageInfoResponse.Package
-	160, // 36: CMsgClientPICSChangesSinceResponse.package_changes:type_name -> CMsgClientPICSChangesSinceResponse.PackageChange
-	161, // 37: CMsgClientPICSChangesSinceResponse.app_changes:type_name -> CMsgClientPICSChangesSinceResponse.AppChange
-	163, // 38: CMsgClientPICSProductInfoRequest.packages:type_name -> CMsgClientPICSProductInfoRequest.PackageInfo
-	162, // 39: CMsgClientPICSProductInfoRequest.apps:type_name -> CMsgClientPICSProductInfoRequest.AppInfo
-	164, // 40: CMsgClientPICSProductInfoResponse.apps:type_name -> CMsgClientPICSProductInfoResponse.AppInfo
-	165, // 41: CMsgClientPICSProductInfoResponse.packages:type_name -> CMsgClientPICSProductInfoResponse.PackageInfo
-	166, // 42: CMsgClientPICSAccessTokenResponse.package_access_tokens:type_name -> CMsgClientPICSAccessTokenResponse.PackageToken
-	167, // 43: CMsgClientPICSAccessTokenResponse.app_access_tokens:type_name -> CMsgClientPICSAccessTokenResponse.AppToken
-	168, // 44: CMsgClientAMGetPersonaNameHistory.Ids:type_name -> CMsgClientAMGetPersonaNameHistory.IdInstance
-	169, // 45: CMsgClientAMGetPersonaNameHistoryResponse.responses:type_name -> CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance
-	171, // 46: CMsgClientClanState.name_info:type_name -> CMsgClientClanState.NameInfo
-	172, // 47: CMsgClientClanState.user_counts:type_name -> CMsgClientClanState.UserCounts
-	173, // 48: CMsgClientClanState.events:type_name -> CMsgClientClanState.Event
-	173, // 49: CMsgClientClanState.announcements:type_name -> CMsgClientClanState.Event
-	174, // 50: CMsgGSPlayerList.Player.public_ip:type_name -> CMsgIPAddress
-	174, // 51: CMsgClientGamesPlayed.GamePlayed.game_ip_address:type_name -> CMsgIPAddress
-	141, // 52: CMsgClientConnectionStats.Stats_VConn.stats_udp:type_name -> CMsgClientConnectionStats.Stats_UDP
-	152, // 53: CMsgClientGetClientAppListResponse.App.dlcs:type_name -> CMsgClientGetClientAppListResponse.App.DLC
-	158, // 54: CMsgClientAppInfoResponse.App.sections:type_name -> CMsgClientAppInfoResponse.App.Section
-	170, // 55: CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance.names:type_name -> CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance.NameInstance
-	56,  // [56:56] is the sub-list for method output_type
-	56,  // [56:56] is the sub-list for method input_type
-	56,  // [56:56] is the sub-list for extension type_name
-	56,  // [56:56] is the sub-list for extension extendee
-	0,   // [0:56] is the sub-list for field type_name
+	37, // 0: CMsgClientGamesPlayed.games_played:type_name -> CMsgClientGamesPlayed.GamePlayed
+	51, // 1: CMsgClientAuthList.tickets:type_name -> CMsgAuthTicket
+	38, // 2: CMsgClientLicenseList.licenses:type_name -> CMsgClientLicenseList.License
+	39, // 3: CMsgClientRequestedClientStats.stats_to_send:type_name -> CMsgClientRequestedClientStats.StatsToSend
+	40, // 4: CMsgClientStat2.stat_detail:type_name -> CMsgClientStat2.StatDetail
+	41, // 5: CMsgClientConnectionStats.stats_logon:type_name -> CMsgClientConnectionStats.Stats_Logon
+	43, // 6: CMsgClientConnectionStats.stats_vconn:type_name -> CMsgClientConnectionStats.Stats_VConn
+	44, // 7: CMsgClientServersAvailable.server_types_available:type_name -> CMsgClientServersAvailable.Server_Types_Available
+	52, // 8: CMsgClientRequestEncryptedAppTicketResponse.encrypted_app_ticket:type_name -> EncryptedAppTicket
+	45, // 9: CMsgClientAMGetPersonaNameHistory.Ids:type_name -> CMsgClientAMGetPersonaNameHistory.IdInstance
+	46, // 10: CMsgClientAMGetPersonaNameHistoryResponse.responses:type_name -> CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance
+	48, // 11: CMsgClientClanState.name_info:type_name -> CMsgClientClanState.NameInfo
+	49, // 12: CMsgClientClanState.user_counts:type_name -> CMsgClientClanState.UserCounts
+	50, // 13: CMsgClientClanState.events:type_name -> CMsgClientClanState.Event
+	50, // 14: CMsgClientClanState.announcements:type_name -> CMsgClientClanState.Event
+	53, // 15: CMsgClientGamesPlayed.GamePlayed.game_ip_address:type_name -> CMsgIPAddress
+	36, // 16: CMsgClientGamesPlayed.GamePlayed.process_id_list:type_name -> CMsgClientGamesPlayed.ProcessInfo
+	42, // 17: CMsgClientConnectionStats.Stats_VConn.stats_udp:type_name -> CMsgClientConnectionStats.Stats_UDP
+	47, // 18: CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance.names:type_name -> CMsgClientAMGetPersonaNameHistoryResponse.NameTableInstance.NameInstance
+	19, // [19:19] is the sub-list for method output_type
+	19, // [19:19] is the sub-list for method input_type
+	19, // [19:19] is the sub-list for extension type_name
+	19, // [19:19] is the sub-list for extension extendee
+	0,  // [0:19] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_clientserver_proto_init() }
@@ -13203,14 +4147,13 @@ func file_steammessages_clientserver_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_clientserver_proto_rawDesc), len(file_steammessages_clientserver_proto_rawDesc)),
-			NumEnums:      1,
-			NumMessages:   173,
+			NumEnums:      0,
+			NumMessages:   51,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_steammessages_clientserver_proto_goTypes,
 		DependencyIndexes: file_steammessages_clientserver_proto_depIdxs,
-		EnumInfos:         file_steammessages_clientserver_proto_enumTypes,
 		MessageInfos:      file_steammessages_clientserver_proto_msgTypes,
 	}.Build()
 	File_steammessages_clientserver_proto = out.File

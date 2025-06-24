@@ -8,6 +8,7 @@ package unified
 
 import (
 	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -1154,89 +1155,89 @@ var File_steammessages_gamenotifications_steamclient_proto protoreflect.FileDesc
 
 const file_steammessages_gamenotifications_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"1steammessages_gamenotifications.steamclient.proto\x1a,steammessages_unified_base.steamclient.proto\"\xec\x02\n" +
-	"\x1bCGameNotifications_Variable\x12\xab\x01\n" +
-	"\x03key\x18\x01 \x01(\tB\x98\x01\x82\xb5\x18\x93\x01The name of the variable in the localized text -- anywhere that %variablename% is found within the text it will be substituded with the given valueR\x03key\x12\x9e\x01\n" +
-	"\x05value\x18\x02 \x01(\tB\x87\x01\x82\xb5\x18\x82\x01The value of the variable to substitute in the localized text in place of the given variable.  Can itself be a localization token.R\x05value\"\xa5\x03\n" +
-	" CGameNotifications_LocalizedText\x12O\n" +
-	"\x05token\x18\x01 \x01(\tB9\x82\xb5\x185A localization token that maps to the desired string.R\x05token\x12\x98\x01\n" +
-	"\tvariables\x18\x02 \x03(\v2\x1c.CGameNotifications_VariableB\\\x82\xb5\x18XA list of variables values to substitute in any variables found in the localized string.R\tvariables\x12\x94\x01\n" +
-	"\rrendered_text\x18\x03 \x01(\tBo\x82\xb5\x18kText rendered in the requested language, complete with variable substitutions, if a language was specified.R\frenderedText\"\xb5\x04\n" +
-	"\x1dCGameNotifications_UserStatus\x12:\n" +
-	"\asteamid\x18\x01 \x01(\x06B \x82\xb5\x18\x1cThe specific user's steamid.R\asteamid\x12\xab\x01\n" +
-	"\x05state\x18\x02 \x01(\tB\x94\x01\x82\xb5\x18\x8f\x01The user's state.  ready -- the user is ready to play.  waiting -- The game is waiting on an action from the user. completed, the game is over.R\x05state\x12\x8b\x01\n" +
-	"\x05title\x18\x03 \x01(\v2!.CGameNotifications_LocalizedTextBR\x82\xb5\x18NTitle of the session to display to this user in their list of active sessions.R\x05title\x12\x9b\x01\n" +
-	"\amessage\x18\x04 \x01(\v2!.CGameNotifications_LocalizedTextB^\x82\xb5\x18ZSubtitle of the session to display to this user user within their list of active sessions.R\amessage\"\xbb\x05\n" +
-	"(CGameNotifications_CreateSession_Request\x12>\n" +
-	"\x05appid\x18\x01 \x01(\rB(\x82\xb5\x18$The appid to create the session for.R\x05appid\x12\x88\x01\n" +
-	"\acontext\x18\x02 \x01(\x04Bn\x82\xb5\x18jGame-specified context value the game can used to associate the session with some object on their backend.R\acontext\x12\x8a\x01\n" +
-	"\x05title\x18\x03 \x01(\v2!.CGameNotifications_LocalizedTextBQ\x82\xb5\x18MThe title of the session to be displayed within each user's list of sessions.R\x05title\x12h\n" +
-	"\x05users\x18\x04 \x03(\v2\x1e.CGameNotifications_UserStatusB2\x82\xb5\x18.The initial state of all users in the session.R\x05users\x12\xcc\x01\n" +
-	"\asteamid\x18\x05 \x01(\x06B\xb1\x01\x82\xb5\x18\xac\x01(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user.R\asteamid\"t\n" +
-	")CGameNotifications_CreateSession_Response\x12G\n" +
-	"\tsessionid\x18\x01 \x01(\x04B)\x82\xb5\x18%The sessionid of the created session.R\tsessionid\"\xab\x02\n" +
-	"(CGameNotifications_DeleteSession_Request\x12:\n" +
-	"\tsessionid\x18\x01 \x01(\x04B\x1c\x82\xb5\x18\x18The sessionid to delete.R\tsessionid\x12=\n" +
-	"\x05appid\x18\x02 \x01(\rB'\x82\xb5\x18#The appid of the session to delete.R\x05appid\x12\x83\x01\n" +
-	"\asteamid\x18\x03 \x01(\x06Bi\x82\xb5\x18e(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session.R\asteamid\"+\n" +
-	")CGameNotifications_DeleteSession_Response\"\xe6\x05\n" +
-	"(CGameNotifications_UpdateSession_Request\x12:\n" +
-	"\tsessionid\x18\x01 \x01(\x04B\x1c\x82\xb5\x18\x18The sessionid to update.R\tsessionid\x12=\n" +
-	"\x05appid\x18\x02 \x01(\rB'\x82\xb5\x18#The appid of the session to update.R\x05appid\x12\x97\x01\n" +
-	"\x05title\x18\x03 \x01(\v2!.CGameNotifications_LocalizedTextB^\x82\xb5\x18Z(Optional) The new title of the session.  If not specified, the title will not be changed.R\x05title\x12\xd5\x01\n" +
-	"\x05users\x18\x04 \x03(\v2\x1e.CGameNotifications_UserStatusB\x9e\x01\x82\xb5\x18\x99\x01(Optional) A list of users whose state will be updated to reflect the given state. If the users are not already in the session, they will be added to it.R\x05users\x12\xcc\x01\n" +
-	"\asteamid\x18\x06 \x01(\x06B\xb1\x01\x82\xb5\x18\xac\x01(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user.R\asteamid\"+\n" +
-	")CGameNotifications_UpdateSession_Response\"\xe3\x04\n" +
-	",CGameNotifications_EnumerateSessions_Request\x12\x85\x01\n" +
-	"\x05appid\x18\x01 \x01(\rBo\x82\xb5\x18kThe sessionid to request details for. Optional. If not specified, all the user's sessions will be returned.R\x05appid\x12\xa6\x01\n" +
-	"\x19include_all_user_messages\x18\x03 \x01(\bBk\x82\xb5\x18g(Optional) Boolean determining whether the message for all users should be included. Defaults to false.R\x16includeAllUserMessages\x12\xb3\x01\n" +
-	"\x19include_auth_user_message\x18\x04 \x01(\bBx\x82\xb5\x18t(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false.R\x16includeAuthUserMessage\x12L\n" +
-	"\blanguage\x18\x05 \x01(\tB0\x82\xb5\x18,(Optional) Language to localize the text in.R\blanguage\"\x8c\x05\n" +
-	"\x1aCGameNotifications_Session\x12A\n" +
-	"\tsessionid\x18\x01 \x01(\x04B#\x82\xb5\x18\x1fThe sessionid for this session.R\tsessionid\x124\n" +
-	"\x05appid\x18\x02 \x01(\x04B\x1e\x82\xb5\x18\x1aThe appid for the session.R\x05appid\x12\x88\x01\n" +
-	"\acontext\x18\x03 \x01(\x04Bn\x82\xb5\x18jGame-specified context value the game can used to associate the session with some object on their backend.R\acontext\x12_\n" +
-	"\x05title\x18\x04 \x01(\v2!.CGameNotifications_LocalizedTextB&\x82\xb5\x18\"The current title for the session.R\x05title\x12H\n" +
-	"\ftime_created\x18\x05 \x01(\rB%\x82\xb5\x18!The time the session was created.R\vtimeCreated\x12M\n" +
-	"\ftime_updated\x18\x06 \x01(\rB*\x82\xb5\x18&The last time the session was updated.R\vtimeUpdated\x12p\n" +
-	"\vuser_status\x18\a \x03(\v2\x1e.CGameNotifications_UserStatusB/\x82\xb5\x18+The status of all the users in the session.R\n" +
-	"userStatus\"\x8c\x01\n" +
-	"-CGameNotifications_EnumerateSessions_Response\x12[\n" +
-	"\bsessions\x18\x01 \x03(\v2\x1b.CGameNotifications_SessionB\"\x82\xb5\x18\x1eA list of the user's sessions.R\bsessions\"\x94\x04\n" +
+	"1steammessages_gamenotifications.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\"E\n" +
+	"\x1bCGameNotifications_Variable\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"\x99\x01\n" +
+	" CGameNotifications_LocalizedText\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\x12:\n" +
+	"\tvariables\x18\x02 \x03(\v2\x1c.CGameNotifications_VariableR\tvariables\x12#\n" +
+	"\rrendered_text\x18\x03 \x01(\tR\frenderedText\"\xc5\x01\n" +
+	"\x1dCGameNotifications_UserStatus\x12\x18\n" +
+	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x14\n" +
+	"\x05state\x18\x02 \x01(\tR\x05state\x127\n" +
+	"\x05title\x18\x03 \x01(\v2!.CGameNotifications_LocalizedTextR\x05title\x12;\n" +
+	"\amessage\x18\x04 \x01(\v2!.CGameNotifications_LocalizedTextR\amessage\"\xe3\x01\n" +
+	"(CGameNotifications_CreateSession_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x18\n" +
+	"\acontext\x18\x02 \x01(\x04R\acontext\x127\n" +
+	"\x05title\x18\x03 \x01(\v2!.CGameNotifications_LocalizedTextR\x05title\x124\n" +
+	"\x05users\x18\x04 \x03(\v2\x1e.CGameNotifications_UserStatusR\x05users\x12\x18\n" +
+	"\asteamid\x18\x05 \x01(\x06R\asteamid\"I\n" +
+	")CGameNotifications_CreateSession_Response\x12\x1c\n" +
+	"\tsessionid\x18\x01 \x01(\x04R\tsessionid\"x\n" +
+	"(CGameNotifications_DeleteSession_Request\x12\x1c\n" +
+	"\tsessionid\x18\x01 \x01(\x04R\tsessionid\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x18\n" +
+	"\asteamid\x18\x03 \x01(\x06R\asteamid\"+\n" +
+	")CGameNotifications_DeleteSession_Response\"\xe7\x01\n" +
+	"(CGameNotifications_UpdateSession_Request\x12\x1c\n" +
+	"\tsessionid\x18\x01 \x01(\x04R\tsessionid\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x127\n" +
+	"\x05title\x18\x03 \x01(\v2!.CGameNotifications_LocalizedTextR\x05title\x124\n" +
+	"\x05users\x18\x04 \x03(\v2\x1e.CGameNotifications_UserStatusR\x05users\x12\x18\n" +
+	"\asteamid\x18\x06 \x01(\x06R\asteamid\"+\n" +
+	")CGameNotifications_UpdateSession_Response\"\xd6\x01\n" +
+	",CGameNotifications_EnumerateSessions_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x129\n" +
+	"\x19include_all_user_messages\x18\x03 \x01(\bR\x16includeAllUserMessages\x129\n" +
+	"\x19include_auth_user_message\x18\x04 \x01(\bR\x16includeAuthUserMessage\x12\x1a\n" +
+	"\blanguage\x18\x05 \x01(\tR\blanguage\"\xaa\x02\n" +
+	"\x1aCGameNotifications_Session\x12\x1c\n" +
+	"\tsessionid\x18\x01 \x01(\x04R\tsessionid\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\x04R\x05appid\x12\x18\n" +
+	"\acontext\x18\x03 \x01(\x04R\acontext\x127\n" +
+	"\x05title\x18\x04 \x01(\v2!.CGameNotifications_LocalizedTextR\x05title\x12!\n" +
+	"\ftime_created\x18\x05 \x01(\rR\vtimeCreated\x12!\n" +
+	"\ftime_updated\x18\x06 \x01(\rR\vtimeUpdated\x12?\n" +
+	"\vuser_status\x18\a \x03(\v2\x1e.CGameNotifications_UserStatusR\n" +
+	"userStatus\"h\n" +
+	"-CGameNotifications_EnumerateSessions_Response\x127\n" +
+	"\bsessions\x18\x01 \x03(\v2\x1b.CGameNotifications_SessionR\bsessions\"\xa9\x02\n" +
 	",CGameNotifications_GetSessionDetails_Request\x12Z\n" +
-	"\bsessions\x18\x01 \x03(\v2>.CGameNotifications_GetSessionDetails_Request.RequestedSessionR\bsessions\x125\n" +
-	"\x05appid\x18\x02 \x01(\rB\x1f\x82\xb5\x18\x1bThe appid for the sessions.R\x05appid\x12A\n" +
-	"\blanguage\x18\x03 \x01(\tB%\x82\xb5\x18!Language to localize the text in.R\blanguage\x1a\x8d\x02\n" +
-	"\x10RequestedSession\x12C\n" +
-	"\tsessionid\x18\x01 \x01(\x04B%\x82\xb5\x18!The sessionid to get details for.R\tsessionid\x12\xb3\x01\n" +
-	"\x19include_auth_user_message\x18\x03 \x01(\bBx\x82\xb5\x18t(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false.R\x16includeAuthUserMessage\"\x89\x01\n" +
-	"-CGameNotifications_GetSessionDetails_Response\x12X\n" +
-	"\bsessions\x18\x01 \x03(\v2\x1b.CGameNotifications_SessionB\x1f\x82\xb5\x18\x1bThe details of the session.R\bsessions\"\xc3\x01\n" +
-	"\x18GameNotificationSettings\x12>\n" +
-	"\x05appid\x18\x01 \x01(\rB(\x82\xb5\x18$The appid to create the session for.R\x05appid\x12g\n" +
-	"\x13allow_notifications\x18\x02 \x01(\bB6\x82\xb5\x182Whether the user allows notification for this app.R\x12allowNotifications\"\x90\x01\n" +
+	"\bsessions\x18\x01 \x03(\v2>.CGameNotifications_GetSessionDetails_Request.RequestedSessionR\bsessions\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x1a\n" +
+	"\blanguage\x18\x03 \x01(\tR\blanguage\x1ak\n" +
+	"\x10RequestedSession\x12\x1c\n" +
+	"\tsessionid\x18\x01 \x01(\x04R\tsessionid\x129\n" +
+	"\x19include_auth_user_message\x18\x03 \x01(\bR\x16includeAuthUserMessage\"h\n" +
+	"-CGameNotifications_GetSessionDetails_Response\x127\n" +
+	"\bsessions\x18\x01 \x03(\v2\x1b.CGameNotifications_SessionR\bsessions\"a\n" +
+	"\x18GameNotificationSettings\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12/\n" +
+	"\x13allow_notifications\x18\x02 \x01(\bR\x12allowNotifications\"\x90\x01\n" +
 	"5CGameNotifications_UpdateNotificationSettings_Request\x12W\n" +
 	"\x1agame_notification_settings\x18\x01 \x03(\v2\x19.GameNotificationSettingsR\x18gameNotificationSettings\"8\n" +
-	"6CGameNotifications_UpdateNotificationSettings_Response\"\xd6\x01\n" +
-	"8CGameNotifications_OnNotificationsRequested_Notification\x12W\n" +
-	"\asteamid\x18\x01 \x01(\x06B=\x82\xb5\x189steamid of the user who notifications were requested for.R\asteamid\x12A\n" +
-	"\x05appid\x18\x02 \x01(\rB+\x82\xb5\x18'The appid that requested notifications.R\x05appid\"\xea\x03\n" +
-	"3CGameNotifications_OnUserStatusChanged_Notification\x12G\n" +
-	"\asteamid\x18\x01 \x01(\x06B-\x82\xb5\x18)steamid of the user whose status changed.R\asteamid\x12c\n" +
-	"\tsessionid\x18\x02 \x01(\x04BE\x82\xb5\x18AThe sessionid of the session where the user's status was changed.R\tsessionid\x12S\n" +
-	"\x05appid\x18\x03 \x01(\rB=\x82\xb5\x189The appid of the session where the user's status changed.R\x05appid\x12^\n" +
-	"\x06status\x18\x04 \x01(\v2\x1e.CGameNotifications_UserStatusB&\x82\xb5\x18\"(Optional) New status of the user.R\x06status\x12P\n" +
-	"\aremoved\x18\x05 \x01(\bB6\x82\xb5\x182(Optional) User has been removed from the session.R\aremoved2\xa6\b\n" +
-	"\x11GameNotifications\x12\x8d\x01\n" +
-	"\x11UserCreateSession\x12).CGameNotifications_CreateSession_Request\x1a*.CGameNotifications_CreateSession_Response\"!\x82\xb5\x18\x1dCreates an async game session\x12\x8d\x01\n" +
-	"\x11UserDeleteSession\x12).CGameNotifications_DeleteSession_Request\x1a*.CGameNotifications_DeleteSession_Response\"!\x82\xb5\x18\x1dDeletes an async game session\x12\x8d\x01\n" +
-	"\x11UserUpdateSession\x12).CGameNotifications_UpdateSession_Request\x1a*.CGameNotifications_UpdateSession_Response\"!\x82\xb5\x18\x1dUpdates an async game session\x12\x94\x01\n" +
-	"\x11EnumerateSessions\x12-.CGameNotifications_EnumerateSessions_Request\x1a..CGameNotifications_EnumerateSessions_Response\" \x82\xb5\x18\x1cEnumerates a user's sessions\x12\x9e\x01\n" +
-	"\x11GetSessionDetails\x12-.CGameNotifications_GetSessionDetails_Request\x1a..CGameNotifications_GetSessionDetails_Response\"*\x82\xb5\x18&Get the details for a specific session\x12\xd6\x01\n" +
-	"\x1aUpdateNotificationSettings\x126.CGameNotifications_UpdateNotificationSettings_Request\x1a7.CGameNotifications_UpdateNotificationSettings_Response\"G\x82\xb5\x18CUpdates whether a user allows game notifications for a specific app\x1aP\x82\xb5\x18LA service for functions related to the asyncronous game notification server.2\xdf\x02\n" +
-	"\x17GameNotificationsClient\x12\x95\x01\n" +
-	"\x18OnNotificationsRequested\x129.CGameNotifications_OnNotificationsRequested_Notification\x1a\v.NoResponse\"1\x82\xb5\x18-Requests that the user opt into notifications\x12\x8d\x01\n" +
-	"\x13OnUserStatusChanged\x124.CGameNotifications_OnUserStatusChanged_Notification\x1a\v.NoResponse\"3\x82\xb5\x18/Notification that the user's status has changed\x1a\x1c\x82\xb5\x18\x14Client notifications\xc0\xb5\x18\x02B\x03\x80\x01\x01"
+	"6CGameNotifications_UpdateNotificationSettings_Response\"j\n" +
+	"8CGameNotifications_OnNotificationsRequested_Notification\x12\x18\n" +
+	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\"\xd5\x01\n" +
+	"3CGameNotifications_OnUserStatusChanged_Notification\x12\x18\n" +
+	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x1c\n" +
+	"\tsessionid\x18\x02 \x01(\x04R\tsessionid\x12\x14\n" +
+	"\x05appid\x18\x03 \x01(\rR\x05appid\x126\n" +
+	"\x06status\x18\x04 \x01(\v2\x1e.CGameNotifications_UserStatusR\x06status\x12\x18\n" +
+	"\aremoved\x18\x05 \x01(\bR\aremoved2\xcf\x05\n" +
+	"\x11GameNotifications\x12j\n" +
+	"\x11UserCreateSession\x12).CGameNotifications_CreateSession_Request\x1a*.CGameNotifications_CreateSession_Response\x12j\n" +
+	"\x11UserDeleteSession\x12).CGameNotifications_DeleteSession_Request\x1a*.CGameNotifications_DeleteSession_Response\x12j\n" +
+	"\x11UserUpdateSession\x12).CGameNotifications_UpdateSession_Request\x1a*.CGameNotifications_UpdateSession_Response\x12r\n" +
+	"\x11EnumerateSessions\x12-.CGameNotifications_EnumerateSessions_Request\x1a..CGameNotifications_EnumerateSessions_Response\x12r\n" +
+	"\x11GetSessionDetails\x12-.CGameNotifications_GetSessionDetails_Request\x1a..CGameNotifications_GetSessionDetails_Response\x12\x8d\x01\n" +
+	"\x1aUpdateNotificationSettings\x126.CGameNotifications_UpdateNotificationSettings_Request\x1a7.CGameNotifications_UpdateNotificationSettings_Response2\xdd\x01\n" +
+	"\x17GameNotificationsClient\x12b\n" +
+	"\x18OnNotificationsRequested\x129.CGameNotifications_OnNotificationsRequested_Notification\x1a\v.NoResponse\x12X\n" +
+	"\x13OnUserStatusChanged\x124.CGameNotifications_OnUserStatusChanged_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_gamenotifications_steamclient_proto_rawDescOnce sync.Once

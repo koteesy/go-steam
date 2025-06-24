@@ -8,6 +8,7 @@ package unified
 
 import (
 	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -969,6 +970,7 @@ func (x *CDeviceAuth_GetExcludedGamesInLibrary_Response) GetExcludedGames() []*C
 type CDeviceAuth_GetBorrowerPlayHistory_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Steamid       *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
+	Appid         *uint32                `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1006,6 +1008,13 @@ func (*CDeviceAuth_GetBorrowerPlayHistory_Request) Descriptor() ([]byte, []int) 
 func (x *CDeviceAuth_GetBorrowerPlayHistory_Request) GetSteamid() uint64 {
 	if x != nil && x.Steamid != nil {
 		return *x.Steamid
+	}
+	return 0
+}
+
+func (x *CDeviceAuth_GetBorrowerPlayHistory_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
 	}
 	return 0
 }
@@ -1305,6 +1314,8 @@ type CDeviceAuth_GetAuthorizedAsBorrower_Response_Lender struct {
 	IsPending     *bool                  `protobuf:"varint,3,opt,name=is_pending,json=isPending" json:"is_pending,omitempty"`
 	IsCanceled    *bool                  `protobuf:"varint,4,opt,name=is_canceled,json=isCanceled" json:"is_canceled,omitempty"`
 	IsUsed        *bool                  `protobuf:"varint,5,opt,name=is_used,json=isUsed" json:"is_used,omitempty"`
+	TimeRemoved   *uint32                `protobuf:"varint,6,opt,name=time_removed,json=timeRemoved" json:"time_removed,omitempty"`
+	TimeFirst     *uint32                `protobuf:"varint,7,opt,name=time_first,json=timeFirst" json:"time_first,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1372,6 +1383,20 @@ func (x *CDeviceAuth_GetAuthorizedAsBorrower_Response_Lender) GetIsUsed() bool {
 		return *x.IsUsed
 	}
 	return false
+}
+
+func (x *CDeviceAuth_GetAuthorizedAsBorrower_Response_Lender) GetTimeRemoved() uint32 {
+	if x != nil && x.TimeRemoved != nil {
+		return *x.TimeRemoved
+	}
+	return 0
+}
+
+func (x *CDeviceAuth_GetAuthorizedAsBorrower_Response_Lender) GetTimeFirst() uint32 {
+	if x != nil && x.TimeFirst != nil {
+		return *x.TimeFirst
+	}
+	return 0
 }
 
 type CDeviceAuth_GetExcludedGamesInLibrary_Response_ExcludedGame struct {
@@ -1558,7 +1583,7 @@ var File_steammessages_deviceauth_steamclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_deviceauth_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"*steammessages_deviceauth.steamclient.proto\x1a,steammessages_unified_base.steamclient.proto\"r\n" +
+	"*steammessages_deviceauth.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\"r\n" +
 	"+CDeviceAuth_GetOwnAuthorizedDevices_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12)\n" +
 	"\x10include_canceled\x18\x02 \x01(\bR\x0fincludeCanceled\"\xad\x03\n" +
@@ -1627,9 +1652,9 @@ const file_steammessages_deviceauth_steamclient_proto_rawDesc = "" +
 	"+CDeviceAuth_GetAuthorizedAsBorrower_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12)\n" +
 	"\x10include_canceled\x18\x02 \x01(\bR\x0fincludeCanceled\x12'\n" +
-	"\x0finclude_pending\x18\x03 \x01(\bR\x0eincludePending\"\x9f\x02\n" +
+	"\x0finclude_pending\x18\x03 \x01(\bR\x0eincludePending\"\xe1\x02\n" +
 	",CDeviceAuth_GetAuthorizedAsBorrower_Response\x12N\n" +
-	"\alenders\x18\x01 \x03(\v24.CDeviceAuth_GetAuthorizedAsBorrower_Response.LenderR\alenders\x1a\x9e\x01\n" +
+	"\alenders\x18\x01 \x03(\v24.CDeviceAuth_GetAuthorizedAsBorrower_Response.LenderR\alenders\x1a\xe0\x01\n" +
 	"\x06Lender\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12!\n" +
 	"\ftime_created\x18\x02 \x01(\rR\vtimeCreated\x12\x1d\n" +
@@ -1637,7 +1662,10 @@ const file_steammessages_deviceauth_steamclient_proto_rawDesc = "" +
 	"is_pending\x18\x03 \x01(\bR\tisPending\x12\x1f\n" +
 	"\vis_canceled\x18\x04 \x01(\bR\n" +
 	"isCanceled\x12\x17\n" +
-	"\ais_used\x18\x05 \x01(\bR\x06isUsed\"I\n" +
+	"\ais_used\x18\x05 \x01(\bR\x06isUsed\x12!\n" +
+	"\ftime_removed\x18\x06 \x01(\rR\vtimeRemoved\x12\x1d\n" +
+	"\n" +
+	"time_first\x18\a \x01(\rR\ttimeFirst\"I\n" +
 	"-CDeviceAuth_GetExcludedGamesInLibrary_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\"\xa3\x02\n" +
 	".CDeviceAuth_GetExcludedGamesInLibrary_Response\x12c\n" +
@@ -1647,9 +1675,10 @@ const file_steammessages_deviceauth_steamclient_proto_rawDesc = "" +
 	"\tgame_name\x18\x02 \x01(\tR\bgameName\x12\x1d\n" +
 	"\n" +
 	"vac_banned\x18\x03 \x01(\bR\tvacBanned\x12)\n" +
-	"\x10package_excluded\x18\x04 \x01(\bR\x0fpackageExcluded\"F\n" +
+	"\x10package_excluded\x18\x04 \x01(\bR\x0fpackageExcluded\"\\\n" +
 	"*CDeviceAuth_GetBorrowerPlayHistory_Request\x12\x18\n" +
-	"\asteamid\x18\x01 \x01(\x06R\asteamid\"\xfa\x02\n" +
+	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\"\xfa\x02\n" +
 	"+CDeviceAuth_GetBorrowerPlayHistory_Response\x12a\n" +
 	"\x0elender_history\x18\x01 \x03(\v2:.CDeviceAuth_GetBorrowerPlayHistory_Response.LenderHistoryR\rlenderHistory\x1a_\n" +
 	"\vGameHistory\x12\x14\n" +
@@ -1659,20 +1688,21 @@ const file_steammessages_deviceauth_steamclient_proto_rawDesc = "" +
 	"time_total\x18\x03 \x01(\rR\ttimeTotal\x1a\x86\x01\n" +
 	"\rLenderHistory\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12[\n" +
-	"\fgame_history\x18\x02 \x03(\v28.CDeviceAuth_GetBorrowerPlayHistory_Response.GameHistoryR\vgameHistory2\xc2\x0f\n" +
+	"\fgame_history\x18\x02 \x03(\v28.CDeviceAuth_GetBorrowerPlayHistory_Response.GameHistoryR\vgameHistory2\xbd\n" +
 	"\n" +
-	"DeviceAuth\x12\x9a\x01\n" +
-	"\x17GetOwnAuthorizedDevices\x12,.CDeviceAuth_GetOwnAuthorizedDevices_Request\x1a-.CDeviceAuth_GetOwnAuthorizedDevices_Response\"\"\x82\xb5\x18\x1eGet list of authorized devices\x12\xb5\x01\n" +
-	"\x1aAcceptAuthorizationRequest\x12/.CDeviceAuth_AcceptAuthorizationRequest_Request\x1a0.CDeviceAuth_AcceptAuthorizationRequest_Response\"4\x82\xb5\x180Accept an authorization request by another users\x12\xaa\x01\n" +
-	"\x15AuthorizeRemoteDevice\x12*.CDeviceAuth_AuthorizeRemoteDevice_Request\x1a+.CDeviceAuth_AuthorizeRemoteDevice_Response\"8\x82\xb5\x184Authorize own remote device that has pending request\x12\x9b\x01\n" +
-	"\x17DeauthorizeRemoteDevice\x12,.CDeviceAuth_DeauthorizeRemoteDevice_Request\x1a-.CDeviceAuth_DeauthorizeRemoteDevice_Response\"#\x82\xb5\x18\x1fRevoke own device authorization\x12\xbb\x01\n" +
-	"\x18GetUsedAuthorizedDevices\x12-.CDeviceAuth_GetUsedAuthorizedDevices_Request\x1a..CDeviceAuth_GetUsedAuthorizedDevices_Response\"@\x82\xb5\x18<Get list of authorized devices user played borrowed games on\x12\xb2\x01\n" +
-	"\x16GetAuthorizedBorrowers\x12+.CDeviceAuth_GetAuthorizedBorrowers_Request\x1a,.CDeviceAuth_GetAuthorizedBorrowers_Response\"=\x82\xb5\x189Get list of users that can borrow on an authorized device\x12\xb0\x01\n" +
-	"\x16AddAuthorizedBorrowers\x12+.CDeviceAuth_AddAuthorizedBorrowers_Request\x1a,.CDeviceAuth_AddAuthorizedBorrowers_Response\";\x82\xb5\x187Add users that can borrow on limited authorized devices\x12\xbc\x01\n" +
-	"\x19RemoveAuthorizedBorrowers\x12..CDeviceAuth_RemoveAuthorizedBorrowers_Request\x1a/.CDeviceAuth_RemoveAuthorizedBorrowers_Response\">\x82\xb5\x18:Remove users that can borrow on limited authorized devices\x12\xb9\x01\n" +
-	"\x17GetAuthorizedAsBorrower\x12,.CDeviceAuth_GetAuthorizedAsBorrower_Request\x1a-.CDeviceAuth_GetAuthorizedAsBorrower_Response\"A\x82\xb5\x18=Get list of lenders that authorized given account as borrower\x12\xaf\x01\n" +
-	"\x19GetExcludedGamesInLibrary\x12..CDeviceAuth_GetExcludedGamesInLibrary_Request\x1a/.CDeviceAuth_GetExcludedGamesInLibrary_Response\"1\x82\xb5\x18-Get list of excluded games in lenders library\x12\x9a\x01\n" +
-	"\x16GetBorrowerPlayHistory\x12+.CDeviceAuth_GetBorrowerPlayHistory_Request\x1a,.CDeviceAuth_GetBorrowerPlayHistory_Response\"%\x82\xb5\x18!Get list played games as borrower\x1a$\x82\xb5\x18 Library Sharing settings serviceB\x03\x80\x01\x01"
+	"\n" +
+	"DeviceAuth\x12v\n" +
+	"\x17GetOwnAuthorizedDevices\x12,.CDeviceAuth_GetOwnAuthorizedDevices_Request\x1a-.CDeviceAuth_GetOwnAuthorizedDevices_Response\x12\x7f\n" +
+	"\x1aAcceptAuthorizationRequest\x12/.CDeviceAuth_AcceptAuthorizationRequest_Request\x1a0.CDeviceAuth_AcceptAuthorizationRequest_Response\x12p\n" +
+	"\x15AuthorizeRemoteDevice\x12*.CDeviceAuth_AuthorizeRemoteDevice_Request\x1a+.CDeviceAuth_AuthorizeRemoteDevice_Response\x12v\n" +
+	"\x17DeauthorizeRemoteDevice\x12,.CDeviceAuth_DeauthorizeRemoteDevice_Request\x1a-.CDeviceAuth_DeauthorizeRemoteDevice_Response\x12y\n" +
+	"\x18GetUsedAuthorizedDevices\x12-.CDeviceAuth_GetUsedAuthorizedDevices_Request\x1a..CDeviceAuth_GetUsedAuthorizedDevices_Response\x12s\n" +
+	"\x16GetAuthorizedBorrowers\x12+.CDeviceAuth_GetAuthorizedBorrowers_Request\x1a,.CDeviceAuth_GetAuthorizedBorrowers_Response\x12s\n" +
+	"\x16AddAuthorizedBorrowers\x12+.CDeviceAuth_AddAuthorizedBorrowers_Request\x1a,.CDeviceAuth_AddAuthorizedBorrowers_Response\x12|\n" +
+	"\x19RemoveAuthorizedBorrowers\x12..CDeviceAuth_RemoveAuthorizedBorrowers_Request\x1a/.CDeviceAuth_RemoveAuthorizedBorrowers_Response\x12v\n" +
+	"\x17GetAuthorizedAsBorrower\x12,.CDeviceAuth_GetAuthorizedAsBorrower_Request\x1a-.CDeviceAuth_GetAuthorizedAsBorrower_Response\x12|\n" +
+	"\x19GetExcludedGamesInLibrary\x12..CDeviceAuth_GetExcludedGamesInLibrary_Request\x1a/.CDeviceAuth_GetExcludedGamesInLibrary_Response\x12s\n" +
+	"\x16GetBorrowerPlayHistory\x12+.CDeviceAuth_GetBorrowerPlayHistory_Request\x1a,.CDeviceAuth_GetBorrowerPlayHistory_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_deviceauth_steamclient_proto_rawDescOnce sync.Once

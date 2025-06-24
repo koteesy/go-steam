@@ -8,6 +8,8 @@ package protobuf
 
 import (
 	
+	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -208,29 +210,30 @@ func (GCConnectionStatus) EnumDescriptor() ([]byte, []int) {
 	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{2}
 }
 
-type CMsgSHA1Digest struct {
+type CExtraMsgBlock struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Block1        *uint64                `protobuf:"fixed64,1,req,name=block1" json:"block1,omitempty"`
-	Block2        *uint64                `protobuf:"fixed64,2,req,name=block2" json:"block2,omitempty"`
-	Block3        *uint32                `protobuf:"fixed32,3,req,name=block3" json:"block3,omitempty"`
+	MsgType       *uint32                `protobuf:"varint,1,opt,name=msg_type,json=msgType" json:"msg_type,omitempty"`
+	Contents      []byte                 `protobuf:"bytes,2,opt,name=contents" json:"contents,omitempty"`
+	MsgKey        *uint64                `protobuf:"varint,3,opt,name=msg_key,json=msgKey" json:"msg_key,omitempty"`
+	IsCompressed  *bool                  `protobuf:"varint,4,opt,name=is_compressed,json=isCompressed" json:"is_compressed,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *CMsgSHA1Digest) Reset() {
-	*x = CMsgSHA1Digest{}
+func (x *CExtraMsgBlock) Reset() {
+	*x = CExtraMsgBlock{}
 	mi := &file_gcsdk_gcmessages_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CMsgSHA1Digest) String() string {
+func (x *CExtraMsgBlock) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CMsgSHA1Digest) ProtoMessage() {}
+func (*CExtraMsgBlock) ProtoMessage() {}
 
-func (x *CMsgSHA1Digest) ProtoReflect() protoreflect.Message {
+func (x *CExtraMsgBlock) ProtoReflect() protoreflect.Message {
 	mi := &file_gcsdk_gcmessages_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -242,30 +245,237 @@ func (x *CMsgSHA1Digest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CMsgSHA1Digest.ProtoReflect.Descriptor instead.
-func (*CMsgSHA1Digest) Descriptor() ([]byte, []int) {
+// Deprecated: Use CExtraMsgBlock.ProtoReflect.Descriptor instead.
+func (*CExtraMsgBlock) Descriptor() ([]byte, []int) {
 	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CMsgSHA1Digest) GetBlock1() uint64 {
-	if x != nil && x.Block1 != nil {
-		return *x.Block1
+func (x *CExtraMsgBlock) GetMsgType() uint32 {
+	if x != nil && x.MsgType != nil {
+		return *x.MsgType
 	}
 	return 0
 }
 
-func (x *CMsgSHA1Digest) GetBlock2() uint64 {
-	if x != nil && x.Block2 != nil {
-		return *x.Block2
+func (x *CExtraMsgBlock) GetContents() []byte {
+	if x != nil {
+		return x.Contents
+	}
+	return nil
+}
+
+func (x *CExtraMsgBlock) GetMsgKey() uint64 {
+	if x != nil && x.MsgKey != nil {
+		return *x.MsgKey
 	}
 	return 0
 }
 
-func (x *CMsgSHA1Digest) GetBlock3() uint32 {
-	if x != nil && x.Block3 != nil {
-		return *x.Block3
+func (x *CExtraMsgBlock) GetIsCompressed() bool {
+	if x != nil && x.IsCompressed != nil {
+		return *x.IsCompressed
+	}
+	return false
+}
+
+type CMsgSteamLearnServerInfo struct {
+	state         protoimpl.MessageState                                                   `protogen:"open.v1"`
+	AccessTokens  *CMsgSteamLearnAccessTokens `protobuf:"bytes,4,opt,name=access_tokens,json=accessTokens" json:"access_tokens,omitempty"`
+	ProjectInfos  []*CMsgSteamLearnServerInfo_ProjectInfo                                  `protobuf:"bytes,5,rep,name=project_infos,json=projectInfos" json:"project_infos,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgSteamLearnServerInfo) Reset() {
+	*x = CMsgSteamLearnServerInfo{}
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSteamLearnServerInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSteamLearnServerInfo) ProtoMessage() {}
+
+func (x *CMsgSteamLearnServerInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSteamLearnServerInfo.ProtoReflect.Descriptor instead.
+func (*CMsgSteamLearnServerInfo) Descriptor() ([]byte, []int) {
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CMsgSteamLearnServerInfo) GetAccessTokens() *CMsgSteamLearnAccessTokens {
+	if x != nil {
+		return x.AccessTokens
+	}
+	return nil
+}
+
+func (x *CMsgSteamLearnServerInfo) GetProjectInfos() []*CMsgSteamLearnServerInfo_ProjectInfo {
+	if x != nil {
+		return x.ProjectInfos
+	}
+	return nil
+}
+
+type CMsgGCAssertJobData struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MessageType   *string                `protobuf:"bytes,1,opt,name=message_type,json=messageType" json:"message_type,omitempty"`
+	MessageData   []byte                 `protobuf:"bytes,2,opt,name=message_data,json=messageData" json:"message_data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCAssertJobData) Reset() {
+	*x = CMsgGCAssertJobData{}
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCAssertJobData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCAssertJobData) ProtoMessage() {}
+
+func (x *CMsgGCAssertJobData) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCAssertJobData.ProtoReflect.Descriptor instead.
+func (*CMsgGCAssertJobData) Descriptor() ([]byte, []int) {
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CMsgGCAssertJobData) GetMessageType() string {
+	if x != nil && x.MessageType != nil {
+		return *x.MessageType
+	}
+	return ""
+}
+
+func (x *CMsgGCAssertJobData) GetMessageData() []byte {
+	if x != nil {
+		return x.MessageData
+	}
+	return nil
+}
+
+type CMsgGCConCommand struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Command       *string                `protobuf:"bytes,1,opt,name=command" json:"command,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCConCommand) Reset() {
+	*x = CMsgGCConCommand{}
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCConCommand) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCConCommand) ProtoMessage() {}
+
+func (x *CMsgGCConCommand) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCConCommand.ProtoReflect.Descriptor instead.
+func (*CMsgGCConCommand) Descriptor() ([]byte, []int) {
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CMsgGCConCommand) GetCommand() string {
+	if x != nil && x.Command != nil {
+		return *x.Command
+	}
+	return ""
+}
+
+type CMsgSDOAssert struct {
+	state         protoimpl.MessageState   `protogen:"open.v1"`
+	SdoType       *int32                   `protobuf:"varint,1,opt,name=sdo_type,json=sdoType" json:"sdo_type,omitempty"`
+	Requests      []*CMsgSDOAssert_Request `protobuf:"bytes,2,rep,name=requests" json:"requests,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgSDOAssert) Reset() {
+	*x = CMsgSDOAssert{}
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSDOAssert) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSDOAssert) ProtoMessage() {}
+
+func (x *CMsgSDOAssert) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSDOAssert.ProtoReflect.Descriptor instead.
+func (*CMsgSDOAssert) Descriptor() ([]byte, []int) {
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CMsgSDOAssert) GetSdoType() int32 {
+	if x != nil && x.SdoType != nil {
+		return *x.SdoType
 	}
 	return 0
+}
+
+func (x *CMsgSDOAssert) GetRequests() []*CMsgSDOAssert_Request {
+	if x != nil {
+		return x.Requests
+	}
+	return nil
 }
 
 type CMsgSOIDOwner struct {
@@ -278,7 +488,7 @@ type CMsgSOIDOwner struct {
 
 func (x *CMsgSOIDOwner) Reset() {
 	*x = CMsgSOIDOwner{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[1]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -290,7 +500,7 @@ func (x *CMsgSOIDOwner) String() string {
 func (*CMsgSOIDOwner) ProtoMessage() {}
 
 func (x *CMsgSOIDOwner) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[1]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -303,7 +513,7 @@ func (x *CMsgSOIDOwner) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOIDOwner.ProtoReflect.Descriptor instead.
 func (*CMsgSOIDOwner) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{1}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CMsgSOIDOwner) GetType() uint32 {
@@ -333,7 +543,7 @@ type CMsgSOSingleObject struct {
 
 func (x *CMsgSOSingleObject) Reset() {
 	*x = CMsgSOSingleObject{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[2]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -345,7 +555,7 @@ func (x *CMsgSOSingleObject) String() string {
 func (*CMsgSOSingleObject) ProtoMessage() {}
 
 func (x *CMsgSOSingleObject) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[2]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -358,7 +568,7 @@ func (x *CMsgSOSingleObject) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOSingleObject.ProtoReflect.Descriptor instead.
 func (*CMsgSOSingleObject) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{2}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CMsgSOSingleObject) GetTypeId() int32 {
@@ -410,7 +620,7 @@ type CMsgSOMultipleObjects struct {
 
 func (x *CMsgSOMultipleObjects) Reset() {
 	*x = CMsgSOMultipleObjects{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[3]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -422,7 +632,7 @@ func (x *CMsgSOMultipleObjects) String() string {
 func (*CMsgSOMultipleObjects) ProtoMessage() {}
 
 func (x *CMsgSOMultipleObjects) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[3]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -435,7 +645,7 @@ func (x *CMsgSOMultipleObjects) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOMultipleObjects.ProtoReflect.Descriptor instead.
 func (*CMsgSOMultipleObjects) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{3}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CMsgSOMultipleObjects) GetObjectsModified() []*CMsgSOMultipleObjects_SingleObject {
@@ -494,7 +704,7 @@ type CMsgSOCacheSubscribed struct {
 
 func (x *CMsgSOCacheSubscribed) Reset() {
 	*x = CMsgSOCacheSubscribed{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[4]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -506,7 +716,7 @@ func (x *CMsgSOCacheSubscribed) String() string {
 func (*CMsgSOCacheSubscribed) ProtoMessage() {}
 
 func (x *CMsgSOCacheSubscribed) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[4]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -519,7 +729,7 @@ func (x *CMsgSOCacheSubscribed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOCacheSubscribed.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheSubscribed) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{4}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CMsgSOCacheSubscribed) GetObjects() []*CMsgSOCacheSubscribed_SubscribedType {
@@ -577,7 +787,7 @@ type CMsgSOCacheSubscribedUpToDate struct {
 
 func (x *CMsgSOCacheSubscribedUpToDate) Reset() {
 	*x = CMsgSOCacheSubscribedUpToDate{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[5]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -589,7 +799,7 @@ func (x *CMsgSOCacheSubscribedUpToDate) String() string {
 func (*CMsgSOCacheSubscribedUpToDate) ProtoMessage() {}
 
 func (x *CMsgSOCacheSubscribedUpToDate) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[5]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -602,7 +812,7 @@ func (x *CMsgSOCacheSubscribedUpToDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOCacheSubscribedUpToDate.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheSubscribedUpToDate) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{5}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CMsgSOCacheSubscribedUpToDate) GetVersion() uint64 {
@@ -649,7 +859,7 @@ type CMsgSOCacheUnsubscribed struct {
 
 func (x *CMsgSOCacheUnsubscribed) Reset() {
 	*x = CMsgSOCacheUnsubscribed{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[6]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -661,7 +871,7 @@ func (x *CMsgSOCacheUnsubscribed) String() string {
 func (*CMsgSOCacheUnsubscribed) ProtoMessage() {}
 
 func (x *CMsgSOCacheUnsubscribed) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[6]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -674,7 +884,7 @@ func (x *CMsgSOCacheUnsubscribed) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOCacheUnsubscribed.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheUnsubscribed) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{6}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CMsgSOCacheUnsubscribed) GetOwnerSoid() *CMsgSOIDOwner {
@@ -697,7 +907,7 @@ type CMsgSOCacheSubscriptionCheck struct {
 
 func (x *CMsgSOCacheSubscriptionCheck) Reset() {
 	*x = CMsgSOCacheSubscriptionCheck{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[7]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -709,7 +919,7 @@ func (x *CMsgSOCacheSubscriptionCheck) String() string {
 func (*CMsgSOCacheSubscriptionCheck) ProtoMessage() {}
 
 func (x *CMsgSOCacheSubscriptionCheck) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[7]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -722,7 +932,7 @@ func (x *CMsgSOCacheSubscriptionCheck) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOCacheSubscriptionCheck.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheSubscriptionCheck) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{7}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CMsgSOCacheSubscriptionCheck) GetVersion() uint64 {
@@ -769,7 +979,7 @@ type CMsgSOCacheSubscriptionRefresh struct {
 
 func (x *CMsgSOCacheSubscriptionRefresh) Reset() {
 	*x = CMsgSOCacheSubscriptionRefresh{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[8]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -781,7 +991,7 @@ func (x *CMsgSOCacheSubscriptionRefresh) String() string {
 func (*CMsgSOCacheSubscriptionRefresh) ProtoMessage() {}
 
 func (x *CMsgSOCacheSubscriptionRefresh) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[8]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -794,7 +1004,7 @@ func (x *CMsgSOCacheSubscriptionRefresh) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOCacheSubscriptionRefresh.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheSubscriptionRefresh) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{8}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CMsgSOCacheSubscriptionRefresh) GetOwnerSoid() *CMsgSOIDOwner {
@@ -813,7 +1023,7 @@ type CMsgSOCacheVersion struct {
 
 func (x *CMsgSOCacheVersion) Reset() {
 	*x = CMsgSOCacheVersion{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[9]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -825,7 +1035,7 @@ func (x *CMsgSOCacheVersion) String() string {
 func (*CMsgSOCacheVersion) ProtoMessage() {}
 
 func (x *CMsgSOCacheVersion) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[9]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -838,7 +1048,7 @@ func (x *CMsgSOCacheVersion) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOCacheVersion.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheVersion) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{9}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CMsgSOCacheVersion) GetVersion() uint64 {
@@ -859,7 +1069,7 @@ type CMsgGCMultiplexMessage struct {
 
 func (x *CMsgGCMultiplexMessage) Reset() {
 	*x = CMsgGCMultiplexMessage{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[10]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -871,7 +1081,7 @@ func (x *CMsgGCMultiplexMessage) String() string {
 func (*CMsgGCMultiplexMessage) ProtoMessage() {}
 
 func (x *CMsgGCMultiplexMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[10]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -884,7 +1094,7 @@ func (x *CMsgGCMultiplexMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCMultiplexMessage.ProtoReflect.Descriptor instead.
 func (*CMsgGCMultiplexMessage) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{10}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CMsgGCMultiplexMessage) GetMsgtype() uint32 {
@@ -910,14 +1120,19 @@ func (x *CMsgGCMultiplexMessage) GetSteamids() []uint64 {
 
 type CMsgGCToGCSubGCStarting struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	DirIndex      *uint32                `protobuf:"varint,1,opt,name=dir_index,json=dirIndex" json:"dir_index,omitempty"`
+	DirIndex      *int32                 `protobuf:"varint,1,opt,name=dir_index,json=dirIndex,def=-1" json:"dir_index,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+// Default values for CMsgGCToGCSubGCStarting fields.
+const (
+	Default_CMsgGCToGCSubGCStarting_DirIndex = int32(-1)
+)
+
 func (x *CMsgGCToGCSubGCStarting) Reset() {
 	*x = CMsgGCToGCSubGCStarting{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[11]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -929,7 +1144,7 @@ func (x *CMsgGCToGCSubGCStarting) String() string {
 func (*CMsgGCToGCSubGCStarting) ProtoMessage() {}
 
 func (x *CMsgGCToGCSubGCStarting) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[11]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -942,19 +1157,19 @@ func (x *CMsgGCToGCSubGCStarting) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCSubGCStarting.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCSubGCStarting) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{11}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{15}
 }
 
-func (x *CMsgGCToGCSubGCStarting) GetDirIndex() uint32 {
+func (x *CMsgGCToGCSubGCStarting) GetDirIndex() int32 {
 	if x != nil && x.DirIndex != nil {
 		return *x.DirIndex
 	}
-	return 0
+	return Default_CMsgGCToGCSubGCStarting_DirIndex
 }
 
 type CGCToGCMsgMasterAck struct {
 	state         protoimpl.MessageState         `protogen:"open.v1"`
-	DirIndex      *uint32                        `protobuf:"varint,1,opt,name=dir_index,json=dirIndex" json:"dir_index,omitempty"`
+	DirIndex      *int32                         `protobuf:"varint,1,opt,name=dir_index,json=dirIndex,def=-1" json:"dir_index,omitempty"`
 	MachineName   *string                        `protobuf:"bytes,3,opt,name=machine_name,json=machineName" json:"machine_name,omitempty"`
 	ProcessName   *string                        `protobuf:"bytes,4,opt,name=process_name,json=processName" json:"process_name,omitempty"`
 	Directory     []*CGCToGCMsgMasterAck_Process `protobuf:"bytes,6,rep,name=directory" json:"directory,omitempty"`
@@ -962,9 +1177,14 @@ type CGCToGCMsgMasterAck struct {
 	sizeCache     protoimpl.SizeCache
 }
 
+// Default values for CGCToGCMsgMasterAck fields.
+const (
+	Default_CGCToGCMsgMasterAck_DirIndex = int32(-1)
+)
+
 func (x *CGCToGCMsgMasterAck) Reset() {
 	*x = CGCToGCMsgMasterAck{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[12]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -976,7 +1196,7 @@ func (x *CGCToGCMsgMasterAck) String() string {
 func (*CGCToGCMsgMasterAck) ProtoMessage() {}
 
 func (x *CGCToGCMsgMasterAck) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[12]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -989,14 +1209,14 @@ func (x *CGCToGCMsgMasterAck) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGCToGCMsgMasterAck.ProtoReflect.Descriptor instead.
 func (*CGCToGCMsgMasterAck) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{12}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{16}
 }
 
-func (x *CGCToGCMsgMasterAck) GetDirIndex() uint32 {
+func (x *CGCToGCMsgMasterAck) GetDirIndex() int32 {
 	if x != nil && x.DirIndex != nil {
 		return *x.DirIndex
 	}
-	return 0
+	return Default_CGCToGCMsgMasterAck_DirIndex
 }
 
 func (x *CGCToGCMsgMasterAck) GetMachineName() string {
@@ -1034,7 +1254,7 @@ const (
 
 func (x *CGCToGCMsgMasterAck_Response) Reset() {
 	*x = CGCToGCMsgMasterAck_Response{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[13]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1046,7 +1266,7 @@ func (x *CGCToGCMsgMasterAck_Response) String() string {
 func (*CGCToGCMsgMasterAck_Response) ProtoMessage() {}
 
 func (x *CGCToGCMsgMasterAck_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[13]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1059,7 +1279,7 @@ func (x *CGCToGCMsgMasterAck_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGCToGCMsgMasterAck_Response.ProtoReflect.Descriptor instead.
 func (*CGCToGCMsgMasterAck_Response) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{13}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CGCToGCMsgMasterAck_Response) GetEresult() int32 {
@@ -1078,7 +1298,7 @@ type CMsgGCToGCUniverseStartup struct {
 
 func (x *CMsgGCToGCUniverseStartup) Reset() {
 	*x = CMsgGCToGCUniverseStartup{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[14]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1090,7 +1310,7 @@ func (x *CMsgGCToGCUniverseStartup) String() string {
 func (*CMsgGCToGCUniverseStartup) ProtoMessage() {}
 
 func (x *CMsgGCToGCUniverseStartup) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[14]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1103,7 +1323,7 @@ func (x *CMsgGCToGCUniverseStartup) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCUniverseStartup.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCUniverseStartup) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{14}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CMsgGCToGCUniverseStartup) GetIsInitialStartup() bool {
@@ -1122,7 +1342,7 @@ type CMsgGCToGCUniverseStartupResponse struct {
 
 func (x *CMsgGCToGCUniverseStartupResponse) Reset() {
 	*x = CMsgGCToGCUniverseStartupResponse{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[15]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1134,7 +1354,7 @@ func (x *CMsgGCToGCUniverseStartupResponse) String() string {
 func (*CMsgGCToGCUniverseStartupResponse) ProtoMessage() {}
 
 func (x *CMsgGCToGCUniverseStartupResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[15]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1147,7 +1367,7 @@ func (x *CMsgGCToGCUniverseStartupResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgGCToGCUniverseStartupResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCUniverseStartupResponse) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{15}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *CMsgGCToGCUniverseStartupResponse) GetEresult() int32 {
@@ -1166,7 +1386,7 @@ type CGCToGCMsgMasterStartupComplete struct {
 
 func (x *CGCToGCMsgMasterStartupComplete) Reset() {
 	*x = CGCToGCMsgMasterStartupComplete{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[16]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1178,7 +1398,7 @@ func (x *CGCToGCMsgMasterStartupComplete) String() string {
 func (*CGCToGCMsgMasterStartupComplete) ProtoMessage() {}
 
 func (x *CGCToGCMsgMasterStartupComplete) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[16]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1191,7 +1411,7 @@ func (x *CGCToGCMsgMasterStartupComplete) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGCToGCMsgMasterStartupComplete.ProtoReflect.Descriptor instead.
 func (*CGCToGCMsgMasterStartupComplete) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{16}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CGCToGCMsgMasterStartupComplete) GetGcInfo() []*CGCToGCMsgMasterStartupComplete_GCInfo {
@@ -1212,7 +1432,7 @@ type CGCToGCMsgRouted struct {
 
 func (x *CGCToGCMsgRouted) Reset() {
 	*x = CGCToGCMsgRouted{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[17]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1224,7 +1444,7 @@ func (x *CGCToGCMsgRouted) String() string {
 func (*CGCToGCMsgRouted) ProtoMessage() {}
 
 func (x *CGCToGCMsgRouted) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[17]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1237,7 +1457,7 @@ func (x *CGCToGCMsgRouted) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGCToGCMsgRouted.ProtoReflect.Descriptor instead.
 func (*CGCToGCMsgRouted) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{17}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CGCToGCMsgRouted) GetMsgType() uint32 {
@@ -1271,7 +1491,7 @@ type CGCToGCMsgRoutedReply struct {
 
 func (x *CGCToGCMsgRoutedReply) Reset() {
 	*x = CGCToGCMsgRoutedReply{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[18]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1283,7 +1503,7 @@ func (x *CGCToGCMsgRoutedReply) String() string {
 func (*CGCToGCMsgRoutedReply) ProtoMessage() {}
 
 func (x *CGCToGCMsgRoutedReply) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[18]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1296,7 +1516,7 @@ func (x *CGCToGCMsgRoutedReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGCToGCMsgRoutedReply.ProtoReflect.Descriptor instead.
 func (*CGCToGCMsgRoutedReply) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{18}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CGCToGCMsgRoutedReply) GetMsgType() uint32 {
@@ -1322,7 +1542,7 @@ type CMsgGCUpdateSubGCSessionInfo struct {
 
 func (x *CMsgGCUpdateSubGCSessionInfo) Reset() {
 	*x = CMsgGCUpdateSubGCSessionInfo{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[19]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1334,7 +1554,7 @@ func (x *CMsgGCUpdateSubGCSessionInfo) String() string {
 func (*CMsgGCUpdateSubGCSessionInfo) ProtoMessage() {}
 
 func (x *CMsgGCUpdateSubGCSessionInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[19]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1347,7 +1567,7 @@ func (x *CMsgGCUpdateSubGCSessionInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCUpdateSubGCSessionInfo.ProtoReflect.Descriptor instead.
 func (*CMsgGCUpdateSubGCSessionInfo) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{19}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *CMsgGCUpdateSubGCSessionInfo) GetUpdates() []*CMsgGCUpdateSubGCSessionInfo_CMsgUpdate {
@@ -1366,7 +1586,7 @@ type CMsgGCRequestSubGCSessionInfo struct {
 
 func (x *CMsgGCRequestSubGCSessionInfo) Reset() {
 	*x = CMsgGCRequestSubGCSessionInfo{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[20]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1378,7 +1598,7 @@ func (x *CMsgGCRequestSubGCSessionInfo) String() string {
 func (*CMsgGCRequestSubGCSessionInfo) ProtoMessage() {}
 
 func (x *CMsgGCRequestSubGCSessionInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[20]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1391,7 +1611,7 @@ func (x *CMsgGCRequestSubGCSessionInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCRequestSubGCSessionInfo.ProtoReflect.Descriptor instead.
 func (*CMsgGCRequestSubGCSessionInfo) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{20}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *CMsgGCRequestSubGCSessionInfo) GetSteamid() uint64 {
@@ -1413,7 +1633,7 @@ type CMsgGCRequestSubGCSessionInfoResponse struct {
 
 func (x *CMsgGCRequestSubGCSessionInfoResponse) Reset() {
 	*x = CMsgGCRequestSubGCSessionInfoResponse{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[21]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1425,7 +1645,7 @@ func (x *CMsgGCRequestSubGCSessionInfoResponse) String() string {
 func (*CMsgGCRequestSubGCSessionInfoResponse) ProtoMessage() {}
 
 func (x *CMsgGCRequestSubGCSessionInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[21]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1438,7 +1658,7 @@ func (x *CMsgGCRequestSubGCSessionInfoResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgGCRequestSubGCSessionInfoResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCRequestSubGCSessionInfoResponse) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{21}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CMsgGCRequestSubGCSessionInfoResponse) GetIp() uint32 {
@@ -1481,7 +1701,7 @@ type CMsgSOCacheHaveVersion struct {
 
 func (x *CMsgSOCacheHaveVersion) Reset() {
 	*x = CMsgSOCacheHaveVersion{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[22]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1493,7 +1713,7 @@ func (x *CMsgSOCacheHaveVersion) String() string {
 func (*CMsgSOCacheHaveVersion) ProtoMessage() {}
 
 func (x *CMsgSOCacheHaveVersion) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[22]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1506,7 +1726,7 @@ func (x *CMsgSOCacheHaveVersion) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSOCacheHaveVersion.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheHaveVersion) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{22}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CMsgSOCacheHaveVersion) GetSoid() *CMsgSOIDOwner {
@@ -1559,6 +1779,9 @@ type CMsgClientHello struct {
 	RenderHeight        *uint32                   `protobuf:"varint,18,opt,name=render_height,json=renderHeight" json:"render_height,omitempty"`
 	SwapWidth           *uint32                   `protobuf:"varint,19,opt,name=swap_width,json=swapWidth" json:"swap_width,omitempty"`
 	SwapHeight          *uint32                   `protobuf:"varint,20,opt,name=swap_height,json=swapHeight" json:"swap_height,omitempty"`
+	IsSteamChina        *bool                     `protobuf:"varint,22,opt,name=is_steam_china,json=isSteamChina" json:"is_steam_china,omitempty"`
+	IsSteamChinaClient  *bool                     `protobuf:"varint,24,opt,name=is_steam_china_client,json=isSteamChinaClient" json:"is_steam_china_client,omitempty"`
+	PlatformName        *string                   `protobuf:"bytes,23,opt,name=platform_name,json=platformName" json:"platform_name,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -1571,7 +1794,7 @@ const (
 
 func (x *CMsgClientHello) Reset() {
 	*x = CMsgClientHello{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[23]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1583,7 +1806,7 @@ func (x *CMsgClientHello) String() string {
 func (*CMsgClientHello) ProtoMessage() {}
 
 func (x *CMsgClientHello) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[23]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1596,7 +1819,7 @@ func (x *CMsgClientHello) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientHello.ProtoReflect.Descriptor instead.
 func (*CMsgClientHello) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{23}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CMsgClientHello) GetVersion() uint32 {
@@ -1739,6 +1962,27 @@ func (x *CMsgClientHello) GetSwapHeight() uint32 {
 	return 0
 }
 
+func (x *CMsgClientHello) GetIsSteamChina() bool {
+	if x != nil && x.IsSteamChina != nil {
+		return *x.IsSteamChina
+	}
+	return false
+}
+
+func (x *CMsgClientHello) GetIsSteamChinaClient() bool {
+	if x != nil && x.IsSteamChinaClient != nil {
+		return *x.IsSteamChinaClient
+	}
+	return false
+}
+
+func (x *CMsgClientHello) GetPlatformName() string {
+	if x != nil && x.PlatformName != nil {
+		return *x.PlatformName
+	}
+	return ""
+}
+
 type CMsgClientWelcome struct {
 	state                     protoimpl.MessageState          `protogen:"open.v1"`
 	Version                   *uint32                         `protobuf:"varint,1,opt,name=version" json:"version,omitempty"`
@@ -1746,9 +1990,6 @@ type CMsgClientWelcome struct {
 	OutofdateSubscribedCaches []*CMsgSOCacheSubscribed        `protobuf:"bytes,3,rep,name=outofdate_subscribed_caches,json=outofdateSubscribedCaches" json:"outofdate_subscribed_caches,omitempty"`
 	UptodateSubscribedCaches  []*CMsgSOCacheSubscriptionCheck `protobuf:"bytes,4,rep,name=uptodate_subscribed_caches,json=uptodateSubscribedCaches" json:"uptodate_subscribed_caches,omitempty"`
 	Location                  *CMsgClientWelcome_Location     `protobuf:"bytes,5,opt,name=location" json:"location,omitempty"`
-	SaveGameKey               []byte                          `protobuf:"bytes,6,opt,name=save_game_key,json=saveGameKey" json:"save_game_key,omitempty"`
-	ItemSchemaCrc             *uint32                         `protobuf:"fixed32,7,opt,name=item_schema_crc,json=itemSchemaCrc" json:"item_schema_crc,omitempty"`
-	ItemsGameUrl              *string                         `protobuf:"bytes,8,opt,name=items_game_url,json=itemsGameUrl" json:"items_game_url,omitempty"`
 	GcSocacheFileVersion      *uint32                         `protobuf:"varint,9,opt,name=gc_socache_file_version,json=gcSocacheFileVersion" json:"gc_socache_file_version,omitempty"`
 	TxnCountryCode            *string                         `protobuf:"bytes,10,opt,name=txn_country_code,json=txnCountryCode" json:"txn_country_code,omitempty"`
 	GameData2                 []byte                          `protobuf:"bytes,11,opt,name=game_data2,json=gameData2" json:"game_data2,omitempty"`
@@ -1756,13 +1997,17 @@ type CMsgClientWelcome struct {
 	Currency                  *uint32                         `protobuf:"varint,13,opt,name=currency" json:"currency,omitempty"`
 	Balance                   *uint32                         `protobuf:"varint,14,opt,name=balance" json:"balance,omitempty"`
 	BalanceUrl                *string                         `protobuf:"bytes,15,opt,name=balance_url,json=balanceUrl" json:"balance_url,omitempty"`
+	HasAcceptedChinaSsa       *bool                           `protobuf:"varint,16,opt,name=has_accepted_china_ssa,json=hasAcceptedChinaSsa" json:"has_accepted_china_ssa,omitempty"`
+	IsBannedSteamChina        *bool                           `protobuf:"varint,17,opt,name=is_banned_steam_china,json=isBannedSteamChina" json:"is_banned_steam_china,omitempty"`
+	AdditionalWelcomeMsgs     *CExtraMsgBlock                 `protobuf:"bytes,18,opt,name=additional_welcome_msgs,json=additionalWelcomeMsgs" json:"additional_welcome_msgs,omitempty"`
+	SteamLearnServerInfo      *CMsgSteamLearnServerInfo       `protobuf:"bytes,20,opt,name=steam_learn_server_info,json=steamLearnServerInfo" json:"steam_learn_server_info,omitempty"`
 	unknownFields             protoimpl.UnknownFields
 	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *CMsgClientWelcome) Reset() {
 	*x = CMsgClientWelcome{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[24]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1774,7 +2019,7 @@ func (x *CMsgClientWelcome) String() string {
 func (*CMsgClientWelcome) ProtoMessage() {}
 
 func (x *CMsgClientWelcome) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[24]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1787,7 +2032,7 @@ func (x *CMsgClientWelcome) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientWelcome.ProtoReflect.Descriptor instead.
 func (*CMsgClientWelcome) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{24}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CMsgClientWelcome) GetVersion() uint32 {
@@ -1823,27 +2068,6 @@ func (x *CMsgClientWelcome) GetLocation() *CMsgClientWelcome_Location {
 		return x.Location
 	}
 	return nil
-}
-
-func (x *CMsgClientWelcome) GetSaveGameKey() []byte {
-	if x != nil {
-		return x.SaveGameKey
-	}
-	return nil
-}
-
-func (x *CMsgClientWelcome) GetItemSchemaCrc() uint32 {
-	if x != nil && x.ItemSchemaCrc != nil {
-		return *x.ItemSchemaCrc
-	}
-	return 0
-}
-
-func (x *CMsgClientWelcome) GetItemsGameUrl() string {
-	if x != nil && x.ItemsGameUrl != nil {
-		return *x.ItemsGameUrl
-	}
-	return ""
 }
 
 func (x *CMsgClientWelcome) GetGcSocacheFileVersion() uint32 {
@@ -1895,6 +2119,34 @@ func (x *CMsgClientWelcome) GetBalanceUrl() string {
 	return ""
 }
 
+func (x *CMsgClientWelcome) GetHasAcceptedChinaSsa() bool {
+	if x != nil && x.HasAcceptedChinaSsa != nil {
+		return *x.HasAcceptedChinaSsa
+	}
+	return false
+}
+
+func (x *CMsgClientWelcome) GetIsBannedSteamChina() bool {
+	if x != nil && x.IsBannedSteamChina != nil {
+		return *x.IsBannedSteamChina
+	}
+	return false
+}
+
+func (x *CMsgClientWelcome) GetAdditionalWelcomeMsgs() *CExtraMsgBlock {
+	if x != nil {
+		return x.AdditionalWelcomeMsgs
+	}
+	return nil
+}
+
+func (x *CMsgClientWelcome) GetSteamLearnServerInfo() *CMsgSteamLearnServerInfo {
+	if x != nil {
+		return x.SteamLearnServerInfo
+	}
+	return nil
+}
+
 type CMsgConnectionStatus struct {
 	state                         protoimpl.MessageState `protogen:"open.v1"`
 	Status                        *GCConnectionStatus    `protobuf:"varint,1,opt,name=status,enum=GCConnectionStatus,def=0" json:"status,omitempty"`
@@ -1914,7 +2166,7 @@ const (
 
 func (x *CMsgConnectionStatus) Reset() {
 	*x = CMsgConnectionStatus{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[25]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1926,7 +2178,7 @@ func (x *CMsgConnectionStatus) String() string {
 func (*CMsgConnectionStatus) ProtoMessage() {}
 
 func (x *CMsgConnectionStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[25]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1939,7 +2191,7 @@ func (x *CMsgConnectionStatus) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgConnectionStatus.ProtoReflect.Descriptor instead.
 func (*CMsgConnectionStatus) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{25}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CMsgConnectionStatus) GetStatus() GCConnectionStatus {
@@ -1997,7 +2249,7 @@ type CMsgGCToGCSOCacheSubscribe struct {
 
 func (x *CMsgGCToGCSOCacheSubscribe) Reset() {
 	*x = CMsgGCToGCSOCacheSubscribe{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[26]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2009,7 +2261,7 @@ func (x *CMsgGCToGCSOCacheSubscribe) String() string {
 func (*CMsgGCToGCSOCacheSubscribe) ProtoMessage() {}
 
 func (x *CMsgGCToGCSOCacheSubscribe) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[26]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2022,7 +2274,7 @@ func (x *CMsgGCToGCSOCacheSubscribe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCSOCacheSubscribe.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCSOCacheSubscribe) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{26}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CMsgGCToGCSOCacheSubscribe) GetSubscriber() uint64 {
@@ -2071,7 +2323,7 @@ type CMsgGCToGCSOCacheUnsubscribe struct {
 
 func (x *CMsgGCToGCSOCacheUnsubscribe) Reset() {
 	*x = CMsgGCToGCSOCacheUnsubscribe{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[27]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2083,7 +2335,7 @@ func (x *CMsgGCToGCSOCacheUnsubscribe) String() string {
 func (*CMsgGCToGCSOCacheUnsubscribe) ProtoMessage() {}
 
 func (x *CMsgGCToGCSOCacheUnsubscribe) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[27]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2096,7 +2348,7 @@ func (x *CMsgGCToGCSOCacheUnsubscribe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCSOCacheUnsubscribe.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCSOCacheUnsubscribe) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{27}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CMsgGCToGCSOCacheUnsubscribe) GetSubscriber() uint64 {
@@ -2128,7 +2380,7 @@ type CMsgGCClientPing struct {
 
 func (x *CMsgGCClientPing) Reset() {
 	*x = CMsgGCClientPing{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[28]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2140,7 +2392,7 @@ func (x *CMsgGCClientPing) String() string {
 func (*CMsgGCClientPing) ProtoMessage() {}
 
 func (x *CMsgGCClientPing) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[28]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2153,7 +2405,7 @@ func (x *CMsgGCClientPing) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCClientPing.ProtoReflect.Descriptor instead.
 func (*CMsgGCClientPing) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{28}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{32}
 }
 
 type CMsgGCToGCForwardAccountDetails struct {
@@ -2167,7 +2419,7 @@ type CMsgGCToGCForwardAccountDetails struct {
 
 func (x *CMsgGCToGCForwardAccountDetails) Reset() {
 	*x = CMsgGCToGCForwardAccountDetails{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[29]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2179,7 +2431,7 @@ func (x *CMsgGCToGCForwardAccountDetails) String() string {
 func (*CMsgGCToGCForwardAccountDetails) ProtoMessage() {}
 
 func (x *CMsgGCToGCForwardAccountDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[29]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2192,7 +2444,7 @@ func (x *CMsgGCToGCForwardAccountDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCForwardAccountDetails.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCForwardAccountDetails) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{29}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *CMsgGCToGCForwardAccountDetails) GetSteamid() uint64 {
@@ -2226,7 +2478,7 @@ type CMsgGCToGCLoadSessionSOCache struct {
 
 func (x *CMsgGCToGCLoadSessionSOCache) Reset() {
 	*x = CMsgGCToGCLoadSessionSOCache{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[30]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2238,7 +2490,7 @@ func (x *CMsgGCToGCLoadSessionSOCache) String() string {
 func (*CMsgGCToGCLoadSessionSOCache) ProtoMessage() {}
 
 func (x *CMsgGCToGCLoadSessionSOCache) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[30]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2251,7 +2503,7 @@ func (x *CMsgGCToGCLoadSessionSOCache) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCLoadSessionSOCache.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCLoadSessionSOCache) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{30}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CMsgGCToGCLoadSessionSOCache) GetAccountId() uint32 {
@@ -2276,7 +2528,7 @@ type CMsgGCToGCLoadSessionSOCacheResponse struct {
 
 func (x *CMsgGCToGCLoadSessionSOCacheResponse) Reset() {
 	*x = CMsgGCToGCLoadSessionSOCacheResponse{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[31]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2288,7 +2540,7 @@ func (x *CMsgGCToGCLoadSessionSOCacheResponse) String() string {
 func (*CMsgGCToGCLoadSessionSOCacheResponse) ProtoMessage() {}
 
 func (x *CMsgGCToGCLoadSessionSOCacheResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[31]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2301,7 +2553,7 @@ func (x *CMsgGCToGCLoadSessionSOCacheResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgGCToGCLoadSessionSOCacheResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCLoadSessionSOCacheResponse) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{31}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{35}
 }
 
 type CMsgGCToGCUpdateSessionStats struct {
@@ -2315,7 +2567,7 @@ type CMsgGCToGCUpdateSessionStats struct {
 
 func (x *CMsgGCToGCUpdateSessionStats) Reset() {
 	*x = CMsgGCToGCUpdateSessionStats{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[32]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2327,7 +2579,7 @@ func (x *CMsgGCToGCUpdateSessionStats) String() string {
 func (*CMsgGCToGCUpdateSessionStats) ProtoMessage() {}
 
 func (x *CMsgGCToGCUpdateSessionStats) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[32]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2340,7 +2592,7 @@ func (x *CMsgGCToGCUpdateSessionStats) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCUpdateSessionStats.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCUpdateSessionStats) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{32}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *CMsgGCToGCUpdateSessionStats) GetUserSessions() uint32 {
@@ -2372,7 +2624,7 @@ type CMsgGCToClientRequestDropped struct {
 
 func (x *CMsgGCToClientRequestDropped) Reset() {
 	*x = CMsgGCToClientRequestDropped{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[33]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2384,7 +2636,7 @@ func (x *CMsgGCToClientRequestDropped) String() string {
 func (*CMsgGCToClientRequestDropped) ProtoMessage() {}
 
 func (x *CMsgGCToClientRequestDropped) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[33]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2397,7 +2649,7 @@ func (x *CMsgGCToClientRequestDropped) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToClientRequestDropped.ProtoReflect.Descriptor instead.
 func (*CMsgGCToClientRequestDropped) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{33}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{37}
 }
 
 type CWorkshop_PopulateItemDescriptions_Request struct {
@@ -2410,7 +2662,7 @@ type CWorkshop_PopulateItemDescriptions_Request struct {
 
 func (x *CWorkshop_PopulateItemDescriptions_Request) Reset() {
 	*x = CWorkshop_PopulateItemDescriptions_Request{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[34]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2422,7 +2674,7 @@ func (x *CWorkshop_PopulateItemDescriptions_Request) String() string {
 func (*CWorkshop_PopulateItemDescriptions_Request) ProtoMessage() {}
 
 func (x *CWorkshop_PopulateItemDescriptions_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[34]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2435,7 +2687,7 @@ func (x *CWorkshop_PopulateItemDescriptions_Request) ProtoReflect() protoreflect
 
 // Deprecated: Use CWorkshop_PopulateItemDescriptions_Request.ProtoReflect.Descriptor instead.
 func (*CWorkshop_PopulateItemDescriptions_Request) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{34}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *CWorkshop_PopulateItemDescriptions_Request) GetAppid() uint32 {
@@ -2462,7 +2714,7 @@ type CWorkshop_GetContributors_Request struct {
 
 func (x *CWorkshop_GetContributors_Request) Reset() {
 	*x = CWorkshop_GetContributors_Request{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[35]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2474,7 +2726,7 @@ func (x *CWorkshop_GetContributors_Request) String() string {
 func (*CWorkshop_GetContributors_Request) ProtoMessage() {}
 
 func (x *CWorkshop_GetContributors_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[35]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2487,7 +2739,7 @@ func (x *CWorkshop_GetContributors_Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CWorkshop_GetContributors_Request.ProtoReflect.Descriptor instead.
 func (*CWorkshop_GetContributors_Request) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{35}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CWorkshop_GetContributors_Request) GetAppid() uint32 {
@@ -2513,7 +2765,7 @@ type CWorkshop_GetContributors_Response struct {
 
 func (x *CWorkshop_GetContributors_Response) Reset() {
 	*x = CWorkshop_GetContributors_Response{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[36]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2525,7 +2777,7 @@ func (x *CWorkshop_GetContributors_Response) String() string {
 func (*CWorkshop_GetContributors_Response) ProtoMessage() {}
 
 func (x *CWorkshop_GetContributors_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[36]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2538,7 +2790,7 @@ func (x *CWorkshop_GetContributors_Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CWorkshop_GetContributors_Response.ProtoReflect.Descriptor instead.
 func (*CWorkshop_GetContributors_Response) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{36}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *CWorkshop_GetContributors_Response) GetContributors() []uint64 {
@@ -2549,20 +2801,21 @@ func (x *CWorkshop_GetContributors_Response) GetContributors() []uint64 {
 }
 
 type CWorkshop_SetItemPaymentRules_Request struct {
-	state                         protoimpl.MessageState                                           `protogen:"open.v1"`
-	Appid                         *uint32                                                          `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
-	Gameitemid                    *uint32                                                          `protobuf:"varint,2,opt,name=gameitemid" json:"gameitemid,omitempty"`
-	AssociatedWorkshopFiles       []*CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule `protobuf:"bytes,3,rep,name=associated_workshop_files,json=associatedWorkshopFiles" json:"associated_workshop_files,omitempty"`
-	PartnerAccounts               []*CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule  `protobuf:"bytes,4,rep,name=partner_accounts,json=partnerAccounts" json:"partner_accounts,omitempty"`
-	ValidateOnly                  *bool                                                            `protobuf:"varint,5,opt,name=validate_only,json=validateOnly" json:"validate_only,omitempty"`
-	MakeWorkshopFilesSubscribable *bool                                                            `protobuf:"varint,6,opt,name=make_workshop_files_subscribable,json=makeWorkshopFilesSubscribable" json:"make_workshop_files_subscribable,omitempty"`
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state                                   protoimpl.MessageState                                           `protogen:"open.v1"`
+	Appid                                   *uint32                                                          `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	Gameitemid                              *uint32                                                          `protobuf:"varint,2,opt,name=gameitemid" json:"gameitemid,omitempty"`
+	AssociatedWorkshopFiles                 []*CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule `protobuf:"bytes,3,rep,name=associated_workshop_files,json=associatedWorkshopFiles" json:"associated_workshop_files,omitempty"`
+	PartnerAccounts                         []*CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule  `protobuf:"bytes,4,rep,name=partner_accounts,json=partnerAccounts" json:"partner_accounts,omitempty"`
+	ValidateOnly                            *bool                                                            `protobuf:"varint,5,opt,name=validate_only,json=validateOnly" json:"validate_only,omitempty"`
+	MakeWorkshopFilesSubscribable           *bool                                                            `protobuf:"varint,6,opt,name=make_workshop_files_subscribable,json=makeWorkshopFilesSubscribable" json:"make_workshop_files_subscribable,omitempty"`
+	AssociatedWorkshopFileForDirectPayments *CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule `protobuf:"bytes,7,opt,name=associated_workshop_file_for_direct_payments,json=associatedWorkshopFileForDirectPayments" json:"associated_workshop_file_for_direct_payments,omitempty"`
+	unknownFields                           protoimpl.UnknownFields
+	sizeCache                               protoimpl.SizeCache
 }
 
 func (x *CWorkshop_SetItemPaymentRules_Request) Reset() {
 	*x = CWorkshop_SetItemPaymentRules_Request{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[37]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2574,7 +2827,7 @@ func (x *CWorkshop_SetItemPaymentRules_Request) String() string {
 func (*CWorkshop_SetItemPaymentRules_Request) ProtoMessage() {}
 
 func (x *CWorkshop_SetItemPaymentRules_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[37]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2587,7 +2840,7 @@ func (x *CWorkshop_SetItemPaymentRules_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CWorkshop_SetItemPaymentRules_Request.ProtoReflect.Descriptor instead.
 func (*CWorkshop_SetItemPaymentRules_Request) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{37}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CWorkshop_SetItemPaymentRules_Request) GetAppid() uint32 {
@@ -2632,6 +2885,13 @@ func (x *CWorkshop_SetItemPaymentRules_Request) GetMakeWorkshopFilesSubscribable
 	return false
 }
 
+func (x *CWorkshop_SetItemPaymentRules_Request) GetAssociatedWorkshopFileForDirectPayments() *CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule {
+	if x != nil {
+		return x.AssociatedWorkshopFileForDirectPayments
+	}
+	return nil
+}
+
 type CWorkshop_SetItemPaymentRules_Response struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	ValidationErrors []string               `protobuf:"bytes,1,rep,name=validation_errors,json=validationErrors" json:"validation_errors,omitempty"`
@@ -2641,7 +2901,7 @@ type CWorkshop_SetItemPaymentRules_Response struct {
 
 func (x *CWorkshop_SetItemPaymentRules_Response) Reset() {
 	*x = CWorkshop_SetItemPaymentRules_Response{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[38]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2653,7 +2913,7 @@ func (x *CWorkshop_SetItemPaymentRules_Response) String() string {
 func (*CWorkshop_SetItemPaymentRules_Response) ProtoMessage() {}
 
 func (x *CWorkshop_SetItemPaymentRules_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[38]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2666,7 +2926,7 @@ func (x *CWorkshop_SetItemPaymentRules_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CWorkshop_SetItemPaymentRules_Response.ProtoReflect.Descriptor instead.
 func (*CWorkshop_SetItemPaymentRules_Response) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{38}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *CWorkshop_SetItemPaymentRules_Response) GetValidationErrors() []string {
@@ -2696,7 +2956,7 @@ type CCommunity_ClanAnnouncementInfo struct {
 
 func (x *CCommunity_ClanAnnouncementInfo) Reset() {
 	*x = CCommunity_ClanAnnouncementInfo{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[39]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2708,7 +2968,7 @@ func (x *CCommunity_ClanAnnouncementInfo) String() string {
 func (*CCommunity_ClanAnnouncementInfo) ProtoMessage() {}
 
 func (x *CCommunity_ClanAnnouncementInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[39]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2721,7 +2981,7 @@ func (x *CCommunity_ClanAnnouncementInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCommunity_ClanAnnouncementInfo.ProtoReflect.Descriptor instead.
 func (*CCommunity_ClanAnnouncementInfo) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{39}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CCommunity_ClanAnnouncementInfo) GetGid() uint64 {
@@ -2829,7 +3089,7 @@ type CCommunity_GetClanAnnouncements_Request struct {
 
 func (x *CCommunity_GetClanAnnouncements_Request) Reset() {
 	*x = CCommunity_GetClanAnnouncements_Request{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[40]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2841,7 +3101,7 @@ func (x *CCommunity_GetClanAnnouncements_Request) String() string {
 func (*CCommunity_GetClanAnnouncements_Request) ProtoMessage() {}
 
 func (x *CCommunity_GetClanAnnouncements_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[40]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2854,7 +3114,7 @@ func (x *CCommunity_GetClanAnnouncements_Request) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CCommunity_GetClanAnnouncements_Request.ProtoReflect.Descriptor instead.
 func (*CCommunity_GetClanAnnouncements_Request) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{40}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *CCommunity_GetClanAnnouncements_Request) GetSteamid() uint64 {
@@ -2959,7 +3219,7 @@ type CCommunity_GetClanAnnouncements_Response struct {
 
 func (x *CCommunity_GetClanAnnouncements_Response) Reset() {
 	*x = CCommunity_GetClanAnnouncements_Response{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[41]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2971,7 +3231,7 @@ func (x *CCommunity_GetClanAnnouncements_Response) String() string {
 func (*CCommunity_GetClanAnnouncements_Response) ProtoMessage() {}
 
 func (x *CCommunity_GetClanAnnouncements_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[41]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2984,7 +3244,7 @@ func (x *CCommunity_GetClanAnnouncements_Response) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CCommunity_GetClanAnnouncements_Response.ProtoReflect.Descriptor instead.
 func (*CCommunity_GetClanAnnouncements_Response) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{41}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *CCommunity_GetClanAnnouncements_Response) GetMaxchars() uint32 {
@@ -3020,7 +3280,7 @@ type CBroadcast_PostGameDataFrame_Request struct {
 
 func (x *CBroadcast_PostGameDataFrame_Request) Reset() {
 	*x = CBroadcast_PostGameDataFrame_Request{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[42]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3032,7 +3292,7 @@ func (x *CBroadcast_PostGameDataFrame_Request) String() string {
 func (*CBroadcast_PostGameDataFrame_Request) ProtoMessage() {}
 
 func (x *CBroadcast_PostGameDataFrame_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[42]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3045,7 +3305,7 @@ func (x *CBroadcast_PostGameDataFrame_Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CBroadcast_PostGameDataFrame_Request.ProtoReflect.Descriptor instead.
 func (*CBroadcast_PostGameDataFrame_Request) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{42}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *CBroadcast_PostGameDataFrame_Request) GetAppid() uint32 {
@@ -3087,7 +3347,7 @@ type CMsgSerializedSOCache struct {
 
 func (x *CMsgSerializedSOCache) Reset() {
 	*x = CMsgSerializedSOCache{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[43]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3099,7 +3359,7 @@ func (x *CMsgSerializedSOCache) String() string {
 func (*CMsgSerializedSOCache) ProtoMessage() {}
 
 func (x *CMsgSerializedSOCache) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[43]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3112,7 +3372,7 @@ func (x *CMsgSerializedSOCache) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSerializedSOCache.ProtoReflect.Descriptor instead.
 func (*CMsgSerializedSOCache) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{43}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *CMsgSerializedSOCache) GetFileVersion() uint32 {
@@ -3146,7 +3406,7 @@ type CMsgGCToClientPollConvarRequest struct {
 
 func (x *CMsgGCToClientPollConvarRequest) Reset() {
 	*x = CMsgGCToClientPollConvarRequest{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[44]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3158,7 +3418,7 @@ func (x *CMsgGCToClientPollConvarRequest) String() string {
 func (*CMsgGCToClientPollConvarRequest) ProtoMessage() {}
 
 func (x *CMsgGCToClientPollConvarRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[44]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3171,7 +3431,7 @@ func (x *CMsgGCToClientPollConvarRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToClientPollConvarRequest.ProtoReflect.Descriptor instead.
 func (*CMsgGCToClientPollConvarRequest) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{44}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *CMsgGCToClientPollConvarRequest) GetConvarName() string {
@@ -3198,7 +3458,7 @@ type CMsgGCToClientPollConvarResponse struct {
 
 func (x *CMsgGCToClientPollConvarResponse) Reset() {
 	*x = CMsgGCToClientPollConvarResponse{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[45]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3210,7 +3470,7 @@ func (x *CMsgGCToClientPollConvarResponse) String() string {
 func (*CMsgGCToClientPollConvarResponse) ProtoMessage() {}
 
 func (x *CMsgGCToClientPollConvarResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[45]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3223,7 +3483,7 @@ func (x *CMsgGCToClientPollConvarResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToClientPollConvarResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCToClientPollConvarResponse) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{45}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *CMsgGCToClientPollConvarResponse) GetPollId() uint32 {
@@ -3250,7 +3510,7 @@ type CGCMsgCompressedMsgToClient struct {
 
 func (x *CGCMsgCompressedMsgToClient) Reset() {
 	*x = CGCMsgCompressedMsgToClient{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[46]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3262,7 +3522,7 @@ func (x *CGCMsgCompressedMsgToClient) String() string {
 func (*CGCMsgCompressedMsgToClient) ProtoMessage() {}
 
 func (x *CGCMsgCompressedMsgToClient) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[46]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3275,7 +3535,7 @@ func (x *CGCMsgCompressedMsgToClient) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGCMsgCompressedMsgToClient.ProtoReflect.Descriptor instead.
 func (*CGCMsgCompressedMsgToClient) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{46}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *CGCMsgCompressedMsgToClient) GetMsgId() uint32 {
@@ -3305,7 +3565,7 @@ type CMsgGCToGCMasterBroadcastMessage struct {
 
 func (x *CMsgGCToGCMasterBroadcastMessage) Reset() {
 	*x = CMsgGCToGCMasterBroadcastMessage{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[47]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3317,7 +3577,7 @@ func (x *CMsgGCToGCMasterBroadcastMessage) String() string {
 func (*CMsgGCToGCMasterBroadcastMessage) ProtoMessage() {}
 
 func (x *CMsgGCToGCMasterBroadcastMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[47]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3330,7 +3590,7 @@ func (x *CMsgGCToGCMasterBroadcastMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCMasterBroadcastMessage.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCMasterBroadcastMessage) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{47}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *CMsgGCToGCMasterBroadcastMessage) GetUsersPerSecond() uint32 {
@@ -3380,7 +3640,7 @@ type CMsgGCToGCMasterSubscribeToCache struct {
 
 func (x *CMsgGCToGCMasterSubscribeToCache) Reset() {
 	*x = CMsgGCToGCMasterSubscribeToCache{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[48]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3392,7 +3652,7 @@ func (x *CMsgGCToGCMasterSubscribeToCache) String() string {
 func (*CMsgGCToGCMasterSubscribeToCache) ProtoMessage() {}
 
 func (x *CMsgGCToGCMasterSubscribeToCache) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[48]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3405,7 +3665,7 @@ func (x *CMsgGCToGCMasterSubscribeToCache) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCMasterSubscribeToCache.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCMasterSubscribeToCache) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{48}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *CMsgGCToGCMasterSubscribeToCache) GetSoidType() uint32 {
@@ -3444,7 +3704,7 @@ type CMsgGCToGCMasterSubscribeToCacheResponse struct {
 
 func (x *CMsgGCToGCMasterSubscribeToCacheResponse) Reset() {
 	*x = CMsgGCToGCMasterSubscribeToCacheResponse{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[49]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3456,7 +3716,7 @@ func (x *CMsgGCToGCMasterSubscribeToCacheResponse) String() string {
 func (*CMsgGCToGCMasterSubscribeToCacheResponse) ProtoMessage() {}
 
 func (x *CMsgGCToGCMasterSubscribeToCacheResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[49]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3469,7 +3729,7 @@ func (x *CMsgGCToGCMasterSubscribeToCacheResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CMsgGCToGCMasterSubscribeToCacheResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCMasterSubscribeToCacheResponse) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{49}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{53}
 }
 
 type CMsgGCToGCMasterSubscribeToCacheAsync struct {
@@ -3481,7 +3741,7 @@ type CMsgGCToGCMasterSubscribeToCacheAsync struct {
 
 func (x *CMsgGCToGCMasterSubscribeToCacheAsync) Reset() {
 	*x = CMsgGCToGCMasterSubscribeToCacheAsync{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[50]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3493,7 +3753,7 @@ func (x *CMsgGCToGCMasterSubscribeToCacheAsync) String() string {
 func (*CMsgGCToGCMasterSubscribeToCacheAsync) ProtoMessage() {}
 
 func (x *CMsgGCToGCMasterSubscribeToCacheAsync) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[50]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3506,7 +3766,7 @@ func (x *CMsgGCToGCMasterSubscribeToCacheAsync) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgGCToGCMasterSubscribeToCacheAsync.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCMasterSubscribeToCacheAsync) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{50}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *CMsgGCToGCMasterSubscribeToCacheAsync) GetSubscribeMsg() *CMsgGCToGCMasterSubscribeToCache {
@@ -3528,7 +3788,7 @@ type CMsgGCToGCMasterUnsubscribeFromCache struct {
 
 func (x *CMsgGCToGCMasterUnsubscribeFromCache) Reset() {
 	*x = CMsgGCToGCMasterUnsubscribeFromCache{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[51]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3540,7 +3800,7 @@ func (x *CMsgGCToGCMasterUnsubscribeFromCache) String() string {
 func (*CMsgGCToGCMasterUnsubscribeFromCache) ProtoMessage() {}
 
 func (x *CMsgGCToGCMasterUnsubscribeFromCache) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[51]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3553,7 +3813,7 @@ func (x *CMsgGCToGCMasterUnsubscribeFromCache) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgGCToGCMasterUnsubscribeFromCache.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCMasterUnsubscribeFromCache) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{51}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *CMsgGCToGCMasterUnsubscribeFromCache) GetSoidType() uint32 {
@@ -3594,7 +3854,7 @@ type CMsgGCToGCMasterDestroyCache struct {
 
 func (x *CMsgGCToGCMasterDestroyCache) Reset() {
 	*x = CMsgGCToGCMasterDestroyCache{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[52]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3606,7 +3866,7 @@ func (x *CMsgGCToGCMasterDestroyCache) String() string {
 func (*CMsgGCToGCMasterDestroyCache) ProtoMessage() {}
 
 func (x *CMsgGCToGCMasterDestroyCache) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[52]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3619,7 +3879,7 @@ func (x *CMsgGCToGCMasterDestroyCache) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCToGCMasterDestroyCache.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCMasterDestroyCache) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{52}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *CMsgGCToGCMasterDestroyCache) GetSoidType() uint32 {
@@ -3636,6 +3896,134 @@ func (x *CMsgGCToGCMasterDestroyCache) GetSoidId() uint64 {
 	return 0
 }
 
+type CMsgSteamLearnServerInfo_ProjectInfo struct {
+	state                     protoimpl.MessageState `protogen:"open.v1"`
+	ProjectId                 *uint32                `protobuf:"varint,1,opt,name=project_id,json=projectId" json:"project_id,omitempty"`
+	SnapshotPublishedVersion  *uint32                `protobuf:"varint,2,opt,name=snapshot_published_version,json=snapshotPublishedVersion" json:"snapshot_published_version,omitempty"`
+	InferencePublishedVersion *uint32                `protobuf:"varint,3,opt,name=inference_published_version,json=inferencePublishedVersion" json:"inference_published_version,omitempty"`
+	SnapshotPercentage        *uint32                `protobuf:"varint,6,opt,name=snapshot_percentage,json=snapshotPercentage" json:"snapshot_percentage,omitempty"`
+	SnapshotEnabled           *bool                  `protobuf:"varint,7,opt,name=snapshot_enabled,json=snapshotEnabled" json:"snapshot_enabled,omitempty"`
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
+}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) Reset() {
+	*x = CMsgSteamLearnServerInfo_ProjectInfo{}
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[57]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSteamLearnServerInfo_ProjectInfo) ProtoMessage() {}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[57]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSteamLearnServerInfo_ProjectInfo.ProtoReflect.Descriptor instead.
+func (*CMsgSteamLearnServerInfo_ProjectInfo) Descriptor() ([]byte, []int) {
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{1, 0}
+}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) GetProjectId() uint32 {
+	if x != nil && x.ProjectId != nil {
+		return *x.ProjectId
+	}
+	return 0
+}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) GetSnapshotPublishedVersion() uint32 {
+	if x != nil && x.SnapshotPublishedVersion != nil {
+		return *x.SnapshotPublishedVersion
+	}
+	return 0
+}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) GetInferencePublishedVersion() uint32 {
+	if x != nil && x.InferencePublishedVersion != nil {
+		return *x.InferencePublishedVersion
+	}
+	return 0
+}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) GetSnapshotPercentage() uint32 {
+	if x != nil && x.SnapshotPercentage != nil {
+		return *x.SnapshotPercentage
+	}
+	return 0
+}
+
+func (x *CMsgSteamLearnServerInfo_ProjectInfo) GetSnapshotEnabled() bool {
+	if x != nil && x.SnapshotEnabled != nil {
+		return *x.SnapshotEnabled
+	}
+	return false
+}
+
+type CMsgSDOAssert_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Key           []uint64               `protobuf:"varint,1,rep,name=key" json:"key,omitempty"`
+	RequestingJob *string                `protobuf:"bytes,2,opt,name=requesting_job,json=requestingJob" json:"requesting_job,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgSDOAssert_Request) Reset() {
+	*x = CMsgSDOAssert_Request{}
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgSDOAssert_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgSDOAssert_Request) ProtoMessage() {}
+
+func (x *CMsgSDOAssert_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgSDOAssert_Request.ProtoReflect.Descriptor instead.
+func (*CMsgSDOAssert_Request) Descriptor() ([]byte, []int) {
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{4, 0}
+}
+
+func (x *CMsgSDOAssert_Request) GetKey() []uint64 {
+	if x != nil {
+		return x.Key
+	}
+	return nil
+}
+
+func (x *CMsgSDOAssert_Request) GetRequestingJob() string {
+	if x != nil && x.RequestingJob != nil {
+		return *x.RequestingJob
+	}
+	return ""
+}
+
 type CMsgSOMultipleObjects_SingleObject struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TypeId        *int32                 `protobuf:"varint,1,opt,name=type_id,json=typeId" json:"type_id,omitempty"`
@@ -3646,7 +4034,7 @@ type CMsgSOMultipleObjects_SingleObject struct {
 
 func (x *CMsgSOMultipleObjects_SingleObject) Reset() {
 	*x = CMsgSOMultipleObjects_SingleObject{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[53]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[59]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3658,7 +4046,7 @@ func (x *CMsgSOMultipleObjects_SingleObject) String() string {
 func (*CMsgSOMultipleObjects_SingleObject) ProtoMessage() {}
 
 func (x *CMsgSOMultipleObjects_SingleObject) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[53]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[59]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3671,7 +4059,7 @@ func (x *CMsgSOMultipleObjects_SingleObject) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgSOMultipleObjects_SingleObject.ProtoReflect.Descriptor instead.
 func (*CMsgSOMultipleObjects_SingleObject) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{3, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{7, 0}
 }
 
 func (x *CMsgSOMultipleObjects_SingleObject) GetTypeId() int32 {
@@ -3698,7 +4086,7 @@ type CMsgSOCacheSubscribed_SubscribedType struct {
 
 func (x *CMsgSOCacheSubscribed_SubscribedType) Reset() {
 	*x = CMsgSOCacheSubscribed_SubscribedType{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[54]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3710,7 +4098,7 @@ func (x *CMsgSOCacheSubscribed_SubscribedType) String() string {
 func (*CMsgSOCacheSubscribed_SubscribedType) ProtoMessage() {}
 
 func (x *CMsgSOCacheSubscribed_SubscribedType) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[54]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3723,7 +4111,7 @@ func (x *CMsgSOCacheSubscribed_SubscribedType) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgSOCacheSubscribed_SubscribedType.ProtoReflect.Descriptor instead.
 func (*CMsgSOCacheSubscribed_SubscribedType) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{4, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{8, 0}
 }
 
 func (x *CMsgSOCacheSubscribed_SubscribedType) GetTypeId() int32 {
@@ -3742,15 +4130,20 @@ func (x *CMsgSOCacheSubscribed_SubscribedType) GetObjectData() [][]byte {
 
 type CGCToGCMsgMasterAck_Process struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	DirIndex      *uint32                `protobuf:"varint,1,opt,name=dir_index,json=dirIndex" json:"dir_index,omitempty"`
+	DirIndex      *int32                 `protobuf:"varint,1,opt,name=dir_index,json=dirIndex,def=-1" json:"dir_index,omitempty"`
 	TypeInstances []uint32               `protobuf:"varint,2,rep,name=type_instances,json=typeInstances" json:"type_instances,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+// Default values for CGCToGCMsgMasterAck_Process fields.
+const (
+	Default_CGCToGCMsgMasterAck_Process_DirIndex = int32(-1)
+)
+
 func (x *CGCToGCMsgMasterAck_Process) Reset() {
 	*x = CGCToGCMsgMasterAck_Process{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[55]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3762,7 +4155,7 @@ func (x *CGCToGCMsgMasterAck_Process) String() string {
 func (*CGCToGCMsgMasterAck_Process) ProtoMessage() {}
 
 func (x *CGCToGCMsgMasterAck_Process) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[55]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3775,14 +4168,14 @@ func (x *CGCToGCMsgMasterAck_Process) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CGCToGCMsgMasterAck_Process.ProtoReflect.Descriptor instead.
 func (*CGCToGCMsgMasterAck_Process) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{12, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{16, 0}
 }
 
-func (x *CGCToGCMsgMasterAck_Process) GetDirIndex() uint32 {
+func (x *CGCToGCMsgMasterAck_Process) GetDirIndex() int32 {
 	if x != nil && x.DirIndex != nil {
 		return *x.DirIndex
 	}
-	return 0
+	return Default_CGCToGCMsgMasterAck_Process_DirIndex
 }
 
 func (x *CGCToGCMsgMasterAck_Process) GetTypeInstances() []uint32 {
@@ -3794,15 +4187,20 @@ func (x *CGCToGCMsgMasterAck_Process) GetTypeInstances() []uint32 {
 
 type CGCToGCMsgMasterStartupComplete_GCInfo struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	DirIndex      *uint32                `protobuf:"varint,1,opt,name=dir_index,json=dirIndex" json:"dir_index,omitempty"`
+	DirIndex      *int32                 `protobuf:"varint,1,opt,name=dir_index,json=dirIndex,def=-1" json:"dir_index,omitempty"`
 	MachineName   *string                `protobuf:"bytes,2,opt,name=machine_name,json=machineName" json:"machine_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+// Default values for CGCToGCMsgMasterStartupComplete_GCInfo fields.
+const (
+	Default_CGCToGCMsgMasterStartupComplete_GCInfo_DirIndex = int32(-1)
+)
+
 func (x *CGCToGCMsgMasterStartupComplete_GCInfo) Reset() {
 	*x = CGCToGCMsgMasterStartupComplete_GCInfo{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[56]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3814,7 +4212,7 @@ func (x *CGCToGCMsgMasterStartupComplete_GCInfo) String() string {
 func (*CGCToGCMsgMasterStartupComplete_GCInfo) ProtoMessage() {}
 
 func (x *CGCToGCMsgMasterStartupComplete_GCInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[56]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3827,14 +4225,14 @@ func (x *CGCToGCMsgMasterStartupComplete_GCInfo) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CGCToGCMsgMasterStartupComplete_GCInfo.ProtoReflect.Descriptor instead.
 func (*CGCToGCMsgMasterStartupComplete_GCInfo) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{16, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{20, 0}
 }
 
-func (x *CGCToGCMsgMasterStartupComplete_GCInfo) GetDirIndex() uint32 {
+func (x *CGCToGCMsgMasterStartupComplete_GCInfo) GetDirIndex() int32 {
 	if x != nil && x.DirIndex != nil {
 		return *x.DirIndex
 	}
-	return 0
+	return Default_CGCToGCMsgMasterStartupComplete_GCInfo_DirIndex
 }
 
 func (x *CGCToGCMsgMasterStartupComplete_GCInfo) GetMachineName() string {
@@ -3855,7 +4253,7 @@ type CMsgGCUpdateSubGCSessionInfo_CMsgUpdate struct {
 
 func (x *CMsgGCUpdateSubGCSessionInfo_CMsgUpdate) Reset() {
 	*x = CMsgGCUpdateSubGCSessionInfo_CMsgUpdate{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[57]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[63]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3867,7 +4265,7 @@ func (x *CMsgGCUpdateSubGCSessionInfo_CMsgUpdate) String() string {
 func (*CMsgGCUpdateSubGCSessionInfo_CMsgUpdate) ProtoMessage() {}
 
 func (x *CMsgGCUpdateSubGCSessionInfo_CMsgUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[57]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[63]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3880,7 +4278,7 @@ func (x *CMsgGCUpdateSubGCSessionInfo_CMsgUpdate) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgGCUpdateSubGCSessionInfo_CMsgUpdate.ProtoReflect.Descriptor instead.
 func (*CMsgGCUpdateSubGCSessionInfo_CMsgUpdate) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{19, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{23, 0}
 }
 
 func (x *CMsgGCUpdateSubGCSessionInfo_CMsgUpdate) GetSteamid() uint64 {
@@ -3915,7 +4313,7 @@ type CMsgClientWelcome_Location struct {
 
 func (x *CMsgClientWelcome_Location) Reset() {
 	*x = CMsgClientWelcome_Location{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[58]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3927,7 +4325,7 @@ func (x *CMsgClientWelcome_Location) String() string {
 func (*CMsgClientWelcome_Location) ProtoMessage() {}
 
 func (x *CMsgClientWelcome_Location) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[58]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3940,7 +4338,7 @@ func (x *CMsgClientWelcome_Location) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientWelcome_Location.ProtoReflect.Descriptor instead.
 func (*CMsgClientWelcome_Location) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{24, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{28, 0}
 }
 
 func (x *CMsgClientWelcome_Location) GetLatitude() float32 {
@@ -3974,7 +4372,7 @@ type CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions struct {
 
 func (x *CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions) Reset() {
 	*x = CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[59]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3986,7 +4384,7 @@ func (x *CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions) String() string {
 func (*CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions) ProtoMessage() {}
 
 func (x *CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[59]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3999,7 +4397,7 @@ func (x *CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions.ProtoReflect.Descriptor instead.
 func (*CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{26, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{30, 0}
 }
 
 func (x *CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions) GetServiceId() uint32 {
@@ -4026,7 +4424,7 @@ type CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription struct {
 
 func (x *CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription) Reset() {
 	*x = CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[60]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4038,7 +4436,7 @@ func (x *CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription) Strin
 func (*CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription) ProtoMessage() {}
 
 func (x *CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[60]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4051,7 +4449,7 @@ func (x *CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription) Proto
 
 // Deprecated: Use CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription.ProtoReflect.Descriptor instead.
 func (*CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{34, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{38, 0}
 }
 
 func (x *CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription) GetGameitemid() uint32 {
@@ -4078,7 +4476,7 @@ type CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock st
 
 func (x *CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock) Reset() {
 	*x = CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[61]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4090,7 +4488,7 @@ func (x *CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBloc
 func (*CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock) ProtoMessage() {}
 
 func (x *CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[61]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4103,7 +4501,7 @@ func (x *CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBloc
 
 // Deprecated: Use CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock.ProtoReflect.Descriptor instead.
 func (*CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{34, 1}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{38, 1}
 }
 
 func (x *CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock) GetLanguage() string {
@@ -4125,14 +4523,19 @@ type CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule struct {
 	WorkshopFileId    *uint64                `protobuf:"varint,1,opt,name=workshop_file_id,json=workshopFileId" json:"workshop_file_id,omitempty"`
 	RevenuePercentage *float32               `protobuf:"fixed32,2,opt,name=revenue_percentage,json=revenuePercentage" json:"revenue_percentage,omitempty"`
 	RuleDescription   *string                `protobuf:"bytes,3,opt,name=rule_description,json=ruleDescription" json:"rule_description,omitempty"`
-	RuleType          *uint32                `protobuf:"varint,4,opt,name=rule_type,json=ruleType" json:"rule_type,omitempty"`
+	RuleType          *uint32                `protobuf:"varint,4,opt,name=rule_type,json=ruleType,def=1" json:"rule_type,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
+// Default values for CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule fields.
+const (
+	Default_CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule_RuleType = uint32(1)
+)
+
 func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) Reset() {
 	*x = CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[62]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4144,7 +4547,7 @@ func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) String()
 func (*CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) ProtoMessage() {}
 
 func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[62]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4157,7 +4560,7 @@ func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) ProtoRef
 
 // Deprecated: Use CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule.ProtoReflect.Descriptor instead.
 func (*CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{37, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{41, 0}
 }
 
 func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) GetWorkshopFileId() uint64 {
@@ -4185,7 +4588,59 @@ func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule) GetRuleT
 	if x != nil && x.RuleType != nil {
 		return *x.RuleType
 	}
+	return Default_CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule_RuleType
+}
+
+type CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	WorkshopFileId  *uint64                `protobuf:"varint,1,opt,name=workshop_file_id,json=workshopFileId" json:"workshop_file_id,omitempty"`
+	RuleDescription *string                `protobuf:"bytes,2,opt,name=rule_description,json=ruleDescription" json:"rule_description,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule) Reset() {
+	*x = CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule{}
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[69]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule) ProtoMessage() {}
+
+func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[69]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule.ProtoReflect.Descriptor instead.
+func (*CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule) Descriptor() ([]byte, []int) {
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{41, 1}
+}
+
+func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule) GetWorkshopFileId() uint64 {
+	if x != nil && x.WorkshopFileId != nil {
+		return *x.WorkshopFileId
+	}
 	return 0
+}
+
+func (x *CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule) GetRuleDescription() string {
+	if x != nil && x.RuleDescription != nil {
+		return *x.RuleDescription
+	}
+	return ""
 }
 
 type CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule struct {
@@ -4199,7 +4654,7 @@ type CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule struct {
 
 func (x *CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule) Reset() {
 	*x = CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[63]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4211,7 +4666,7 @@ func (x *CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule) String() 
 func (*CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule) ProtoMessage() {}
 
 func (x *CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[63]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4224,7 +4679,7 @@ func (x *CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule) ProtoRefl
 
 // Deprecated: Use CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule.ProtoReflect.Descriptor instead.
 func (*CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{37, 1}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{41, 2}
 }
 
 func (x *CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule) GetAccountId() uint32 {
@@ -4259,7 +4714,7 @@ type CMsgSerializedSOCache_TypeCache struct {
 
 func (x *CMsgSerializedSOCache_TypeCache) Reset() {
 	*x = CMsgSerializedSOCache_TypeCache{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[64]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4271,7 +4726,7 @@ func (x *CMsgSerializedSOCache_TypeCache) String() string {
 func (*CMsgSerializedSOCache_TypeCache) ProtoMessage() {}
 
 func (x *CMsgSerializedSOCache_TypeCache) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[64]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4284,7 +4739,7 @@ func (x *CMsgSerializedSOCache_TypeCache) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSerializedSOCache_TypeCache.ProtoReflect.Descriptor instead.
 func (*CMsgSerializedSOCache_TypeCache) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{43, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{47, 0}
 }
 
 func (x *CMsgSerializedSOCache_TypeCache) GetType() uint32 {
@@ -4320,7 +4775,7 @@ type CMsgSerializedSOCache_Cache struct {
 
 func (x *CMsgSerializedSOCache_Cache) Reset() {
 	*x = CMsgSerializedSOCache_Cache{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[65]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4332,7 +4787,7 @@ func (x *CMsgSerializedSOCache_Cache) String() string {
 func (*CMsgSerializedSOCache_Cache) ProtoMessage() {}
 
 func (x *CMsgSerializedSOCache_Cache) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[65]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4345,7 +4800,7 @@ func (x *CMsgSerializedSOCache_Cache) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgSerializedSOCache_Cache.ProtoReflect.Descriptor instead.
 func (*CMsgSerializedSOCache_Cache) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{43, 1}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{47, 1}
 }
 
 func (x *CMsgSerializedSOCache_Cache) GetType() uint32 {
@@ -4386,7 +4841,7 @@ type CMsgSerializedSOCache_Cache_Version struct {
 
 func (x *CMsgSerializedSOCache_Cache_Version) Reset() {
 	*x = CMsgSerializedSOCache_Cache_Version{}
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[66]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4398,7 +4853,7 @@ func (x *CMsgSerializedSOCache_Cache_Version) String() string {
 func (*CMsgSerializedSOCache_Cache_Version) ProtoMessage() {}
 
 func (x *CMsgSerializedSOCache_Cache_Version) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsdk_gcmessages_proto_msgTypes[66]
+	mi := &file_gcsdk_gcmessages_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4411,7 +4866,7 @@ func (x *CMsgSerializedSOCache_Cache_Version) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgSerializedSOCache_Cache_Version.ProtoReflect.Descriptor instead.
 func (*CMsgSerializedSOCache_Cache_Version) Descriptor() ([]byte, []int) {
-	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{43, 1, 0}
+	return file_gcsdk_gcmessages_proto_rawDescGZIP(), []int{47, 1, 0}
 }
 
 func (x *CMsgSerializedSOCache_Cache_Version) GetService() uint32 {
@@ -4432,11 +4887,33 @@ var File_gcsdk_gcmessages_proto protoreflect.FileDescriptor
 
 const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"\n" +
-	"\x16gcsdk_gcmessages.proto\x1a\x13steammessages.proto\"X\n" +
-	"\x0eCMsgSHA1Digest\x12\x16\n" +
-	"\x06block1\x18\x01 \x02(\x06R\x06block1\x12\x16\n" +
-	"\x06block2\x18\x02 \x02(\x06R\x06block2\x12\x16\n" +
-	"\x06block3\x18\x03 \x02(\aR\x06block3\"3\n" +
+	"\x16gcsdk_gcmessages.proto\x1a\x15valveextensions.proto\x1a\x13steammessages.proto\x1a,steammessages_steamlearn.steamworkssdk.proto\"\x8b\x01\n" +
+	"\x0eCExtraMsgBlock\x12\x19\n" +
+	"\bmsg_type\x18\x01 \x01(\rR\amsgType\x12 \n" +
+	"\bcontents\x18\x02 \x01(\fB\x04\xf8\xe4\x1ddR\bcontents\x12\x17\n" +
+	"\amsg_key\x18\x03 \x01(\x04R\x06msgKey\x12#\n" +
+	"\ris_compressed\x18\x04 \x01(\bR\fisCompressed\"\xb1\x03\n" +
+	"\x18CMsgSteamLearnServerInfo\x12@\n" +
+	"\raccess_tokens\x18\x04 \x01(\v2\x1b.CMsgSteamLearnAccessTokensR\faccessTokens\x12J\n" +
+	"\rproject_infos\x18\x05 \x03(\v2%.CMsgSteamLearnServerInfo.ProjectInfoR\fprojectInfos\x1a\x86\x02\n" +
+	"\vProjectInfo\x12\x1d\n" +
+	"\n" +
+	"project_id\x18\x01 \x01(\rR\tprojectId\x12<\n" +
+	"\x1asnapshot_published_version\x18\x02 \x01(\rR\x18snapshotPublishedVersion\x12>\n" +
+	"\x1binference_published_version\x18\x03 \x01(\rR\x19inferencePublishedVersion\x12/\n" +
+	"\x13snapshot_percentage\x18\x06 \x01(\rR\x12snapshotPercentage\x12)\n" +
+	"\x10snapshot_enabled\x18\a \x01(\bR\x0fsnapshotEnabled\"[\n" +
+	"\x13CMsgGCAssertJobData\x12!\n" +
+	"\fmessage_type\x18\x01 \x01(\tR\vmessageType\x12!\n" +
+	"\fmessage_data\x18\x02 \x01(\fR\vmessageData\",\n" +
+	"\x10CMsgGCConCommand\x12\x18\n" +
+	"\acommand\x18\x01 \x01(\tR\acommand\"\xa2\x01\n" +
+	"\rCMsgSDOAssert\x12\x19\n" +
+	"\bsdo_type\x18\x01 \x01(\x05R\asdoType\x122\n" +
+	"\brequests\x18\x02 \x03(\v2\x16.CMsgSDOAssert.RequestR\brequests\x1aB\n" +
+	"\aRequest\x12\x10\n" +
+	"\x03key\x18\x01 \x03(\x04R\x03key\x12%\n" +
+	"\x0erequesting_job\x18\x02 \x01(\tR\rrequestingJob\"3\n" +
 	"\rCMsgSOIDOwner\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\rR\x04type\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\x04R\x02id\"\xb6\x01\n" +
@@ -4503,27 +4980,27 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"\x16CMsgGCMultiplexMessage\x12\x18\n" +
 	"\amsgtype\x18\x01 \x01(\rR\amsgtype\x12\x18\n" +
 	"\apayload\x18\x02 \x01(\fR\apayload\x12\x1a\n" +
-	"\bsteamids\x18\x03 \x03(\x06R\bsteamids\"6\n" +
-	"\x17CMsgGCToGCSubGCStarting\x12\x1b\n" +
-	"\tdir_index\x18\x01 \x01(\rR\bdirIndex\"\x83\x02\n" +
-	"\x13CGCToGCMsgMasterAck\x12\x1b\n" +
-	"\tdir_index\x18\x01 \x01(\rR\bdirIndex\x12!\n" +
+	"\bsteamids\x18\x03 \x03(\x06R\bsteamids\":\n" +
+	"\x17CMsgGCToGCSubGCStarting\x12\x1f\n" +
+	"\tdir_index\x18\x01 \x01(\x05:\x02-1R\bdirIndex\"\x8b\x02\n" +
+	"\x13CGCToGCMsgMasterAck\x12\x1f\n" +
+	"\tdir_index\x18\x01 \x01(\x05:\x02-1R\bdirIndex\x12!\n" +
 	"\fmachine_name\x18\x03 \x01(\tR\vmachineName\x12!\n" +
 	"\fprocess_name\x18\x04 \x01(\tR\vprocessName\x12:\n" +
-	"\tdirectory\x18\x06 \x03(\v2\x1c.CGCToGCMsgMasterAck.ProcessR\tdirectory\x1aM\n" +
-	"\aProcess\x12\x1b\n" +
-	"\tdir_index\x18\x01 \x01(\rR\bdirIndex\x12%\n" +
+	"\tdirectory\x18\x06 \x03(\v2\x1c.CGCToGCMsgMasterAck.ProcessR\tdirectory\x1aQ\n" +
+	"\aProcess\x12\x1f\n" +
+	"\tdir_index\x18\x01 \x01(\x05:\x02-1R\bdirIndex\x12%\n" +
 	"\x0etype_instances\x18\x02 \x03(\rR\rtypeInstances\";\n" +
 	"\x1cCGCToGCMsgMasterAck_Response\x12\x1b\n" +
 	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\"I\n" +
 	"\x19CMsgGCToGCUniverseStartup\x12,\n" +
 	"\x12is_initial_startup\x18\x01 \x01(\bR\x10isInitialStartup\"=\n" +
 	"!CMsgGCToGCUniverseStartupResponse\x12\x18\n" +
-	"\aeresult\x18\x01 \x01(\x05R\aeresult\"\xad\x01\n" +
+	"\aeresult\x18\x01 \x01(\x05R\aeresult\"\xb1\x01\n" +
 	"\x1fCGCToGCMsgMasterStartupComplete\x12@\n" +
-	"\agc_info\x18\x01 \x03(\v2'.CGCToGCMsgMasterStartupComplete.GCInfoR\x06gcInfo\x1aH\n" +
-	"\x06GCInfo\x12\x1b\n" +
-	"\tdir_index\x18\x01 \x01(\rR\bdirIndex\x12!\n" +
+	"\agc_info\x18\x01 \x03(\v2'.CGCToGCMsgMasterStartupComplete.GCInfoR\x06gcInfo\x1aL\n" +
+	"\x06GCInfo\x12\x1f\n" +
+	"\tdir_index\x18\x01 \x01(\x05:\x02-1R\bdirIndex\x12!\n" +
 	"\fmachine_name\x18\x02 \x01(\tR\vmachineName\"k\n" +
 	"\x10CGCToGCMsgRouted\x12\x19\n" +
 	"\bmsg_type\x18\x01 \x01(\rR\amsgType\x12\x1b\n" +
@@ -4553,7 +5030,7 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"\aversion\x18\x02 \x01(\x06R\aversion\x12\x1d\n" +
 	"\n" +
 	"service_id\x18\x03 \x01(\rR\tserviceId\x12.\n" +
-	"\x13cached_file_version\x18\x04 \x01(\rR\x11cachedFileVersion\"\xc1\x06\n" +
+	"\x13cached_file_version\x18\x04 \x01(\rR\x11cachedFileVersion\"\xbf\a\n" +
 	"\x0fCMsgClientHello\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\rR\aversion\x12K\n" +
 	"\x15socache_have_versions\x18\x02 \x03(\v2\x17.CMsgSOCacheHaveVersionR\x13socacheHaveVersions\x12.\n" +
@@ -4579,16 +5056,16 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"\n" +
 	"swap_width\x18\x13 \x01(\rR\tswapWidth\x12\x1f\n" +
 	"\vswap_height\x18\x14 \x01(\rR\n" +
-	"swapHeight\"\xa2\x06\n" +
+	"swapHeight\x12$\n" +
+	"\x0eis_steam_china\x18\x16 \x01(\bR\fisSteamChina\x121\n" +
+	"\x15is_steam_china_client\x18\x18 \x01(\bR\x12isSteamChinaClient\x12#\n" +
+	"\rplatform_name\x18\x17 \x01(\tR\fplatformName\"\xb3\a\n" +
 	"\x11CMsgClientWelcome\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\rR\aversion\x12\x1b\n" +
 	"\tgame_data\x18\x02 \x01(\fR\bgameData\x12V\n" +
 	"\x1boutofdate_subscribed_caches\x18\x03 \x03(\v2\x16.CMsgSOCacheSubscribedR\x19outofdateSubscribedCaches\x12[\n" +
 	"\x1auptodate_subscribed_caches\x18\x04 \x03(\v2\x1d.CMsgSOCacheSubscriptionCheckR\x18uptodateSubscribedCaches\x127\n" +
-	"\blocation\x18\x05 \x01(\v2\x1b.CMsgClientWelcome.LocationR\blocation\x12\"\n" +
-	"\rsave_game_key\x18\x06 \x01(\fR\vsaveGameKey\x12&\n" +
-	"\x0fitem_schema_crc\x18\a \x01(\aR\ritemSchemaCrc\x12$\n" +
-	"\x0eitems_game_url\x18\b \x01(\tR\fitemsGameUrl\x125\n" +
+	"\blocation\x18\x05 \x01(\v2\x1b.CMsgClientWelcome.LocationR\blocation\x125\n" +
 	"\x17gc_socache_file_version\x18\t \x01(\rR\x14gcSocacheFileVersion\x12(\n" +
 	"\x10txn_country_code\x18\n" +
 	" \x01(\tR\x0etxnCountryCode\x12\x1d\n" +
@@ -4598,7 +5075,11 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"\bcurrency\x18\r \x01(\rR\bcurrency\x12\x18\n" +
 	"\abalance\x18\x0e \x01(\rR\abalance\x12\x1f\n" +
 	"\vbalance_url\x18\x0f \x01(\tR\n" +
-	"balanceUrl\x1a^\n" +
+	"balanceUrl\x123\n" +
+	"\x16has_accepted_china_ssa\x18\x10 \x01(\bR\x13hasAcceptedChinaSsa\x121\n" +
+	"\x15is_banned_steam_china\x18\x11 \x01(\bR\x12isBannedSteamChina\x12G\n" +
+	"\x17additional_welcome_msgs\x18\x12 \x01(\v2\x0f.CExtraMsgBlockR\x15additionalWelcomeMsgs\x12P\n" +
+	"\x17steam_learn_server_info\x18\x14 \x01(\v2\x19.CMsgSteamLearnServerInfoR\x14steamLearnServerInfo\x1a^\n" +
 	"\bLocation\x12\x1a\n" +
 	"\blatitude\x18\x01 \x01(\x02R\blatitude\x12\x1c\n" +
 	"\tlongitude\x18\x02 \x01(\x02R\tlongitude\x12\x18\n" +
@@ -4662,7 +5143,7 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"gameitemid\x18\x02 \x01(\rR\n" +
 	"gameitemid\"H\n" +
 	"\"CWorkshop_GetContributors_Response\x12\"\n" +
-	"\fcontributors\x18\x01 \x03(\x06R\fcontributors\"\x82\x06\n" +
+	"\fcontributors\x18\x01 \x03(\x06R\fcontributors\"\x99\b\n" +
 	"%CWorkshop_SetItemPaymentRules_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1e\n" +
 	"\n" +
@@ -4671,12 +5152,16 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"\x19associated_workshop_files\x18\x03 \x03(\v2>.CWorkshop_SetItemPaymentRules_Request.WorkshopItemPaymentRuleR\x17associatedWorkshopFiles\x12h\n" +
 	"\x10partner_accounts\x18\x04 \x03(\v2=.CWorkshop_SetItemPaymentRules_Request.PartnerItemPaymentRuleR\x0fpartnerAccounts\x12#\n" +
 	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnly\x12G\n" +
-	" make_workshop_files_subscribable\x18\x06 \x01(\bR\x1dmakeWorkshopFilesSubscribable\x1a\xba\x01\n" +
+	" make_workshop_files_subscribable\x18\x06 \x01(\bR\x1dmakeWorkshopFilesSubscribable\x12\x9f\x01\n" +
+	",associated_workshop_file_for_direct_payments\x18\a \x01(\v2@.CWorkshop_SetItemPaymentRules_Request.WorkshopDirectPaymentRuleR'associatedWorkshopFileForDirectPayments\x1a\xbd\x01\n" +
 	"\x17WorkshopItemPaymentRule\x12(\n" +
 	"\x10workshop_file_id\x18\x01 \x01(\x04R\x0eworkshopFileId\x12-\n" +
 	"\x12revenue_percentage\x18\x02 \x01(\x02R\x11revenuePercentage\x12)\n" +
-	"\x10rule_description\x18\x03 \x01(\tR\x0fruleDescription\x12\x1b\n" +
-	"\trule_type\x18\x04 \x01(\rR\bruleType\x1a\x91\x01\n" +
+	"\x10rule_description\x18\x03 \x01(\tR\x0fruleDescription\x12\x1e\n" +
+	"\trule_type\x18\x04 \x01(\r:\x011R\bruleType\x1ap\n" +
+	"\x19WorkshopDirectPaymentRule\x12(\n" +
+	"\x10workshop_file_id\x18\x01 \x01(\x04R\x0eworkshopFileId\x12)\n" +
+	"\x10rule_description\x18\x02 \x01(\tR\x0fruleDescription\x1a\x91\x01\n" +
 	"\x16PartnerItemPaymentRule\x12\x1d\n" +
 	"\n" +
 	"account_id\x18\x01 \x01(\rR\taccountId\x12-\n" +
@@ -4794,7 +5279,7 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	",GCConnectionStatus_NO_SESSION_IN_LOGON_QUEUE\x10\x03\x12\x1f\n" +
 	"\x1bGCConnectionStatus_NO_STEAM\x10\x04\x12 \n" +
 	"\x1cGCConnectionStatus_SUSPENDED\x10\x05\x12'\n" +
-	"#GCConnectionStatus_STEAM_GOING_DOWN\x10\x06B\x05H\x01\x80\x01\x00"
+	"#GCConnectionStatus_STEAM_GOING_DOWN\x10\x06"
 
 var (
 	file_gcsdk_gcmessages_proto_rawDescOnce sync.Once
@@ -4809,120 +5294,134 @@ func file_gcsdk_gcmessages_proto_rawDescGZIP() []byte {
 }
 
 var file_gcsdk_gcmessages_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_gcsdk_gcmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 67)
+var file_gcsdk_gcmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 74)
 var file_gcsdk_gcmessages_proto_goTypes = []any{
 	(ESourceEngine)(0),                                                               // 0: ESourceEngine
 	(PartnerAccountType)(0),                                                          // 1: PartnerAccountType
 	(GCConnectionStatus)(0),                                                          // 2: GCConnectionStatus
-	(*CMsgSHA1Digest)(nil),                                                           // 3: CMsgSHA1Digest
-	(*CMsgSOIDOwner)(nil),                                                            // 4: CMsgSOIDOwner
-	(*CMsgSOSingleObject)(nil),                                                       // 5: CMsgSOSingleObject
-	(*CMsgSOMultipleObjects)(nil),                                                    // 6: CMsgSOMultipleObjects
-	(*CMsgSOCacheSubscribed)(nil),                                                    // 7: CMsgSOCacheSubscribed
-	(*CMsgSOCacheSubscribedUpToDate)(nil),                                            // 8: CMsgSOCacheSubscribedUpToDate
-	(*CMsgSOCacheUnsubscribed)(nil),                                                  // 9: CMsgSOCacheUnsubscribed
-	(*CMsgSOCacheSubscriptionCheck)(nil),                                             // 10: CMsgSOCacheSubscriptionCheck
-	(*CMsgSOCacheSubscriptionRefresh)(nil),                                           // 11: CMsgSOCacheSubscriptionRefresh
-	(*CMsgSOCacheVersion)(nil),                                                       // 12: CMsgSOCacheVersion
-	(*CMsgGCMultiplexMessage)(nil),                                                   // 13: CMsgGCMultiplexMessage
-	(*CMsgGCToGCSubGCStarting)(nil),                                                  // 14: CMsgGCToGCSubGCStarting
-	(*CGCToGCMsgMasterAck)(nil),                                                      // 15: CGCToGCMsgMasterAck
-	(*CGCToGCMsgMasterAck_Response)(nil),                                             // 16: CGCToGCMsgMasterAck_Response
-	(*CMsgGCToGCUniverseStartup)(nil),                                                // 17: CMsgGCToGCUniverseStartup
-	(*CMsgGCToGCUniverseStartupResponse)(nil),                                        // 18: CMsgGCToGCUniverseStartupResponse
-	(*CGCToGCMsgMasterStartupComplete)(nil),                                          // 19: CGCToGCMsgMasterStartupComplete
-	(*CGCToGCMsgRouted)(nil),                                                         // 20: CGCToGCMsgRouted
-	(*CGCToGCMsgRoutedReply)(nil),                                                    // 21: CGCToGCMsgRoutedReply
-	(*CMsgGCUpdateSubGCSessionInfo)(nil),                                             // 22: CMsgGCUpdateSubGCSessionInfo
-	(*CMsgGCRequestSubGCSessionInfo)(nil),                                            // 23: CMsgGCRequestSubGCSessionInfo
-	(*CMsgGCRequestSubGCSessionInfoResponse)(nil),                                    // 24: CMsgGCRequestSubGCSessionInfoResponse
-	(*CMsgSOCacheHaveVersion)(nil),                                                   // 25: CMsgSOCacheHaveVersion
-	(*CMsgClientHello)(nil),                                                          // 26: CMsgClientHello
-	(*CMsgClientWelcome)(nil),                                                        // 27: CMsgClientWelcome
-	(*CMsgConnectionStatus)(nil),                                                     // 28: CMsgConnectionStatus
-	(*CMsgGCToGCSOCacheSubscribe)(nil),                                               // 29: CMsgGCToGCSOCacheSubscribe
-	(*CMsgGCToGCSOCacheUnsubscribe)(nil),                                             // 30: CMsgGCToGCSOCacheUnsubscribe
-	(*CMsgGCClientPing)(nil),                                                         // 31: CMsgGCClientPing
-	(*CMsgGCToGCForwardAccountDetails)(nil),                                          // 32: CMsgGCToGCForwardAccountDetails
-	(*CMsgGCToGCLoadSessionSOCache)(nil),                                             // 33: CMsgGCToGCLoadSessionSOCache
-	(*CMsgGCToGCLoadSessionSOCacheResponse)(nil),                                     // 34: CMsgGCToGCLoadSessionSOCacheResponse
-	(*CMsgGCToGCUpdateSessionStats)(nil),                                             // 35: CMsgGCToGCUpdateSessionStats
-	(*CMsgGCToClientRequestDropped)(nil),                                             // 36: CMsgGCToClientRequestDropped
-	(*CWorkshop_PopulateItemDescriptions_Request)(nil),                               // 37: CWorkshop_PopulateItemDescriptions_Request
-	(*CWorkshop_GetContributors_Request)(nil),                                        // 38: CWorkshop_GetContributors_Request
-	(*CWorkshop_GetContributors_Response)(nil),                                       // 39: CWorkshop_GetContributors_Response
-	(*CWorkshop_SetItemPaymentRules_Request)(nil),                                    // 40: CWorkshop_SetItemPaymentRules_Request
-	(*CWorkshop_SetItemPaymentRules_Response)(nil),                                   // 41: CWorkshop_SetItemPaymentRules_Response
-	(*CCommunity_ClanAnnouncementInfo)(nil),                                          // 42: CCommunity_ClanAnnouncementInfo
-	(*CCommunity_GetClanAnnouncements_Request)(nil),                                  // 43: CCommunity_GetClanAnnouncements_Request
-	(*CCommunity_GetClanAnnouncements_Response)(nil),                                 // 44: CCommunity_GetClanAnnouncements_Response
-	(*CBroadcast_PostGameDataFrame_Request)(nil),                                     // 45: CBroadcast_PostGameDataFrame_Request
-	(*CMsgSerializedSOCache)(nil),                                                    // 46: CMsgSerializedSOCache
-	(*CMsgGCToClientPollConvarRequest)(nil),                                          // 47: CMsgGCToClientPollConvarRequest
-	(*CMsgGCToClientPollConvarResponse)(nil),                                         // 48: CMsgGCToClientPollConvarResponse
-	(*CGCMsgCompressedMsgToClient)(nil),                                              // 49: CGCMsgCompressedMsgToClient
-	(*CMsgGCToGCMasterBroadcastMessage)(nil),                                         // 50: CMsgGCToGCMasterBroadcastMessage
-	(*CMsgGCToGCMasterSubscribeToCache)(nil),                                         // 51: CMsgGCToGCMasterSubscribeToCache
-	(*CMsgGCToGCMasterSubscribeToCacheResponse)(nil),                                 // 52: CMsgGCToGCMasterSubscribeToCacheResponse
-	(*CMsgGCToGCMasterSubscribeToCacheAsync)(nil),                                    // 53: CMsgGCToGCMasterSubscribeToCacheAsync
-	(*CMsgGCToGCMasterUnsubscribeFromCache)(nil),                                     // 54: CMsgGCToGCMasterUnsubscribeFromCache
-	(*CMsgGCToGCMasterDestroyCache)(nil),                                             // 55: CMsgGCToGCMasterDestroyCache
-	(*CMsgSOMultipleObjects_SingleObject)(nil),                                       // 56: CMsgSOMultipleObjects.SingleObject
-	(*CMsgSOCacheSubscribed_SubscribedType)(nil),                                     // 57: CMsgSOCacheSubscribed.SubscribedType
-	(*CGCToGCMsgMasterAck_Process)(nil),                                              // 58: CGCToGCMsgMasterAck.Process
-	(*CGCToGCMsgMasterStartupComplete_GCInfo)(nil),                                   // 59: CGCToGCMsgMasterStartupComplete.GCInfo
-	(*CMsgGCUpdateSubGCSessionInfo_CMsgUpdate)(nil),                                  // 60: CMsgGCUpdateSubGCSessionInfo.CMsgUpdate
-	(*CMsgClientWelcome_Location)(nil),                                               // 61: CMsgClientWelcome.Location
-	(*CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions)(nil),                              // 62: CMsgGCToGCSOCacheSubscribe.CMsgHaveVersions
-	(*CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription)(nil),         // 63: CWorkshop_PopulateItemDescriptions_Request.SingleItemDescription
-	(*CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock)(nil), // 64: CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock
-	(*CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule)(nil),            // 65: CWorkshop_SetItemPaymentRules_Request.WorkshopItemPaymentRule
-	(*CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule)(nil),             // 66: CWorkshop_SetItemPaymentRules_Request.PartnerItemPaymentRule
-	(*CMsgSerializedSOCache_TypeCache)(nil),                                          // 67: CMsgSerializedSOCache.TypeCache
-	(*CMsgSerializedSOCache_Cache)(nil),                                              // 68: CMsgSerializedSOCache.Cache
-	(*CMsgSerializedSOCache_Cache_Version)(nil),                                      // 69: CMsgSerializedSOCache.Cache.Version
-	(*CGCSystemMsg_GetAccountDetails_Response)(nil),              // 70: CGCSystemMsg_GetAccountDetails_Response
+	(*CExtraMsgBlock)(nil),                                                           // 3: CExtraMsgBlock
+	(*CMsgSteamLearnServerInfo)(nil),                                                 // 4: CMsgSteamLearnServerInfo
+	(*CMsgGCAssertJobData)(nil),                                                      // 5: CMsgGCAssertJobData
+	(*CMsgGCConCommand)(nil),                                                         // 6: CMsgGCConCommand
+	(*CMsgSDOAssert)(nil),                                                            // 7: CMsgSDOAssert
+	(*CMsgSOIDOwner)(nil),                                                            // 8: CMsgSOIDOwner
+	(*CMsgSOSingleObject)(nil),                                                       // 9: CMsgSOSingleObject
+	(*CMsgSOMultipleObjects)(nil),                                                    // 10: CMsgSOMultipleObjects
+	(*CMsgSOCacheSubscribed)(nil),                                                    // 11: CMsgSOCacheSubscribed
+	(*CMsgSOCacheSubscribedUpToDate)(nil),                                            // 12: CMsgSOCacheSubscribedUpToDate
+	(*CMsgSOCacheUnsubscribed)(nil),                                                  // 13: CMsgSOCacheUnsubscribed
+	(*CMsgSOCacheSubscriptionCheck)(nil),                                             // 14: CMsgSOCacheSubscriptionCheck
+	(*CMsgSOCacheSubscriptionRefresh)(nil),                                           // 15: CMsgSOCacheSubscriptionRefresh
+	(*CMsgSOCacheVersion)(nil),                                                       // 16: CMsgSOCacheVersion
+	(*CMsgGCMultiplexMessage)(nil),                                                   // 17: CMsgGCMultiplexMessage
+	(*CMsgGCToGCSubGCStarting)(nil),                                                  // 18: CMsgGCToGCSubGCStarting
+	(*CGCToGCMsgMasterAck)(nil),                                                      // 19: CGCToGCMsgMasterAck
+	(*CGCToGCMsgMasterAck_Response)(nil),                                             // 20: CGCToGCMsgMasterAck_Response
+	(*CMsgGCToGCUniverseStartup)(nil),                                                // 21: CMsgGCToGCUniverseStartup
+	(*CMsgGCToGCUniverseStartupResponse)(nil),                                        // 22: CMsgGCToGCUniverseStartupResponse
+	(*CGCToGCMsgMasterStartupComplete)(nil),                                          // 23: CGCToGCMsgMasterStartupComplete
+	(*CGCToGCMsgRouted)(nil),                                                         // 24: CGCToGCMsgRouted
+	(*CGCToGCMsgRoutedReply)(nil),                                                    // 25: CGCToGCMsgRoutedReply
+	(*CMsgGCUpdateSubGCSessionInfo)(nil),                                             // 26: CMsgGCUpdateSubGCSessionInfo
+	(*CMsgGCRequestSubGCSessionInfo)(nil),                                            // 27: CMsgGCRequestSubGCSessionInfo
+	(*CMsgGCRequestSubGCSessionInfoResponse)(nil),                                    // 28: CMsgGCRequestSubGCSessionInfoResponse
+	(*CMsgSOCacheHaveVersion)(nil),                                                   // 29: CMsgSOCacheHaveVersion
+	(*CMsgClientHello)(nil),                                                          // 30: CMsgClientHello
+	(*CMsgClientWelcome)(nil),                                                        // 31: CMsgClientWelcome
+	(*CMsgConnectionStatus)(nil),                                                     // 32: CMsgConnectionStatus
+	(*CMsgGCToGCSOCacheSubscribe)(nil),                                               // 33: CMsgGCToGCSOCacheSubscribe
+	(*CMsgGCToGCSOCacheUnsubscribe)(nil),                                             // 34: CMsgGCToGCSOCacheUnsubscribe
+	(*CMsgGCClientPing)(nil),                                                         // 35: CMsgGCClientPing
+	(*CMsgGCToGCForwardAccountDetails)(nil),                                          // 36: CMsgGCToGCForwardAccountDetails
+	(*CMsgGCToGCLoadSessionSOCache)(nil),                                             // 37: CMsgGCToGCLoadSessionSOCache
+	(*CMsgGCToGCLoadSessionSOCacheResponse)(nil),                                     // 38: CMsgGCToGCLoadSessionSOCacheResponse
+	(*CMsgGCToGCUpdateSessionStats)(nil),                                             // 39: CMsgGCToGCUpdateSessionStats
+	(*CMsgGCToClientRequestDropped)(nil),                                             // 40: CMsgGCToClientRequestDropped
+	(*CWorkshop_PopulateItemDescriptions_Request)(nil),                               // 41: CWorkshop_PopulateItemDescriptions_Request
+	(*CWorkshop_GetContributors_Request)(nil),                                        // 42: CWorkshop_GetContributors_Request
+	(*CWorkshop_GetContributors_Response)(nil),                                       // 43: CWorkshop_GetContributors_Response
+	(*CWorkshop_SetItemPaymentRules_Request)(nil),                                    // 44: CWorkshop_SetItemPaymentRules_Request
+	(*CWorkshop_SetItemPaymentRules_Response)(nil),                                   // 45: CWorkshop_SetItemPaymentRules_Response
+	(*CCommunity_ClanAnnouncementInfo)(nil),                                          // 46: CCommunity_ClanAnnouncementInfo
+	(*CCommunity_GetClanAnnouncements_Request)(nil),                                  // 47: CCommunity_GetClanAnnouncements_Request
+	(*CCommunity_GetClanAnnouncements_Response)(nil),                                 // 48: CCommunity_GetClanAnnouncements_Response
+	(*CBroadcast_PostGameDataFrame_Request)(nil),                                     // 49: CBroadcast_PostGameDataFrame_Request
+	(*CMsgSerializedSOCache)(nil),                                                    // 50: CMsgSerializedSOCache
+	(*CMsgGCToClientPollConvarRequest)(nil),                                          // 51: CMsgGCToClientPollConvarRequest
+	(*CMsgGCToClientPollConvarResponse)(nil),                                         // 52: CMsgGCToClientPollConvarResponse
+	(*CGCMsgCompressedMsgToClient)(nil),                                              // 53: CGCMsgCompressedMsgToClient
+	(*CMsgGCToGCMasterBroadcastMessage)(nil),                                         // 54: CMsgGCToGCMasterBroadcastMessage
+	(*CMsgGCToGCMasterSubscribeToCache)(nil),                                         // 55: CMsgGCToGCMasterSubscribeToCache
+	(*CMsgGCToGCMasterSubscribeToCacheResponse)(nil),                                 // 56: CMsgGCToGCMasterSubscribeToCacheResponse
+	(*CMsgGCToGCMasterSubscribeToCacheAsync)(nil),                                    // 57: CMsgGCToGCMasterSubscribeToCacheAsync
+	(*CMsgGCToGCMasterUnsubscribeFromCache)(nil),                                     // 58: CMsgGCToGCMasterUnsubscribeFromCache
+	(*CMsgGCToGCMasterDestroyCache)(nil),                                             // 59: CMsgGCToGCMasterDestroyCache
+	(*CMsgSteamLearnServerInfo_ProjectInfo)(nil),                                     // 60: CMsgSteamLearnServerInfo.ProjectInfo
+	(*CMsgSDOAssert_Request)(nil),                                                    // 61: CMsgSDOAssert.Request
+	(*CMsgSOMultipleObjects_SingleObject)(nil),                                       // 62: CMsgSOMultipleObjects.SingleObject
+	(*CMsgSOCacheSubscribed_SubscribedType)(nil),                                     // 63: CMsgSOCacheSubscribed.SubscribedType
+	(*CGCToGCMsgMasterAck_Process)(nil),                                              // 64: CGCToGCMsgMasterAck.Process
+	(*CGCToGCMsgMasterStartupComplete_GCInfo)(nil),                                   // 65: CGCToGCMsgMasterStartupComplete.GCInfo
+	(*CMsgGCUpdateSubGCSessionInfo_CMsgUpdate)(nil),                                  // 66: CMsgGCUpdateSubGCSessionInfo.CMsgUpdate
+	(*CMsgClientWelcome_Location)(nil),                                               // 67: CMsgClientWelcome.Location
+	(*CMsgGCToGCSOCacheSubscribe_CMsgHaveVersions)(nil),                              // 68: CMsgGCToGCSOCacheSubscribe.CMsgHaveVersions
+	(*CWorkshop_PopulateItemDescriptions_Request_SingleItemDescription)(nil),         // 69: CWorkshop_PopulateItemDescriptions_Request.SingleItemDescription
+	(*CWorkshop_PopulateItemDescriptions_Request_ItemDescriptionsLanguageBlock)(nil), // 70: CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock
+	(*CWorkshop_SetItemPaymentRules_Request_WorkshopItemPaymentRule)(nil),            // 71: CWorkshop_SetItemPaymentRules_Request.WorkshopItemPaymentRule
+	(*CWorkshop_SetItemPaymentRules_Request_WorkshopDirectPaymentRule)(nil),          // 72: CWorkshop_SetItemPaymentRules_Request.WorkshopDirectPaymentRule
+	(*CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule)(nil),             // 73: CWorkshop_SetItemPaymentRules_Request.PartnerItemPaymentRule
+	(*CMsgSerializedSOCache_TypeCache)(nil),                                          // 74: CMsgSerializedSOCache.TypeCache
+	(*CMsgSerializedSOCache_Cache)(nil),                                              // 75: CMsgSerializedSOCache.Cache
+	(*CMsgSerializedSOCache_Cache_Version)(nil),                                      // 76: CMsgSerializedSOCache.Cache.Version
+	(*CMsgSteamLearnAccessTokens)(nil),  // 77: CMsgSteamLearnAccessTokens
+	(*CGCSystemMsg_GetAccountDetails_Response)(nil),              // 78: CGCSystemMsg_GetAccountDetails_Response
 }
 var file_gcsdk_gcmessages_proto_depIdxs = []int32{
-	4,  // 0: CMsgSOSingleObject.owner_soid:type_name -> CMsgSOIDOwner
-	56, // 1: CMsgSOMultipleObjects.objects_modified:type_name -> CMsgSOMultipleObjects.SingleObject
-	56, // 2: CMsgSOMultipleObjects.objects_added:type_name -> CMsgSOMultipleObjects.SingleObject
-	56, // 3: CMsgSOMultipleObjects.objects_removed:type_name -> CMsgSOMultipleObjects.SingleObject
-	4,  // 4: CMsgSOMultipleObjects.owner_soid:type_name -> CMsgSOIDOwner
-	57, // 5: CMsgSOCacheSubscribed.objects:type_name -> CMsgSOCacheSubscribed.SubscribedType
-	4,  // 6: CMsgSOCacheSubscribed.owner_soid:type_name -> CMsgSOIDOwner
-	4,  // 7: CMsgSOCacheSubscribedUpToDate.owner_soid:type_name -> CMsgSOIDOwner
-	4,  // 8: CMsgSOCacheUnsubscribed.owner_soid:type_name -> CMsgSOIDOwner
-	4,  // 9: CMsgSOCacheSubscriptionCheck.owner_soid:type_name -> CMsgSOIDOwner
-	4,  // 10: CMsgSOCacheSubscriptionRefresh.owner_soid:type_name -> CMsgSOIDOwner
-	58, // 11: CGCToGCMsgMasterAck.directory:type_name -> CGCToGCMsgMasterAck.Process
-	59, // 12: CGCToGCMsgMasterStartupComplete.gc_info:type_name -> CGCToGCMsgMasterStartupComplete.GCInfo
-	60, // 13: CMsgGCUpdateSubGCSessionInfo.updates:type_name -> CMsgGCUpdateSubGCSessionInfo.CMsgUpdate
-	4,  // 14: CMsgSOCacheHaveVersion.soid:type_name -> CMsgSOIDOwner
-	25, // 15: CMsgClientHello.socache_have_versions:type_name -> CMsgSOCacheHaveVersion
-	1,  // 16: CMsgClientHello.client_launcher:type_name -> PartnerAccountType
-	0,  // 17: CMsgClientHello.engine:type_name -> ESourceEngine
-	7,  // 18: CMsgClientWelcome.outofdate_subscribed_caches:type_name -> CMsgSOCacheSubscribed
-	10, // 19: CMsgClientWelcome.uptodate_subscribed_caches:type_name -> CMsgSOCacheSubscriptionCheck
-	61, // 20: CMsgClientWelcome.location:type_name -> CMsgClientWelcome.Location
-	2,  // 21: CMsgConnectionStatus.status:type_name -> GCConnectionStatus
-	62, // 22: CMsgGCToGCSOCacheSubscribe.have_versions:type_name -> CMsgGCToGCSOCacheSubscribe.CMsgHaveVersions
-	70, // 23: CMsgGCToGCForwardAccountDetails.account_details:type_name -> CGCSystemMsg_GetAccountDetails_Response
-	32, // 24: CMsgGCToGCLoadSessionSOCache.forward_account_details:type_name -> CMsgGCToGCForwardAccountDetails
-	64, // 25: CWorkshop_PopulateItemDescriptions_Request.languages:type_name -> CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock
-	65, // 26: CWorkshop_SetItemPaymentRules_Request.associated_workshop_files:type_name -> CWorkshop_SetItemPaymentRules_Request.WorkshopItemPaymentRule
-	66, // 27: CWorkshop_SetItemPaymentRules_Request.partner_accounts:type_name -> CWorkshop_SetItemPaymentRules_Request.PartnerItemPaymentRule
-	42, // 28: CCommunity_GetClanAnnouncements_Response.announcements:type_name -> CCommunity_ClanAnnouncementInfo
-	68, // 29: CMsgSerializedSOCache.caches:type_name -> CMsgSerializedSOCache.Cache
-	51, // 30: CMsgGCToGCMasterSubscribeToCacheAsync.subscribe_msg:type_name -> CMsgGCToGCMasterSubscribeToCache
-	63, // 31: CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock.descriptions:type_name -> CWorkshop_PopulateItemDescriptions_Request.SingleItemDescription
-	69, // 32: CMsgSerializedSOCache.Cache.versions:type_name -> CMsgSerializedSOCache.Cache.Version
-	67, // 33: CMsgSerializedSOCache.Cache.type_caches:type_name -> CMsgSerializedSOCache.TypeCache
-	34, // [34:34] is the sub-list for method output_type
-	34, // [34:34] is the sub-list for method input_type
-	34, // [34:34] is the sub-list for extension type_name
-	34, // [34:34] is the sub-list for extension extendee
-	0,  // [0:34] is the sub-list for field type_name
+	77, // 0: CMsgSteamLearnServerInfo.access_tokens:type_name -> CMsgSteamLearnAccessTokens
+	60, // 1: CMsgSteamLearnServerInfo.project_infos:type_name -> CMsgSteamLearnServerInfo.ProjectInfo
+	61, // 2: CMsgSDOAssert.requests:type_name -> CMsgSDOAssert.Request
+	8,  // 3: CMsgSOSingleObject.owner_soid:type_name -> CMsgSOIDOwner
+	62, // 4: CMsgSOMultipleObjects.objects_modified:type_name -> CMsgSOMultipleObjects.SingleObject
+	62, // 5: CMsgSOMultipleObjects.objects_added:type_name -> CMsgSOMultipleObjects.SingleObject
+	62, // 6: CMsgSOMultipleObjects.objects_removed:type_name -> CMsgSOMultipleObjects.SingleObject
+	8,  // 7: CMsgSOMultipleObjects.owner_soid:type_name -> CMsgSOIDOwner
+	63, // 8: CMsgSOCacheSubscribed.objects:type_name -> CMsgSOCacheSubscribed.SubscribedType
+	8,  // 9: CMsgSOCacheSubscribed.owner_soid:type_name -> CMsgSOIDOwner
+	8,  // 10: CMsgSOCacheSubscribedUpToDate.owner_soid:type_name -> CMsgSOIDOwner
+	8,  // 11: CMsgSOCacheUnsubscribed.owner_soid:type_name -> CMsgSOIDOwner
+	8,  // 12: CMsgSOCacheSubscriptionCheck.owner_soid:type_name -> CMsgSOIDOwner
+	8,  // 13: CMsgSOCacheSubscriptionRefresh.owner_soid:type_name -> CMsgSOIDOwner
+	64, // 14: CGCToGCMsgMasterAck.directory:type_name -> CGCToGCMsgMasterAck.Process
+	65, // 15: CGCToGCMsgMasterStartupComplete.gc_info:type_name -> CGCToGCMsgMasterStartupComplete.GCInfo
+	66, // 16: CMsgGCUpdateSubGCSessionInfo.updates:type_name -> CMsgGCUpdateSubGCSessionInfo.CMsgUpdate
+	8,  // 17: CMsgSOCacheHaveVersion.soid:type_name -> CMsgSOIDOwner
+	29, // 18: CMsgClientHello.socache_have_versions:type_name -> CMsgSOCacheHaveVersion
+	1,  // 19: CMsgClientHello.client_launcher:type_name -> PartnerAccountType
+	0,  // 20: CMsgClientHello.engine:type_name -> ESourceEngine
+	11, // 21: CMsgClientWelcome.outofdate_subscribed_caches:type_name -> CMsgSOCacheSubscribed
+	14, // 22: CMsgClientWelcome.uptodate_subscribed_caches:type_name -> CMsgSOCacheSubscriptionCheck
+	67, // 23: CMsgClientWelcome.location:type_name -> CMsgClientWelcome.Location
+	3,  // 24: CMsgClientWelcome.additional_welcome_msgs:type_name -> CExtraMsgBlock
+	4,  // 25: CMsgClientWelcome.steam_learn_server_info:type_name -> CMsgSteamLearnServerInfo
+	2,  // 26: CMsgConnectionStatus.status:type_name -> GCConnectionStatus
+	68, // 27: CMsgGCToGCSOCacheSubscribe.have_versions:type_name -> CMsgGCToGCSOCacheSubscribe.CMsgHaveVersions
+	78, // 28: CMsgGCToGCForwardAccountDetails.account_details:type_name -> CGCSystemMsg_GetAccountDetails_Response
+	36, // 29: CMsgGCToGCLoadSessionSOCache.forward_account_details:type_name -> CMsgGCToGCForwardAccountDetails
+	70, // 30: CWorkshop_PopulateItemDescriptions_Request.languages:type_name -> CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock
+	71, // 31: CWorkshop_SetItemPaymentRules_Request.associated_workshop_files:type_name -> CWorkshop_SetItemPaymentRules_Request.WorkshopItemPaymentRule
+	73, // 32: CWorkshop_SetItemPaymentRules_Request.partner_accounts:type_name -> CWorkshop_SetItemPaymentRules_Request.PartnerItemPaymentRule
+	72, // 33: CWorkshop_SetItemPaymentRules_Request.associated_workshop_file_for_direct_payments:type_name -> CWorkshop_SetItemPaymentRules_Request.WorkshopDirectPaymentRule
+	46, // 34: CCommunity_GetClanAnnouncements_Response.announcements:type_name -> CCommunity_ClanAnnouncementInfo
+	75, // 35: CMsgSerializedSOCache.caches:type_name -> CMsgSerializedSOCache.Cache
+	55, // 36: CMsgGCToGCMasterSubscribeToCacheAsync.subscribe_msg:type_name -> CMsgGCToGCMasterSubscribeToCache
+	69, // 37: CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock.descriptions:type_name -> CWorkshop_PopulateItemDescriptions_Request.SingleItemDescription
+	76, // 38: CMsgSerializedSOCache.Cache.versions:type_name -> CMsgSerializedSOCache.Cache.Version
+	74, // 39: CMsgSerializedSOCache.Cache.type_caches:type_name -> CMsgSerializedSOCache.TypeCache
+	40, // [40:40] is the sub-list for method output_type
+	40, // [40:40] is the sub-list for method input_type
+	40, // [40:40] is the sub-list for extension type_name
+	40, // [40:40] is the sub-list for extension extendee
+	0,  // [0:40] is the sub-list for field type_name
 }
 
 func init() { file_gcsdk_gcmessages_proto_init() }
@@ -4936,7 +5435,7 @@ func file_gcsdk_gcmessages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcsdk_gcmessages_proto_rawDesc), len(file_gcsdk_gcmessages_proto_rawDesc)),
 			NumEnums:      3,
-			NumMessages:   67,
+			NumMessages:   74,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

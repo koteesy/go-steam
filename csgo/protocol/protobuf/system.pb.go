@@ -113,6 +113,9 @@ const (
 	EGCSystemMsg_k_EGCMsgGetGamePersonalDataEntriesResponse       EGCSystemMsg = 527
 	EGCSystemMsg_k_EGCMsgTerminateGamePersonalDataEntriesRequest  EGCSystemMsg = 528
 	EGCSystemMsg_k_EGCMsgTerminateGamePersonalDataEntriesResponse EGCSystemMsg = 529
+	EGCSystemMsg_k_EGCMsgRecurringSubscriptionStatusChange        EGCSystemMsg = 530
+	EGCSystemMsg_k_EGCMsgDirectServiceMethod                      EGCSystemMsg = 531
+	EGCSystemMsg_k_EGCMsgDirectServiceMethodResponse              EGCSystemMsg = 532
 )
 
 // Enum value maps for EGCSystemMsg.
@@ -207,6 +210,9 @@ var (
 		527: "k_EGCMsgGetGamePersonalDataEntriesResponse",
 		528: "k_EGCMsgTerminateGamePersonalDataEntriesRequest",
 		529: "k_EGCMsgTerminateGamePersonalDataEntriesResponse",
+		530: "k_EGCMsgRecurringSubscriptionStatusChange",
+		531: "k_EGCMsgDirectServiceMethod",
+		532: "k_EGCMsgDirectServiceMethodResponse",
 	}
 	EGCSystemMsg_value = map[string]int32{
 		"k_EGCMsgInvalid":                                  0,
@@ -298,6 +304,9 @@ var (
 		"k_EGCMsgGetGamePersonalDataEntriesResponse":       527,
 		"k_EGCMsgTerminateGamePersonalDataEntriesRequest":  528,
 		"k_EGCMsgTerminateGamePersonalDataEntriesResponse": 529,
+		"k_EGCMsgRecurringSubscriptionStatusChange":        530,
+		"k_EGCMsgDirectServiceMethod":                      531,
+		"k_EGCMsgDirectServiceMethodResponse":              532,
 	}
 )
 
@@ -936,6 +945,74 @@ func (x *CMsgGCHInviteUserToLobby) GetSteamidLobby() uint64 {
 	return 0
 }
 
+type CMsgGCHRecurringSubscriptionStatusChange struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Steamid       *uint64                `protobuf:"fixed64,1,opt,name=steamid" json:"steamid,omitempty"`
+	Appid         *uint32                `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
+	Agreementid   *uint64                `protobuf:"fixed64,3,opt,name=agreementid" json:"agreementid,omitempty"`
+	Active        *bool                  `protobuf:"varint,4,opt,name=active" json:"active,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCHRecurringSubscriptionStatusChange) Reset() {
+	*x = CMsgGCHRecurringSubscriptionStatusChange{}
+	mi := &file_gcsystemmsgs_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCHRecurringSubscriptionStatusChange) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCHRecurringSubscriptionStatusChange) ProtoMessage() {}
+
+func (x *CMsgGCHRecurringSubscriptionStatusChange) ProtoReflect() protoreflect.Message {
+	mi := &file_gcsystemmsgs_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCHRecurringSubscriptionStatusChange.ProtoReflect.Descriptor instead.
+func (*CMsgGCHRecurringSubscriptionStatusChange) Descriptor() ([]byte, []int) {
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CMsgGCHRecurringSubscriptionStatusChange) GetSteamid() uint64 {
+	if x != nil && x.Steamid != nil {
+		return *x.Steamid
+	}
+	return 0
+}
+
+func (x *CMsgGCHRecurringSubscriptionStatusChange) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CMsgGCHRecurringSubscriptionStatusChange) GetAgreementid() uint64 {
+	if x != nil && x.Agreementid != nil {
+		return *x.Agreementid
+	}
+	return 0
+}
+
+func (x *CMsgGCHRecurringSubscriptionStatusChange) GetActive() bool {
+	if x != nil && x.Active != nil {
+		return *x.Active
+	}
+	return false
+}
+
 type CQuest_PublisherAddCommunityItemsToPlayer_Request struct {
 	state          protoimpl.MessageState                                         `protogen:"open.v1"`
 	Steamid        *uint64                                                        `protobuf:"varint,1,opt,name=steamid" json:"steamid,omitempty"`
@@ -951,7 +1028,7 @@ type CQuest_PublisherAddCommunityItemsToPlayer_Request struct {
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request) Reset() {
 	*x = CQuest_PublisherAddCommunityItemsToPlayer_Request{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[3]
+	mi := &file_gcsystemmsgs_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -963,7 +1040,7 @@ func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request) String() string {
 func (*CQuest_PublisherAddCommunityItemsToPlayer_Request) ProtoMessage() {}
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[3]
+	mi := &file_gcsystemmsgs_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -976,7 +1053,7 @@ func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request) ProtoReflect() proto
 
 // Deprecated: Use CQuest_PublisherAddCommunityItemsToPlayer_Request.ProtoReflect.Descriptor instead.
 func (*CQuest_PublisherAddCommunityItemsToPlayer_Request) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{3}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request) GetSteamid() uint64 {
@@ -1038,7 +1115,7 @@ type CQuest_PublisherAddCommunityItemsToPlayer_Response struct {
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Response) Reset() {
 	*x = CQuest_PublisherAddCommunityItemsToPlayer_Response{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[4]
+	mi := &file_gcsystemmsgs_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1050,7 +1127,7 @@ func (x *CQuest_PublisherAddCommunityItemsToPlayer_Response) String() string {
 func (*CQuest_PublisherAddCommunityItemsToPlayer_Response) ProtoMessage() {}
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[4]
+	mi := &file_gcsystemmsgs_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1063,7 +1140,7 @@ func (x *CQuest_PublisherAddCommunityItemsToPlayer_Response) ProtoReflect() prot
 
 // Deprecated: Use CQuest_PublisherAddCommunityItemsToPlayer_Response.ProtoReflect.Descriptor instead.
 func (*CQuest_PublisherAddCommunityItemsToPlayer_Response) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{4}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Response) GetItemsMatched() uint32 {
@@ -1091,7 +1168,7 @@ type CCommunity_GamePersonalDataCategoryInfo struct {
 
 func (x *CCommunity_GamePersonalDataCategoryInfo) Reset() {
 	*x = CCommunity_GamePersonalDataCategoryInfo{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[5]
+	mi := &file_gcsystemmsgs_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1103,7 +1180,7 @@ func (x *CCommunity_GamePersonalDataCategoryInfo) String() string {
 func (*CCommunity_GamePersonalDataCategoryInfo) ProtoMessage() {}
 
 func (x *CCommunity_GamePersonalDataCategoryInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[5]
+	mi := &file_gcsystemmsgs_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1116,7 +1193,7 @@ func (x *CCommunity_GamePersonalDataCategoryInfo) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CCommunity_GamePersonalDataCategoryInfo.ProtoReflect.Descriptor instead.
 func (*CCommunity_GamePersonalDataCategoryInfo) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{5}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CCommunity_GamePersonalDataCategoryInfo) GetType() string {
@@ -1149,7 +1226,7 @@ type CCommunity_GetGamePersonalDataCategories_Request struct {
 
 func (x *CCommunity_GetGamePersonalDataCategories_Request) Reset() {
 	*x = CCommunity_GetGamePersonalDataCategories_Request{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[6]
+	mi := &file_gcsystemmsgs_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1161,7 +1238,7 @@ func (x *CCommunity_GetGamePersonalDataCategories_Request) String() string {
 func (*CCommunity_GetGamePersonalDataCategories_Request) ProtoMessage() {}
 
 func (x *CCommunity_GetGamePersonalDataCategories_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[6]
+	mi := &file_gcsystemmsgs_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1174,7 +1251,7 @@ func (x *CCommunity_GetGamePersonalDataCategories_Request) ProtoReflect() protor
 
 // Deprecated: Use CCommunity_GetGamePersonalDataCategories_Request.ProtoReflect.Descriptor instead.
 func (*CCommunity_GetGamePersonalDataCategories_Request) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{6}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CCommunity_GetGamePersonalDataCategories_Request) GetAppid() uint32 {
@@ -1194,7 +1271,7 @@ type CCommunity_GetGamePersonalDataCategories_Response struct {
 
 func (x *CCommunity_GetGamePersonalDataCategories_Response) Reset() {
 	*x = CCommunity_GetGamePersonalDataCategories_Response{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[7]
+	mi := &file_gcsystemmsgs_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1206,7 +1283,7 @@ func (x *CCommunity_GetGamePersonalDataCategories_Response) String() string {
 func (*CCommunity_GetGamePersonalDataCategories_Response) ProtoMessage() {}
 
 func (x *CCommunity_GetGamePersonalDataCategories_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[7]
+	mi := &file_gcsystemmsgs_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1219,7 +1296,7 @@ func (x *CCommunity_GetGamePersonalDataCategories_Response) ProtoReflect() proto
 
 // Deprecated: Use CCommunity_GetGamePersonalDataCategories_Response.ProtoReflect.Descriptor instead.
 func (*CCommunity_GetGamePersonalDataCategories_Response) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{7}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CCommunity_GetGamePersonalDataCategories_Response) GetCategories() []*CCommunity_GamePersonalDataCategoryInfo {
@@ -1248,7 +1325,7 @@ type CCommunity_GetGamePersonalDataEntries_Request struct {
 
 func (x *CCommunity_GetGamePersonalDataEntries_Request) Reset() {
 	*x = CCommunity_GetGamePersonalDataEntries_Request{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[8]
+	mi := &file_gcsystemmsgs_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1260,7 +1337,7 @@ func (x *CCommunity_GetGamePersonalDataEntries_Request) String() string {
 func (*CCommunity_GetGamePersonalDataEntries_Request) ProtoMessage() {}
 
 func (x *CCommunity_GetGamePersonalDataEntries_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[8]
+	mi := &file_gcsystemmsgs_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1273,7 +1350,7 @@ func (x *CCommunity_GetGamePersonalDataEntries_Request) ProtoReflect() protorefl
 
 // Deprecated: Use CCommunity_GetGamePersonalDataEntries_Request.ProtoReflect.Descriptor instead.
 func (*CCommunity_GetGamePersonalDataEntries_Request) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{8}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CCommunity_GetGamePersonalDataEntries_Request) GetAppid() uint32 {
@@ -1309,13 +1386,14 @@ type CCommunity_GetGamePersonalDataEntries_Response struct {
 	Gceresult     *uint32                `protobuf:"varint,1,opt,name=gceresult" json:"gceresult,omitempty"`
 	Entries       []string               `protobuf:"bytes,2,rep,name=entries" json:"entries,omitempty"`
 	ContinueToken *string                `protobuf:"bytes,3,opt,name=continue_token,json=continueToken" json:"continue_token,omitempty"`
+	ContinueText  *string                `protobuf:"bytes,4,opt,name=continue_text,json=continueText" json:"continue_text,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CCommunity_GetGamePersonalDataEntries_Response) Reset() {
 	*x = CCommunity_GetGamePersonalDataEntries_Response{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[9]
+	mi := &file_gcsystemmsgs_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1327,7 +1405,7 @@ func (x *CCommunity_GetGamePersonalDataEntries_Response) String() string {
 func (*CCommunity_GetGamePersonalDataEntries_Response) ProtoMessage() {}
 
 func (x *CCommunity_GetGamePersonalDataEntries_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[9]
+	mi := &file_gcsystemmsgs_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1340,7 +1418,7 @@ func (x *CCommunity_GetGamePersonalDataEntries_Response) ProtoReflect() protoref
 
 // Deprecated: Use CCommunity_GetGamePersonalDataEntries_Response.ProtoReflect.Descriptor instead.
 func (*CCommunity_GetGamePersonalDataEntries_Response) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{9}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CCommunity_GetGamePersonalDataEntries_Response) GetGceresult() uint32 {
@@ -1364,6 +1442,13 @@ func (x *CCommunity_GetGamePersonalDataEntries_Response) GetContinueToken() stri
 	return ""
 }
 
+func (x *CCommunity_GetGamePersonalDataEntries_Response) GetContinueText() string {
+	if x != nil && x.ContinueText != nil {
+		return *x.ContinueText
+	}
+	return ""
+}
+
 type CCommunity_TerminateGamePersonalDataEntries_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
@@ -1374,7 +1459,7 @@ type CCommunity_TerminateGamePersonalDataEntries_Request struct {
 
 func (x *CCommunity_TerminateGamePersonalDataEntries_Request) Reset() {
 	*x = CCommunity_TerminateGamePersonalDataEntries_Request{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[10]
+	mi := &file_gcsystemmsgs_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1386,7 +1471,7 @@ func (x *CCommunity_TerminateGamePersonalDataEntries_Request) String() string {
 func (*CCommunity_TerminateGamePersonalDataEntries_Request) ProtoMessage() {}
 
 func (x *CCommunity_TerminateGamePersonalDataEntries_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[10]
+	mi := &file_gcsystemmsgs_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1399,7 +1484,7 @@ func (x *CCommunity_TerminateGamePersonalDataEntries_Request) ProtoReflect() pro
 
 // Deprecated: Use CCommunity_TerminateGamePersonalDataEntries_Request.ProtoReflect.Descriptor instead.
 func (*CCommunity_TerminateGamePersonalDataEntries_Request) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{10}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CCommunity_TerminateGamePersonalDataEntries_Request) GetAppid() uint32 {
@@ -1425,7 +1510,7 @@ type CCommunity_TerminateGamePersonalDataEntries_Response struct {
 
 func (x *CCommunity_TerminateGamePersonalDataEntries_Response) Reset() {
 	*x = CCommunity_TerminateGamePersonalDataEntries_Response{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[11]
+	mi := &file_gcsystemmsgs_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1437,7 +1522,7 @@ func (x *CCommunity_TerminateGamePersonalDataEntries_Response) String() string {
 func (*CCommunity_TerminateGamePersonalDataEntries_Response) ProtoMessage() {}
 
 func (x *CCommunity_TerminateGamePersonalDataEntries_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[11]
+	mi := &file_gcsystemmsgs_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1450,7 +1535,7 @@ func (x *CCommunity_TerminateGamePersonalDataEntries_Response) ProtoReflect() pr
 
 // Deprecated: Use CCommunity_TerminateGamePersonalDataEntries_Response.ProtoReflect.Descriptor instead.
 func (*CCommunity_TerminateGamePersonalDataEntries_Response) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{11}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CCommunity_TerminateGamePersonalDataEntries_Response) GetGceresult() uint32 {
@@ -1470,7 +1555,7 @@ type CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute struct {
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute) Reset() {
 	*x = CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute{}
-	mi := &file_gcsystemmsgs_proto_msgTypes[12]
+	mi := &file_gcsystemmsgs_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1482,7 +1567,7 @@ func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute) String() s
 func (*CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute) ProtoMessage() {}
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute) ProtoReflect() protoreflect.Message {
-	mi := &file_gcsystemmsgs_proto_msgTypes[12]
+	mi := &file_gcsystemmsgs_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1495,7 +1580,7 @@ func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute) ProtoRefle
 
 // Deprecated: Use CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute.ProtoReflect.Descriptor instead.
 func (*CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute) Descriptor() ([]byte, []int) {
-	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{3, 0}
+	return file_gcsystemmsgs_proto_rawDescGZIP(), []int{4, 0}
 }
 
 func (x *CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute) GetAttribute() uint32 {
@@ -1533,7 +1618,12 @@ const file_gcsystemmsgs_proto_rawDesc = "" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x14\n" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\x12'\n" +
 	"\x0fsteamid_invited\x18\x03 \x01(\x06R\x0esteamidInvited\x12#\n" +
-	"\rsteamid_lobby\x18\x04 \x01(\x06R\fsteamidLobby\"\x92\x03\n" +
+	"\rsteamid_lobby\x18\x04 \x01(\x06R\fsteamidLobby\"\x94\x01\n" +
+	"(CMsgGCHRecurringSubscriptionStatusChange\x12\x18\n" +
+	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x12 \n" +
+	"\vagreementid\x18\x03 \x01(\x06R\vagreementid\x12\x16\n" +
+	"\x06active\x18\x04 \x01(\bR\x06active\"\x92\x03\n" +
 	"1CQuest_PublisherAddCommunityItemsToPlayer_Request\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x04R\asteamid\x12\x14\n" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\x12&\n" +
@@ -1565,16 +1655,17 @@ const file_gcsystemmsgs_proto_rawDesc = "" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x18\n" +
 	"\asteamid\x18\x02 \x01(\x04R\asteamid\x12\x12\n" +
 	"\x04type\x18\x03 \x01(\tR\x04type\x12%\n" +
-	"\x0econtinue_token\x18\x04 \x01(\tR\rcontinueToken\"\x8f\x01\n" +
+	"\x0econtinue_token\x18\x04 \x01(\tR\rcontinueToken\"\xb4\x01\n" +
 	".CCommunity_GetGamePersonalDataEntries_Response\x12\x1c\n" +
 	"\tgceresult\x18\x01 \x01(\rR\tgceresult\x12\x18\n" +
 	"\aentries\x18\x02 \x03(\tR\aentries\x12%\n" +
-	"\x0econtinue_token\x18\x03 \x01(\tR\rcontinueToken\"e\n" +
+	"\x0econtinue_token\x18\x03 \x01(\tR\rcontinueToken\x12#\n" +
+	"\rcontinue_text\x18\x04 \x01(\tR\fcontinueText\"e\n" +
 	"3CCommunity_TerminateGamePersonalDataEntries_Request\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x18\n" +
 	"\asteamid\x18\x02 \x01(\x04R\asteamid\"T\n" +
 	"4CCommunity_TerminateGamePersonalDataEntries_Response\x12\x1c\n" +
-	"\tgceresult\x18\x01 \x01(\rR\tgceresult*\xc6\x17\n" +
+	"\tgceresult\x18\x01 \x01(\rR\tgceresult*\xc2\x18\n" +
 	"\fEGCSystemMsg\x12\x13\n" +
 	"\x0fk_EGCMsgInvalid\x10\x00\x12\x11\n" +
 	"\rk_EGCMsgMulti\x10\x01\x12\x18\n" +
@@ -1665,7 +1756,10 @@ const file_gcsystemmsgs_proto_rawDesc = "" +
 	")k_EGCMsgGetGamePersonalDataEntriesRequest\x10\x8e\x04\x12/\n" +
 	"*k_EGCMsgGetGamePersonalDataEntriesResponse\x10\x8f\x04\x124\n" +
 	"/k_EGCMsgTerminateGamePersonalDataEntriesRequest\x10\x90\x04\x125\n" +
-	"0k_EGCMsgTerminateGamePersonalDataEntriesResponse\x10\x91\x04*\xef\x01\n" +
+	"0k_EGCMsgTerminateGamePersonalDataEntriesResponse\x10\x91\x04\x12.\n" +
+	")k_EGCMsgRecurringSubscriptionStatusChange\x10\x92\x04\x12 \n" +
+	"\x1bk_EGCMsgDirectServiceMethod\x10\x93\x04\x12(\n" +
+	"#k_EGCMsgDirectServiceMethodResponse\x10\x94\x04*\xef\x01\n" +
 	"\x06ESOMsg\x12\x13\n" +
 	"\x0fk_ESOMsg_Create\x10\x15\x12\x13\n" +
 	"\x0fk_ESOMsg_Update\x10\x16\x12\x14\n" +
@@ -1720,7 +1814,7 @@ const file_gcsystemmsgs_proto_rawDesc = "" +
 	",k_ECommunityItemAttribute_CommunityItemAppID\x10\x06\x12/\n" +
 	"+k_ECommunityItemAttribute_CommunityItemType\x10\a\x123\n" +
 	"/k_ECommunityItemAttribute_ProfileModiferEnabled\x10\b\x12(\n" +
-	"$k_ECommunityItemAttribute_ExpiryTime\x10\tB\x05H\x01\x80\x01\x00"
+	"$k_ECommunityItemAttribute_ExpiryTime\x10\t"
 
 var (
 	file_gcsystemmsgs_proto_rawDescOnce sync.Once
@@ -1735,7 +1829,7 @@ func file_gcsystemmsgs_proto_rawDescGZIP() []byte {
 }
 
 var file_gcsystemmsgs_proto_enumTypes = make([]protoimpl.EnumInfo, 6)
-var file_gcsystemmsgs_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_gcsystemmsgs_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_gcsystemmsgs_proto_goTypes = []any{
 	(EGCSystemMsg)(0),                                                   // 0: EGCSystemMsg
 	(ESOMsg)(0),                                                         // 1: ESOMsg
@@ -1746,20 +1840,21 @@ var file_gcsystemmsgs_proto_goTypes = []any{
 	(*CMsgGCHVacVerificationChange)(nil),                                // 6: CMsgGCHVacVerificationChange
 	(*CMsgGCHAccountPhoneNumberChange)(nil),                             // 7: CMsgGCHAccountPhoneNumberChange
 	(*CMsgGCHInviteUserToLobby)(nil),                                    // 8: CMsgGCHInviteUserToLobby
-	(*CQuest_PublisherAddCommunityItemsToPlayer_Request)(nil),           // 9: CQuest_PublisherAddCommunityItemsToPlayer_Request
-	(*CQuest_PublisherAddCommunityItemsToPlayer_Response)(nil),          // 10: CQuest_PublisherAddCommunityItemsToPlayer_Response
-	(*CCommunity_GamePersonalDataCategoryInfo)(nil),                     // 11: CCommunity_GamePersonalDataCategoryInfo
-	(*CCommunity_GetGamePersonalDataCategories_Request)(nil),            // 12: CCommunity_GetGamePersonalDataCategories_Request
-	(*CCommunity_GetGamePersonalDataCategories_Response)(nil),           // 13: CCommunity_GetGamePersonalDataCategories_Response
-	(*CCommunity_GetGamePersonalDataEntries_Request)(nil),               // 14: CCommunity_GetGamePersonalDataEntries_Request
-	(*CCommunity_GetGamePersonalDataEntries_Response)(nil),              // 15: CCommunity_GetGamePersonalDataEntries_Response
-	(*CCommunity_TerminateGamePersonalDataEntries_Request)(nil),         // 16: CCommunity_TerminateGamePersonalDataEntries_Request
-	(*CCommunity_TerminateGamePersonalDataEntries_Response)(nil),        // 17: CCommunity_TerminateGamePersonalDataEntries_Response
-	(*CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute)(nil), // 18: CQuest_PublisherAddCommunityItemsToPlayer_Request.Attribute
+	(*CMsgGCHRecurringSubscriptionStatusChange)(nil),                    // 9: CMsgGCHRecurringSubscriptionStatusChange
+	(*CQuest_PublisherAddCommunityItemsToPlayer_Request)(nil),           // 10: CQuest_PublisherAddCommunityItemsToPlayer_Request
+	(*CQuest_PublisherAddCommunityItemsToPlayer_Response)(nil),          // 11: CQuest_PublisherAddCommunityItemsToPlayer_Response
+	(*CCommunity_GamePersonalDataCategoryInfo)(nil),                     // 12: CCommunity_GamePersonalDataCategoryInfo
+	(*CCommunity_GetGamePersonalDataCategories_Request)(nil),            // 13: CCommunity_GetGamePersonalDataCategories_Request
+	(*CCommunity_GetGamePersonalDataCategories_Response)(nil),           // 14: CCommunity_GetGamePersonalDataCategories_Response
+	(*CCommunity_GetGamePersonalDataEntries_Request)(nil),               // 15: CCommunity_GetGamePersonalDataEntries_Request
+	(*CCommunity_GetGamePersonalDataEntries_Response)(nil),              // 16: CCommunity_GetGamePersonalDataEntries_Response
+	(*CCommunity_TerminateGamePersonalDataEntries_Request)(nil),         // 17: CCommunity_TerminateGamePersonalDataEntries_Request
+	(*CCommunity_TerminateGamePersonalDataEntries_Response)(nil),        // 18: CCommunity_TerminateGamePersonalDataEntries_Response
+	(*CQuest_PublisherAddCommunityItemsToPlayer_Request_Attribute)(nil), // 19: CQuest_PublisherAddCommunityItemsToPlayer_Request.Attribute
 }
 var file_gcsystemmsgs_proto_depIdxs = []int32{
-	18, // 0: CQuest_PublisherAddCommunityItemsToPlayer_Request.attributes:type_name -> CQuest_PublisherAddCommunityItemsToPlayer_Request.Attribute
-	11, // 1: CCommunity_GetGamePersonalDataCategories_Response.categories:type_name -> CCommunity_GamePersonalDataCategoryInfo
+	19, // 0: CQuest_PublisherAddCommunityItemsToPlayer_Request.attributes:type_name -> CQuest_PublisherAddCommunityItemsToPlayer_Request.Attribute
+	12, // 1: CCommunity_GetGamePersonalDataCategories_Response.categories:type_name -> CCommunity_GamePersonalDataCategoryInfo
 	2,  // [2:2] is the sub-list for method output_type
 	2,  // [2:2] is the sub-list for method input_type
 	2,  // [2:2] is the sub-list for extension type_name
@@ -1778,7 +1873,7 @@ func file_gcsystemmsgs_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_gcsystemmsgs_proto_rawDesc), len(file_gcsystemmsgs_proto_rawDesc)),
 			NumEnums:      6,
-			NumMessages:   13,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

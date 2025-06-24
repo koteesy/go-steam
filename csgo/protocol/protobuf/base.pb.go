@@ -294,6 +294,7 @@ type CGCStorePurchaseInit_LineItem struct {
 	Quantity            *uint32                `protobuf:"varint,2,opt,name=quantity" json:"quantity,omitempty"`
 	CostInLocalCurrency *uint32                `protobuf:"varint,3,opt,name=cost_in_local_currency,json=costInLocalCurrency" json:"cost_in_local_currency,omitempty"`
 	PurchaseType        *uint32                `protobuf:"varint,4,opt,name=purchase_type,json=purchaseType" json:"purchase_type,omitempty"`
+	SupplementalData    *uint64                `protobuf:"varint,5,opt,name=supplemental_data,json=supplementalData" json:"supplemental_data,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -352,6 +353,13 @@ func (x *CGCStorePurchaseInit_LineItem) GetCostInLocalCurrency() uint32 {
 func (x *CGCStorePurchaseInit_LineItem) GetPurchaseType() uint32 {
 	if x != nil && x.PurchaseType != nil {
 		return *x.PurchaseType
+	}
+	return 0
+}
+
+func (x *CGCStorePurchaseInit_LineItem) GetSupplementalData() uint64 {
+	if x != nil && x.SupplementalData != nil {
+		return *x.SupplementalData
 	}
 	return 0
 }
@@ -999,6 +1007,7 @@ func (x *CMsgLANServerAvailable) GetLobbyId() uint64 {
 type CSOEconGameAccountClient struct {
 	state                   protoimpl.MessageState `protogen:"open.v1"`
 	AdditionalBackpackSlots *uint32                `protobuf:"varint,1,opt,name=additional_backpack_slots,json=additionalBackpackSlots,def=0" json:"additional_backpack_slots,omitempty"`
+	TradeBanExpiration      *uint32                `protobuf:"fixed32,6,opt,name=trade_ban_expiration,json=tradeBanExpiration" json:"trade_ban_expiration,omitempty"`
 	BonusXpTimestampRefresh *uint32                `protobuf:"fixed32,12,opt,name=bonus_xp_timestamp_refresh,json=bonusXpTimestampRefresh" json:"bonus_xp_timestamp_refresh,omitempty"`
 	BonusXpUsedflags        *uint32                `protobuf:"varint,13,opt,name=bonus_xp_usedflags,json=bonusXpUsedflags" json:"bonus_xp_usedflags,omitempty"`
 	ElevatedState           *uint32                `protobuf:"varint,14,opt,name=elevated_state,json=elevatedState" json:"elevated_state,omitempty"`
@@ -1047,6 +1056,13 @@ func (x *CSOEconGameAccountClient) GetAdditionalBackpackSlots() uint32 {
 		return *x.AdditionalBackpackSlots
 	}
 	return Default_CSOEconGameAccountClient_AdditionalBackpackSlots
+}
+
+func (x *CSOEconGameAccountClient) GetTradeBanExpiration() uint32 {
+	if x != nil && x.TradeBanExpiration != nil {
+		return *x.TradeBanExpiration
+	}
+	return 0
 }
 
 func (x *CSOEconGameAccountClient) GetBonusXpTimestampRefresh() uint32 {
@@ -1594,14 +1610,20 @@ func (x *CMsgIncrementKillCountAttribute) GetAmount() uint32 {
 }
 
 type CMsgApplySticker struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	StickerItemId  *uint64                `protobuf:"varint,1,opt,name=sticker_item_id,json=stickerItemId" json:"sticker_item_id,omitempty"`
-	ItemItemId     *uint64                `protobuf:"varint,2,opt,name=item_item_id,json=itemItemId" json:"item_item_id,omitempty"`
-	StickerSlot    *uint32                `protobuf:"varint,3,opt,name=sticker_slot,json=stickerSlot" json:"sticker_slot,omitempty"`
-	BaseitemDefidx *uint32                `protobuf:"varint,4,opt,name=baseitem_defidx,json=baseitemDefidx" json:"baseitem_defidx,omitempty"`
-	StickerWear    *float32               `protobuf:"fixed32,5,opt,name=sticker_wear,json=stickerWear" json:"sticker_wear,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	StickerItemId     *uint64                `protobuf:"varint,1,opt,name=sticker_item_id,json=stickerItemId" json:"sticker_item_id,omitempty"`
+	ItemItemId        *uint64                `protobuf:"varint,2,opt,name=item_item_id,json=itemItemId" json:"item_item_id,omitempty"`
+	StickerSlot       *uint32                `protobuf:"varint,3,opt,name=sticker_slot,json=stickerSlot" json:"sticker_slot,omitempty"`
+	BaseitemDefidx    *uint32                `protobuf:"varint,4,opt,name=baseitem_defidx,json=baseitemDefidx" json:"baseitem_defidx,omitempty"`
+	StickerWear       *float32               `protobuf:"fixed32,5,opt,name=sticker_wear,json=stickerWear" json:"sticker_wear,omitempty"`
+	StickerRotation   *float32               `protobuf:"fixed32,6,opt,name=sticker_rotation,json=stickerRotation" json:"sticker_rotation,omitempty"`
+	StickerScale      *float32               `protobuf:"fixed32,7,opt,name=sticker_scale,json=stickerScale" json:"sticker_scale,omitempty"`
+	StickerOffsetX    *float32               `protobuf:"fixed32,8,opt,name=sticker_offset_x,json=stickerOffsetX" json:"sticker_offset_x,omitempty"`
+	StickerOffsetY    *float32               `protobuf:"fixed32,9,opt,name=sticker_offset_y,json=stickerOffsetY" json:"sticker_offset_y,omitempty"`
+	StickerOffsetZ    *float32               `protobuf:"fixed32,10,opt,name=sticker_offset_z,json=stickerOffsetZ" json:"sticker_offset_z,omitempty"`
+	StickerWearTarget *float32               `protobuf:"fixed32,11,opt,name=sticker_wear_target,json=stickerWearTarget" json:"sticker_wear_target,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CMsgApplySticker) Reset() {
@@ -1665,6 +1687,48 @@ func (x *CMsgApplySticker) GetBaseitemDefidx() uint32 {
 func (x *CMsgApplySticker) GetStickerWear() float32 {
 	if x != nil && x.StickerWear != nil {
 		return *x.StickerWear
+	}
+	return 0
+}
+
+func (x *CMsgApplySticker) GetStickerRotation() float32 {
+	if x != nil && x.StickerRotation != nil {
+		return *x.StickerRotation
+	}
+	return 0
+}
+
+func (x *CMsgApplySticker) GetStickerScale() float32 {
+	if x != nil && x.StickerScale != nil {
+		return *x.StickerScale
+	}
+	return 0
+}
+
+func (x *CMsgApplySticker) GetStickerOffsetX() float32 {
+	if x != nil && x.StickerOffsetX != nil {
+		return *x.StickerOffsetX
+	}
+	return 0
+}
+
+func (x *CMsgApplySticker) GetStickerOffsetY() float32 {
+	if x != nil && x.StickerOffsetY != nil {
+		return *x.StickerOffsetY
+	}
+	return 0
+}
+
+func (x *CMsgApplySticker) GetStickerOffsetZ() float32 {
+	if x != nil && x.StickerOffsetZ != nil {
+		return *x.StickerOffsetZ
+	}
+	return 0
+}
+
+func (x *CMsgApplySticker) GetStickerWearTarget() float32 {
+	if x != nil && x.StickerWearTarget != nil {
+		return *x.StickerWearTarget
 	}
 	return 0
 }
@@ -2614,13 +2678,12 @@ func (x *CMsgStoreGetUserDataResponse) GetPriceSheet() []byte {
 }
 
 type CMsgUpdateItemSchema struct {
-	state                       protoimpl.MessageState `protogen:"open.v1"`
-	ItemsGame                   []byte                 `protobuf:"bytes,1,opt,name=items_game,json=itemsGame" json:"items_game,omitempty"`
-	ItemSchemaVersion           *uint32                `protobuf:"fixed32,2,opt,name=item_schema_version,json=itemSchemaVersion" json:"item_schema_version,omitempty"`
-	ItemsGameUrl_DEPRECATED2013 *string                `protobuf:"bytes,3,opt,name=items_game_url_DEPRECATED2013,json=itemsGameUrlDEPRECATED2013" json:"items_game_url_DEPRECATED2013,omitempty"`
-	ItemsGameUrl                *string                `protobuf:"bytes,4,opt,name=items_game_url,json=itemsGameUrl" json:"items_game_url,omitempty"`
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	ItemsGame         []byte                 `protobuf:"bytes,1,opt,name=items_game,json=itemsGame" json:"items_game,omitempty"`
+	ItemSchemaVersion *uint32                `protobuf:"fixed32,2,opt,name=item_schema_version,json=itemSchemaVersion" json:"item_schema_version,omitempty"`
+	ItemsGameUrl      *string                `protobuf:"bytes,4,opt,name=items_game_url,json=itemsGameUrl" json:"items_game_url,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CMsgUpdateItemSchema) Reset() {
@@ -2665,13 +2728,6 @@ func (x *CMsgUpdateItemSchema) GetItemSchemaVersion() uint32 {
 		return *x.ItemSchemaVersion
 	}
 	return 0
-}
-
-func (x *CMsgUpdateItemSchema) GetItemsGameUrl_DEPRECATED2013() string {
-	if x != nil && x.ItemsGameUrl_DEPRECATED2013 != nil {
-		return *x.ItemsGameUrl_DEPRECATED2013
-	}
-	return ""
 }
 
 func (x *CMsgUpdateItemSchema) GetItemsGameUrl() string {
@@ -5171,6 +5227,374 @@ func (x *CMsgGameServerInfo) GetTvSecretCode() uint64 {
 	return 0
 }
 
+type CSOEconEquipSlot struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	AccountId      *uint32                `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	ClassId        *uint32                `protobuf:"varint,2,opt,name=class_id,json=classId" json:"class_id,omitempty"`
+	SlotId         *uint32                `protobuf:"varint,3,opt,name=slot_id,json=slotId" json:"slot_id,omitempty"`
+	ItemId         *uint64                `protobuf:"varint,4,opt,name=item_id,json=itemId" json:"item_id,omitempty"`
+	ItemDefinition *uint32                `protobuf:"varint,5,opt,name=item_definition,json=itemDefinition" json:"item_definition,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CSOEconEquipSlot) Reset() {
+	*x = CSOEconEquipSlot{}
+	mi := &file_base_gcmessages_proto_msgTypes[79]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSOEconEquipSlot) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSOEconEquipSlot) ProtoMessage() {}
+
+func (x *CSOEconEquipSlot) ProtoReflect() protoreflect.Message {
+	mi := &file_base_gcmessages_proto_msgTypes[79]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSOEconEquipSlot.ProtoReflect.Descriptor instead.
+func (*CSOEconEquipSlot) Descriptor() ([]byte, []int) {
+	return file_base_gcmessages_proto_rawDescGZIP(), []int{79}
+}
+
+func (x *CSOEconEquipSlot) GetAccountId() uint32 {
+	if x != nil && x.AccountId != nil {
+		return *x.AccountId
+	}
+	return 0
+}
+
+func (x *CSOEconEquipSlot) GetClassId() uint32 {
+	if x != nil && x.ClassId != nil {
+		return *x.ClassId
+	}
+	return 0
+}
+
+func (x *CSOEconEquipSlot) GetSlotId() uint32 {
+	if x != nil && x.SlotId != nil {
+		return *x.SlotId
+	}
+	return 0
+}
+
+func (x *CSOEconEquipSlot) GetItemId() uint64 {
+	if x != nil && x.ItemId != nil {
+		return *x.ItemId
+	}
+	return 0
+}
+
+func (x *CSOEconEquipSlot) GetItemDefinition() uint32 {
+	if x != nil && x.ItemDefinition != nil {
+		return *x.ItemDefinition
+	}
+	return 0
+}
+
+type CMsgAdjustEquipSlot struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ClassId       *uint32                `protobuf:"varint,1,opt,name=class_id,json=classId" json:"class_id,omitempty"`
+	SlotId        *uint32                `protobuf:"varint,2,opt,name=slot_id,json=slotId" json:"slot_id,omitempty"`
+	ItemId        *uint64                `protobuf:"varint,3,opt,name=item_id,json=itemId" json:"item_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgAdjustEquipSlot) Reset() {
+	*x = CMsgAdjustEquipSlot{}
+	mi := &file_base_gcmessages_proto_msgTypes[80]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgAdjustEquipSlot) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgAdjustEquipSlot) ProtoMessage() {}
+
+func (x *CMsgAdjustEquipSlot) ProtoReflect() protoreflect.Message {
+	mi := &file_base_gcmessages_proto_msgTypes[80]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgAdjustEquipSlot.ProtoReflect.Descriptor instead.
+func (*CMsgAdjustEquipSlot) Descriptor() ([]byte, []int) {
+	return file_base_gcmessages_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *CMsgAdjustEquipSlot) GetClassId() uint32 {
+	if x != nil && x.ClassId != nil {
+		return *x.ClassId
+	}
+	return 0
+}
+
+func (x *CMsgAdjustEquipSlot) GetSlotId() uint32 {
+	if x != nil && x.SlotId != nil {
+		return *x.SlotId
+	}
+	return 0
+}
+
+func (x *CMsgAdjustEquipSlot) GetItemId() uint64 {
+	if x != nil && x.ItemId != nil {
+		return *x.ItemId
+	}
+	return 0
+}
+
+type CMsgAdjustEquipSlots struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Slots         []*CMsgAdjustEquipSlot `protobuf:"bytes,1,rep,name=slots" json:"slots,omitempty"`
+	ChangeNum     *uint32                `protobuf:"varint,2,opt,name=change_num,json=changeNum" json:"change_num,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgAdjustEquipSlots) Reset() {
+	*x = CMsgAdjustEquipSlots{}
+	mi := &file_base_gcmessages_proto_msgTypes[81]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgAdjustEquipSlots) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgAdjustEquipSlots) ProtoMessage() {}
+
+func (x *CMsgAdjustEquipSlots) ProtoReflect() protoreflect.Message {
+	mi := &file_base_gcmessages_proto_msgTypes[81]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgAdjustEquipSlots.ProtoReflect.Descriptor instead.
+func (*CMsgAdjustEquipSlots) Descriptor() ([]byte, []int) {
+	return file_base_gcmessages_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *CMsgAdjustEquipSlots) GetSlots() []*CMsgAdjustEquipSlot {
+	if x != nil {
+		return x.Slots
+	}
+	return nil
+}
+
+func (x *CMsgAdjustEquipSlots) GetChangeNum() uint32 {
+	if x != nil && x.ChangeNum != nil {
+		return *x.ChangeNum
+	}
+	return 0
+}
+
+type CMsgOpenCrate struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ToolItemId    *uint64                `protobuf:"varint,1,opt,name=tool_item_id,json=toolItemId" json:"tool_item_id,omitempty"`
+	SubjectItemId *uint64                `protobuf:"varint,2,opt,name=subject_item_id,json=subjectItemId" json:"subject_item_id,omitempty"`
+	ForRental     *bool                  `protobuf:"varint,3,opt,name=for_rental,json=forRental" json:"for_rental,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgOpenCrate) Reset() {
+	*x = CMsgOpenCrate{}
+	mi := &file_base_gcmessages_proto_msgTypes[82]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgOpenCrate) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgOpenCrate) ProtoMessage() {}
+
+func (x *CMsgOpenCrate) ProtoReflect() protoreflect.Message {
+	mi := &file_base_gcmessages_proto_msgTypes[82]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgOpenCrate.ProtoReflect.Descriptor instead.
+func (*CMsgOpenCrate) Descriptor() ([]byte, []int) {
+	return file_base_gcmessages_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *CMsgOpenCrate) GetToolItemId() uint64 {
+	if x != nil && x.ToolItemId != nil {
+		return *x.ToolItemId
+	}
+	return 0
+}
+
+func (x *CMsgOpenCrate) GetSubjectItemId() uint64 {
+	if x != nil && x.SubjectItemId != nil {
+		return *x.SubjectItemId
+	}
+	return 0
+}
+
+func (x *CMsgOpenCrate) GetForRental() bool {
+	if x != nil && x.ForRental != nil {
+		return *x.ForRental
+	}
+	return false
+}
+
+type CSOEconRentalHistory struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	AccountId      *uint32                `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	CrateItemId    *uint64                `protobuf:"varint,2,opt,name=crate_item_id,json=crateItemId" json:"crate_item_id,omitempty"`
+	CrateDefIndex  *uint32                `protobuf:"varint,3,opt,name=crate_def_index,json=crateDefIndex" json:"crate_def_index,omitempty"`
+	IssueDate      *uint32                `protobuf:"varint,4,opt,name=issue_date,json=issueDate" json:"issue_date,omitempty"`
+	ExpirationDate *uint32                `protobuf:"varint,5,opt,name=expiration_date,json=expirationDate" json:"expiration_date,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CSOEconRentalHistory) Reset() {
+	*x = CSOEconRentalHistory{}
+	mi := &file_base_gcmessages_proto_msgTypes[83]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSOEconRentalHistory) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSOEconRentalHistory) ProtoMessage() {}
+
+func (x *CSOEconRentalHistory) ProtoReflect() protoreflect.Message {
+	mi := &file_base_gcmessages_proto_msgTypes[83]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSOEconRentalHistory.ProtoReflect.Descriptor instead.
+func (*CSOEconRentalHistory) Descriptor() ([]byte, []int) {
+	return file_base_gcmessages_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *CSOEconRentalHistory) GetAccountId() uint32 {
+	if x != nil && x.AccountId != nil {
+		return *x.AccountId
+	}
+	return 0
+}
+
+func (x *CSOEconRentalHistory) GetCrateItemId() uint64 {
+	if x != nil && x.CrateItemId != nil {
+		return *x.CrateItemId
+	}
+	return 0
+}
+
+func (x *CSOEconRentalHistory) GetCrateDefIndex() uint32 {
+	if x != nil && x.CrateDefIndex != nil {
+		return *x.CrateDefIndex
+	}
+	return 0
+}
+
+func (x *CSOEconRentalHistory) GetIssueDate() uint32 {
+	if x != nil && x.IssueDate != nil {
+		return *x.IssueDate
+	}
+	return 0
+}
+
+func (x *CSOEconRentalHistory) GetExpirationDate() uint32 {
+	if x != nil && x.ExpirationDate != nil {
+		return *x.ExpirationDate
+	}
+	return 0
+}
+
+type CMsgAcknowledgeRentalExpiration struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	CrateItemId   *uint64                `protobuf:"varint,1,opt,name=crate_item_id,json=crateItemId" json:"crate_item_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgAcknowledgeRentalExpiration) Reset() {
+	*x = CMsgAcknowledgeRentalExpiration{}
+	mi := &file_base_gcmessages_proto_msgTypes[84]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgAcknowledgeRentalExpiration) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgAcknowledgeRentalExpiration) ProtoMessage() {}
+
+func (x *CMsgAcknowledgeRentalExpiration) ProtoReflect() protoreflect.Message {
+	mi := &file_base_gcmessages_proto_msgTypes[84]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgAcknowledgeRentalExpiration.ProtoReflect.Descriptor instead.
+func (*CMsgAcknowledgeRentalExpiration) Descriptor() ([]byte, []int) {
+	return file_base_gcmessages_proto_rawDescGZIP(), []int{84}
+}
+
+func (x *CMsgAcknowledgeRentalExpiration) GetCrateItemId() uint64 {
+	if x != nil && x.CrateItemId != nil {
+		return *x.CrateItemId
+	}
+	return 0
+}
+
 type CMsgSetItemPositions_ItemPosition struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	LegacyItemId  *uint32                `protobuf:"varint,1,opt,name=legacy_item_id,json=legacyItemId" json:"legacy_item_id,omitempty"`
@@ -5182,7 +5606,7 @@ type CMsgSetItemPositions_ItemPosition struct {
 
 func (x *CMsgSetItemPositions_ItemPosition) Reset() {
 	*x = CMsgSetItemPositions_ItemPosition{}
-	mi := &file_base_gcmessages_proto_msgTypes[79]
+	mi := &file_base_gcmessages_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5194,7 +5618,7 @@ func (x *CMsgSetItemPositions_ItemPosition) String() string {
 func (*CMsgSetItemPositions_ItemPosition) ProtoMessage() {}
 
 func (x *CMsgSetItemPositions_ItemPosition) ProtoReflect() protoreflect.Message {
-	mi := &file_base_gcmessages_proto_msgTypes[79]
+	mi := &file_base_gcmessages_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5235,12 +5659,13 @@ var File_base_gcmessages_proto protoreflect.FileDescriptor
 
 const file_base_gcmessages_proto_rawDesc = "" +
 	"\n" +
-	"\x15base_gcmessages.proto\x1a\x13steammessages.proto\"\xb5\x01\n" +
+	"\x15base_gcmessages.proto\x1a\x13steammessages.proto\"\xe2\x01\n" +
 	"\x1dCGCStorePurchaseInit_LineItem\x12\x1e\n" +
 	"\vitem_def_id\x18\x01 \x01(\rR\titemDefId\x12\x1a\n" +
 	"\bquantity\x18\x02 \x01(\rR\bquantity\x123\n" +
 	"\x16cost_in_local_currency\x18\x03 \x01(\rR\x13costInLocalCurrency\x12#\n" +
-	"\rpurchase_type\x18\x04 \x01(\rR\fpurchaseType\"\xaa\x01\n" +
+	"\rpurchase_type\x18\x04 \x01(\rR\fpurchaseType\x12+\n" +
+	"\x11supplemental_data\x18\x05 \x01(\x04R\x10supplementalData\"\xaa\x01\n" +
 	"\x17CMsgGCStorePurchaseInit\x12\x18\n" +
 	"\acountry\x18\x01 \x01(\tR\acountry\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\x05R\blanguage\x12\x1a\n" +
@@ -5283,9 +5708,10 @@ const file_base_gcmessages_proto_rawDesc = "" +
 	"\x0eCMsgLeaveParty\"\x15\n" +
 	"\x13CMsgServerAvailable\"3\n" +
 	"\x16CMsgLANServerAvailable\x12\x19\n" +
-	"\blobby_id\x18\x01 \x01(\x06R\alobbyId\"\x9a\x02\n" +
+	"\blobby_id\x18\x01 \x01(\x06R\alobbyId\"\xcc\x02\n" +
 	"\x18CSOEconGameAccountClient\x12=\n" +
-	"\x19additional_backpack_slots\x18\x01 \x01(\r:\x010R\x17additionalBackpackSlots\x12;\n" +
+	"\x19additional_backpack_slots\x18\x01 \x01(\r:\x010R\x17additionalBackpackSlots\x120\n" +
+	"\x14trade_ban_expiration\x18\x06 \x01(\aR\x12tradeBanExpiration\x12;\n" +
 	"\x1abonus_xp_timestamp_refresh\x18\f \x01(\aR\x17bonusXpTimestampRefresh\x12,\n" +
 	"\x12bonus_xp_usedflags\x18\r \x01(\rR\x10bonusXpUsedflags\x12%\n" +
 	"\x0eelevated_state\x18\x0e \x01(\rR\relevatedState\x12-\n" +
@@ -5346,14 +5772,21 @@ const file_base_gcmessages_proto_rawDesc = "" +
 	"\aitem_id\x18\x03 \x01(\x04R\x06itemId\x12\x1d\n" +
 	"\n" +
 	"event_type\x18\x04 \x01(\rR\teventType\x12\x16\n" +
-	"\x06amount\x18\x05 \x01(\rR\x06amount\"\xcb\x01\n" +
+	"\x06amount\x18\x05 \x01(\rR\x06amount\"\xc9\x03\n" +
 	"\x10CMsgApplySticker\x12&\n" +
 	"\x0fsticker_item_id\x18\x01 \x01(\x04R\rstickerItemId\x12 \n" +
 	"\fitem_item_id\x18\x02 \x01(\x04R\n" +
 	"itemItemId\x12!\n" +
 	"\fsticker_slot\x18\x03 \x01(\rR\vstickerSlot\x12'\n" +
 	"\x0fbaseitem_defidx\x18\x04 \x01(\rR\x0ebaseitemDefidx\x12!\n" +
-	"\fsticker_wear\x18\x05 \x01(\x02R\vstickerWear\"r\n" +
+	"\fsticker_wear\x18\x05 \x01(\x02R\vstickerWear\x12)\n" +
+	"\x10sticker_rotation\x18\x06 \x01(\x02R\x0fstickerRotation\x12#\n" +
+	"\rsticker_scale\x18\a \x01(\x02R\fstickerScale\x12(\n" +
+	"\x10sticker_offset_x\x18\b \x01(\x02R\x0estickerOffsetX\x12(\n" +
+	"\x10sticker_offset_y\x18\t \x01(\x02R\x0estickerOffsetY\x12(\n" +
+	"\x10sticker_offset_z\x18\n" +
+	" \x01(\x02R\x0estickerOffsetZ\x12.\n" +
+	"\x13sticker_wear_target\x18\v \x01(\x02R\x11stickerWearTarget\"r\n" +
 	"\x17CMsgModifyItemAttribute\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x04R\x06itemId\x12\x1f\n" +
 	"\vattr_defidx\x18\x02 \x01(\rR\n" +
@@ -5433,12 +5866,11 @@ const file_base_gcmessages_proto_rawDesc = "" +
 	"\x12country_deprecated\x18\x03 \x01(\tR\x11countryDeprecated\x12.\n" +
 	"\x13price_sheet_version\x18\x04 \x01(\aR\x11priceSheetVersion\x12\x1f\n" +
 	"\vprice_sheet\x18\b \x01(\fR\n" +
-	"priceSheet\"\xce\x01\n" +
+	"priceSheet\"\x8b\x01\n" +
 	"\x14CMsgUpdateItemSchema\x12\x1d\n" +
 	"\n" +
 	"items_game\x18\x01 \x01(\fR\titemsGame\x12.\n" +
-	"\x13item_schema_version\x18\x02 \x01(\aR\x11itemSchemaVersion\x12A\n" +
-	"\x1ditems_game_url_DEPRECATED2013\x18\x03 \x01(\tR\x1aitemsGameUrlDEPRECATED2013\x12$\n" +
+	"\x13item_schema_version\x18\x02 \x01(\aR\x11itemSchemaVersion\x12$\n" +
 	"\x0eitems_game_url\x18\x04 \x01(\tR\fitemsGameUrl\",\n" +
 	"\vCMsgGCError\x12\x1d\n" +
 	"\n" +
@@ -5624,7 +6056,38 @@ const file_base_gcmessages_proto_rawDesc = "" +
 	"ServerType\x12\x0f\n" +
 	"\vUNSPECIFIED\x10\x00\x12\b\n" +
 	"\x04GAME\x10\x01\x12\t\n" +
-	"\x05PROXY\x10\x02*\xc7\x03\n" +
+	"\x05PROXY\x10\x02\"\xb9\x01\n" +
+	"\x10CSOEconEquipSlot\x12#\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\rB\x04\x80\xa6\x1d\x01R\taccountId\x12\x1f\n" +
+	"\bclass_id\x18\x02 \x01(\rB\x04\x80\xa6\x1d\x01R\aclassId\x12\x1d\n" +
+	"\aslot_id\x18\x03 \x01(\rB\x04\x80\xa6\x1d\x01R\x06slotId\x12\x17\n" +
+	"\aitem_id\x18\x04 \x01(\x04R\x06itemId\x12'\n" +
+	"\x0fitem_definition\x18\x05 \x01(\rR\x0eitemDefinition\"b\n" +
+	"\x13CMsgAdjustEquipSlot\x12\x19\n" +
+	"\bclass_id\x18\x01 \x01(\rR\aclassId\x12\x17\n" +
+	"\aslot_id\x18\x02 \x01(\rR\x06slotId\x12\x17\n" +
+	"\aitem_id\x18\x03 \x01(\x04R\x06itemId\"a\n" +
+	"\x14CMsgAdjustEquipSlots\x12*\n" +
+	"\x05slots\x18\x01 \x03(\v2\x14.CMsgAdjustEquipSlotR\x05slots\x12\x1d\n" +
+	"\n" +
+	"change_num\x18\x02 \x01(\rR\tchangeNum\"x\n" +
+	"\rCMsgOpenCrate\x12 \n" +
+	"\ftool_item_id\x18\x01 \x01(\x04R\n" +
+	"toolItemId\x12&\n" +
+	"\x0fsubject_item_id\x18\x02 \x01(\x04R\rsubjectItemId\x12\x1d\n" +
+	"\n" +
+	"for_rental\x18\x03 \x01(\bR\tforRental\"\xd5\x01\n" +
+	"\x14CSOEconRentalHistory\x12#\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\rB\x04\x80\xa6\x1d\x01R\taccountId\x12(\n" +
+	"\rcrate_item_id\x18\x02 \x01(\x04B\x04\x80\xa6\x1d\x01R\vcrateItemId\x12&\n" +
+	"\x0fcrate_def_index\x18\x03 \x01(\rR\rcrateDefIndex\x12\x1d\n" +
+	"\n" +
+	"issue_date\x18\x04 \x01(\rR\tissueDate\x12'\n" +
+	"\x0fexpiration_date\x18\x05 \x01(\rR\x0eexpirationDate\"E\n" +
+	"\x1fCMsgAcknowledgeRentalExpiration\x12\"\n" +
+	"\rcrate_item_id\x18\x01 \x01(\x04R\vcrateItemId*\xc7\x03\n" +
 	"\n" +
 	"EGCBaseMsg\x12\x1a\n" +
 	"\x15k_EMsgGCSystemMessage\x10\xa1\x1f\x12\x1d\n" +
@@ -5647,7 +6110,7 @@ const file_base_gcmessages_proto_rawDesc = "" +
 	"\x19k_EProtoObjectLobbyInvite\x10\xea\a*T\n" +
 	"\x11GC_BannedWordType\x12\x1f\n" +
 	"\x1bGC_BANNED_WORD_DISABLE_WORD\x10\x00\x12\x1e\n" +
-	"\x1aGC_BANNED_WORD_ENABLE_WORD\x10\x01B\x05H\x01\x80\x01\x00"
+	"\x1aGC_BANNED_WORD_ENABLE_WORD\x10\x01"
 
 var (
 	file_base_gcmessages_proto_rawDescOnce sync.Once
@@ -5662,7 +6125,7 @@ func file_base_gcmessages_proto_rawDescGZIP() []byte {
 }
 
 var file_base_gcmessages_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_base_gcmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 80)
+var file_base_gcmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 86)
 var file_base_gcmessages_proto_goTypes = []any{
 	(EGCBaseMsg)(0),                                        // 0: EGCBaseMsg
 	(EGCBaseProtoObjectTypes)(0),                           // 1: EGCBaseProtoObjectTypes
@@ -5747,7 +6210,13 @@ var file_base_gcmessages_proto_goTypes = []any{
 	(*CMsgGCToGCWebAPIAccountChanged)(nil),                 // 80: CMsgGCToGCWebAPIAccountChanged
 	(*CMsgGCToGCRequestPassportItemGrant)(nil),             // 81: CMsgGCToGCRequestPassportItemGrant
 	(*CMsgGameServerInfo)(nil),                             // 82: CMsgGameServerInfo
-	(*CMsgSetItemPositions_ItemPosition)(nil),              // 83: CMsgSetItemPositions.ItemPosition
+	(*CSOEconEquipSlot)(nil),                               // 83: CSOEconEquipSlot
+	(*CMsgAdjustEquipSlot)(nil),                            // 84: CMsgAdjustEquipSlot
+	(*CMsgAdjustEquipSlots)(nil),                           // 85: CMsgAdjustEquipSlots
+	(*CMsgOpenCrate)(nil),                                  // 86: CMsgOpenCrate
+	(*CSOEconRentalHistory)(nil),                           // 87: CSOEconRentalHistory
+	(*CMsgAcknowledgeRentalExpiration)(nil),                // 88: CMsgAcknowledgeRentalExpiration
+	(*CMsgSetItemPositions_ItemPosition)(nil),              // 89: CMsgSetItemPositions.ItemPosition
 }
 var file_base_gcmessages_proto_depIdxs = []int32{
 	4,  // 0: CMsgGCStorePurchaseInit.line_items:type_name -> CGCStorePurchaseInit_LineItem
@@ -5759,16 +6228,17 @@ var file_base_gcmessages_proto_depIdxs = []int32{
 	31, // 6: CSOEconItem.interior_item:type_name -> CSOEconItem
 	30, // 7: CSOEconItem.equipped_state:type_name -> CSOEconItemEquipped
 	41, // 8: CMsgReplicateConVars.convars:type_name -> CMsgConVarValue
-	83, // 9: CMsgSetItemPositions.item_positions:type_name -> CMsgSetItemPositions.ItemPosition
+	89, // 9: CMsgSetItemPositions.item_positions:type_name -> CMsgSetItemPositions.ItemPosition
 	2,  // 10: CMsgGCBannedWord.word_type:type_name -> GC_BannedWordType
 	65, // 11: CMsgGCBannedWordListResponse.word_list:type_name -> CMsgGCBannedWord
 	66, // 12: CMsgGCToGCBannedWordListBroadcast.broadcast:type_name -> CMsgGCBannedWordListResponse
 	3,  // 13: CMsgGameServerInfo.server_type:type_name -> CMsgGameServerInfo.ServerType
-	14, // [14:14] is the sub-list for method output_type
-	14, // [14:14] is the sub-list for method input_type
-	14, // [14:14] is the sub-list for extension type_name
-	14, // [14:14] is the sub-list for extension extendee
-	0,  // [0:14] is the sub-list for field type_name
+	84, // 14: CMsgAdjustEquipSlots.slots:type_name -> CMsgAdjustEquipSlot
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_base_gcmessages_proto_init() }
@@ -5782,7 +6252,7 @@ func file_base_gcmessages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_base_gcmessages_proto_rawDesc), len(file_base_gcmessages_proto_rawDesc)),
 			NumEnums:      4,
-			NumMessages:   80,
+			NumMessages:   86,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

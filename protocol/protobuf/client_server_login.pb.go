@@ -24,6 +24,7 @@ const (
 
 type CMsgClientHeartBeat struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	SendReply     *bool                  `protobuf:"varint,1,opt,name=send_reply,json=sendReply" json:"send_reply,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,6 +57,13 @@ func (x *CMsgClientHeartBeat) ProtoReflect() protoreflect.Message {
 // Deprecated: Use CMsgClientHeartBeat.ProtoReflect.Descriptor instead.
 func (*CMsgClientHeartBeat) Descriptor() ([]byte, []int) {
 	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CMsgClientHeartBeat) GetSendReply() bool {
+	if x != nil && x.SendReply != nil {
+		return *x.SendReply
+	}
+	return false
 }
 
 type CMsgClientServerTimestampRequest struct {
@@ -230,6 +238,50 @@ func (x *CMsgClientSecret) GetHmac() []byte {
 	return nil
 }
 
+type CMsgClientHello struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	ProtocolVersion *uint32                `protobuf:"varint,1,opt,name=protocol_version,json=protocolVersion" json:"protocol_version,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CMsgClientHello) Reset() {
+	*x = CMsgClientHello{}
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgClientHello) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgClientHello) ProtoMessage() {}
+
+func (x *CMsgClientHello) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgClientHello.ProtoReflect.Descriptor instead.
+func (*CMsgClientHello) Descriptor() ([]byte, []int) {
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CMsgClientHello) GetProtocolVersion() uint32 {
+	if x != nil && x.ProtocolVersion != nil {
+		return *x.ProtocolVersion
+	}
+	return 0
+}
+
 type CMsgClientLogon struct {
 	state                             protoimpl.MessageState                  `protogen:"open.v1"`
 	ProtocolVersion                   *uint32                                 `protobuf:"varint,1,opt,name=protocol_version,json=protocolVersion" json:"protocol_version,omitempty"`
@@ -285,6 +337,10 @@ type CMsgClientLogon struct {
 	PriorityReason                    *int32                                  `protobuf:"varint,104,opt,name=priority_reason,json=priorityReason" json:"priority_reason,omitempty"`
 	EmbeddedClientSecret              *CMsgClientSecret                       `protobuf:"bytes,105,opt,name=embedded_client_secret,json=embeddedClientSecret" json:"embedded_client_secret,omitempty"`
 	DisablePartnerAutogrants          *bool                                   `protobuf:"varint,106,opt,name=disable_partner_autogrants,json=disablePartnerAutogrants" json:"disable_partner_autogrants,omitempty"`
+	IsSteamDeck                       *bool                                   `protobuf:"varint,107,opt,name=is_steam_deck,json=isSteamDeck" json:"is_steam_deck,omitempty"`
+	AccessToken                       *string                                 `protobuf:"bytes,108,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
+	IsChromeOs                        *bool                                   `protobuf:"varint,109,opt,name=is_chrome_os,json=isChromeOs" json:"is_chrome_os,omitempty"`
+	IsTesla                           *bool                                   `protobuf:"varint,110,opt,name=is_tesla,json=isTesla" json:"is_tesla,omitempty"`
 	unknownFields                     protoimpl.UnknownFields
 	sizeCache                         protoimpl.SizeCache
 }
@@ -301,7 +357,7 @@ const (
 
 func (x *CMsgClientLogon) Reset() {
 	*x = CMsgClientLogon{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[4]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -313,7 +369,7 @@ func (x *CMsgClientLogon) String() string {
 func (*CMsgClientLogon) ProtoMessage() {}
 
 func (x *CMsgClientLogon) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[4]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -326,7 +382,7 @@ func (x *CMsgClientLogon) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientLogon.ProtoReflect.Descriptor instead.
 func (*CMsgClientLogon) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{4}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CMsgClientLogon) GetProtocolVersion() uint32 {
@@ -700,34 +756,65 @@ func (x *CMsgClientLogon) GetDisablePartnerAutogrants() bool {
 	return false
 }
 
+func (x *CMsgClientLogon) GetIsSteamDeck() bool {
+	if x != nil && x.IsSteamDeck != nil {
+		return *x.IsSteamDeck
+	}
+	return false
+}
+
+func (x *CMsgClientLogon) GetAccessToken() string {
+	if x != nil && x.AccessToken != nil {
+		return *x.AccessToken
+	}
+	return ""
+}
+
+func (x *CMsgClientLogon) GetIsChromeOs() bool {
+	if x != nil && x.IsChromeOs != nil {
+		return *x.IsChromeOs
+	}
+	return false
+}
+
+func (x *CMsgClientLogon) GetIsTesla() bool {
+	if x != nil && x.IsTesla != nil {
+		return *x.IsTesla
+	}
+	return false
+}
+
 type CMsgClientLogonResponse struct {
-	state                       protoimpl.MessageState                  `protogen:"open.v1"`
-	Eresult                     *int32                                  `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
-	OutOfGameHeartbeatSeconds   *int32                                  `protobuf:"varint,2,opt,name=out_of_game_heartbeat_seconds,json=outOfGameHeartbeatSeconds" json:"out_of_game_heartbeat_seconds,omitempty"`
-	InGameHeartbeatSeconds      *int32                                  `protobuf:"varint,3,opt,name=in_game_heartbeat_seconds,json=inGameHeartbeatSeconds" json:"in_game_heartbeat_seconds,omitempty"`
-	DeprecatedPublicIp          *uint32                                 `protobuf:"varint,4,opt,name=deprecated_public_ip,json=deprecatedPublicIp" json:"deprecated_public_ip,omitempty"`
-	Rtime32ServerTime           *uint32                                 `protobuf:"fixed32,5,opt,name=rtime32_server_time,json=rtime32ServerTime" json:"rtime32_server_time,omitempty"`
-	AccountFlags                *uint32                                 `protobuf:"varint,6,opt,name=account_flags,json=accountFlags" json:"account_flags,omitempty"`
-	CellId                      *uint32                                 `protobuf:"varint,7,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
-	EmailDomain                 *string                                 `protobuf:"bytes,8,opt,name=email_domain,json=emailDomain" json:"email_domain,omitempty"`
-	Steam2Ticket                []byte                                  `protobuf:"bytes,9,opt,name=steam2_ticket,json=steam2Ticket" json:"steam2_ticket,omitempty"`
-	EresultExtended             *int32                                  `protobuf:"varint,10,opt,name=eresult_extended,json=eresultExtended" json:"eresult_extended,omitempty"`
-	WebapiAuthenticateUserNonce *string                                 `protobuf:"bytes,11,opt,name=webapi_authenticate_user_nonce,json=webapiAuthenticateUserNonce" json:"webapi_authenticate_user_nonce,omitempty"`
-	CellIdPingThreshold         *uint32                                 `protobuf:"varint,12,opt,name=cell_id_ping_threshold,json=cellIdPingThreshold" json:"cell_id_ping_threshold,omitempty"`
-	DeprecatedUsePics           *bool                                   `protobuf:"varint,13,opt,name=deprecated_use_pics,json=deprecatedUsePics" json:"deprecated_use_pics,omitempty"`
-	VanityUrl                   *string                                 `protobuf:"bytes,14,opt,name=vanity_url,json=vanityUrl" json:"vanity_url,omitempty"`
-	PublicIp                    *CMsgIPAddress `protobuf:"bytes,15,opt,name=public_ip,json=publicIp" json:"public_ip,omitempty"`
-	ClientSuppliedSteamid       *uint64                                 `protobuf:"fixed64,20,opt,name=client_supplied_steamid,json=clientSuppliedSteamid" json:"client_supplied_steamid,omitempty"`
-	IpCountryCode               *string                                 `protobuf:"bytes,21,opt,name=ip_country_code,json=ipCountryCode" json:"ip_country_code,omitempty"`
-	ParentalSettings            []byte                                  `protobuf:"bytes,22,opt,name=parental_settings,json=parentalSettings" json:"parental_settings,omitempty"`
-	ParentalSettingSignature    []byte                                  `protobuf:"bytes,23,opt,name=parental_setting_signature,json=parentalSettingSignature" json:"parental_setting_signature,omitempty"`
-	CountLoginfailuresToMigrate *int32                                  `protobuf:"varint,24,opt,name=count_loginfailures_to_migrate,json=countLoginfailuresToMigrate" json:"count_loginfailures_to_migrate,omitempty"`
-	CountDisconnectsToMigrate   *int32                                  `protobuf:"varint,25,opt,name=count_disconnects_to_migrate,json=countDisconnectsToMigrate" json:"count_disconnects_to_migrate,omitempty"`
-	OgsDataReportTimeWindow     *int32                                  `protobuf:"varint,26,opt,name=ogs_data_report_time_window,json=ogsDataReportTimeWindow" json:"ogs_data_report_time_window,omitempty"`
-	ClientInstanceId            *uint64                                 `protobuf:"varint,27,opt,name=client_instance_id,json=clientInstanceId" json:"client_instance_id,omitempty"`
-	ForceClientUpdateCheck      *bool                                   `protobuf:"varint,28,opt,name=force_client_update_check,json=forceClientUpdateCheck" json:"force_client_update_check,omitempty"`
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
+	state                           protoimpl.MessageState                  `protogen:"open.v1"`
+	Eresult                         *int32                                  `protobuf:"varint,1,opt,name=eresult,def=2" json:"eresult,omitempty"`
+	LegacyOutOfGameHeartbeatSeconds *int32                                  `protobuf:"varint,2,opt,name=legacy_out_of_game_heartbeat_seconds,json=legacyOutOfGameHeartbeatSeconds" json:"legacy_out_of_game_heartbeat_seconds,omitempty"`
+	HeartbeatSeconds                *int32                                  `protobuf:"varint,3,opt,name=heartbeat_seconds,json=heartbeatSeconds" json:"heartbeat_seconds,omitempty"`
+	DeprecatedPublicIp              *uint32                                 `protobuf:"varint,4,opt,name=deprecated_public_ip,json=deprecatedPublicIp" json:"deprecated_public_ip,omitempty"`
+	Rtime32ServerTime               *uint32                                 `protobuf:"fixed32,5,opt,name=rtime32_server_time,json=rtime32ServerTime" json:"rtime32_server_time,omitempty"`
+	AccountFlags                    *uint32                                 `protobuf:"varint,6,opt,name=account_flags,json=accountFlags" json:"account_flags,omitempty"`
+	CellId                          *uint32                                 `protobuf:"varint,7,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
+	EmailDomain                     *string                                 `protobuf:"bytes,8,opt,name=email_domain,json=emailDomain" json:"email_domain,omitempty"`
+	Steam2Ticket                    []byte                                  `protobuf:"bytes,9,opt,name=steam2_ticket,json=steam2Ticket" json:"steam2_ticket,omitempty"`
+	EresultExtended                 *int32                                  `protobuf:"varint,10,opt,name=eresult_extended,json=eresultExtended" json:"eresult_extended,omitempty"`
+	CellIdPingThreshold             *uint32                                 `protobuf:"varint,12,opt,name=cell_id_ping_threshold,json=cellIdPingThreshold" json:"cell_id_ping_threshold,omitempty"`
+	DeprecatedUsePics               *bool                                   `protobuf:"varint,13,opt,name=deprecated_use_pics,json=deprecatedUsePics" json:"deprecated_use_pics,omitempty"`
+	VanityUrl                       *string                                 `protobuf:"bytes,14,opt,name=vanity_url,json=vanityUrl" json:"vanity_url,omitempty"`
+	PublicIp                        *CMsgIPAddress `protobuf:"bytes,15,opt,name=public_ip,json=publicIp" json:"public_ip,omitempty"`
+	UserCountry                     *string                                 `protobuf:"bytes,16,opt,name=user_country,json=userCountry" json:"user_country,omitempty"`
+	ClientSuppliedSteamid           *uint64                                 `protobuf:"fixed64,20,opt,name=client_supplied_steamid,json=clientSuppliedSteamid" json:"client_supplied_steamid,omitempty"`
+	IpCountryCode                   *string                                 `protobuf:"bytes,21,opt,name=ip_country_code,json=ipCountryCode" json:"ip_country_code,omitempty"`
+	ParentalSettings                []byte                                  `protobuf:"bytes,22,opt,name=parental_settings,json=parentalSettings" json:"parental_settings,omitempty"`
+	ParentalSettingSignature        []byte                                  `protobuf:"bytes,23,opt,name=parental_setting_signature,json=parentalSettingSignature" json:"parental_setting_signature,omitempty"`
+	CountLoginfailuresToMigrate     *int32                                  `protobuf:"varint,24,opt,name=count_loginfailures_to_migrate,json=countLoginfailuresToMigrate" json:"count_loginfailures_to_migrate,omitempty"`
+	CountDisconnectsToMigrate       *int32                                  `protobuf:"varint,25,opt,name=count_disconnects_to_migrate,json=countDisconnectsToMigrate" json:"count_disconnects_to_migrate,omitempty"`
+	OgsDataReportTimeWindow         *int32                                  `protobuf:"varint,26,opt,name=ogs_data_report_time_window,json=ogsDataReportTimeWindow" json:"ogs_data_report_time_window,omitempty"`
+	ClientInstanceId                *uint64                                 `protobuf:"varint,27,opt,name=client_instance_id,json=clientInstanceId" json:"client_instance_id,omitempty"`
+	ForceClientUpdateCheck          *bool                                   `protobuf:"varint,28,opt,name=force_client_update_check,json=forceClientUpdateCheck" json:"force_client_update_check,omitempty"`
+	AgreementSessionUrl             *string                                 `protobuf:"bytes,29,opt,name=agreement_session_url,json=agreementSessionUrl" json:"agreement_session_url,omitempty"`
+	TokenId                         *uint64                                 `protobuf:"varint,30,opt,name=token_id,json=tokenId" json:"token_id,omitempty"`
+	FamilyGroupId                   *uint64                                 `protobuf:"varint,31,opt,name=family_group_id,json=familyGroupId" json:"family_group_id,omitempty"`
+	unknownFields                   protoimpl.UnknownFields
+	sizeCache                       protoimpl.SizeCache
 }
 
 // Default values for CMsgClientLogonResponse fields.
@@ -737,7 +824,7 @@ const (
 
 func (x *CMsgClientLogonResponse) Reset() {
 	*x = CMsgClientLogonResponse{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[5]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -749,7 +836,7 @@ func (x *CMsgClientLogonResponse) String() string {
 func (*CMsgClientLogonResponse) ProtoMessage() {}
 
 func (x *CMsgClientLogonResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[5]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -762,7 +849,7 @@ func (x *CMsgClientLogonResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientLogonResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientLogonResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CMsgClientLogonResponse) GetEresult() int32 {
@@ -772,16 +859,16 @@ func (x *CMsgClientLogonResponse) GetEresult() int32 {
 	return Default_CMsgClientLogonResponse_Eresult
 }
 
-func (x *CMsgClientLogonResponse) GetOutOfGameHeartbeatSeconds() int32 {
-	if x != nil && x.OutOfGameHeartbeatSeconds != nil {
-		return *x.OutOfGameHeartbeatSeconds
+func (x *CMsgClientLogonResponse) GetLegacyOutOfGameHeartbeatSeconds() int32 {
+	if x != nil && x.LegacyOutOfGameHeartbeatSeconds != nil {
+		return *x.LegacyOutOfGameHeartbeatSeconds
 	}
 	return 0
 }
 
-func (x *CMsgClientLogonResponse) GetInGameHeartbeatSeconds() int32 {
-	if x != nil && x.InGameHeartbeatSeconds != nil {
-		return *x.InGameHeartbeatSeconds
+func (x *CMsgClientLogonResponse) GetHeartbeatSeconds() int32 {
+	if x != nil && x.HeartbeatSeconds != nil {
+		return *x.HeartbeatSeconds
 	}
 	return 0
 }
@@ -835,13 +922,6 @@ func (x *CMsgClientLogonResponse) GetEresultExtended() int32 {
 	return 0
 }
 
-func (x *CMsgClientLogonResponse) GetWebapiAuthenticateUserNonce() string {
-	if x != nil && x.WebapiAuthenticateUserNonce != nil {
-		return *x.WebapiAuthenticateUserNonce
-	}
-	return ""
-}
-
 func (x *CMsgClientLogonResponse) GetCellIdPingThreshold() uint32 {
 	if x != nil && x.CellIdPingThreshold != nil {
 		return *x.CellIdPingThreshold
@@ -868,6 +948,13 @@ func (x *CMsgClientLogonResponse) GetPublicIp() *CMsgIPAddress {
 		return x.PublicIp
 	}
 	return nil
+}
+
+func (x *CMsgClientLogonResponse) GetUserCountry() string {
+	if x != nil && x.UserCountry != nil {
+		return *x.UserCountry
+	}
+	return ""
 }
 
 func (x *CMsgClientLogonResponse) GetClientSuppliedSteamid() uint64 {
@@ -933,6 +1020,27 @@ func (x *CMsgClientLogonResponse) GetForceClientUpdateCheck() bool {
 	return false
 }
 
+func (x *CMsgClientLogonResponse) GetAgreementSessionUrl() string {
+	if x != nil && x.AgreementSessionUrl != nil {
+		return *x.AgreementSessionUrl
+	}
+	return ""
+}
+
+func (x *CMsgClientLogonResponse) GetTokenId() uint64 {
+	if x != nil && x.TokenId != nil {
+		return *x.TokenId
+	}
+	return 0
+}
+
+func (x *CMsgClientLogonResponse) GetFamilyGroupId() uint64 {
+	if x != nil && x.FamilyGroupId != nil {
+		return *x.FamilyGroupId
+	}
+	return 0
+}
+
 type CMsgClientRequestWebAPIAuthenticateUserNonce struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TokenType     *int32                 `protobuf:"varint,1,opt,name=token_type,json=tokenType,def=-1" json:"token_type,omitempty"`
@@ -947,7 +1055,7 @@ const (
 
 func (x *CMsgClientRequestWebAPIAuthenticateUserNonce) Reset() {
 	*x = CMsgClientRequestWebAPIAuthenticateUserNonce{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[6]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -959,7 +1067,7 @@ func (x *CMsgClientRequestWebAPIAuthenticateUserNonce) String() string {
 func (*CMsgClientRequestWebAPIAuthenticateUserNonce) ProtoMessage() {}
 
 func (x *CMsgClientRequestWebAPIAuthenticateUserNonce) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[6]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -972,7 +1080,7 @@ func (x *CMsgClientRequestWebAPIAuthenticateUserNonce) ProtoReflect() protorefle
 
 // Deprecated: Use CMsgClientRequestWebAPIAuthenticateUserNonce.ProtoReflect.Descriptor instead.
 func (*CMsgClientRequestWebAPIAuthenticateUserNonce) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CMsgClientRequestWebAPIAuthenticateUserNonce) GetTokenType() int32 {
@@ -999,7 +1107,7 @@ const (
 
 func (x *CMsgClientRequestWebAPIAuthenticateUserNonceResponse) Reset() {
 	*x = CMsgClientRequestWebAPIAuthenticateUserNonceResponse{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[7]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1011,7 +1119,7 @@ func (x *CMsgClientRequestWebAPIAuthenticateUserNonceResponse) String() string {
 func (*CMsgClientRequestWebAPIAuthenticateUserNonceResponse) ProtoMessage() {}
 
 func (x *CMsgClientRequestWebAPIAuthenticateUserNonceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[7]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1024,7 +1132,7 @@ func (x *CMsgClientRequestWebAPIAuthenticateUserNonceResponse) ProtoReflect() pr
 
 // Deprecated: Use CMsgClientRequestWebAPIAuthenticateUserNonceResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientRequestWebAPIAuthenticateUserNonceResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CMsgClientRequestWebAPIAuthenticateUserNonceResponse) GetEresult() int32 {
@@ -1056,7 +1164,7 @@ type CMsgClientLogOff struct {
 
 func (x *CMsgClientLogOff) Reset() {
 	*x = CMsgClientLogOff{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[8]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1068,7 +1176,7 @@ func (x *CMsgClientLogOff) String() string {
 func (*CMsgClientLogOff) ProtoMessage() {}
 
 func (x *CMsgClientLogOff) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[8]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1081,7 +1189,7 @@ func (x *CMsgClientLogOff) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientLogOff.ProtoReflect.Descriptor instead.
 func (*CMsgClientLogOff) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{9}
 }
 
 type CMsgClientLoggedOff struct {
@@ -1098,7 +1206,7 @@ const (
 
 func (x *CMsgClientLoggedOff) Reset() {
 	*x = CMsgClientLoggedOff{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[9]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1110,7 +1218,7 @@ func (x *CMsgClientLoggedOff) String() string {
 func (*CMsgClientLoggedOff) ProtoMessage() {}
 
 func (x *CMsgClientLoggedOff) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[9]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1123,7 +1231,7 @@ func (x *CMsgClientLoggedOff) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientLoggedOff.ProtoReflect.Descriptor instead.
 func (*CMsgClientLoggedOff) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CMsgClientLoggedOff) GetEresult() int32 {
@@ -1143,7 +1251,7 @@ type CMsgClientNewLoginKey struct {
 
 func (x *CMsgClientNewLoginKey) Reset() {
 	*x = CMsgClientNewLoginKey{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[10]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1155,7 +1263,7 @@ func (x *CMsgClientNewLoginKey) String() string {
 func (*CMsgClientNewLoginKey) ProtoMessage() {}
 
 func (x *CMsgClientNewLoginKey) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[10]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1168,7 +1276,7 @@ func (x *CMsgClientNewLoginKey) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientNewLoginKey.ProtoReflect.Descriptor instead.
 func (*CMsgClientNewLoginKey) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CMsgClientNewLoginKey) GetUniqueId() uint32 {
@@ -1194,7 +1302,7 @@ type CMsgClientNewLoginKeyAccepted struct {
 
 func (x *CMsgClientNewLoginKeyAccepted) Reset() {
 	*x = CMsgClientNewLoginKeyAccepted{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[11]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1206,7 +1314,7 @@ func (x *CMsgClientNewLoginKeyAccepted) String() string {
 func (*CMsgClientNewLoginKeyAccepted) ProtoMessage() {}
 
 func (x *CMsgClientNewLoginKeyAccepted) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[11]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1219,7 +1327,7 @@ func (x *CMsgClientNewLoginKeyAccepted) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientNewLoginKeyAccepted.ProtoReflect.Descriptor instead.
 func (*CMsgClientNewLoginKeyAccepted) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CMsgClientNewLoginKeyAccepted) GetUniqueId() uint32 {
@@ -1237,7 +1345,6 @@ type CMsgClientAccountInfo struct {
 	AccountFlags                    *uint32                `protobuf:"varint,7,opt,name=account_flags,json=accountFlags" json:"account_flags,omitempty"`
 	FacebookId                      *uint64                `protobuf:"varint,8,opt,name=facebook_id,json=facebookId" json:"facebook_id,omitempty"`
 	FacebookName                    *string                `protobuf:"bytes,9,opt,name=facebook_name,json=facebookName" json:"facebook_name,omitempty"`
-	SteamguardNotifyNewmachines     *bool                  `protobuf:"varint,14,opt,name=steamguard_notify_newmachines,json=steamguardNotifyNewmachines" json:"steamguard_notify_newmachines,omitempty"`
 	SteamguardMachineNameUserChosen *string                `protobuf:"bytes,15,opt,name=steamguard_machine_name_user_chosen,json=steamguardMachineNameUserChosen" json:"steamguard_machine_name_user_chosen,omitempty"`
 	IsPhoneVerified                 *bool                  `protobuf:"varint,16,opt,name=is_phone_verified,json=isPhoneVerified" json:"is_phone_verified,omitempty"`
 	TwoFactorState                  *uint32                `protobuf:"varint,17,opt,name=two_factor_state,json=twoFactorState" json:"two_factor_state,omitempty"`
@@ -1249,7 +1356,7 @@ type CMsgClientAccountInfo struct {
 
 func (x *CMsgClientAccountInfo) Reset() {
 	*x = CMsgClientAccountInfo{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[12]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1261,7 +1368,7 @@ func (x *CMsgClientAccountInfo) String() string {
 func (*CMsgClientAccountInfo) ProtoMessage() {}
 
 func (x *CMsgClientAccountInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[12]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1274,7 +1381,7 @@ func (x *CMsgClientAccountInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientAccountInfo.ProtoReflect.Descriptor instead.
 func (*CMsgClientAccountInfo) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CMsgClientAccountInfo) GetPersonaName() string {
@@ -1317,13 +1424,6 @@ func (x *CMsgClientAccountInfo) GetFacebookName() string {
 		return *x.FacebookName
 	}
 	return ""
-}
-
-func (x *CMsgClientAccountInfo) GetSteamguardNotifyNewmachines() bool {
-	if x != nil && x.SteamguardNotifyNewmachines != nil {
-		return *x.SteamguardNotifyNewmachines
-	}
-	return false
 }
 
 func (x *CMsgClientAccountInfo) GetSteamguardMachineNameUserChosen() string {
@@ -1370,7 +1470,7 @@ type CMsgClientChallengeRequest struct {
 
 func (x *CMsgClientChallengeRequest) Reset() {
 	*x = CMsgClientChallengeRequest{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[13]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1382,7 +1482,7 @@ func (x *CMsgClientChallengeRequest) String() string {
 func (*CMsgClientChallengeRequest) ProtoMessage() {}
 
 func (x *CMsgClientChallengeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[13]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1395,7 +1495,7 @@ func (x *CMsgClientChallengeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientChallengeRequest.ProtoReflect.Descriptor instead.
 func (*CMsgClientChallengeRequest) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CMsgClientChallengeRequest) GetSteamid() uint64 {
@@ -1414,7 +1514,7 @@ type CMsgClientChallengeResponse struct {
 
 func (x *CMsgClientChallengeResponse) Reset() {
 	*x = CMsgClientChallengeResponse{}
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[14]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1426,7 +1526,7 @@ func (x *CMsgClientChallengeResponse) String() string {
 func (*CMsgClientChallengeResponse) ProtoMessage() {}
 
 func (x *CMsgClientChallengeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_clientserver_login_proto_msgTypes[14]
+	mi := &file_steammessages_clientserver_login_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1439,7 +1539,7 @@ func (x *CMsgClientChallengeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgClientChallengeResponse.ProtoReflect.Descriptor instead.
 func (*CMsgClientChallengeResponse) Descriptor() ([]byte, []int) {
-	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_clientserver_login_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CMsgClientChallengeResponse) GetChallenge() uint64 {
@@ -1453,8 +1553,10 @@ var File_steammessages_clientserver_login_proto protoreflect.FileDescriptor
 
 const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\n" +
-	"&steammessages_clientserver_login.proto\x1a\x18steammessages_base.proto\"\x15\n" +
-	"\x13CMsgClientHeartBeat\"\\\n" +
+	"&steammessages_clientserver_login.proto\x1a\x18steammessages_base.proto\"4\n" +
+	"\x13CMsgClientHeartBeat\x12\x1d\n" +
+	"\n" +
+	"send_reply\x18\x01 \x01(\bR\tsendReply\"\\\n" +
 	" CMsgClientServerTimestampRequest\x128\n" +
 	"\x18client_request_timestamp\x18\x01 \x01(\x04R\x16clientRequestTimestamp\"\x8d\x01\n" +
 	"!CMsgClientServerTimestampResponse\x128\n" +
@@ -1465,7 +1567,9 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x1a\n" +
 	"\bdeviceid\x18\x03 \x01(\rR\bdeviceid\x12\x14\n" +
 	"\x05nonce\x18\x04 \x01(\x06R\x05nonce\x12\x12\n" +
-	"\x04hmac\x18\x05 \x01(\fR\x04hmac\"\x93\x13\n" +
+	"\x04hmac\x18\x05 \x01(\fR\x04hmac\"<\n" +
+	"\x0fCMsgClientHello\x12)\n" +
+	"\x10protocol_version\x18\x01 \x01(\rR\x0fprotocolVersion\"\x97\x14\n" +
 	"\x0fCMsgClientLogon\x12)\n" +
 	"\x10protocol_version\x18\x01 \x01(\rR\x0fprotocolVersion\x12K\n" +
 	"\"deprecated_obfustucated_private_ip\x18\x02 \x01(\rR\x1fdeprecatedObfustucatedPrivateIp\x12\x17\n" +
@@ -1522,11 +1626,17 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\x0fweb_logon_nonce\x18g \x01(\tR\rwebLogonNonce\x12'\n" +
 	"\x0fpriority_reason\x18h \x01(\x05R\x0epriorityReason\x12G\n" +
 	"\x16embedded_client_secret\x18i \x01(\v2\x11.CMsgClientSecretR\x14embeddedClientSecret\x12<\n" +
-	"\x1adisable_partner_autogrants\x18j \x01(\bR\x18disablePartnerAutogrants\"\xb4\t\n" +
+	"\x1adisable_partner_autogrants\x18j \x01(\bR\x18disablePartnerAutogrants\x12\"\n" +
+	"\ris_steam_deck\x18k \x01(\bR\visSteamDeck\x12!\n" +
+	"\faccess_token\x18l \x01(\tR\vaccessToken\x12 \n" +
+	"\fis_chrome_os\x18m \x01(\bR\n" +
+	"isChromeOs\x12\x19\n" +
+	"\bis_tesla\x18n \x01(\bR\aisTesla\"\x88\n" +
+	"\n" +
 	"\x17CMsgClientLogonResponse\x12\x1b\n" +
-	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12@\n" +
-	"\x1dout_of_game_heartbeat_seconds\x18\x02 \x01(\x05R\x19outOfGameHeartbeatSeconds\x129\n" +
-	"\x19in_game_heartbeat_seconds\x18\x03 \x01(\x05R\x16inGameHeartbeatSeconds\x120\n" +
+	"\aeresult\x18\x01 \x01(\x05:\x012R\aeresult\x12M\n" +
+	"$legacy_out_of_game_heartbeat_seconds\x18\x02 \x01(\x05R\x1flegacyOutOfGameHeartbeatSeconds\x12+\n" +
+	"\x11heartbeat_seconds\x18\x03 \x01(\x05R\x10heartbeatSeconds\x120\n" +
 	"\x14deprecated_public_ip\x18\x04 \x01(\rR\x12deprecatedPublicIp\x12.\n" +
 	"\x13rtime32_server_time\x18\x05 \x01(\aR\x11rtime32ServerTime\x12#\n" +
 	"\raccount_flags\x18\x06 \x01(\rR\faccountFlags\x12\x17\n" +
@@ -1534,13 +1644,13 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\femail_domain\x18\b \x01(\tR\vemailDomain\x12#\n" +
 	"\rsteam2_ticket\x18\t \x01(\fR\fsteam2Ticket\x12)\n" +
 	"\x10eresult_extended\x18\n" +
-	" \x01(\x05R\x0feresultExtended\x12C\n" +
-	"\x1ewebapi_authenticate_user_nonce\x18\v \x01(\tR\x1bwebapiAuthenticateUserNonce\x123\n" +
+	" \x01(\x05R\x0feresultExtended\x123\n" +
 	"\x16cell_id_ping_threshold\x18\f \x01(\rR\x13cellIdPingThreshold\x12.\n" +
 	"\x13deprecated_use_pics\x18\r \x01(\bR\x11deprecatedUsePics\x12\x1d\n" +
 	"\n" +
 	"vanity_url\x18\x0e \x01(\tR\tvanityUrl\x12+\n" +
-	"\tpublic_ip\x18\x0f \x01(\v2\x0e.CMsgIPAddressR\bpublicIp\x126\n" +
+	"\tpublic_ip\x18\x0f \x01(\v2\x0e.CMsgIPAddressR\bpublicIp\x12!\n" +
+	"\fuser_country\x18\x10 \x01(\tR\vuserCountry\x126\n" +
 	"\x17client_supplied_steamid\x18\x14 \x01(\x06R\x15clientSuppliedSteamid\x12&\n" +
 	"\x0fip_country_code\x18\x15 \x01(\tR\ripCountryCode\x12+\n" +
 	"\x11parental_settings\x18\x16 \x01(\fR\x10parentalSettings\x12<\n" +
@@ -1549,7 +1659,10 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\x1ccount_disconnects_to_migrate\x18\x19 \x01(\x05R\x19countDisconnectsToMigrate\x12<\n" +
 	"\x1bogs_data_report_time_window\x18\x1a \x01(\x05R\x17ogsDataReportTimeWindow\x12,\n" +
 	"\x12client_instance_id\x18\x1b \x01(\x04R\x10clientInstanceId\x129\n" +
-	"\x19force_client_update_check\x18\x1c \x01(\bR\x16forceClientUpdateCheck\"Q\n" +
+	"\x19force_client_update_check\x18\x1c \x01(\bR\x16forceClientUpdateCheck\x122\n" +
+	"\x15agreement_session_url\x18\x1d \x01(\tR\x13agreementSessionUrl\x12\x19\n" +
+	"\btoken_id\x18\x1e \x01(\x04R\atokenId\x12&\n" +
+	"\x0ffamily_group_id\x18\x1f \x01(\x04R\rfamilyGroupId\"Q\n" +
 	",CMsgClientRequestWebAPIAuthenticateUserNonce\x12!\n" +
 	"\n" +
 	"token_type\x18\x01 \x01(\x05:\x02-1R\ttokenType\"\xbb\x01\n" +
@@ -1565,7 +1678,7 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\tunique_id\x18\x01 \x01(\rR\buniqueId\x12\x1b\n" +
 	"\tlogin_key\x18\x02 \x01(\tR\bloginKey\"<\n" +
 	"\x1dCMsgClientNewLoginKeyAccepted\x12\x1b\n" +
-	"\tunique_id\x18\x01 \x01(\rR\buniqueId\"\xcf\x04\n" +
+	"\tunique_id\x18\x01 \x01(\rR\buniqueId\"\x8b\x04\n" +
 	"\x15CMsgClientAccountInfo\x12!\n" +
 	"\fpersona_name\x18\x01 \x01(\tR\vpersonaName\x12\x1d\n" +
 	"\n" +
@@ -1574,8 +1687,7 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\raccount_flags\x18\a \x01(\rR\faccountFlags\x12\x1f\n" +
 	"\vfacebook_id\x18\b \x01(\x04R\n" +
 	"facebookId\x12#\n" +
-	"\rfacebook_name\x18\t \x01(\tR\ffacebookName\x12B\n" +
-	"\x1dsteamguard_notify_newmachines\x18\x0e \x01(\bR\x1bsteamguardNotifyNewmachines\x12L\n" +
+	"\rfacebook_name\x18\t \x01(\tR\ffacebookName\x12L\n" +
 	"#steamguard_machine_name_user_chosen\x18\x0f \x01(\tR\x1fsteamguardMachineNameUserChosen\x12*\n" +
 	"\x11is_phone_verified\x18\x10 \x01(\bR\x0fisPhoneVerified\x12(\n" +
 	"\x10two_factor_state\x18\x11 \x01(\rR\x0etwoFactorState\x120\n" +
@@ -1584,7 +1696,7 @@ const file_steammessages_clientserver_login_proto_rawDesc = "" +
 	"\x1aCMsgClientChallengeRequest\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\";\n" +
 	"\x1bCMsgClientChallengeResponse\x12\x1c\n" +
-	"\tchallenge\x18\x01 \x01(\x06R\tchallengeB\x05H\x01\x80\x01\x00"
+	"\tchallenge\x18\x01 \x01(\x06R\tchallengeB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_clientserver_login_proto_rawDescOnce sync.Once
@@ -1598,30 +1710,31 @@ func file_steammessages_clientserver_login_proto_rawDescGZIP() []byte {
 	return file_steammessages_clientserver_login_proto_rawDescData
 }
 
-var file_steammessages_clientserver_login_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_steammessages_clientserver_login_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_steammessages_clientserver_login_proto_goTypes = []any{
 	(*CMsgClientHeartBeat)(nil),                                  // 0: CMsgClientHeartBeat
 	(*CMsgClientServerTimestampRequest)(nil),                     // 1: CMsgClientServerTimestampRequest
 	(*CMsgClientServerTimestampResponse)(nil),                    // 2: CMsgClientServerTimestampResponse
 	(*CMsgClientSecret)(nil),                                     // 3: CMsgClientSecret
-	(*CMsgClientLogon)(nil),                                      // 4: CMsgClientLogon
-	(*CMsgClientLogonResponse)(nil),                              // 5: CMsgClientLogonResponse
-	(*CMsgClientRequestWebAPIAuthenticateUserNonce)(nil),         // 6: CMsgClientRequestWebAPIAuthenticateUserNonce
-	(*CMsgClientRequestWebAPIAuthenticateUserNonceResponse)(nil), // 7: CMsgClientRequestWebAPIAuthenticateUserNonceResponse
-	(*CMsgClientLogOff)(nil),                                     // 8: CMsgClientLogOff
-	(*CMsgClientLoggedOff)(nil),                                  // 9: CMsgClientLoggedOff
-	(*CMsgClientNewLoginKey)(nil),                                // 10: CMsgClientNewLoginKey
-	(*CMsgClientNewLoginKeyAccepted)(nil),                        // 11: CMsgClientNewLoginKeyAccepted
-	(*CMsgClientAccountInfo)(nil),                                // 12: CMsgClientAccountInfo
-	(*CMsgClientChallengeRequest)(nil),                           // 13: CMsgClientChallengeRequest
-	(*CMsgClientChallengeResponse)(nil),                          // 14: CMsgClientChallengeResponse
-	(*CMsgIPAddress)(nil),               // 15: CMsgIPAddress
+	(*CMsgClientHello)(nil),                                      // 4: CMsgClientHello
+	(*CMsgClientLogon)(nil),                                      // 5: CMsgClientLogon
+	(*CMsgClientLogonResponse)(nil),                              // 6: CMsgClientLogonResponse
+	(*CMsgClientRequestWebAPIAuthenticateUserNonce)(nil),         // 7: CMsgClientRequestWebAPIAuthenticateUserNonce
+	(*CMsgClientRequestWebAPIAuthenticateUserNonceResponse)(nil), // 8: CMsgClientRequestWebAPIAuthenticateUserNonceResponse
+	(*CMsgClientLogOff)(nil),                                     // 9: CMsgClientLogOff
+	(*CMsgClientLoggedOff)(nil),                                  // 10: CMsgClientLoggedOff
+	(*CMsgClientNewLoginKey)(nil),                                // 11: CMsgClientNewLoginKey
+	(*CMsgClientNewLoginKeyAccepted)(nil),                        // 12: CMsgClientNewLoginKeyAccepted
+	(*CMsgClientAccountInfo)(nil),                                // 13: CMsgClientAccountInfo
+	(*CMsgClientChallengeRequest)(nil),                           // 14: CMsgClientChallengeRequest
+	(*CMsgClientChallengeResponse)(nil),                          // 15: CMsgClientChallengeResponse
+	(*CMsgIPAddress)(nil),               // 16: CMsgIPAddress
 }
 var file_steammessages_clientserver_login_proto_depIdxs = []int32{
-	15, // 0: CMsgClientLogon.obfuscated_private_ip:type_name -> CMsgIPAddress
-	15, // 1: CMsgClientLogon.public_ip:type_name -> CMsgIPAddress
+	16, // 0: CMsgClientLogon.obfuscated_private_ip:type_name -> CMsgIPAddress
+	16, // 1: CMsgClientLogon.public_ip:type_name -> CMsgIPAddress
 	3,  // 2: CMsgClientLogon.embedded_client_secret:type_name -> CMsgClientSecret
-	15, // 3: CMsgClientLogonResponse.public_ip:type_name -> CMsgIPAddress
+	16, // 3: CMsgClientLogonResponse.public_ip:type_name -> CMsgIPAddress
 	4,  // [4:4] is the sub-list for method output_type
 	4,  // [4:4] is the sub-list for method input_type
 	4,  // [4:4] is the sub-list for extension type_name
@@ -1640,7 +1753,7 @@ func file_steammessages_clientserver_login_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_clientserver_login_proto_rawDesc), len(file_steammessages_clientserver_login_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

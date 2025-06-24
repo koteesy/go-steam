@@ -151,68 +151,6 @@ func (EGCMsgResponse) EnumDescriptor() ([]byte, []int) {
 	return file_econ_shared_enums_proto_rawDescGZIP(), []int{1}
 }
 
-type EGCPartnerRequestResponse int32
-
-const (
-	EGCPartnerRequestResponse_k_EPartnerRequestOK                     EGCPartnerRequestResponse = 1
-	EGCPartnerRequestResponse_k_EPartnerRequestBadAccount             EGCPartnerRequestResponse = 2
-	EGCPartnerRequestResponse_k_EPartnerRequestNotLinked              EGCPartnerRequestResponse = 3
-	EGCPartnerRequestResponse_k_EPartnerRequestUnsupportedPartnerType EGCPartnerRequestResponse = 4
-)
-
-// Enum value maps for EGCPartnerRequestResponse.
-var (
-	EGCPartnerRequestResponse_name = map[int32]string{
-		1: "k_EPartnerRequestOK",
-		2: "k_EPartnerRequestBadAccount",
-		3: "k_EPartnerRequestNotLinked",
-		4: "k_EPartnerRequestUnsupportedPartnerType",
-	}
-	EGCPartnerRequestResponse_value = map[string]int32{
-		"k_EPartnerRequestOK":                     1,
-		"k_EPartnerRequestBadAccount":             2,
-		"k_EPartnerRequestNotLinked":              3,
-		"k_EPartnerRequestUnsupportedPartnerType": 4,
-	}
-)
-
-func (x EGCPartnerRequestResponse) Enum() *EGCPartnerRequestResponse {
-	p := new(EGCPartnerRequestResponse)
-	*p = x
-	return p
-}
-
-func (x EGCPartnerRequestResponse) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (EGCPartnerRequestResponse) Descriptor() protoreflect.EnumDescriptor {
-	return file_econ_shared_enums_proto_enumTypes[2].Descriptor()
-}
-
-func (EGCPartnerRequestResponse) Type() protoreflect.EnumType {
-	return &file_econ_shared_enums_proto_enumTypes[2]
-}
-
-func (x EGCPartnerRequestResponse) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Deprecated: Do not use.
-func (x *EGCPartnerRequestResponse) UnmarshalJSON(b []byte) error {
-	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
-	if err != nil {
-		return err
-	}
-	*x = EGCPartnerRequestResponse(num)
-	return nil
-}
-
-// Deprecated: Use EGCPartnerRequestResponse.Descriptor instead.
-func (EGCPartnerRequestResponse) EnumDescriptor() ([]byte, []int) {
-	return file_econ_shared_enums_proto_rawDescGZIP(), []int{2}
-}
-
 type EGCMsgUseItemResponse int32
 
 const (
@@ -279,11 +217,11 @@ func (x EGCMsgUseItemResponse) String() string {
 }
 
 func (EGCMsgUseItemResponse) Descriptor() protoreflect.EnumDescriptor {
-	return file_econ_shared_enums_proto_enumTypes[3].Descriptor()
+	return file_econ_shared_enums_proto_enumTypes[2].Descriptor()
 }
 
 func (EGCMsgUseItemResponse) Type() protoreflect.EnumType {
-	return &file_econ_shared_enums_proto_enumTypes[3]
+	return &file_econ_shared_enums_proto_enumTypes[2]
 }
 
 func (x EGCMsgUseItemResponse) Number() protoreflect.EnumNumber {
@@ -302,7 +240,7 @@ func (x *EGCMsgUseItemResponse) UnmarshalJSON(b []byte) error {
 
 // Deprecated: Use EGCMsgUseItemResponse.Descriptor instead.
 func (EGCMsgUseItemResponse) EnumDescriptor() ([]byte, []int) {
-	return file_econ_shared_enums_proto_rawDescGZIP(), []int{3}
+	return file_econ_shared_enums_proto_rawDescGZIP(), []int{2}
 }
 
 type CMsgGenericResult struct {
@@ -381,12 +319,7 @@ const file_econ_shared_enums_proto_rawDesc = "" +
 	"\x17k_EGCMsgResponseNoMatch\x10\x05\x12 \n" +
 	"\x1ck_EGCMsgResponseUnknownError\x10\x06\x12\x1f\n" +
 	"\x1bk_EGCMsgResponseNotLoggedOn\x10\a\x12\x1a\n" +
-	"\x16k_EGCMsgFailedToCreate\x10\b*\xa2\x01\n" +
-	"\x19EGCPartnerRequestResponse\x12\x17\n" +
-	"\x13k_EPartnerRequestOK\x10\x01\x12\x1f\n" +
-	"\x1bk_EPartnerRequestBadAccount\x10\x02\x12\x1e\n" +
-	"\x1ak_EPartnerRequestNotLinked\x10\x03\x12+\n" +
-	"'k_EPartnerRequestUnsupportedPartnerType\x10\x04*\xc5\x05\n" +
+	"\x16k_EGCMsgFailedToCreate\x10\b*\xc5\x05\n" +
 	"\x15EGCMsgUseItemResponse\x12$\n" +
 	" k_EGCMsgUseItemResponse_ItemUsed\x10\x00\x12.\n" +
 	"*k_EGCMsgUseItemResponse_GiftNoOtherPlayers\x10\x01\x12'\n" +
@@ -402,7 +335,7 @@ const file_econ_shared_enums_proto_rawDesc = "" +
 	"\x120\n" +
 	",k_EGCMsgUseItemResponse_EmoticonUnlock_NoNew\x10\v\x123\n" +
 	"/k_EGCMsgUseItemResponse_EmoticonUnlock_Complete\x10\f\x12/\n" +
-	"+k_EGCMsgUseItemResponse_ItemUsed_Compendium\x10\rB\x05H\x01\x80\x01\x00"
+	"+k_EGCMsgUseItemResponse_ItemUsed_Compendium\x10\r"
 
 var (
 	file_econ_shared_enums_proto_rawDescOnce sync.Once
@@ -416,14 +349,13 @@ func file_econ_shared_enums_proto_rawDescGZIP() []byte {
 	return file_econ_shared_enums_proto_rawDescData
 }
 
-var file_econ_shared_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_econ_shared_enums_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_econ_shared_enums_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_econ_shared_enums_proto_goTypes = []any{
-	(EGCEconBaseMsg)(0),            // 0: EGCEconBaseMsg
-	(EGCMsgResponse)(0),            // 1: EGCMsgResponse
-	(EGCPartnerRequestResponse)(0), // 2: EGCPartnerRequestResponse
-	(EGCMsgUseItemResponse)(0),     // 3: EGCMsgUseItemResponse
-	(*CMsgGenericResult)(nil),      // 4: CMsgGenericResult
+	(EGCEconBaseMsg)(0),        // 0: EGCEconBaseMsg
+	(EGCMsgResponse)(0),        // 1: EGCMsgResponse
+	(EGCMsgUseItemResponse)(0), // 2: EGCMsgUseItemResponse
+	(*CMsgGenericResult)(nil),  // 3: CMsgGenericResult
 }
 var file_econ_shared_enums_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -443,7 +375,7 @@ func file_econ_shared_enums_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_econ_shared_enums_proto_rawDesc), len(file_econ_shared_enums_proto_rawDesc)),
-			NumEnums:      4,
+			NumEnums:      3,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,

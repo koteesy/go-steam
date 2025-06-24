@@ -9,6 +9,7 @@ package protobuf
 import (
 	
 	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -26,109 +27,112 @@ const (
 type ECsgoGCMsg int32
 
 const (
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Base                                   ECsgoGCMsg = 9100
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingStart                       ECsgoGCMsg = 9101
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingStop                        ECsgoGCMsg = 9102
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing           ECsgoGCMsg = 9103
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate             ECsgoGCMsg = 9104
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ServerReserve            ECsgoGCMsg = 9105
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingServerReservationResponse   ECsgoGCMsg = 9106
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve            ECsgoGCMsg = 9107
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingServerRoundStats            ECsgoGCMsg = 9108
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello              ECsgoGCMsg = 9109
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello              ECsgoGCMsg = 9110
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingServerMatchEnd              ECsgoGCMsg = 9111
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon            ECsgoGCMsg = 9112
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingServer2GCKick               ECsgoGCMsg = 9113
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm            ECsgoGCMsg = 9114
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGCOperationalStats          ECsgoGCMsg = 9115
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ServerRankUpdate         ECsgoGCMsg = 9116
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate       ECsgoGCMsg = 9117
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ServerNotificationForUserPenalty       ECsgoGCMsg = 9118
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportPlayer                     ECsgoGCMsg = 9119
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportServer                     ECsgoGCMsg = 9120
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientCommendPlayer                    ECsgoGCMsg = 9121
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportResponse                   ECsgoGCMsg = 9122
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientCommendPlayerQuery               ECsgoGCMsg = 9123
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientCommendPlayerQueryResponse       ECsgoGCMsg = 9124
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_WatchInfoUsers                         ECsgoGCMsg = 9126
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestPlayersProfile            ECsgoGCMsg = 9127
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayersProfile                         ECsgoGCMsg = 9128
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate              ECsgoGCMsg = 9131
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment          ECsgoGCMsg = 9132
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayerOverwatchCaseStatus              ECsgoGCMsg = 9133
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientTextMsg                       ECsgoGCMsg = 9134
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCTextMsg                       ECsgoGCMsg = 9135
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchEndRunRewardDrops                 ECsgoGCMsg = 9136
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchEndRewardDropsNotification        ECsgoGCMsg = 9137
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestWatchInfoFriends2         ECsgoGCMsg = 9138
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchList                              ECsgoGCMsg = 9139
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames       ECsgoGCMsg = 9140
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestRecentUserGames        ECsgoGCMsg = 9141
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate             ECsgoGCMsg = 9142
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo         ECsgoGCMsg = 9144
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_TournamentMatchRewardDropsNotification ECsgoGCMsg = 9145
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestTournamentGames        ECsgoGCMsg = 9146
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo           ECsgoGCMsg = 9147
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest                ECsgoGCMsg = 9148
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse               ECsgoGCMsg = 9149
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo         ECsgoGCMsg = 9150
-	ECsgoGCMsg_k_EMsgGCToGCReloadVersions                                  ECsgoGCMsg = 9151
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientSubmitSurveyVote                 ECsgoGCMsg = 9152
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Server2GCClientValidate                ECsgoGCMsg = 9153
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestLiveGameForUser        ECsgoGCMsg = 9154
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Server2GCPureServerValidationFailure   ECsgoGCMsg = 9155
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest   ECsgoGCMsg = 9156
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse  ECsgoGCMsg = 9157
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_AccountPrivacySettings                 ECsgoGCMsg = 9158
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_SetMyActivityInfo                      ECsgoGCMsg = 9159
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestTournamentPredictions  ECsgoGCMsg = 9160
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListUploadTournamentPredictions   ECsgoGCMsg = 9161
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_DraftSummary                           ECsgoGCMsg = 9162
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestJoinFriendData            ECsgoGCMsg = 9163
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestJoinServerData            ECsgoGCMsg = 9164
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestNewMission                ECsgoGCMsg = 9165
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ServerNotifyXPRewarded              ECsgoGCMsg = 9166
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientTournamentInfo                ECsgoGCMsg = 9167
-	ECsgoGCMsg_k_EMsgGC_GlobalGame_Subscribe                               ECsgoGCMsg = 9168
-	ECsgoGCMsg_k_EMsgGC_GlobalGame_Unsubscribe                             ECsgoGCMsg = 9169
-	ECsgoGCMsg_k_EMsgGC_GlobalGame_Play                                    ECsgoGCMsg = 9170
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_AcknowledgePenalty                     ECsgoGCMsg = 9171
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin           ECsgoGCMsg = 9172
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientGlobalStats                   ECsgoGCMsg = 9173
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCStreamUnlock                  ECsgoGCMsg = 9174
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_FantasyRequestClientData               ECsgoGCMsg = 9175
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_FantasyUpdateClientData                ECsgoGCMsg = 9176
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GCToClientSteamdatagramTicket          ECsgoGCMsg = 9177
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientToGCRequestTicket                ECsgoGCMsg = 9178
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientToGCRequestElevate               ECsgoGCMsg = 9179
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GlobalChat                             ECsgoGCMsg = 9180
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GlobalChat_Subscribe                   ECsgoGCMsg = 9181
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GlobalChat_Unsubscribe                 ECsgoGCMsg = 9182
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientAuthKeyCode                      ECsgoGCMsg = 9183
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GotvSyncPacket                         ECsgoGCMsg = 9184
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPlayerDecalSign                  ECsgoGCMsg = 9185
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientLogonFatalError                  ECsgoGCMsg = 9187
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPollState                        ECsgoGCMsg = 9188
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Register                         ECsgoGCMsg = 9189
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Unregister                       ECsgoGCMsg = 9190
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Search                           ECsgoGCMsg = 9191
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Invite                           ECsgoGCMsg = 9192
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Account_RequestCoPlays                 ECsgoGCMsg = 9193
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientGCRankUpdate                     ECsgoGCMsg = 9194
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestOffers                    ECsgoGCMsg = 9195
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientAccountBalance                   ECsgoGCMsg = 9196
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPartyJoinRelay                   ECsgoGCMsg = 9197
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPartyWarning                     ECsgoGCMsg = 9198
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial       ECsgoGCMsg = 9199
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_SetEventFavorite                       ECsgoGCMsg = 9200
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GetEventFavorites_Request              ECsgoGCMsg = 9201
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPerfReport                       ECsgoGCMsg = 9202
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GetEventFavorites_Response             ECsgoGCMsg = 9203
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestSouvenir                  ECsgoGCMsg = 9204
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportValidation                 ECsgoGCMsg = 9205
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode              ECsgoGCMsg = 9206
-	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientRequestValidation             ECsgoGCMsg = 9207
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Base                                  ECsgoGCMsg = 9100
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingStart                      ECsgoGCMsg = 9101
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingStop                       ECsgoGCMsg = 9102
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing          ECsgoGCMsg = 9103
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate            ECsgoGCMsg = 9104
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingServerReservationResponse  ECsgoGCMsg = 9106
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve           ECsgoGCMsg = 9107
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello             ECsgoGCMsg = 9109
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello             ECsgoGCMsg = 9110
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon           ECsgoGCMsg = 9112
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate      ECsgoGCMsg = 9117
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ServerNotificationForUserPenalty      ECsgoGCMsg = 9118
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportPlayer                    ECsgoGCMsg = 9119
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportServer                    ECsgoGCMsg = 9120
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientCommendPlayer                   ECsgoGCMsg = 9121
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportResponse                  ECsgoGCMsg = 9122
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientCommendPlayerQuery              ECsgoGCMsg = 9123
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientCommendPlayerQueryResponse      ECsgoGCMsg = 9124
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_WatchInfoUsers                        ECsgoGCMsg = 9126
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestPlayersProfile           ECsgoGCMsg = 9127
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayersProfile                        ECsgoGCMsg = 9128
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate             ECsgoGCMsg = 9131
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment         ECsgoGCMsg = 9132
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PlayerOverwatchCaseStatus             ECsgoGCMsg = 9133
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientTextMsg                      ECsgoGCMsg = 9134
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCTextMsg                      ECsgoGCMsg = 9135
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchEndRunRewardDrops                ECsgoGCMsg = 9136
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchEndRewardDropsNotification       ECsgoGCMsg = 9137
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestWatchInfoFriends2        ECsgoGCMsg = 9138
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchList                             ECsgoGCMsg = 9139
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames      ECsgoGCMsg = 9140
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestRecentUserGames       ECsgoGCMsg = 9141
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate            ECsgoGCMsg = 9142
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo        ECsgoGCMsg = 9144
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestTournamentGames       ECsgoGCMsg = 9146
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo          ECsgoGCMsg = 9147
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest               ECsgoGCMsg = 9148
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse              ECsgoGCMsg = 9149
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo        ECsgoGCMsg = 9150
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientSubmitSurveyVote                ECsgoGCMsg = 9152
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Server2GCClientValidate               ECsgoGCMsg = 9153
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestLiveGameForUser       ECsgoGCMsg = 9154
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest  ECsgoGCMsg = 9156
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse ECsgoGCMsg = 9157
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_AccountPrivacySettings                ECsgoGCMsg = 9158
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_SetMyActivityInfo                     ECsgoGCMsg = 9159
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListRequestTournamentPredictions ECsgoGCMsg = 9160
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListUploadTournamentPredictions  ECsgoGCMsg = 9161
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_DraftSummary                          ECsgoGCMsg = 9162
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestJoinFriendData           ECsgoGCMsg = 9163
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestJoinServerData           ECsgoGCMsg = 9164
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestNewMission               ECsgoGCMsg = 9165
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientTournamentInfo               ECsgoGCMsg = 9167
+	ECsgoGCMsg_k_EMsgGC_GlobalGame_Subscribe                              ECsgoGCMsg = 9168
+	ECsgoGCMsg_k_EMsgGC_GlobalGame_Unsubscribe                            ECsgoGCMsg = 9169
+	ECsgoGCMsg_k_EMsgGC_GlobalGame_Play                                   ECsgoGCMsg = 9170
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_AcknowledgePenalty                    ECsgoGCMsg = 9171
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin          ECsgoGCMsg = 9172
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientGlobalStats                  ECsgoGCMsg = 9173
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GCStreamUnlock                 ECsgoGCMsg = 9174
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_FantasyRequestClientData              ECsgoGCMsg = 9175
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_FantasyUpdateClientData               ECsgoGCMsg = 9176
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GCToClientSteamdatagramTicket         ECsgoGCMsg = 9177
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientToGCRequestTicket               ECsgoGCMsg = 9178
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientToGCRequestElevate              ECsgoGCMsg = 9179
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GlobalChat                            ECsgoGCMsg = 9180
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GlobalChat_Subscribe                  ECsgoGCMsg = 9181
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GlobalChat_Unsubscribe                ECsgoGCMsg = 9182
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientAuthKeyCode                     ECsgoGCMsg = 9183
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GotvSyncPacket                        ECsgoGCMsg = 9184
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPlayerDecalSign                 ECsgoGCMsg = 9185
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientLogonFatalError                 ECsgoGCMsg = 9187
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPollState                       ECsgoGCMsg = 9188
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Register                        ECsgoGCMsg = 9189
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Unregister                      ECsgoGCMsg = 9190
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Search                          ECsgoGCMsg = 9191
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Party_Invite                          ECsgoGCMsg = 9192
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Account_RequestCoPlays                ECsgoGCMsg = 9193
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientGCRankUpdate                    ECsgoGCMsg = 9194
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestOffers                   ECsgoGCMsg = 9195
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientAccountBalance                  ECsgoGCMsg = 9196
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPartyJoinRelay                  ECsgoGCMsg = 9197
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPartyWarning                    ECsgoGCMsg = 9198
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_SetEventFavorite                      ECsgoGCMsg = 9200
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GetEventFavorites_Request             ECsgoGCMsg = 9201
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientPerfReport                      ECsgoGCMsg = 9202
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GetEventFavorites_Response            ECsgoGCMsg = 9203
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRequestSouvenir                 ECsgoGCMsg = 9204
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientReportValidation                ECsgoGCMsg = 9205
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode             ECsgoGCMsg = 9206
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientRequestValidation            ECsgoGCMsg = 9207
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRedeemMissionReward             ECsgoGCMsg = 9209
+	ECsgoGCMsg_k_EMsgGCCStrike15_ClientDeepStats                          ECsgoGCMsg = 9210
+	ECsgoGCMsg_k_EMsgGCCStrike15_StartAgreementSessionInGame              ECsgoGCMsg = 9211
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientInitSystem                   ECsgoGCMsg = 9212
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response          ECsgoGCMsg = 9213
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PrivateQueues                         ECsgoGCMsg = 9214
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt       ECsgoGCMsg = 9215
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_BetaEnrollment                        ECsgoGCMsg = 9217
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName          ECsgoGCMsg = 9218
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientRedeemFreeReward                ECsgoGCMsg = 9219
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_ClientNetworkConfig                   ECsgoGCMsg = 9220
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop                 ECsgoGCMsg = 9221
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_Client2GcAckXPShopTracks              ECsgoGCMsg = 9222
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats       ECsgoGCMsg = 9223
+	ECsgoGCMsg_k_EMsgGCCStrike15_v2_PremierSeasonSummary                  ECsgoGCMsg = 9224
 )
 
 // Enum value maps for ECsgoGCMsg.
@@ -139,18 +143,11 @@ var (
 		9102: "k_EMsgGCCStrike15_v2_MatchmakingStop",
 		9103: "k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing",
 		9104: "k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate",
-		9105: "k_EMsgGCCStrike15_v2_MatchmakingGC2ServerReserve",
 		9106: "k_EMsgGCCStrike15_v2_MatchmakingServerReservationResponse",
 		9107: "k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve",
-		9108: "k_EMsgGCCStrike15_v2_MatchmakingServerRoundStats",
 		9109: "k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello",
 		9110: "k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello",
-		9111: "k_EMsgGCCStrike15_v2_MatchmakingServerMatchEnd",
 		9112: "k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon",
-		9113: "k_EMsgGCCStrike15_v2_MatchmakingServer2GCKick",
-		9114: "k_EMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm",
-		9115: "k_EMsgGCCStrike15_v2_MatchmakingGCOperationalStats",
-		9116: "k_EMsgGCCStrike15_v2_MatchmakingGC2ServerRankUpdate",
 		9117: "k_EMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate",
 		9118: "k_EMsgGCCStrike15_v2_ServerNotificationForUserPenalty",
 		9119: "k_EMsgGCCStrike15_v2_ClientReportPlayer",
@@ -175,17 +172,14 @@ var (
 		9141: "k_EMsgGCCStrike15_v2_MatchListRequestRecentUserGames",
 		9142: "k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate",
 		9144: "k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo",
-		9145: "k_EMsgGCCStrike15_v2_TournamentMatchRewardDropsNotification",
 		9146: "k_EMsgGCCStrike15_v2_MatchListRequestTournamentGames",
 		9147: "k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo",
 		9148: "k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest",
 		9149: "k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse",
 		9150: "k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo",
-		9151: "k_EMsgGCToGCReloadVersions",
 		9152: "k_EMsgGCCStrike15_v2_ClientSubmitSurveyVote",
 		9153: "k_EMsgGCCStrike15_v2_Server2GCClientValidate",
 		9154: "k_EMsgGCCStrike15_v2_MatchListRequestLiveGameForUser",
-		9155: "k_EMsgGCCStrike15_v2_Server2GCPureServerValidationFailure",
 		9156: "k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest",
 		9157: "k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse",
 		9158: "k_EMsgGCCStrike15_v2_AccountPrivacySettings",
@@ -196,7 +190,6 @@ var (
 		9163: "k_EMsgGCCStrike15_v2_ClientRequestJoinFriendData",
 		9164: "k_EMsgGCCStrike15_v2_ClientRequestJoinServerData",
 		9165: "k_EMsgGCCStrike15_v2_ClientRequestNewMission",
-		9166: "k_EMsgGCCStrike15_v2_GC2ServerNotifyXPRewarded",
 		9167: "k_EMsgGCCStrike15_v2_GC2ClientTournamentInfo",
 		9168: "k_EMsgGC_GlobalGame_Subscribe",
 		9169: "k_EMsgGC_GlobalGame_Unsubscribe",
@@ -228,7 +221,6 @@ var (
 		9196: "k_EMsgGCCStrike15_v2_ClientAccountBalance",
 		9197: "k_EMsgGCCStrike15_v2_ClientPartyJoinRelay",
 		9198: "k_EMsgGCCStrike15_v2_ClientPartyWarning",
-		9199: "k_EMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial",
 		9200: "k_EMsgGCCStrike15_v2_SetEventFavorite",
 		9201: "k_EMsgGCCStrike15_v2_GetEventFavorites_Request",
 		9202: "k_EMsgGCCStrike15_v2_ClientPerfReport",
@@ -237,111 +229,129 @@ var (
 		9205: "k_EMsgGCCStrike15_v2_ClientReportValidation",
 		9206: "k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode",
 		9207: "k_EMsgGCCStrike15_v2_GC2ClientRequestValidation",
+		9209: "k_EMsgGCCStrike15_v2_ClientRedeemMissionReward",
+		9210: "k_EMsgGCCStrike15_ClientDeepStats",
+		9211: "k_EMsgGCCStrike15_StartAgreementSessionInGame",
+		9212: "k_EMsgGCCStrike15_v2_GC2ClientInitSystem",
+		9213: "k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response",
+		9214: "k_EMsgGCCStrike15_v2_PrivateQueues",
+		9215: "k_EMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt",
+		9217: "k_EMsgGCCStrike15_v2_BetaEnrollment",
+		9218: "k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName",
+		9219: "k_EMsgGCCStrike15_v2_ClientRedeemFreeReward",
+		9220: "k_EMsgGCCStrike15_v2_ClientNetworkConfig",
+		9221: "k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop",
+		9222: "k_EMsgGCCStrike15_v2_Client2GcAckXPShopTracks",
+		9223: "k_EMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats",
+		9224: "k_EMsgGCCStrike15_v2_PremierSeasonSummary",
 	}
 	ECsgoGCMsg_value = map[string]int32{
-		"k_EMsgGCCStrike15_v2_Base":                                   9100,
-		"k_EMsgGCCStrike15_v2_MatchmakingStart":                       9101,
-		"k_EMsgGCCStrike15_v2_MatchmakingStop":                        9102,
-		"k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing":           9103,
-		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate":             9104,
-		"k_EMsgGCCStrike15_v2_MatchmakingGC2ServerReserve":            9105,
-		"k_EMsgGCCStrike15_v2_MatchmakingServerReservationResponse":   9106,
-		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve":            9107,
-		"k_EMsgGCCStrike15_v2_MatchmakingServerRoundStats":            9108,
-		"k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello":              9109,
-		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello":              9110,
-		"k_EMsgGCCStrike15_v2_MatchmakingServerMatchEnd":              9111,
-		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon":            9112,
-		"k_EMsgGCCStrike15_v2_MatchmakingServer2GCKick":               9113,
-		"k_EMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm":            9114,
-		"k_EMsgGCCStrike15_v2_MatchmakingGCOperationalStats":          9115,
-		"k_EMsgGCCStrike15_v2_MatchmakingGC2ServerRankUpdate":         9116,
-		"k_EMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate":       9117,
-		"k_EMsgGCCStrike15_v2_ServerNotificationForUserPenalty":       9118,
-		"k_EMsgGCCStrike15_v2_ClientReportPlayer":                     9119,
-		"k_EMsgGCCStrike15_v2_ClientReportServer":                     9120,
-		"k_EMsgGCCStrike15_v2_ClientCommendPlayer":                    9121,
-		"k_EMsgGCCStrike15_v2_ClientReportResponse":                   9122,
-		"k_EMsgGCCStrike15_v2_ClientCommendPlayerQuery":               9123,
-		"k_EMsgGCCStrike15_v2_ClientCommendPlayerQueryResponse":       9124,
-		"k_EMsgGCCStrike15_v2_WatchInfoUsers":                         9126,
-		"k_EMsgGCCStrike15_v2_ClientRequestPlayersProfile":            9127,
-		"k_EMsgGCCStrike15_v2_PlayersProfile":                         9128,
-		"k_EMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate":              9131,
-		"k_EMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment":          9132,
-		"k_EMsgGCCStrike15_v2_PlayerOverwatchCaseStatus":              9133,
-		"k_EMsgGCCStrike15_v2_GC2ClientTextMsg":                       9134,
-		"k_EMsgGCCStrike15_v2_Client2GCTextMsg":                       9135,
-		"k_EMsgGCCStrike15_v2_MatchEndRunRewardDrops":                 9136,
-		"k_EMsgGCCStrike15_v2_MatchEndRewardDropsNotification":        9137,
-		"k_EMsgGCCStrike15_v2_ClientRequestWatchInfoFriends2":         9138,
-		"k_EMsgGCCStrike15_v2_MatchList":                              9139,
-		"k_EMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames":       9140,
-		"k_EMsgGCCStrike15_v2_MatchListRequestRecentUserGames":        9141,
-		"k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate":             9142,
-		"k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo":         9144,
-		"k_EMsgGCCStrike15_v2_TournamentMatchRewardDropsNotification": 9145,
-		"k_EMsgGCCStrike15_v2_MatchListRequestTournamentGames":        9146,
-		"k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo":           9147,
-		"k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest":                9148,
-		"k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse":               9149,
-		"k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo":         9150,
-		"k_EMsgGCToGCReloadVersions":                                  9151,
-		"k_EMsgGCCStrike15_v2_ClientSubmitSurveyVote":                 9152,
-		"k_EMsgGCCStrike15_v2_Server2GCClientValidate":                9153,
-		"k_EMsgGCCStrike15_v2_MatchListRequestLiveGameForUser":        9154,
-		"k_EMsgGCCStrike15_v2_Server2GCPureServerValidationFailure":   9155,
-		"k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest":   9156,
-		"k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse":  9157,
-		"k_EMsgGCCStrike15_v2_AccountPrivacySettings":                 9158,
-		"k_EMsgGCCStrike15_v2_SetMyActivityInfo":                      9159,
-		"k_EMsgGCCStrike15_v2_MatchListRequestTournamentPredictions":  9160,
-		"k_EMsgGCCStrike15_v2_MatchListUploadTournamentPredictions":   9161,
-		"k_EMsgGCCStrike15_v2_DraftSummary":                           9162,
-		"k_EMsgGCCStrike15_v2_ClientRequestJoinFriendData":            9163,
-		"k_EMsgGCCStrike15_v2_ClientRequestJoinServerData":            9164,
-		"k_EMsgGCCStrike15_v2_ClientRequestNewMission":                9165,
-		"k_EMsgGCCStrike15_v2_GC2ServerNotifyXPRewarded":              9166,
-		"k_EMsgGCCStrike15_v2_GC2ClientTournamentInfo":                9167,
-		"k_EMsgGC_GlobalGame_Subscribe":                               9168,
-		"k_EMsgGC_GlobalGame_Unsubscribe":                             9169,
-		"k_EMsgGC_GlobalGame_Play":                                    9170,
-		"k_EMsgGCCStrike15_v2_AcknowledgePenalty":                     9171,
-		"k_EMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin":           9172,
-		"k_EMsgGCCStrike15_v2_GC2ClientGlobalStats":                   9173,
-		"k_EMsgGCCStrike15_v2_Client2GCStreamUnlock":                  9174,
-		"k_EMsgGCCStrike15_v2_FantasyRequestClientData":               9175,
-		"k_EMsgGCCStrike15_v2_FantasyUpdateClientData":                9176,
-		"k_EMsgGCCStrike15_v2_GCToClientSteamdatagramTicket":          9177,
-		"k_EMsgGCCStrike15_v2_ClientToGCRequestTicket":                9178,
-		"k_EMsgGCCStrike15_v2_ClientToGCRequestElevate":               9179,
-		"k_EMsgGCCStrike15_v2_GlobalChat":                             9180,
-		"k_EMsgGCCStrike15_v2_GlobalChat_Subscribe":                   9181,
-		"k_EMsgGCCStrike15_v2_GlobalChat_Unsubscribe":                 9182,
-		"k_EMsgGCCStrike15_v2_ClientAuthKeyCode":                      9183,
-		"k_EMsgGCCStrike15_v2_GotvSyncPacket":                         9184,
-		"k_EMsgGCCStrike15_v2_ClientPlayerDecalSign":                  9185,
-		"k_EMsgGCCStrike15_v2_ClientLogonFatalError":                  9187,
-		"k_EMsgGCCStrike15_v2_ClientPollState":                        9188,
-		"k_EMsgGCCStrike15_v2_Party_Register":                         9189,
-		"k_EMsgGCCStrike15_v2_Party_Unregister":                       9190,
-		"k_EMsgGCCStrike15_v2_Party_Search":                           9191,
-		"k_EMsgGCCStrike15_v2_Party_Invite":                           9192,
-		"k_EMsgGCCStrike15_v2_Account_RequestCoPlays":                 9193,
-		"k_EMsgGCCStrike15_v2_ClientGCRankUpdate":                     9194,
-		"k_EMsgGCCStrike15_v2_ClientRequestOffers":                    9195,
-		"k_EMsgGCCStrike15_v2_ClientAccountBalance":                   9196,
-		"k_EMsgGCCStrike15_v2_ClientPartyJoinRelay":                   9197,
-		"k_EMsgGCCStrike15_v2_ClientPartyWarning":                     9198,
-		"k_EMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial":       9199,
-		"k_EMsgGCCStrike15_v2_SetEventFavorite":                       9200,
-		"k_EMsgGCCStrike15_v2_GetEventFavorites_Request":              9201,
-		"k_EMsgGCCStrike15_v2_ClientPerfReport":                       9202,
-		"k_EMsgGCCStrike15_v2_GetEventFavorites_Response":             9203,
-		"k_EMsgGCCStrike15_v2_ClientRequestSouvenir":                  9204,
-		"k_EMsgGCCStrike15_v2_ClientReportValidation":                 9205,
-		"k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode":              9206,
-		"k_EMsgGCCStrike15_v2_GC2ClientRequestValidation":             9207,
+		"k_EMsgGCCStrike15_v2_Base":                                  9100,
+		"k_EMsgGCCStrike15_v2_MatchmakingStart":                      9101,
+		"k_EMsgGCCStrike15_v2_MatchmakingStop":                       9102,
+		"k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing":          9103,
+		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate":            9104,
+		"k_EMsgGCCStrike15_v2_MatchmakingServerReservationResponse":  9106,
+		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve":           9107,
+		"k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello":             9109,
+		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello":             9110,
+		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon":           9112,
+		"k_EMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate":      9117,
+		"k_EMsgGCCStrike15_v2_ServerNotificationForUserPenalty":      9118,
+		"k_EMsgGCCStrike15_v2_ClientReportPlayer":                    9119,
+		"k_EMsgGCCStrike15_v2_ClientReportServer":                    9120,
+		"k_EMsgGCCStrike15_v2_ClientCommendPlayer":                   9121,
+		"k_EMsgGCCStrike15_v2_ClientReportResponse":                  9122,
+		"k_EMsgGCCStrike15_v2_ClientCommendPlayerQuery":              9123,
+		"k_EMsgGCCStrike15_v2_ClientCommendPlayerQueryResponse":      9124,
+		"k_EMsgGCCStrike15_v2_WatchInfoUsers":                        9126,
+		"k_EMsgGCCStrike15_v2_ClientRequestPlayersProfile":           9127,
+		"k_EMsgGCCStrike15_v2_PlayersProfile":                        9128,
+		"k_EMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate":             9131,
+		"k_EMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment":         9132,
+		"k_EMsgGCCStrike15_v2_PlayerOverwatchCaseStatus":             9133,
+		"k_EMsgGCCStrike15_v2_GC2ClientTextMsg":                      9134,
+		"k_EMsgGCCStrike15_v2_Client2GCTextMsg":                      9135,
+		"k_EMsgGCCStrike15_v2_MatchEndRunRewardDrops":                9136,
+		"k_EMsgGCCStrike15_v2_MatchEndRewardDropsNotification":       9137,
+		"k_EMsgGCCStrike15_v2_ClientRequestWatchInfoFriends2":        9138,
+		"k_EMsgGCCStrike15_v2_MatchList":                             9139,
+		"k_EMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames":      9140,
+		"k_EMsgGCCStrike15_v2_MatchListRequestRecentUserGames":       9141,
+		"k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate":            9142,
+		"k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo":        9144,
+		"k_EMsgGCCStrike15_v2_MatchListRequestTournamentGames":       9146,
+		"k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo":          9147,
+		"k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest":               9148,
+		"k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse":              9149,
+		"k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo":        9150,
+		"k_EMsgGCCStrike15_v2_ClientSubmitSurveyVote":                9152,
+		"k_EMsgGCCStrike15_v2_Server2GCClientValidate":               9153,
+		"k_EMsgGCCStrike15_v2_MatchListRequestLiveGameForUser":       9154,
+		"k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest":  9156,
+		"k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse": 9157,
+		"k_EMsgGCCStrike15_v2_AccountPrivacySettings":                9158,
+		"k_EMsgGCCStrike15_v2_SetMyActivityInfo":                     9159,
+		"k_EMsgGCCStrike15_v2_MatchListRequestTournamentPredictions": 9160,
+		"k_EMsgGCCStrike15_v2_MatchListUploadTournamentPredictions":  9161,
+		"k_EMsgGCCStrike15_v2_DraftSummary":                          9162,
+		"k_EMsgGCCStrike15_v2_ClientRequestJoinFriendData":           9163,
+		"k_EMsgGCCStrike15_v2_ClientRequestJoinServerData":           9164,
+		"k_EMsgGCCStrike15_v2_ClientRequestNewMission":               9165,
+		"k_EMsgGCCStrike15_v2_GC2ClientTournamentInfo":               9167,
+		"k_EMsgGC_GlobalGame_Subscribe":                              9168,
+		"k_EMsgGC_GlobalGame_Unsubscribe":                            9169,
+		"k_EMsgGC_GlobalGame_Play":                                   9170,
+		"k_EMsgGCCStrike15_v2_AcknowledgePenalty":                    9171,
+		"k_EMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin":          9172,
+		"k_EMsgGCCStrike15_v2_GC2ClientGlobalStats":                  9173,
+		"k_EMsgGCCStrike15_v2_Client2GCStreamUnlock":                 9174,
+		"k_EMsgGCCStrike15_v2_FantasyRequestClientData":              9175,
+		"k_EMsgGCCStrike15_v2_FantasyUpdateClientData":               9176,
+		"k_EMsgGCCStrike15_v2_GCToClientSteamdatagramTicket":         9177,
+		"k_EMsgGCCStrike15_v2_ClientToGCRequestTicket":               9178,
+		"k_EMsgGCCStrike15_v2_ClientToGCRequestElevate":              9179,
+		"k_EMsgGCCStrike15_v2_GlobalChat":                            9180,
+		"k_EMsgGCCStrike15_v2_GlobalChat_Subscribe":                  9181,
+		"k_EMsgGCCStrike15_v2_GlobalChat_Unsubscribe":                9182,
+		"k_EMsgGCCStrike15_v2_ClientAuthKeyCode":                     9183,
+		"k_EMsgGCCStrike15_v2_GotvSyncPacket":                        9184,
+		"k_EMsgGCCStrike15_v2_ClientPlayerDecalSign":                 9185,
+		"k_EMsgGCCStrike15_v2_ClientLogonFatalError":                 9187,
+		"k_EMsgGCCStrike15_v2_ClientPollState":                       9188,
+		"k_EMsgGCCStrike15_v2_Party_Register":                        9189,
+		"k_EMsgGCCStrike15_v2_Party_Unregister":                      9190,
+		"k_EMsgGCCStrike15_v2_Party_Search":                          9191,
+		"k_EMsgGCCStrike15_v2_Party_Invite":                          9192,
+		"k_EMsgGCCStrike15_v2_Account_RequestCoPlays":                9193,
+		"k_EMsgGCCStrike15_v2_ClientGCRankUpdate":                    9194,
+		"k_EMsgGCCStrike15_v2_ClientRequestOffers":                   9195,
+		"k_EMsgGCCStrike15_v2_ClientAccountBalance":                  9196,
+		"k_EMsgGCCStrike15_v2_ClientPartyJoinRelay":                  9197,
+		"k_EMsgGCCStrike15_v2_ClientPartyWarning":                    9198,
+		"k_EMsgGCCStrike15_v2_SetEventFavorite":                      9200,
+		"k_EMsgGCCStrike15_v2_GetEventFavorites_Request":             9201,
+		"k_EMsgGCCStrike15_v2_ClientPerfReport":                      9202,
+		"k_EMsgGCCStrike15_v2_GetEventFavorites_Response":            9203,
+		"k_EMsgGCCStrike15_v2_ClientRequestSouvenir":                 9204,
+		"k_EMsgGCCStrike15_v2_ClientReportValidation":                9205,
+		"k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode":             9206,
+		"k_EMsgGCCStrike15_v2_GC2ClientRequestValidation":            9207,
+		"k_EMsgGCCStrike15_v2_ClientRedeemMissionReward":             9209,
+		"k_EMsgGCCStrike15_ClientDeepStats":                          9210,
+		"k_EMsgGCCStrike15_StartAgreementSessionInGame":              9211,
+		"k_EMsgGCCStrike15_v2_GC2ClientInitSystem":                   9212,
+		"k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response":          9213,
+		"k_EMsgGCCStrike15_v2_PrivateQueues":                         9214,
+		"k_EMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt":       9215,
+		"k_EMsgGCCStrike15_v2_BetaEnrollment":                        9217,
+		"k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName":          9218,
+		"k_EMsgGCCStrike15_v2_ClientRedeemFreeReward":                9219,
+		"k_EMsgGCCStrike15_v2_ClientNetworkConfig":                   9220,
+		"k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop":                 9221,
+		"k_EMsgGCCStrike15_v2_Client2GcAckXPShopTracks":              9222,
+		"k_EMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats":       9223,
+		"k_EMsgGCCStrike15_v2_PremierSeasonSummary":                  9224,
 	}
 )
 
@@ -498,6 +508,83 @@ func (x *EClientReportingVersion) UnmarshalJSON(b []byte) error {
 // Deprecated: Use EClientReportingVersion.Descriptor instead.
 func (EClientReportingVersion) EnumDescriptor() ([]byte, []int) {
 	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{2}
+}
+
+type EInitSystemResult int32
+
+const (
+	EInitSystemResult_k_EInitSystemResult_Invalid    EInitSystemResult = 0
+	EInitSystemResult_k_EInitSystemResult_Success    EInitSystemResult = 1
+	EInitSystemResult_k_EInitSystemResult_None       EInitSystemResult = 2
+	EInitSystemResult_k_EInitSystemResult_NotFound   EInitSystemResult = 3
+	EInitSystemResult_k_EInitSystemResult_Existing   EInitSystemResult = 4
+	EInitSystemResult_k_EInitSystemResult_FailedOpen EInitSystemResult = 5
+	EInitSystemResult_k_EInitSystemResult_Mismatch   EInitSystemResult = 6
+	EInitSystemResult_k_EInitSystemResult_FailedInit EInitSystemResult = 7
+	EInitSystemResult_k_EInitSystemResult_Max        EInitSystemResult = 8
+)
+
+// Enum value maps for EInitSystemResult.
+var (
+	EInitSystemResult_name = map[int32]string{
+		0: "k_EInitSystemResult_Invalid",
+		1: "k_EInitSystemResult_Success",
+		2: "k_EInitSystemResult_None",
+		3: "k_EInitSystemResult_NotFound",
+		4: "k_EInitSystemResult_Existing",
+		5: "k_EInitSystemResult_FailedOpen",
+		6: "k_EInitSystemResult_Mismatch",
+		7: "k_EInitSystemResult_FailedInit",
+		8: "k_EInitSystemResult_Max",
+	}
+	EInitSystemResult_value = map[string]int32{
+		"k_EInitSystemResult_Invalid":    0,
+		"k_EInitSystemResult_Success":    1,
+		"k_EInitSystemResult_None":       2,
+		"k_EInitSystemResult_NotFound":   3,
+		"k_EInitSystemResult_Existing":   4,
+		"k_EInitSystemResult_FailedOpen": 5,
+		"k_EInitSystemResult_Mismatch":   6,
+		"k_EInitSystemResult_FailedInit": 7,
+		"k_EInitSystemResult_Max":        8,
+	}
+)
+
+func (x EInitSystemResult) Enum() *EInitSystemResult {
+	p := new(EInitSystemResult)
+	*p = x
+	return p
+}
+
+func (x EInitSystemResult) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EInitSystemResult) Descriptor() protoreflect.EnumDescriptor {
+	return file_cstrike15_gcmessages_proto_enumTypes[3].Descriptor()
+}
+
+func (EInitSystemResult) Type() protoreflect.EnumType {
+	return &file_cstrike15_gcmessages_proto_enumTypes[3]
+}
+
+func (x EInitSystemResult) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EInitSystemResult) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EInitSystemResult(num)
+	return nil
+}
+
+// Deprecated: Use EInitSystemResult.Descriptor instead.
+func (EInitSystemResult) EnumDescriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{3}
 }
 
 type GameServerPing struct {
@@ -965,6 +1052,7 @@ type GlobalStatistics struct {
 	ActiveSurveyId          *uint32                    `protobuf:"varint,13,opt,name=active_survey_id,json=activeSurveyId" json:"active_survey_id,omitempty"`
 	Rtime32Cur              *uint32                    `protobuf:"varint,14,opt,name=rtime32_cur,json=rtime32Cur" json:"rtime32_cur,omitempty"`
 	Rtime32EventStart       *uint32                    `protobuf:"varint,15,opt,name=rtime32_event_start,json=rtime32EventStart" json:"rtime32_event_start,omitempty"`
+	RequiredAppidVersion2   *uint32                    `protobuf:"varint,16,opt,name=required_appid_version2,json=requiredAppidVersion2" json:"required_appid_version2,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -1100,6 +1188,13 @@ func (x *GlobalStatistics) GetRtime32Cur() uint32 {
 func (x *GlobalStatistics) GetRtime32EventStart() uint32 {
 	if x != nil && x.Rtime32EventStart != nil {
 		return *x.Rtime32EventStart
+	}
+	return 0
+}
+
+func (x *GlobalStatistics) GetRequiredAppidVersion2() uint32 {
+	if x != nil && x.RequiredAppidVersion2 != nil {
+		return *x.RequiredAppidVersion2
 	}
 	return 0
 }
@@ -1268,20 +1363,98 @@ func (x *OperationalStatisticsPacket) GetValues() []*OperationalStatisticElement
 	return nil
 }
 
-type PlayerRankingInfo struct {
+type OperationalVarValue struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     *uint32                `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
-	RankId        *uint32                `protobuf:"varint,2,opt,name=rank_id,json=rankId" json:"rank_id,omitempty"`
-	Wins          *uint32                `protobuf:"varint,3,opt,name=wins" json:"wins,omitempty"`
-	RankChange    *float32               `protobuf:"fixed32,4,opt,name=rank_change,json=rankChange" json:"rank_change,omitempty"`
-	RankTypeId    *uint32                `protobuf:"varint,6,opt,name=rank_type_id,json=rankTypeId" json:"rank_type_id,omitempty"`
+	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Ivalue        *int32                 `protobuf:"varint,2,opt,name=ivalue" json:"ivalue,omitempty"`
+	Fvalue        *float32               `protobuf:"fixed32,3,opt,name=fvalue" json:"fvalue,omitempty"`
+	Svalue        []byte                 `protobuf:"bytes,4,opt,name=svalue" json:"svalue,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *OperationalVarValue) Reset() {
+	*x = OperationalVarValue{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OperationalVarValue) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OperationalVarValue) ProtoMessage() {}
+
+func (x *OperationalVarValue) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OperationalVarValue.ProtoReflect.Descriptor instead.
+func (*OperationalVarValue) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *OperationalVarValue) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *OperationalVarValue) GetIvalue() int32 {
+	if x != nil && x.Ivalue != nil {
+		return *x.Ivalue
+	}
+	return 0
+}
+
+func (x *OperationalVarValue) GetFvalue() float32 {
+	if x != nil && x.Fvalue != nil {
+		return *x.Fvalue
+	}
+	return 0
+}
+
+func (x *OperationalVarValue) GetSvalue() []byte {
+	if x != nil {
+		return x.Svalue
+	}
+	return nil
+}
+
+type PlayerRankingInfo struct {
+	state                 protoimpl.MessageState          `protogen:"open.v1"`
+	AccountId             *uint32                         `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	RankId                *uint32                         `protobuf:"varint,2,opt,name=rank_id,json=rankId" json:"rank_id,omitempty"`
+	Wins                  *uint32                         `protobuf:"varint,3,opt,name=wins" json:"wins,omitempty"`
+	RankChange            *float32                        `protobuf:"fixed32,4,opt,name=rank_change,json=rankChange" json:"rank_change,omitempty"`
+	RankTypeId            *uint32                         `protobuf:"varint,6,opt,name=rank_type_id,json=rankTypeId" json:"rank_type_id,omitempty"`
+	TvControl             *uint32                         `protobuf:"varint,7,opt,name=tv_control,json=tvControl" json:"tv_control,omitempty"`
+	RankWindowStats       *uint64                         `protobuf:"varint,8,opt,name=rank_window_stats,json=rankWindowStats" json:"rank_window_stats,omitempty"`
+	LeaderboardName       *string                         `protobuf:"bytes,9,opt,name=leaderboard_name,json=leaderboardName" json:"leaderboard_name,omitempty"`
+	RankIfWin             *uint32                         `protobuf:"varint,10,opt,name=rank_if_win,json=rankIfWin" json:"rank_if_win,omitempty"`
+	RankIfLose            *uint32                         `protobuf:"varint,11,opt,name=rank_if_lose,json=rankIfLose" json:"rank_if_lose,omitempty"`
+	RankIfTie             *uint32                         `protobuf:"varint,12,opt,name=rank_if_tie,json=rankIfTie" json:"rank_if_tie,omitempty"`
+	PerMapRank            []*PlayerRankingInfo_PerMapRank `protobuf:"bytes,13,rep,name=per_map_rank,json=perMapRank" json:"per_map_rank,omitempty"`
+	LeaderboardNameStatus *uint32                         `protobuf:"varint,14,opt,name=leaderboard_name_status,json=leaderboardNameStatus" json:"leaderboard_name_status,omitempty"`
+	HighestRank           *uint32                         `protobuf:"varint,15,opt,name=highest_rank,json=highestRank" json:"highest_rank,omitempty"`
+	RankExpiry            *uint32                         `protobuf:"varint,16,opt,name=rank_expiry,json=rankExpiry" json:"rank_expiry,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
 func (x *PlayerRankingInfo) Reset() {
 	*x = PlayerRankingInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[10]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1293,7 +1466,7 @@ func (x *PlayerRankingInfo) String() string {
 func (*PlayerRankingInfo) ProtoMessage() {}
 
 func (x *PlayerRankingInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[10]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1306,7 +1479,7 @@ func (x *PlayerRankingInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayerRankingInfo.ProtoReflect.Descriptor instead.
 func (*PlayerRankingInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{10}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *PlayerRankingInfo) GetAccountId() uint32 {
@@ -1344,6 +1517,76 @@ func (x *PlayerRankingInfo) GetRankTypeId() uint32 {
 	return 0
 }
 
+func (x *PlayerRankingInfo) GetTvControl() uint32 {
+	if x != nil && x.TvControl != nil {
+		return *x.TvControl
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo) GetRankWindowStats() uint64 {
+	if x != nil && x.RankWindowStats != nil {
+		return *x.RankWindowStats
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo) GetLeaderboardName() string {
+	if x != nil && x.LeaderboardName != nil {
+		return *x.LeaderboardName
+	}
+	return ""
+}
+
+func (x *PlayerRankingInfo) GetRankIfWin() uint32 {
+	if x != nil && x.RankIfWin != nil {
+		return *x.RankIfWin
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo) GetRankIfLose() uint32 {
+	if x != nil && x.RankIfLose != nil {
+		return *x.RankIfLose
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo) GetRankIfTie() uint32 {
+	if x != nil && x.RankIfTie != nil {
+		return *x.RankIfTie
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo) GetPerMapRank() []*PlayerRankingInfo_PerMapRank {
+	if x != nil {
+		return x.PerMapRank
+	}
+	return nil
+}
+
+func (x *PlayerRankingInfo) GetLeaderboardNameStatus() uint32 {
+	if x != nil && x.LeaderboardNameStatus != nil {
+		return *x.LeaderboardNameStatus
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo) GetHighestRank() uint32 {
+	if x != nil && x.HighestRank != nil {
+		return *x.HighestRank
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo) GetRankExpiry() uint32 {
+	if x != nil && x.RankExpiry != nil {
+		return *x.RankExpiry
+	}
+	return 0
+}
+
 type PlayerCommendationInfo struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	CmdFriendly   *uint32                `protobuf:"varint,1,opt,name=cmd_friendly,json=cmdFriendly" json:"cmd_friendly,omitempty"`
@@ -1355,7 +1598,7 @@ type PlayerCommendationInfo struct {
 
 func (x *PlayerCommendationInfo) Reset() {
 	*x = PlayerCommendationInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[11]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1367,7 +1610,7 @@ func (x *PlayerCommendationInfo) String() string {
 func (*PlayerCommendationInfo) ProtoMessage() {}
 
 func (x *PlayerCommendationInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[11]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1380,7 +1623,7 @@ func (x *PlayerCommendationInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayerCommendationInfo.ProtoReflect.Descriptor instead.
 func (*PlayerCommendationInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{11}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *PlayerCommendationInfo) GetCmdFriendly() uint32 {
@@ -1414,7 +1657,7 @@ type PlayerMedalsInfo struct {
 
 func (x *PlayerMedalsInfo) Reset() {
 	*x = PlayerMedalsInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[12]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1426,7 +1669,7 @@ func (x *PlayerMedalsInfo) String() string {
 func (*PlayerMedalsInfo) ProtoMessage() {}
 
 func (x *PlayerMedalsInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[12]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1439,7 +1682,7 @@ func (x *PlayerMedalsInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayerMedalsInfo.ProtoReflect.Descriptor instead.
 func (*PlayerMedalsInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{12}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *PlayerMedalsInfo) GetDisplayItemsDefidx() []uint32 {
@@ -1468,7 +1711,7 @@ type AccountActivity struct {
 
 func (x *AccountActivity) Reset() {
 	*x = AccountActivity{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[13]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1480,7 +1723,7 @@ func (x *AccountActivity) String() string {
 func (*AccountActivity) ProtoMessage() {}
 
 func (x *AccountActivity) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[13]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1493,7 +1736,7 @@ func (x *AccountActivity) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountActivity.ProtoReflect.Descriptor instead.
 func (*AccountActivity) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{13}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *AccountActivity) GetActivity() uint32 {
@@ -1536,7 +1779,7 @@ type TournamentMatchSetup struct {
 
 func (x *TournamentMatchSetup) Reset() {
 	*x = TournamentMatchSetup{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[14]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1548,7 +1791,7 @@ func (x *TournamentMatchSetup) String() string {
 func (*TournamentMatchSetup) ProtoMessage() {}
 
 func (x *TournamentMatchSetup) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[14]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1561,7 +1804,7 @@ func (x *TournamentMatchSetup) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TournamentMatchSetup.ProtoReflect.Descriptor instead.
 func (*TournamentMatchSetup) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{14}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *TournamentMatchSetup) GetEventId() int32 {
@@ -1620,7 +1863,7 @@ type ServerHltvInfo struct {
 
 func (x *ServerHltvInfo) Reset() {
 	*x = ServerHltvInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[15]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1632,7 +1875,7 @@ func (x *ServerHltvInfo) String() string {
 func (*ServerHltvInfo) ProtoMessage() {}
 
 func (x *ServerHltvInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[15]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1645,7 +1888,7 @@ func (x *ServerHltvInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ServerHltvInfo.ProtoReflect.Descriptor instead.
 func (*ServerHltvInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{15}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *ServerHltvInfo) GetTvUdpPort() uint32 {
@@ -1802,7 +2045,7 @@ type IpAddressMask struct {
 
 func (x *IpAddressMask) Reset() {
 	*x = IpAddressMask{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[16]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1814,7 +2057,7 @@ func (x *IpAddressMask) String() string {
 func (*IpAddressMask) ProtoMessage() {}
 
 func (x *IpAddressMask) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[16]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1827,7 +2070,7 @@ func (x *IpAddressMask) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use IpAddressMask.ProtoReflect.Descriptor instead.
 func (*IpAddressMask) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{16}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *IpAddressMask) GetA() uint32 {
@@ -1883,7 +2126,7 @@ type CMsgCsgoSteamUserStatChange struct {
 
 func (x *CMsgCsgoSteamUserStatChange) Reset() {
 	*x = CMsgCsgoSteamUserStatChange{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[17]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1895,7 +2138,7 @@ func (x *CMsgCsgoSteamUserStatChange) String() string {
 func (*CMsgCsgoSteamUserStatChange) ProtoMessage() {}
 
 func (x *CMsgCsgoSteamUserStatChange) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[17]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1908,7 +2151,7 @@ func (x *CMsgCsgoSteamUserStatChange) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgCsgoSteamUserStatChange.ProtoReflect.Descriptor instead.
 func (*CMsgCsgoSteamUserStatChange) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{17}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *CMsgCsgoSteamUserStatChange) GetEcsgosteamuserstat() int32 {
@@ -1942,7 +2185,7 @@ type XpProgressData struct {
 
 func (x *XpProgressData) Reset() {
 	*x = XpProgressData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[18]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1954,7 +2197,7 @@ func (x *XpProgressData) String() string {
 func (*XpProgressData) ProtoMessage() {}
 
 func (x *XpProgressData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[18]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1967,7 +2210,7 @@ func (x *XpProgressData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use XpProgressData.ProtoReflect.Descriptor instead.
 func (*XpProgressData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{18}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *XpProgressData) GetXpPoints() uint32 {
@@ -1995,7 +2238,7 @@ type MatchEndItemUpdates struct {
 
 func (x *MatchEndItemUpdates) Reset() {
 	*x = MatchEndItemUpdates{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[19]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2007,7 +2250,7 @@ func (x *MatchEndItemUpdates) String() string {
 func (*MatchEndItemUpdates) ProtoMessage() {}
 
 func (x *MatchEndItemUpdates) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[19]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2020,7 +2263,7 @@ func (x *MatchEndItemUpdates) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MatchEndItemUpdates.ProtoReflect.Descriptor instead.
 func (*MatchEndItemUpdates) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{19}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *MatchEndItemUpdates) GetItemId() uint64 {
@@ -2045,18 +2288,19 @@ func (x *MatchEndItemUpdates) GetItemAttrDeltaValue() uint32 {
 }
 
 type ScoreLeaderboardData struct {
-	state          protoimpl.MessageState                 `protogen:"open.v1"`
-	QuestId        *uint64                                `protobuf:"varint,1,opt,name=quest_id,json=questId" json:"quest_id,omitempty"`
-	Score          *uint32                                `protobuf:"varint,2,opt,name=score" json:"score,omitempty"`
-	Accountentries []*ScoreLeaderboardData_AccountEntries `protobuf:"bytes,3,rep,name=accountentries" json:"accountentries,omitempty"`
-	Matchentries   []*ScoreLeaderboardData_Entry          `protobuf:"bytes,5,rep,name=matchentries" json:"matchentries,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state           protoimpl.MessageState                 `protogen:"open.v1"`
+	QuestId         *uint64                                `protobuf:"varint,1,opt,name=quest_id,json=questId" json:"quest_id,omitempty"`
+	Score           *uint32                                `protobuf:"varint,2,opt,name=score" json:"score,omitempty"`
+	Accountentries  []*ScoreLeaderboardData_AccountEntries `protobuf:"bytes,3,rep,name=accountentries" json:"accountentries,omitempty"`
+	Matchentries    []*ScoreLeaderboardData_Entry          `protobuf:"bytes,5,rep,name=matchentries" json:"matchentries,omitempty"`
+	LeaderboardName *string                                `protobuf:"bytes,6,opt,name=leaderboard_name,json=leaderboardName" json:"leaderboard_name,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ScoreLeaderboardData) Reset() {
 	*x = ScoreLeaderboardData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[20]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2068,7 +2312,7 @@ func (x *ScoreLeaderboardData) String() string {
 func (*ScoreLeaderboardData) ProtoMessage() {}
 
 func (x *ScoreLeaderboardData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[20]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2081,7 +2325,7 @@ func (x *ScoreLeaderboardData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ScoreLeaderboardData.ProtoReflect.Descriptor instead.
 func (*ScoreLeaderboardData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{20}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *ScoreLeaderboardData) GetQuestId() uint64 {
@@ -2112,6 +2356,13 @@ func (x *ScoreLeaderboardData) GetMatchentries() []*ScoreLeaderboardData_Entry {
 	return nil
 }
 
+func (x *ScoreLeaderboardData) GetLeaderboardName() string {
+	if x != nil && x.LeaderboardName != nil {
+		return *x.LeaderboardName
+	}
+	return ""
+}
+
 type PlayerQuestData struct {
 	state                   protoimpl.MessageState           `protogen:"open.v1"`
 	QuesterAccountId        *uint32                          `protobuf:"varint,1,opt,name=quester_account_id,json=questerAccountId" json:"quester_account_id,omitempty"`
@@ -2128,7 +2379,7 @@ type PlayerQuestData struct {
 
 func (x *PlayerQuestData) Reset() {
 	*x = PlayerQuestData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[21]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2140,7 +2391,7 @@ func (x *PlayerQuestData) String() string {
 func (*PlayerQuestData) ProtoMessage() {}
 
 func (x *PlayerQuestData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[21]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2153,7 +2404,7 @@ func (x *PlayerQuestData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayerQuestData.ProtoReflect.Descriptor instead.
 func (*PlayerQuestData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{21}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *PlayerQuestData) GetQuesterAccountId() uint32 {
@@ -2212,19 +2463,428 @@ func (x *PlayerQuestData) GetUserstatchanges() []*CMsgCsgoSteamUserStatChange {
 	return nil
 }
 
+type DeepPlayerStatsEntry struct {
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	Accountid             *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
+	MatchId               *uint64                `protobuf:"varint,2,opt,name=match_id,json=matchId" json:"match_id,omitempty"`
+	MmGameMode            *uint32                `protobuf:"varint,3,opt,name=mm_game_mode,json=mmGameMode" json:"mm_game_mode,omitempty"`
+	Mapid                 *uint32                `protobuf:"varint,4,opt,name=mapid" json:"mapid,omitempty"`
+	BStartingCt           *bool                  `protobuf:"varint,5,opt,name=b_starting_ct,json=bStartingCt" json:"b_starting_ct,omitempty"`
+	MatchOutcome          *uint32                `protobuf:"varint,6,opt,name=match_outcome,json=matchOutcome" json:"match_outcome,omitempty"`
+	RoundsWon             *uint32                `protobuf:"varint,7,opt,name=rounds_won,json=roundsWon" json:"rounds_won,omitempty"`
+	RoundsLost            *uint32                `protobuf:"varint,8,opt,name=rounds_lost,json=roundsLost" json:"rounds_lost,omitempty"`
+	StatScore             *uint32                `protobuf:"varint,9,opt,name=stat_score,json=statScore" json:"stat_score,omitempty"`
+	StatDeaths            *uint32                `protobuf:"varint,12,opt,name=stat_deaths,json=statDeaths" json:"stat_deaths,omitempty"`
+	StatMvps              *uint32                `protobuf:"varint,13,opt,name=stat_mvps,json=statMvps" json:"stat_mvps,omitempty"`
+	EnemyKills            *uint32                `protobuf:"varint,14,opt,name=enemy_kills,json=enemyKills" json:"enemy_kills,omitempty"`
+	EnemyHeadshots        *uint32                `protobuf:"varint,15,opt,name=enemy_headshots,json=enemyHeadshots" json:"enemy_headshots,omitempty"`
+	Enemy_2Ks             *uint32                `protobuf:"varint,16,opt,name=enemy_2ks,json=enemy2ks" json:"enemy_2ks,omitempty"`
+	Enemy_3Ks             *uint32                `protobuf:"varint,17,opt,name=enemy_3ks,json=enemy3ks" json:"enemy_3ks,omitempty"`
+	Enemy_4Ks             *uint32                `protobuf:"varint,18,opt,name=enemy_4ks,json=enemy4ks" json:"enemy_4ks,omitempty"`
+	TotalDamage           *uint32                `protobuf:"varint,19,opt,name=total_damage,json=totalDamage" json:"total_damage,omitempty"`
+	EngagementsEntryCount *uint32                `protobuf:"varint,23,opt,name=engagements_entry_count,json=engagementsEntryCount" json:"engagements_entry_count,omitempty"`
+	EngagementsEntryWins  *uint32                `protobuf:"varint,24,opt,name=engagements_entry_wins,json=engagementsEntryWins" json:"engagements_entry_wins,omitempty"`
+	Engagements_1V1Count  *uint32                `protobuf:"varint,25,opt,name=engagements_1v1_count,json=engagements1v1Count" json:"engagements_1v1_count,omitempty"`
+	Engagements_1V1Wins   *uint32                `protobuf:"varint,26,opt,name=engagements_1v1_wins,json=engagements1v1Wins" json:"engagements_1v1_wins,omitempty"`
+	Engagements_1V2Count  *uint32                `protobuf:"varint,27,opt,name=engagements_1v2_count,json=engagements1v2Count" json:"engagements_1v2_count,omitempty"`
+	Engagements_1V2Wins   *uint32                `protobuf:"varint,28,opt,name=engagements_1v2_wins,json=engagements1v2Wins" json:"engagements_1v2_wins,omitempty"`
+	UtilityCount          *uint32                `protobuf:"varint,29,opt,name=utility_count,json=utilityCount" json:"utility_count,omitempty"`
+	UtilitySuccess        *uint32                `protobuf:"varint,30,opt,name=utility_success,json=utilitySuccess" json:"utility_success,omitempty"`
+	FlashCount            *uint32                `protobuf:"varint,32,opt,name=flash_count,json=flashCount" json:"flash_count,omitempty"`
+	FlashSuccess          *uint32                `protobuf:"varint,33,opt,name=flash_success,json=flashSuccess" json:"flash_success,omitempty"`
+	Mates                 []uint32               `protobuf:"varint,34,rep,name=mates" json:"mates,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
+func (x *DeepPlayerStatsEntry) Reset() {
+	*x = DeepPlayerStatsEntry{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeepPlayerStatsEntry) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeepPlayerStatsEntry) ProtoMessage() {}
+
+func (x *DeepPlayerStatsEntry) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeepPlayerStatsEntry.ProtoReflect.Descriptor instead.
+func (*DeepPlayerStatsEntry) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *DeepPlayerStatsEntry) GetAccountid() uint32 {
+	if x != nil && x.Accountid != nil {
+		return *x.Accountid
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetMatchId() uint64 {
+	if x != nil && x.MatchId != nil {
+		return *x.MatchId
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetMmGameMode() uint32 {
+	if x != nil && x.MmGameMode != nil {
+		return *x.MmGameMode
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetMapid() uint32 {
+	if x != nil && x.Mapid != nil {
+		return *x.Mapid
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetBStartingCt() bool {
+	if x != nil && x.BStartingCt != nil {
+		return *x.BStartingCt
+	}
+	return false
+}
+
+func (x *DeepPlayerStatsEntry) GetMatchOutcome() uint32 {
+	if x != nil && x.MatchOutcome != nil {
+		return *x.MatchOutcome
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetRoundsWon() uint32 {
+	if x != nil && x.RoundsWon != nil {
+		return *x.RoundsWon
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetRoundsLost() uint32 {
+	if x != nil && x.RoundsLost != nil {
+		return *x.RoundsLost
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetStatScore() uint32 {
+	if x != nil && x.StatScore != nil {
+		return *x.StatScore
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetStatDeaths() uint32 {
+	if x != nil && x.StatDeaths != nil {
+		return *x.StatDeaths
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetStatMvps() uint32 {
+	if x != nil && x.StatMvps != nil {
+		return *x.StatMvps
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEnemyKills() uint32 {
+	if x != nil && x.EnemyKills != nil {
+		return *x.EnemyKills
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEnemyHeadshots() uint32 {
+	if x != nil && x.EnemyHeadshots != nil {
+		return *x.EnemyHeadshots
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEnemy_2Ks() uint32 {
+	if x != nil && x.Enemy_2Ks != nil {
+		return *x.Enemy_2Ks
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEnemy_3Ks() uint32 {
+	if x != nil && x.Enemy_3Ks != nil {
+		return *x.Enemy_3Ks
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEnemy_4Ks() uint32 {
+	if x != nil && x.Enemy_4Ks != nil {
+		return *x.Enemy_4Ks
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetTotalDamage() uint32 {
+	if x != nil && x.TotalDamage != nil {
+		return *x.TotalDamage
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEngagementsEntryCount() uint32 {
+	if x != nil && x.EngagementsEntryCount != nil {
+		return *x.EngagementsEntryCount
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEngagementsEntryWins() uint32 {
+	if x != nil && x.EngagementsEntryWins != nil {
+		return *x.EngagementsEntryWins
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEngagements_1V1Count() uint32 {
+	if x != nil && x.Engagements_1V1Count != nil {
+		return *x.Engagements_1V1Count
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEngagements_1V1Wins() uint32 {
+	if x != nil && x.Engagements_1V1Wins != nil {
+		return *x.Engagements_1V1Wins
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEngagements_1V2Count() uint32 {
+	if x != nil && x.Engagements_1V2Count != nil {
+		return *x.Engagements_1V2Count
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetEngagements_1V2Wins() uint32 {
+	if x != nil && x.Engagements_1V2Wins != nil {
+		return *x.Engagements_1V2Wins
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetUtilityCount() uint32 {
+	if x != nil && x.UtilityCount != nil {
+		return *x.UtilityCount
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetUtilitySuccess() uint32 {
+	if x != nil && x.UtilitySuccess != nil {
+		return *x.UtilitySuccess
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetFlashCount() uint32 {
+	if x != nil && x.FlashCount != nil {
+		return *x.FlashCount
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetFlashSuccess() uint32 {
+	if x != nil && x.FlashSuccess != nil {
+		return *x.FlashSuccess
+	}
+	return 0
+}
+
+func (x *DeepPlayerStatsEntry) GetMates() []uint32 {
+	if x != nil {
+		return x.Mates
+	}
+	return nil
+}
+
+type DeepPlayerMatchEvent struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Accountid     *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
+	MatchId       *uint64                `protobuf:"varint,2,opt,name=match_id,json=matchId" json:"match_id,omitempty"`
+	EventId       *uint32                `protobuf:"varint,3,opt,name=event_id,json=eventId" json:"event_id,omitempty"`
+	EventType     *uint32                `protobuf:"varint,4,opt,name=event_type,json=eventType" json:"event_type,omitempty"`
+	BPlayingCt    *bool                  `protobuf:"varint,5,opt,name=b_playing_ct,json=bPlayingCt" json:"b_playing_ct,omitempty"`
+	UserPosX      *int32                 `protobuf:"varint,6,opt,name=user_pos_x,json=userPosX" json:"user_pos_x,omitempty"`
+	UserPosY      *int32                 `protobuf:"varint,7,opt,name=user_pos_y,json=userPosY" json:"user_pos_y,omitempty"`
+	UserPosZ      *int32                 `protobuf:"varint,12,opt,name=user_pos_z,json=userPosZ" json:"user_pos_z,omitempty"`
+	UserDefidx    *uint32                `protobuf:"varint,8,opt,name=user_defidx,json=userDefidx" json:"user_defidx,omitempty"`
+	OtherPosX     *int32                 `protobuf:"varint,9,opt,name=other_pos_x,json=otherPosX" json:"other_pos_x,omitempty"`
+	OtherPosY     *int32                 `protobuf:"varint,10,opt,name=other_pos_y,json=otherPosY" json:"other_pos_y,omitempty"`
+	OtherPosZ     *int32                 `protobuf:"varint,13,opt,name=other_pos_z,json=otherPosZ" json:"other_pos_z,omitempty"`
+	OtherDefidx   *uint32                `protobuf:"varint,11,opt,name=other_defidx,json=otherDefidx" json:"other_defidx,omitempty"`
+	EventData     *int32                 `protobuf:"varint,14,opt,name=event_data,json=eventData" json:"event_data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeepPlayerMatchEvent) Reset() {
+	*x = DeepPlayerMatchEvent{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeepPlayerMatchEvent) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeepPlayerMatchEvent) ProtoMessage() {}
+
+func (x *DeepPlayerMatchEvent) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeepPlayerMatchEvent.ProtoReflect.Descriptor instead.
+func (*DeepPlayerMatchEvent) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *DeepPlayerMatchEvent) GetAccountid() uint32 {
+	if x != nil && x.Accountid != nil {
+		return *x.Accountid
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetMatchId() uint64 {
+	if x != nil && x.MatchId != nil {
+		return *x.MatchId
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetEventId() uint32 {
+	if x != nil && x.EventId != nil {
+		return *x.EventId
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetEventType() uint32 {
+	if x != nil && x.EventType != nil {
+		return *x.EventType
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetBPlayingCt() bool {
+	if x != nil && x.BPlayingCt != nil {
+		return *x.BPlayingCt
+	}
+	return false
+}
+
+func (x *DeepPlayerMatchEvent) GetUserPosX() int32 {
+	if x != nil && x.UserPosX != nil {
+		return *x.UserPosX
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetUserPosY() int32 {
+	if x != nil && x.UserPosY != nil {
+		return *x.UserPosY
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetUserPosZ() int32 {
+	if x != nil && x.UserPosZ != nil {
+		return *x.UserPosZ
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetUserDefidx() uint32 {
+	if x != nil && x.UserDefidx != nil {
+		return *x.UserDefidx
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetOtherPosX() int32 {
+	if x != nil && x.OtherPosX != nil {
+		return *x.OtherPosX
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetOtherPosY() int32 {
+	if x != nil && x.OtherPosY != nil {
+		return *x.OtherPosY
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetOtherPosZ() int32 {
+	if x != nil && x.OtherPosZ != nil {
+		return *x.OtherPosZ
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetOtherDefidx() uint32 {
+	if x != nil && x.OtherDefidx != nil {
+		return *x.OtherDefidx
+	}
+	return 0
+}
+
+func (x *DeepPlayerMatchEvent) GetEventData() int32 {
+	if x != nil && x.EventData != nil {
+		return *x.EventData
+	}
+	return 0
+}
+
 type CMsgGC_ServerQuestUpdateData struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	PlayerQuestData []*PlayerQuestData     `protobuf:"bytes,1,rep,name=player_quest_data,json=playerQuestData" json:"player_quest_data,omitempty"`
 	BinaryData      []byte                 `protobuf:"bytes,2,opt,name=binary_data,json=binaryData" json:"binary_data,omitempty"`
 	MmGameMode      *uint32                `protobuf:"varint,3,opt,name=mm_game_mode,json=mmGameMode" json:"mm_game_mode,omitempty"`
 	Missionlbsdata  *ScoreLeaderboardData  `protobuf:"bytes,4,opt,name=missionlbsdata" json:"missionlbsdata,omitempty"`
+	Flags           *uint32                `protobuf:"varint,5,opt,name=flags" json:"flags,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CMsgGC_ServerQuestUpdateData) Reset() {
 	*x = CMsgGC_ServerQuestUpdateData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[22]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2236,7 +2896,7 @@ func (x *CMsgGC_ServerQuestUpdateData) String() string {
 func (*CMsgGC_ServerQuestUpdateData) ProtoMessage() {}
 
 func (x *CMsgGC_ServerQuestUpdateData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[22]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2249,7 +2909,7 @@ func (x *CMsgGC_ServerQuestUpdateData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGC_ServerQuestUpdateData.ProtoReflect.Descriptor instead.
 func (*CMsgGC_ServerQuestUpdateData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{22}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *CMsgGC_ServerQuestUpdateData) GetPlayerQuestData() []*PlayerQuestData {
@@ -2280,64 +2940,11 @@ func (x *CMsgGC_ServerQuestUpdateData) GetMissionlbsdata() *ScoreLeaderboardData
 	return nil
 }
 
-type CMsgGCCStrike15V2_MatchmakingGCOperationalStats struct {
-	state         protoimpl.MessageState             `protogen:"open.v1"`
-	Packetid      *int32                             `protobuf:"varint,1,opt,name=packetid" json:"packetid,omitempty"`
-	Namekeys      []*OperationalStatisticDescription `protobuf:"bytes,2,rep,name=namekeys" json:"namekeys,omitempty"`
-	Packets       []*OperationalStatisticsPacket     `protobuf:"bytes,3,rep,name=packets" json:"packets,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGCOperationalStats) Reset() {
-	*x = CMsgGCCStrike15V2_MatchmakingGCOperationalStats{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[23]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGCOperationalStats) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_MatchmakingGCOperationalStats) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGCOperationalStats) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[23]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_MatchmakingGCOperationalStats.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_MatchmakingGCOperationalStats) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{23}
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGCOperationalStats) GetPacketid() int32 {
-	if x != nil && x.Packetid != nil {
-		return *x.Packetid
+func (x *CMsgGC_ServerQuestUpdateData) GetFlags() uint32 {
+	if x != nil && x.Flags != nil {
+		return *x.Flags
 	}
 	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGCOperationalStats) GetNamekeys() []*OperationalStatisticDescription {
-	if x != nil {
-		return x.Namekeys
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGCOperationalStats) GetPackets() []*OperationalStatisticsPacket {
-	if x != nil {
-		return x.Packets
-	}
-	return nil
 }
 
 type CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm struct {
@@ -2345,13 +2952,14 @@ type CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm struct {
 	Token         *uint32                `protobuf:"varint,1,opt,name=token" json:"token,omitempty"`
 	Stamp         *uint32                `protobuf:"varint,2,opt,name=stamp" json:"stamp,omitempty"`
 	Exchange      *uint64                `protobuf:"varint,3,opt,name=exchange" json:"exchange,omitempty"`
+	Retry         *uint32                `protobuf:"varint,4,opt,name=retry" json:"retry,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[24]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2363,7 +2971,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[24]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2376,7 +2984,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{24}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) GetToken() uint32 {
@@ -2400,6 +3008,13 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) GetExchange() uint64 {
 	return 0
 }
 
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm) GetRetry() uint32 {
+	if x != nil && x.Retry != nil {
+		return *x.Retry
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_GC2ServerReservationUpdate struct {
 	state                protoimpl.MessageState `protogen:"open.v1"`
 	ViewersExternalTotal *uint32                `protobuf:"varint,1,opt,name=viewers_external_total,json=viewersExternalTotal" json:"viewers_external_total,omitempty"`
@@ -2410,7 +3025,7 @@ type CMsgGCCStrike15V2_GC2ServerReservationUpdate struct {
 
 func (x *CMsgGCCStrike15V2_GC2ServerReservationUpdate) Reset() {
 	*x = CMsgGCCStrike15V2_GC2ServerReservationUpdate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[25]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2422,7 +3037,7 @@ func (x *CMsgGCCStrike15V2_GC2ServerReservationUpdate) String() string {
 func (*CMsgGCCStrike15V2_GC2ServerReservationUpdate) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GC2ServerReservationUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[25]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2435,7 +3050,7 @@ func (x *CMsgGCCStrike15V2_GC2ServerReservationUpdate) ProtoReflect() protorefle
 
 // Deprecated: Use CMsgGCCStrike15V2_GC2ServerReservationUpdate.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GC2ServerReservationUpdate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{25}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *CMsgGCCStrike15V2_GC2ServerReservationUpdate) GetViewersExternalTotal() uint32 {
@@ -2460,13 +3075,15 @@ type CMsgGCCStrike15V2_MatchmakingStart struct {
 	ClientVersion   *uint32                `protobuf:"varint,4,opt,name=client_version,json=clientVersion" json:"client_version,omitempty"`
 	TournamentMatch *TournamentMatchSetup  `protobuf:"bytes,5,opt,name=tournament_match,json=tournamentMatch" json:"tournament_match,omitempty"`
 	PrimeOnly       *bool                  `protobuf:"varint,6,opt,name=prime_only,json=primeOnly" json:"prime_only,omitempty"`
+	TvControl       *uint32                `protobuf:"varint,7,opt,name=tv_control,json=tvControl" json:"tv_control,omitempty"`
+	LobbyId         *uint64                `protobuf:"varint,8,opt,name=lobby_id,json=lobbyId" json:"lobby_id,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingStart) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingStart{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[26]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2478,7 +3095,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingStart) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingStart) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingStart) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[26]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2491,7 +3108,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingStart) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingStart.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingStart) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{26}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingStart) GetAccountIds() []uint32 {
@@ -2536,6 +3153,20 @@ func (x *CMsgGCCStrike15V2_MatchmakingStart) GetPrimeOnly() bool {
 	return false
 }
 
+func (x *CMsgGCCStrike15V2_MatchmakingStart) GetTvControl() uint32 {
+	if x != nil && x.TvControl != nil {
+		return *x.TvControl
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingStart) GetLobbyId() uint64 {
+	if x != nil && x.LobbyId != nil {
+		return *x.LobbyId
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_MatchmakingStop struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Abandon       *int32                 `protobuf:"varint,1,opt,name=abandon" json:"abandon,omitempty"`
@@ -2545,7 +3176,7 @@ type CMsgGCCStrike15V2_MatchmakingStop struct {
 
 func (x *CMsgGCCStrike15V2_MatchmakingStop) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingStop{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[27]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2557,7 +3188,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingStop) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingStop) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingStop) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[27]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2570,7 +3201,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingStop) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingStop.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingStop) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{27}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingStop) GetAbandon() int32 {
@@ -2580,21 +3211,92 @@ func (x *CMsgGCCStrike15V2_MatchmakingStop) GetAbandon() int32 {
 	return 0
 }
 
+type CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Type          *int32                 `protobuf:"varint,1,opt,name=type" json:"type,omitempty"`
+	RegionId      *int32                 `protobuf:"varint,2,opt,name=region_id,json=regionId" json:"region_id,omitempty"`
+	RegionR       *float32               `protobuf:"fixed32,3,opt,name=region_r,json=regionR" json:"region_r,omitempty"`
+	Distance      *float32               `protobuf:"fixed32,4,opt,name=distance" json:"distance,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) Reset() {
+	*x = CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetType() int32 {
+	if x != nil && x.Type != nil {
+		return *x.Type
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetRegionId() int32 {
+	if x != nil && x.RegionId != nil {
+		return *x.RegionId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetRegionR() float32 {
+	if x != nil && x.RegionR != nil {
+		return *x.RegionR
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetDistance() float32 {
+	if x != nil && x.Distance != nil {
+		return *x.Distance
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_MatchmakingClient2ServerPing struct {
-	state           protoimpl.MessageState `protogen:"open.v1"`
-	Gameserverpings []*GameServerPing      `protobuf:"bytes,1,rep,name=gameserverpings" json:"gameserverpings,omitempty"`
-	OffsetIndex     *int32                 `protobuf:"varint,2,opt,name=offset_index,json=offsetIndex" json:"offset_index,omitempty"`
-	FinalBatch      *int32                 `protobuf:"varint,3,opt,name=final_batch,json=finalBatch" json:"final_batch,omitempty"`
-	DataCenterPings []*DataCenterPing      `protobuf:"bytes,4,rep,name=data_center_pings,json=dataCenterPings" json:"data_center_pings,omitempty"`
-	MaxPing         *uint32                `protobuf:"varint,5,opt,name=max_ping,json=maxPing" json:"max_ping,omitempty"`
-	TestToken       *uint32                `protobuf:"fixed32,6,opt,name=test_token,json=testToken" json:"test_token,omitempty"`
+	state           protoimpl.MessageState                               `protogen:"open.v1"`
+	Gameserverpings []*GameServerPing                                    `protobuf:"bytes,1,rep,name=gameserverpings" json:"gameserverpings,omitempty"`
+	OffsetIndex     *int32                                               `protobuf:"varint,2,opt,name=offset_index,json=offsetIndex" json:"offset_index,omitempty"`
+	FinalBatch      *int32                                               `protobuf:"varint,3,opt,name=final_batch,json=finalBatch" json:"final_batch,omitempty"`
+	DataCenterPings []*DataCenterPing                                    `protobuf:"bytes,4,rep,name=data_center_pings,json=dataCenterPings" json:"data_center_pings,omitempty"`
+	MaxPing         *uint32                                              `protobuf:"varint,5,opt,name=max_ping,json=maxPing" json:"max_ping,omitempty"`
+	TestToken       *uint32                                              `protobuf:"fixed32,6,opt,name=test_token,json=testToken" json:"test_token,omitempty"`
+	SearchKey       []byte                                               `protobuf:"bytes,7,opt,name=search_key,json=searchKey" json:"search_key,omitempty"`
+	Notes           []*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note `protobuf:"bytes,8,rep,name=notes" json:"notes,omitempty"`
+	DebugMessage    *string                                              `protobuf:"bytes,9,opt,name=debug_message,json=debugMessage" json:"debug_message,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingClient2ServerPing{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[28]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2606,7 +3308,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingClient2ServerPing) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[28]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2619,7 +3321,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) ProtoReflect() protoref
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingClient2ServerPing.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingClient2ServerPing) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{28}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) GetGameserverpings() []*GameServerPing {
@@ -2664,6 +3366,27 @@ func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) GetTestToken() uint32 {
 	return 0
 }
 
+func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) GetSearchKey() []byte {
+	if x != nil {
+		return x.SearchKey
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) GetNotes() []*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note {
+	if x != nil {
+		return x.Notes
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingClient2ServerPing) GetDebugMessage() string {
+	if x != nil && x.DebugMessage != nil {
+		return *x.DebugMessage
+	}
+	return ""
+}
+
 type CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate struct {
 	state                         protoimpl.MessageState                               `protogen:"open.v1"`
 	Matchmaking                   *int32                                               `protobuf:"varint,1,opt,name=matchmaking" json:"matchmaking,omitempty"`
@@ -2688,7 +3411,7 @@ type CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate struct {
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[29]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2700,7 +3423,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[29]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2713,7 +3436,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) ProtoReflect() protorefle
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{29}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) GetMatchmaking() int32 {
@@ -2829,24 +3552,34 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate) GetInsecureAccountIdSessi
 }
 
 type CDataGCCStrike15V2_TournamentMatchDraft struct {
-	state         protoimpl.MessageState                           `protogen:"open.v1"`
-	EventId       *int32                                           `protobuf:"varint,1,opt,name=event_id,json=eventId" json:"event_id,omitempty"`
-	EventStageId  *int32                                           `protobuf:"varint,2,opt,name=event_stage_id,json=eventStageId" json:"event_stage_id,omitempty"`
-	TeamId_0      *int32                                           `protobuf:"varint,3,opt,name=team_id_0,json=teamId0" json:"team_id_0,omitempty"`
-	TeamId_1      *int32                                           `protobuf:"varint,4,opt,name=team_id_1,json=teamId1" json:"team_id_1,omitempty"`
-	MapsCount     *int32                                           `protobuf:"varint,5,opt,name=maps_count,json=mapsCount" json:"maps_count,omitempty"`
-	MapsCurrent   *int32                                           `protobuf:"varint,6,opt,name=maps_current,json=mapsCurrent" json:"maps_current,omitempty"`
-	TeamIdStart   *int32                                           `protobuf:"varint,7,opt,name=team_id_start,json=teamIdStart" json:"team_id_start,omitempty"`
-	TeamIdVeto1   *int32                                           `protobuf:"varint,8,opt,name=team_id_veto1,json=teamIdVeto1" json:"team_id_veto1,omitempty"`
-	TeamIdPickn   *int32                                           `protobuf:"varint,9,opt,name=team_id_pickn,json=teamIdPickn" json:"team_id_pickn,omitempty"`
-	Drafts        []*CDataGCCStrike15V2_TournamentMatchDraft_Entry `protobuf:"bytes,10,rep,name=drafts" json:"drafts,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state            protoimpl.MessageState                           `protogen:"open.v1"`
+	EventId          *int32                                           `protobuf:"varint,1,opt,name=event_id,json=eventId" json:"event_id,omitempty"`
+	EventStageId     *int32                                           `protobuf:"varint,2,opt,name=event_stage_id,json=eventStageId" json:"event_stage_id,omitempty"`
+	TeamId_0         *int32                                           `protobuf:"varint,3,opt,name=team_id_0,json=teamId0" json:"team_id_0,omitempty"`
+	TeamId_1         *int32                                           `protobuf:"varint,4,opt,name=team_id_1,json=teamId1" json:"team_id_1,omitempty"`
+	MapsCount        *int32                                           `protobuf:"varint,5,opt,name=maps_count,json=mapsCount" json:"maps_count,omitempty"`
+	MapsCurrent      *int32                                           `protobuf:"varint,6,opt,name=maps_current,json=mapsCurrent" json:"maps_current,omitempty"`
+	TeamIdStart      *int32                                           `protobuf:"varint,7,opt,name=team_id_start,json=teamIdStart" json:"team_id_start,omitempty"`
+	TeamIdVeto1      *int32                                           `protobuf:"varint,8,opt,name=team_id_veto1,json=teamIdVeto1" json:"team_id_veto1,omitempty"`
+	TeamIdPickn      *int32                                           `protobuf:"varint,9,opt,name=team_id_pickn,json=teamIdPickn" json:"team_id_pickn,omitempty"`
+	Drafts           []*CDataGCCStrike15V2_TournamentMatchDraft_Entry `protobuf:"bytes,10,rep,name=drafts" json:"drafts,omitempty"`
+	VoteMapid_0      []int32                                          `protobuf:"varint,11,rep,name=vote_mapid_0,json=voteMapid0" json:"vote_mapid_0,omitempty"`
+	VoteMapid_1      []int32                                          `protobuf:"varint,12,rep,name=vote_mapid_1,json=voteMapid1" json:"vote_mapid_1,omitempty"`
+	VoteMapid_2      []int32                                          `protobuf:"varint,13,rep,name=vote_mapid_2,json=voteMapid2" json:"vote_mapid_2,omitempty"`
+	VoteMapid_3      []int32                                          `protobuf:"varint,14,rep,name=vote_mapid_3,json=voteMapid3" json:"vote_mapid_3,omitempty"`
+	VoteMapid_4      []int32                                          `protobuf:"varint,15,rep,name=vote_mapid_4,json=voteMapid4" json:"vote_mapid_4,omitempty"`
+	VoteMapid_5      []int32                                          `protobuf:"varint,16,rep,name=vote_mapid_5,json=voteMapid5" json:"vote_mapid_5,omitempty"`
+	VoteStartingSide []int32                                          `protobuf:"varint,17,rep,name=vote_starting_side,json=voteStartingSide" json:"vote_starting_side,omitempty"`
+	VotePhase        *int32                                           `protobuf:"varint,18,opt,name=vote_phase,json=votePhase" json:"vote_phase,omitempty"`
+	VotePhaseStart   *float32                                         `protobuf:"fixed32,19,opt,name=vote_phase_start,json=votePhaseStart" json:"vote_phase_start,omitempty"`
+	VotePhaseLength  *float32                                         `protobuf:"fixed32,20,opt,name=vote_phase_length,json=votePhaseLength" json:"vote_phase_length,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *CDataGCCStrike15V2_TournamentMatchDraft) Reset() {
 	*x = CDataGCCStrike15V2_TournamentMatchDraft{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[30]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2858,7 +3591,7 @@ func (x *CDataGCCStrike15V2_TournamentMatchDraft) String() string {
 func (*CDataGCCStrike15V2_TournamentMatchDraft) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_TournamentMatchDraft) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[30]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2871,7 +3604,7 @@ func (x *CDataGCCStrike15V2_TournamentMatchDraft) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CDataGCCStrike15V2_TournamentMatchDraft.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_TournamentMatchDraft) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{30}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetEventId() int32 {
@@ -2944,6 +3677,76 @@ func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetDrafts() []*CDataGCCStrike1
 	return nil
 }
 
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVoteMapid_0() []int32 {
+	if x != nil {
+		return x.VoteMapid_0
+	}
+	return nil
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVoteMapid_1() []int32 {
+	if x != nil {
+		return x.VoteMapid_1
+	}
+	return nil
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVoteMapid_2() []int32 {
+	if x != nil {
+		return x.VoteMapid_2
+	}
+	return nil
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVoteMapid_3() []int32 {
+	if x != nil {
+		return x.VoteMapid_3
+	}
+	return nil
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVoteMapid_4() []int32 {
+	if x != nil {
+		return x.VoteMapid_4
+	}
+	return nil
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVoteMapid_5() []int32 {
+	if x != nil {
+		return x.VoteMapid_5
+	}
+	return nil
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVoteStartingSide() []int32 {
+	if x != nil {
+		return x.VoteStartingSide
+	}
+	return nil
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVotePhase() int32 {
+	if x != nil && x.VotePhase != nil {
+		return *x.VotePhase
+	}
+	return 0
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVotePhaseStart() float32 {
+	if x != nil && x.VotePhaseStart != nil {
+		return *x.VotePhaseStart
+	}
+	return 0
+}
+
+func (x *CDataGCCStrike15V2_TournamentMatchDraft) GetVotePhaseLength() float32 {
+	if x != nil && x.VotePhaseLength != nil {
+		return *x.VotePhaseLength
+	}
+	return 0
+}
+
 type CPreMatchInfoData struct {
 	state          protoimpl.MessageState                   `protogen:"open.v1"`
 	PredictionsPct *int32                                   `protobuf:"varint,1,opt,name=predictions_pct,json=predictionsPct" json:"predictions_pct,omitempty"`
@@ -2956,7 +3759,7 @@ type CPreMatchInfoData struct {
 
 func (x *CPreMatchInfoData) Reset() {
 	*x = CPreMatchInfoData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[31]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2968,7 +3771,7 @@ func (x *CPreMatchInfoData) String() string {
 func (*CPreMatchInfoData) ProtoMessage() {}
 
 func (x *CPreMatchInfoData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[31]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2981,7 +3784,7 @@ func (x *CPreMatchInfoData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPreMatchInfoData.ProtoReflect.Descriptor instead.
 func (*CPreMatchInfoData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{31}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CPreMatchInfoData) GetPredictionsPct() int32 {
@@ -3032,13 +3835,16 @@ type CMsgGCCStrike15V2_MatchmakingGC2ServerReserve struct {
 	PreMatchData                *CPreMatchInfoData     `protobuf:"bytes,15,opt,name=pre_match_data,json=preMatchData" json:"pre_match_data,omitempty"`
 	Rtime32EventStart           *uint32                `protobuf:"varint,16,opt,name=rtime32_event_start,json=rtime32EventStart" json:"rtime32_event_start,omitempty"`
 	TvControl                   *uint32                `protobuf:"varint,17,opt,name=tv_control,json=tvControl" json:"tv_control,omitempty"`
+	OpVarValues                 []*OperationalVarValue `protobuf:"bytes,19,rep,name=op_var_values,json=opVarValues" json:"op_var_values,omitempty"`
+	SocacheControl              *uint32                `protobuf:"varint,20,opt,name=socache_control,json=socacheControl" json:"socache_control,omitempty"`
+	TeammateColors              []int32                `protobuf:"varint,21,rep,name=teammate_colors,json=teammateColors" json:"teammate_colors,omitempty"`
 	unknownFields               protoimpl.UnknownFields
 	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingGC2ServerReserve{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[32]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3050,7 +3856,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[32]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3063,7 +3869,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ServerReserve.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{32}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) GetAccountIds() []uint32 {
@@ -3192,6 +3998,27 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) GetTvControl() uint32 {
 	return 0
 }
 
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) GetOpVarValues() []*OperationalVarValue {
+	if x != nil {
+		return x.OpVarValues
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) GetSocacheControl() uint32 {
+	if x != nil && x.SocacheControl != nil {
+		return *x.SocacheControl
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve) GetTeammateColors() []int32 {
+	if x != nil {
+		return x.TeammateColors
+	}
+	return nil
+}
+
 type CMsgGCCStrike15V2_MatchmakingServerReservationResponse struct {
 	state                   protoimpl.MessageState                         `protogen:"open.v1"`
 	Reservationid           *uint64                                        `protobuf:"varint,1,opt,name=reservationid" json:"reservationid,omitempty"`
@@ -3211,13 +4038,15 @@ type CMsgGCCStrike15V2_MatchmakingServerReservationResponse struct {
 	SteamdatagramRouting    *uint32                                        `protobuf:"varint,17,opt,name=steamdatagram_routing,json=steamdatagramRouting" json:"steamdatagram_routing,omitempty"`
 	TestToken               *uint32                                        `protobuf:"fixed32,15,opt,name=test_token,json=testToken" json:"test_token,omitempty"`
 	Flags                   *uint32                                        `protobuf:"varint,16,opt,name=flags" json:"flags,omitempty"`
+	SystemLoad              *uint32                                        `protobuf:"varint,18,opt,name=system_load,json=systemLoad" json:"system_load,omitempty"`
+	CpusOnline              *uint32                                        `protobuf:"varint,19,opt,name=cpus_online,json=cpusOnline" json:"cpus_online,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingServerReservationResponse{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[33]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3229,7 +4058,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) String() string
 func (*CMsgGCCStrike15V2_MatchmakingServerReservationResponse) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[33]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3242,7 +4071,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) ProtoReflect() 
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingServerReservationResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingServerReservationResponse) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{33}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) GetReservationid() uint64 {
@@ -3364,6 +4193,20 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) GetFlags() uint
 	return 0
 }
 
+func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) GetSystemLoad() uint32 {
+	if x != nil && x.SystemLoad != nil {
+		return *x.SystemLoad
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingServerReservationResponse) GetCpusOnline() uint32 {
+	if x != nil && x.CpusOnline != nil {
+		return *x.CpusOnline
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_MatchmakingGC2ClientReserve struct {
 	state         protoimpl.MessageState                         `protogen:"open.v1"`
 	Serverid      *uint64                                        `protobuf:"varint,1,opt,name=serverid" json:"serverid,omitempty"`
@@ -3373,13 +4216,15 @@ type CMsgGCCStrike15V2_MatchmakingGC2ClientReserve struct {
 	Reservation   *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve `protobuf:"bytes,5,opt,name=reservation" json:"reservation,omitempty"`
 	Map           *string                                        `protobuf:"bytes,6,opt,name=map" json:"map,omitempty"`
 	ServerAddress *string                                        `protobuf:"bytes,7,opt,name=server_address,json=serverAddress" json:"server_address,omitempty"`
+	GsPing        *DataCenterPing                                `protobuf:"bytes,8,opt,name=gs_ping,json=gsPing" json:"gs_ping,omitempty"`
+	GsLocationId  *uint32                                        `protobuf:"varint,9,opt,name=gs_location_id,json=gsLocationId" json:"gs_location_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingGC2ClientReserve{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[34]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3391,7 +4236,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[34]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3404,7 +4249,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ClientReserve.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{34}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) GetServerid() uint64 {
@@ -3456,6 +4301,20 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) GetServerAddress() strin
 	return ""
 }
 
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) GetGsPing() *DataCenterPing {
+	if x != nil {
+		return x.GsPing
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientReserve) GetGsLocationId() uint32 {
+	if x != nil && x.GsLocationId != nil {
+		return *x.GsLocationId
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_MatchmakingServerRoundStats struct {
 	state              protoimpl.MessageState                                  `protogen:"open.v1"`
 	Reservationid      *uint64                                                 `protobuf:"varint,1,opt,name=reservationid" json:"reservationid,omitempty"`
@@ -3484,13 +4343,19 @@ type CMsgGCCStrike15V2_MatchmakingServerRoundStats struct {
 	SpectatorsCountLnk *uint32                                                 `protobuf:"varint,24,opt,name=spectators_count_lnk,json=spectatorsCountLnk" json:"spectators_count_lnk,omitempty"`
 	EnemyKillsAgg      []int32                                                 `protobuf:"varint,25,rep,name=enemy_kills_agg,json=enemyKillsAgg" json:"enemy_kills_agg,omitempty"`
 	DropInfo           *CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo `protobuf:"bytes,26,opt,name=drop_info,json=dropInfo" json:"drop_info,omitempty"`
+	BSwitchedTeams     *bool                                                   `protobuf:"varint,27,opt,name=b_switched_teams,json=bSwitchedTeams" json:"b_switched_teams,omitempty"`
+	Enemy_2Ks          []int32                                                 `protobuf:"varint,28,rep,name=enemy_2ks,json=enemy2ks" json:"enemy_2ks,omitempty"`
+	PlayerSpawned      []int32                                                 `protobuf:"varint,29,rep,name=player_spawned,json=playerSpawned" json:"player_spawned,omitempty"`
+	TeamSpawnCount     []int32                                                 `protobuf:"varint,30,rep,name=team_spawn_count,json=teamSpawnCount" json:"team_spawn_count,omitempty"`
+	MaxRounds          *uint32                                                 `protobuf:"varint,31,opt,name=max_rounds,json=maxRounds" json:"max_rounds,omitempty"`
+	MapId              *int32                                                  `protobuf:"varint,32,opt,name=map_id,json=mapId" json:"map_id,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingServerRoundStats{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[35]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3502,7 +4367,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingServerRoundStats) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[35]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3515,7 +4380,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingServerRoundStats.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingServerRoundStats) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{35}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetReservationid() uint64 {
@@ -3700,178 +4565,44 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetDropInfo() *CMsgGCCSt
 	return nil
 }
 
-type CMsgGCCStrike15V2_MatchmakingServerMatchEnd struct {
-	state             protoimpl.MessageState                         `protogen:"open.v1"`
-	Stats             *CMsgGCCStrike15V2_MatchmakingServerRoundStats `protobuf:"bytes,1,opt,name=stats" json:"stats,omitempty"`
-	Confirm           *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm `protobuf:"bytes,3,opt,name=confirm" json:"confirm,omitempty"`
-	Rematch           *uint64                                        `protobuf:"varint,4,opt,name=rematch" json:"rematch,omitempty"`
-	ReplayToken       *uint32                                        `protobuf:"varint,5,opt,name=replay_token,json=replayToken" json:"replay_token,omitempty"`
-	ReplayClusterId   *uint32                                        `protobuf:"varint,6,opt,name=replay_cluster_id,json=replayClusterId" json:"replay_cluster_id,omitempty"`
-	AbortedMatch      *bool                                          `protobuf:"varint,7,opt,name=aborted_match,json=abortedMatch" json:"aborted_match,omitempty"`
-	MatchEndQuestData *CMsgGC_ServerQuestUpdateData                  `protobuf:"bytes,8,opt,name=match_end_quest_data,json=matchEndQuestData" json:"match_end_quest_data,omitempty"`
-	ServerVersion     *uint32                                        `protobuf:"varint,9,opt,name=server_version,json=serverVersion" json:"server_version,omitempty"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) Reset() {
-	*x = CMsgGCCStrike15V2_MatchmakingServerMatchEnd{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[36]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_MatchmakingServerMatchEnd) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[36]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_MatchmakingServerMatchEnd.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_MatchmakingServerMatchEnd) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{36}
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetStats() *CMsgGCCStrike15V2_MatchmakingServerRoundStats {
-	if x != nil {
-		return x.Stats
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetConfirm() *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm {
-	if x != nil {
-		return x.Confirm
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetRematch() uint64 {
-	if x != nil && x.Rematch != nil {
-		return *x.Rematch
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetReplayToken() uint32 {
-	if x != nil && x.ReplayToken != nil {
-		return *x.ReplayToken
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetReplayClusterId() uint32 {
-	if x != nil && x.ReplayClusterId != nil {
-		return *x.ReplayClusterId
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetAbortedMatch() bool {
-	if x != nil && x.AbortedMatch != nil {
-		return *x.AbortedMatch
+func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetBSwitchedTeams() bool {
+	if x != nil && x.BSwitchedTeams != nil {
+		return *x.BSwitchedTeams
 	}
 	return false
 }
 
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetMatchEndQuestData() *CMsgGC_ServerQuestUpdateData {
+func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetEnemy_2Ks() []int32 {
 	if x != nil {
-		return x.MatchEndQuestData
+		return x.Enemy_2Ks
 	}
 	return nil
 }
 
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEnd) GetServerVersion() uint32 {
-	if x != nil && x.ServerVersion != nil {
-		return *x.ServerVersion
+func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetPlayerSpawned() []int32 {
+	if x != nil {
+		return x.PlayerSpawned
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetTeamSpawnCount() []int32 {
+	if x != nil {
+		return x.TeamSpawnCount
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetMaxRounds() uint32 {
+	if x != nil && x.MaxRounds != nil {
+		return *x.MaxRounds
 	}
 	return 0
 }
 
-type CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial struct {
-	state                    protoimpl.MessageState                         `protogen:"open.v1"`
-	Reservationid            *uint64                                        `protobuf:"varint,1,opt,name=reservationid" json:"reservationid,omitempty"`
-	Reservation              *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve `protobuf:"bytes,2,opt,name=reservation" json:"reservation,omitempty"`
-	Confirm                  *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm `protobuf:"bytes,3,opt,name=confirm" json:"confirm,omitempty"`
-	CompletedPlayerQuestData *CMsgGC_ServerQuestUpdateData                  `protobuf:"bytes,4,opt,name=completed_player_quest_data,json=completedPlayerQuestData" json:"completed_player_quest_data,omitempty"`
-	ServerVersion            *uint32                                        `protobuf:"varint,5,opt,name=server_version,json=serverVersion" json:"server_version,omitempty"`
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) Reset() {
-	*x = CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[37]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[37]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{37}
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) GetReservationid() uint64 {
-	if x != nil && x.Reservationid != nil {
-		return *x.Reservationid
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) GetReservation() *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve {
-	if x != nil {
-		return x.Reservation
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) GetConfirm() *CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm {
-	if x != nil {
-		return x.Confirm
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) GetCompletedPlayerQuestData() *CMsgGC_ServerQuestUpdateData {
-	if x != nil {
-		return x.CompletedPlayerQuestData
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial) GetServerVersion() uint32 {
-	if x != nil && x.ServerVersion != nil {
-		return *x.ServerVersion
+func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats) GetMapId() int32 {
+	if x != nil && x.MapId != nil {
+		return *x.MapId
 	}
 	return 0
 }
@@ -3884,7 +4615,7 @@ type CMsgGCCStrike15V2_MatchmakingClient2GCHello struct {
 
 func (x *CMsgGCCStrike15V2_MatchmakingClient2GCHello) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingClient2GCHello{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[38]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3896,7 +4627,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingClient2GCHello) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingClient2GCHello) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingClient2GCHello) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[38]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3909,7 +4640,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingClient2GCHello) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingClient2GCHello.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingClient2GCHello) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{38}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{39}
 }
 
 type CMsgGCCStrike15V2_MatchmakingGC2ClientHello struct {
@@ -3933,13 +4664,14 @@ type CMsgGCCStrike15V2_MatchmakingGC2ClientHello struct {
 	PlayerCurXp          *int32                                         `protobuf:"varint,18,opt,name=player_cur_xp,json=playerCurXp" json:"player_cur_xp,omitempty"`
 	PlayerXpBonusFlags   *int32                                         `protobuf:"varint,19,opt,name=player_xp_bonus_flags,json=playerXpBonusFlags" json:"player_xp_bonus_flags,omitempty"`
 	Rankings             []*PlayerRankingInfo                           `protobuf:"bytes,20,rep,name=rankings" json:"rankings,omitempty"`
+	Owcaseid             *uint64                                        `protobuf:"varint,21,opt,name=owcaseid" json:"owcaseid,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientHello) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingGC2ClientHello{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[39]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3951,7 +4683,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientHello) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientHello) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientHello) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[39]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3964,7 +4696,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientHello) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ClientHello.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientHello) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{39}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientHello) GetAccountId() uint32 {
@@ -4100,6 +4832,13 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientHello) GetRankings() []*PlayerRan
 	return nil
 }
 
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientHello) GetOwcaseid() uint64 {
+	if x != nil && x.Owcaseid != nil {
+		return *x.Owcaseid
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_AccountPrivacySettings struct {
 	state         protoimpl.MessageState                              `protogen:"open.v1"`
 	Settings      []*CMsgGCCStrike15V2_AccountPrivacySettings_Setting `protobuf:"bytes,1,rep,name=settings" json:"settings,omitempty"`
@@ -4109,7 +4848,7 @@ type CMsgGCCStrike15V2_AccountPrivacySettings struct {
 
 func (x *CMsgGCCStrike15V2_AccountPrivacySettings) Reset() {
 	*x = CMsgGCCStrike15V2_AccountPrivacySettings{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[40]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4121,7 +4860,7 @@ func (x *CMsgGCCStrike15V2_AccountPrivacySettings) String() string {
 func (*CMsgGCCStrike15V2_AccountPrivacySettings) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_AccountPrivacySettings) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[40]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4134,7 +4873,7 @@ func (x *CMsgGCCStrike15V2_AccountPrivacySettings) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CMsgGCCStrike15V2_AccountPrivacySettings.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_AccountPrivacySettings) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{40}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *CMsgGCCStrike15V2_AccountPrivacySettings) GetSettings() []*CMsgGCCStrike15V2_AccountPrivacySettings_Setting {
@@ -4156,7 +4895,7 @@ type CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon struct {
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[41]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4168,7 +4907,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[41]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4181,7 +4920,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{41}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) GetAccountId() uint32 {
@@ -4212,118 +4951,6 @@ func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon) GetPenaltyReason() uint3
 	return 0
 }
 
-type CMsgGCCStrike15V2_MatchmakingServer2GCKick struct {
-	state         protoimpl.MessageState                         `protogen:"open.v1"`
-	AccountId     *uint32                                        `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
-	Reservation   *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve `protobuf:"bytes,2,opt,name=reservation" json:"reservation,omitempty"`
-	Reason        *uint32                                        `protobuf:"varint,3,opt,name=reason" json:"reason,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServer2GCKick) Reset() {
-	*x = CMsgGCCStrike15V2_MatchmakingServer2GCKick{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[42]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServer2GCKick) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_MatchmakingServer2GCKick) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServer2GCKick) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[42]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_MatchmakingServer2GCKick.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_MatchmakingServer2GCKick) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{42}
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServer2GCKick) GetAccountId() uint32 {
-	if x != nil && x.AccountId != nil {
-		return *x.AccountId
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServer2GCKick) GetReservation() *CMsgGCCStrike15V2_MatchmakingGC2ServerReserve {
-	if x != nil {
-		return x.Reservation
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingServer2GCKick) GetReason() uint32 {
-	if x != nil && x.Reason != nil {
-		return *x.Reason
-	}
-	return 0
-}
-
-type CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Rankings      []*PlayerRankingInfo   `protobuf:"bytes,1,rep,name=rankings" json:"rankings,omitempty"`
-	MatchId       *uint64                `protobuf:"varint,2,opt,name=match_id,json=matchId" json:"match_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate) Reset() {
-	*x = CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[43]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[43]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{43}
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate) GetRankings() []*PlayerRankingInfo {
-	if x != nil {
-		return x.Rankings
-	}
-	return nil
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate) GetMatchId() uint64 {
-	if x != nil && x.MatchId != nil {
-		return *x.MatchId
-	}
-	return 0
-}
-
 type CMsgGCCStrike15V2_ClientGCRankUpdate struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Rankings      []*PlayerRankingInfo   `protobuf:"bytes,1,rep,name=rankings" json:"rankings,omitempty"`
@@ -4333,7 +4960,7 @@ type CMsgGCCStrike15V2_ClientGCRankUpdate struct {
 
 func (x *CMsgGCCStrike15V2_ClientGCRankUpdate) Reset() {
 	*x = CMsgGCCStrike15V2_ClientGCRankUpdate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[44]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4345,7 +4972,7 @@ func (x *CMsgGCCStrike15V2_ClientGCRankUpdate) String() string {
 func (*CMsgGCCStrike15V2_ClientGCRankUpdate) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientGCRankUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[44]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4358,7 +4985,7 @@ func (x *CMsgGCCStrike15V2_ClientGCRankUpdate) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientGCRankUpdate.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientGCRankUpdate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{44}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *CMsgGCCStrike15V2_ClientGCRankUpdate) GetRankings() []*PlayerRankingInfo {
@@ -4377,7 +5004,7 @@ type CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate struct {
 
 func (x *CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[45]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4389,7 +5016,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate) String() string {
 func (*CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[45]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4402,7 +5029,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate) ProtoReflect() prot
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{45}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate) GetMainPostUrl() string {
@@ -4424,7 +5051,7 @@ type CMsgGCCStrike15V2_ServerNotificationForUserPenalty struct {
 
 func (x *CMsgGCCStrike15V2_ServerNotificationForUserPenalty) Reset() {
 	*x = CMsgGCCStrike15V2_ServerNotificationForUserPenalty{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[46]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4436,7 +5063,7 @@ func (x *CMsgGCCStrike15V2_ServerNotificationForUserPenalty) String() string {
 func (*CMsgGCCStrike15V2_ServerNotificationForUserPenalty) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ServerNotificationForUserPenalty) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[46]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4449,7 +5076,7 @@ func (x *CMsgGCCStrike15V2_ServerNotificationForUserPenalty) ProtoReflect() prot
 
 // Deprecated: Use CMsgGCCStrike15V2_ServerNotificationForUserPenalty.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ServerNotificationForUserPenalty) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{46}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *CMsgGCCStrike15V2_ServerNotificationForUserPenalty) GetAccountId() uint32 {
@@ -4497,7 +5124,7 @@ type CMsgGCCStrike15V2_ClientReportPlayer struct {
 
 func (x *CMsgGCCStrike15V2_ClientReportPlayer) Reset() {
 	*x = CMsgGCCStrike15V2_ClientReportPlayer{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[47]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4509,7 +5136,7 @@ func (x *CMsgGCCStrike15V2_ClientReportPlayer) String() string {
 func (*CMsgGCCStrike15V2_ClientReportPlayer) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientReportPlayer) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[47]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4522,7 +5149,7 @@ func (x *CMsgGCCStrike15V2_ClientReportPlayer) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientReportPlayer.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientReportPlayer) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{47}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *CMsgGCCStrike15V2_ClientReportPlayer) GetAccountId() uint32 {
@@ -4600,7 +5227,7 @@ type CMsgGCCStrike15V2_ClientCommendPlayer struct {
 
 func (x *CMsgGCCStrike15V2_ClientCommendPlayer) Reset() {
 	*x = CMsgGCCStrike15V2_ClientCommendPlayer{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[48]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4612,7 +5239,7 @@ func (x *CMsgGCCStrike15V2_ClientCommendPlayer) String() string {
 func (*CMsgGCCStrike15V2_ClientCommendPlayer) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientCommendPlayer) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[48]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4625,7 +5252,7 @@ func (x *CMsgGCCStrike15V2_ClientCommendPlayer) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientCommendPlayer.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientCommendPlayer) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{48}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *CMsgGCCStrike15V2_ClientCommendPlayer) GetAccountId() uint32 {
@@ -4670,7 +5297,7 @@ type CMsgGCCStrike15V2_ClientReportServer struct {
 
 func (x *CMsgGCCStrike15V2_ClientReportServer) Reset() {
 	*x = CMsgGCCStrike15V2_ClientReportServer{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[49]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4682,7 +5309,7 @@ func (x *CMsgGCCStrike15V2_ClientReportServer) String() string {
 func (*CMsgGCCStrike15V2_ClientReportServer) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientReportServer) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[49]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4695,7 +5322,7 @@ func (x *CMsgGCCStrike15V2_ClientReportServer) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientReportServer.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientReportServer) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{49}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *CMsgGCCStrike15V2_ClientReportServer) GetRptPoorperf() uint32 {
@@ -4754,7 +5381,7 @@ type CMsgGCCStrike15V2_ClientReportResponse struct {
 
 func (x *CMsgGCCStrike15V2_ClientReportResponse) Reset() {
 	*x = CMsgGCCStrike15V2_ClientReportResponse{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[50]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4766,7 +5393,7 @@ func (x *CMsgGCCStrike15V2_ClientReportResponse) String() string {
 func (*CMsgGCCStrike15V2_ClientReportResponse) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientReportResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[50]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4779,7 +5406,7 @@ func (x *CMsgGCCStrike15V2_ClientReportResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientReportResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientReportResponse) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{50}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *CMsgGCCStrike15V2_ClientReportResponse) GetConfirmationId() uint64 {
@@ -4838,7 +5465,7 @@ type CMsgGCCStrike15V2_ClientRequestWatchInfoFriends struct {
 
 func (x *CMsgGCCStrike15V2_ClientRequestWatchInfoFriends) Reset() {
 	*x = CMsgGCCStrike15V2_ClientRequestWatchInfoFriends{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[51]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4850,7 +5477,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestWatchInfoFriends) String() string {
 func (*CMsgGCCStrike15V2_ClientRequestWatchInfoFriends) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientRequestWatchInfoFriends) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[51]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4863,7 +5490,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestWatchInfoFriends) ProtoReflect() protore
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientRequestWatchInfoFriends.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientRequestWatchInfoFriends) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{51}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *CMsgGCCStrike15V2_ClientRequestWatchInfoFriends) GetRequestId() uint32 {
@@ -4929,7 +5556,7 @@ type WatchableMatchInfo struct {
 
 func (x *WatchableMatchInfo) Reset() {
 	*x = WatchableMatchInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[52]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4941,7 +5568,7 @@ func (x *WatchableMatchInfo) String() string {
 func (*WatchableMatchInfo) ProtoMessage() {}
 
 func (x *WatchableMatchInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[52]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4954,7 +5581,7 @@ func (x *WatchableMatchInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WatchableMatchInfo.ProtoReflect.Descriptor instead.
 func (*WatchableMatchInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{52}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *WatchableMatchInfo) GetServerIp() uint32 {
@@ -5062,7 +5689,7 @@ type CMsgGCCStrike15V2_ClientRequestJoinFriendData struct {
 
 func (x *CMsgGCCStrike15V2_ClientRequestJoinFriendData) Reset() {
 	*x = CMsgGCCStrike15V2_ClientRequestJoinFriendData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[53]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5074,7 +5701,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestJoinFriendData) String() string {
 func (*CMsgGCCStrike15V2_ClientRequestJoinFriendData) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientRequestJoinFriendData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[53]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5087,7 +5714,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestJoinFriendData) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientRequestJoinFriendData.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientRequestJoinFriendData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{53}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *CMsgGCCStrike15V2_ClientRequestJoinFriendData) GetVersion() uint32 {
@@ -5147,7 +5774,7 @@ type CMsgGCCStrike15V2_ClientRequestJoinServerData struct {
 
 func (x *CMsgGCCStrike15V2_ClientRequestJoinServerData) Reset() {
 	*x = CMsgGCCStrike15V2_ClientRequestJoinServerData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[54]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5159,7 +5786,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestJoinServerData) String() string {
 func (*CMsgGCCStrike15V2_ClientRequestJoinServerData) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientRequestJoinServerData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[54]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5172,7 +5799,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestJoinServerData) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientRequestJoinServerData.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientRequestJoinServerData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{54}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *CMsgGCCStrike15V2_ClientRequestJoinServerData) GetVersion() uint32 {
@@ -5234,7 +5861,7 @@ type CMsgGCCstrike15V2_ClientRequestNewMission struct {
 
 func (x *CMsgGCCstrike15V2_ClientRequestNewMission) Reset() {
 	*x = CMsgGCCstrike15V2_ClientRequestNewMission{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[55]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5246,7 +5873,7 @@ func (x *CMsgGCCstrike15V2_ClientRequestNewMission) String() string {
 func (*CMsgGCCstrike15V2_ClientRequestNewMission) ProtoMessage() {}
 
 func (x *CMsgGCCstrike15V2_ClientRequestNewMission) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[55]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5259,7 +5886,7 @@ func (x *CMsgGCCstrike15V2_ClientRequestNewMission) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgGCCstrike15V2_ClientRequestNewMission.ProtoReflect.Descriptor instead.
 func (*CMsgGCCstrike15V2_ClientRequestNewMission) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{55}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *CMsgGCCstrike15V2_ClientRequestNewMission) GetMissionId() uint32 {
@@ -5276,6 +5903,134 @@ func (x *CMsgGCCstrike15V2_ClientRequestNewMission) GetCampaignId() uint32 {
 	return 0
 }
 
+type CMsgGCCstrike15V2_ClientRedeemMissionReward struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	CampaignId        *uint32                `protobuf:"varint,1,opt,name=campaign_id,json=campaignId" json:"campaign_id,omitempty"`
+	RedeemId          *uint32                `protobuf:"varint,2,opt,name=redeem_id,json=redeemId" json:"redeem_id,omitempty"`
+	RedeemableBalance *uint32                `protobuf:"varint,3,opt,name=redeemable_balance,json=redeemableBalance" json:"redeemable_balance,omitempty"`
+	ExpectedCost      *uint32                `protobuf:"varint,4,opt,name=expected_cost,json=expectedCost" json:"expected_cost,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemMissionReward) Reset() {
+	*x = CMsgGCCstrike15V2_ClientRedeemMissionReward{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemMissionReward) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCstrike15V2_ClientRedeemMissionReward) ProtoMessage() {}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemMissionReward) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCstrike15V2_ClientRedeemMissionReward.ProtoReflect.Descriptor instead.
+func (*CMsgGCCstrike15V2_ClientRedeemMissionReward) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemMissionReward) GetCampaignId() uint32 {
+	if x != nil && x.CampaignId != nil {
+		return *x.CampaignId
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemMissionReward) GetRedeemId() uint32 {
+	if x != nil && x.RedeemId != nil {
+		return *x.RedeemId
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemMissionReward) GetRedeemableBalance() uint32 {
+	if x != nil && x.RedeemableBalance != nil {
+		return *x.RedeemableBalance
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemMissionReward) GetExpectedCost() uint32 {
+	if x != nil && x.ExpectedCost != nil {
+		return *x.ExpectedCost
+	}
+	return 0
+}
+
+type CMsgGCCstrike15V2_ClientRedeemFreeReward struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	GenerationTime    *uint32                `protobuf:"varint,1,opt,name=generation_time,json=generationTime" json:"generation_time,omitempty"`
+	RedeemableBalance *uint32                `protobuf:"varint,2,opt,name=redeemable_balance,json=redeemableBalance" json:"redeemable_balance,omitempty"`
+	Items             []uint64               `protobuf:"varint,3,rep,name=items" json:"items,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemFreeReward) Reset() {
+	*x = CMsgGCCstrike15V2_ClientRedeemFreeReward{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[56]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemFreeReward) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCstrike15V2_ClientRedeemFreeReward) ProtoMessage() {}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemFreeReward) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[56]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCstrike15V2_ClientRedeemFreeReward.ProtoReflect.Descriptor instead.
+func (*CMsgGCCstrike15V2_ClientRedeemFreeReward) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{56}
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemFreeReward) GetGenerationTime() uint32 {
+	if x != nil && x.GenerationTime != nil {
+		return *x.GenerationTime
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemFreeReward) GetRedeemableBalance() uint32 {
+	if x != nil && x.RedeemableBalance != nil {
+		return *x.RedeemableBalance
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_ClientRedeemFreeReward) GetItems() []uint64 {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
 type CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded struct {
 	state                  protoimpl.MessageState `protogen:"open.v1"`
 	XpProgressData         []*XpProgressData      `protobuf:"bytes,1,rep,name=xp_progress_data,json=xpProgressData" json:"xp_progress_data,omitempty"`
@@ -5284,13 +6039,17 @@ type CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded struct {
 	CurrentLevel           *uint32                `protobuf:"varint,4,opt,name=current_level,json=currentLevel" json:"current_level,omitempty"`
 	UpgradedDefidx         *uint32                `protobuf:"varint,5,opt,name=upgraded_defidx,json=upgradedDefidx" json:"upgraded_defidx,omitempty"`
 	OperationPointsAwarded *uint32                `protobuf:"varint,6,opt,name=operation_points_awarded,json=operationPointsAwarded" json:"operation_points_awarded,omitempty"`
+	FreeRewards            *uint32                `protobuf:"varint,7,opt,name=free_rewards,json=freeRewards" json:"free_rewards,omitempty"`
+	XpTrailRemaining       *uint32                `protobuf:"varint,8,opt,name=xp_trail_remaining,json=xpTrailRemaining" json:"xp_trail_remaining,omitempty"`
+	XpTrailXpNeeded        *int32                 `protobuf:"varint,9,opt,name=xp_trail_xp_needed,json=xpTrailXpNeeded" json:"xp_trail_xp_needed,omitempty"`
+	XpTrailLevel           *uint32                `protobuf:"varint,10,opt,name=xp_trail_level,json=xpTrailLevel" json:"xp_trail_level,omitempty"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
 
 func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) Reset() {
 	*x = CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[56]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5302,7 +6061,7 @@ func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) String() string {
 func (*CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) ProtoMessage() {}
 
 func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[56]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5315,7 +6074,7 @@ func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded.ProtoReflect.Descriptor instead.
 func (*CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{56}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) GetXpProgressData() []*XpProgressData {
@@ -5360,6 +6119,138 @@ func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) GetOperationPointsAwarded(
 	return 0
 }
 
+func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) GetFreeRewards() uint32 {
+	if x != nil && x.FreeRewards != nil {
+		return *x.FreeRewards
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) GetXpTrailRemaining() uint32 {
+	if x != nil && x.XpTrailRemaining != nil {
+		return *x.XpTrailRemaining
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) GetXpTrailXpNeeded() int32 {
+	if x != nil && x.XpTrailXpNeeded != nil {
+		return *x.XpTrailXpNeeded
+	}
+	return 0
+}
+
+func (x *CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded) GetXpTrailLevel() uint32 {
+	if x != nil && x.XpTrailLevel != nil {
+		return *x.XpTrailLevel
+	}
+	return 0
+}
+
+type CMsgGCCStrike15V2_ClientNetworkConfig struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Data          []byte                 `protobuf:"bytes,1,opt,name=data" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_ClientNetworkConfig) Reset() {
+	*x = CMsgGCCStrike15V2_ClientNetworkConfig{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[58]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_ClientNetworkConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_ClientNetworkConfig) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_ClientNetworkConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[58]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_ClientNetworkConfig.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_ClientNetworkConfig) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{58}
+}
+
+func (x *CMsgGCCStrike15V2_ClientNetworkConfig) GetData() []byte {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type CMsgGCCStrike15_ClientDeepStats struct {
+	state         protoimpl.MessageState                            `protogen:"open.v1"`
+	AccountId     *uint32                                           `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	Range         *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange   `protobuf:"bytes,2,opt,name=range" json:"range,omitempty"`
+	Matches       []*CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch `protobuf:"bytes,3,rep,name=matches" json:"matches,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats) Reset() {
+	*x = CMsgGCCStrike15_ClientDeepStats{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[59]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15_ClientDeepStats) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15_ClientDeepStats) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[59]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15_ClientDeepStats.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15_ClientDeepStats) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{59}
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats) GetAccountId() uint32 {
+	if x != nil && x.AccountId != nil {
+		return *x.AccountId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats) GetRange() *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange {
+	if x != nil {
+		return x.Range
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats) GetMatches() []*CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch {
+	if x != nil {
+		return x.Matches
+	}
+	return nil
+}
+
 type CMsgGCCStrike15V2_WatchInfoUsers struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	RequestId           *uint32                `protobuf:"varint,1,opt,name=request_id,json=requestId" json:"request_id,omitempty"`
@@ -5372,7 +6263,7 @@ type CMsgGCCStrike15V2_WatchInfoUsers struct {
 
 func (x *CMsgGCCStrike15V2_WatchInfoUsers) Reset() {
 	*x = CMsgGCCStrike15V2_WatchInfoUsers{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[57]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[60]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5384,7 +6275,7 @@ func (x *CMsgGCCStrike15V2_WatchInfoUsers) String() string {
 func (*CMsgGCCStrike15V2_WatchInfoUsers) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_WatchInfoUsers) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[57]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[60]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5397,7 +6288,7 @@ func (x *CMsgGCCStrike15V2_WatchInfoUsers) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_WatchInfoUsers.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_WatchInfoUsers) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{57}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *CMsgGCCStrike15V2_WatchInfoUsers) GetRequestId() uint32 {
@@ -5440,7 +6331,7 @@ type CMsgGCCStrike15V2_ClientRequestPlayersProfile struct {
 
 func (x *CMsgGCCStrike15V2_ClientRequestPlayersProfile) Reset() {
 	*x = CMsgGCCStrike15V2_ClientRequestPlayersProfile{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[58]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[61]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5452,7 +6343,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestPlayersProfile) String() string {
 func (*CMsgGCCStrike15V2_ClientRequestPlayersProfile) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientRequestPlayersProfile) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[58]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[61]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5465,7 +6356,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestPlayersProfile) ProtoReflect() protorefl
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientRequestPlayersProfile.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientRequestPlayersProfile) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{58}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *CMsgGCCStrike15V2_ClientRequestPlayersProfile) GetRequestId_Deprecated() uint32 {
@@ -5506,7 +6397,7 @@ type CMsgGCCStrike15V2_PlayersProfile struct {
 
 func (x *CMsgGCCStrike15V2_PlayersProfile) Reset() {
 	*x = CMsgGCCStrike15V2_PlayersProfile{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[59]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[62]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5518,7 +6409,7 @@ func (x *CMsgGCCStrike15V2_PlayersProfile) String() string {
 func (*CMsgGCCStrike15V2_PlayersProfile) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_PlayersProfile) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[59]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[62]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5531,7 +6422,7 @@ func (x *CMsgGCCStrike15V2_PlayersProfile) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_PlayersProfile.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_PlayersProfile) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{59}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *CMsgGCCStrike15V2_PlayersProfile) GetRequestId() uint32 {
@@ -5544,6 +6435,74 @@ func (x *CMsgGCCStrike15V2_PlayersProfile) GetRequestId() uint32 {
 func (x *CMsgGCCStrike15V2_PlayersProfile) GetAccountProfiles() []*CMsgGCCStrike15V2_MatchmakingGC2ClientHello {
 	if x != nil {
 		return x.AccountProfiles
+	}
+	return nil
+}
+
+type CMsgGCCStrike15V2_PremierSeasonSummary struct {
+	state         protoimpl.MessageState                                `protogen:"open.v1"`
+	AccountId     *uint32                                               `protobuf:"varint,1,opt,name=account_id,json=accountId" json:"account_id,omitempty"`
+	SeasonId      *uint32                                               `protobuf:"varint,2,opt,name=season_id,json=seasonId" json:"season_id,omitempty"`
+	DataPerWeek   []*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek `protobuf:"bytes,3,rep,name=data_per_week,json=dataPerWeek" json:"data_per_week,omitempty"`
+	DataPerMap    []*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap  `protobuf:"bytes,4,rep,name=data_per_map,json=dataPerMap" json:"data_per_map,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary) Reset() {
+	*x = CMsgGCCStrike15V2_PremierSeasonSummary{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[63]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_PremierSeasonSummary) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[63]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_PremierSeasonSummary.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_PremierSeasonSummary) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{63}
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary) GetAccountId() uint32 {
+	if x != nil && x.AccountId != nil {
+		return *x.AccountId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary) GetSeasonId() uint32 {
+	if x != nil && x.SeasonId != nil {
+		return *x.SeasonId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary) GetDataPerWeek() []*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek {
+	if x != nil {
+		return x.DataPerWeek
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary) GetDataPerMap() []*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap {
+	if x != nil {
+		return x.DataPerMap
 	}
 	return nil
 }
@@ -5564,7 +6523,7 @@ type CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate struct {
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate) Reset() {
 	*x = CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[60]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[64]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5576,7 +6535,7 @@ func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate) String() string {
 func (*CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[60]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[64]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5589,7 +6548,7 @@ func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{60}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate) GetCaseid() uint64 {
@@ -5667,7 +6626,7 @@ type CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment struct {
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment) Reset() {
 	*x = CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[61]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[65]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5679,7 +6638,7 @@ func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment) String() string {
 func (*CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[61]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[65]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5692,7 +6651,7 @@ func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment) ProtoReflect() protore
 
 // Deprecated: Use CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{61}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment) GetCaseid() uint64 {
@@ -5782,7 +6741,7 @@ type CMsgGCCStrike15V2_PlayerOverwatchCaseStatus struct {
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseStatus) Reset() {
 	*x = CMsgGCCStrike15V2_PlayerOverwatchCaseStatus{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[62]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[66]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5794,7 +6753,7 @@ func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseStatus) String() string {
 func (*CMsgGCCStrike15V2_PlayerOverwatchCaseStatus) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseStatus) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[62]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[66]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5807,7 +6766,7 @@ func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseStatus) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCStrike15V2_PlayerOverwatchCaseStatus.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_PlayerOverwatchCaseStatus) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{62}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *CMsgGCCStrike15V2_PlayerOverwatchCaseStatus) GetCaseid() uint64 {
@@ -5834,7 +6793,7 @@ type CClientHeaderOverwatchEvidence struct {
 
 func (x *CClientHeaderOverwatchEvidence) Reset() {
 	*x = CClientHeaderOverwatchEvidence{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[63]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[67]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5846,7 +6805,7 @@ func (x *CClientHeaderOverwatchEvidence) String() string {
 func (*CClientHeaderOverwatchEvidence) ProtoMessage() {}
 
 func (x *CClientHeaderOverwatchEvidence) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[63]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[67]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5859,7 +6818,7 @@ func (x *CClientHeaderOverwatchEvidence) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CClientHeaderOverwatchEvidence.ProtoReflect.Descriptor instead.
 func (*CClientHeaderOverwatchEvidence) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{63}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *CClientHeaderOverwatchEvidence) GetAccountid() uint32 {
@@ -5887,7 +6846,7 @@ type CMsgGCCStrike15V2_GC2ClientTextMsg struct {
 
 func (x *CMsgGCCStrike15V2_GC2ClientTextMsg) Reset() {
 	*x = CMsgGCCStrike15V2_GC2ClientTextMsg{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[64]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[68]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5899,7 +6858,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientTextMsg) String() string {
 func (*CMsgGCCStrike15V2_GC2ClientTextMsg) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GC2ClientTextMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[64]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[68]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5912,7 +6871,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientTextMsg) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgGCCStrike15V2_GC2ClientTextMsg.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GC2ClientTextMsg) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{64}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *CMsgGCCStrike15V2_GC2ClientTextMsg) GetId() uint32 {
@@ -5946,7 +6905,7 @@ type CMsgGCCStrike15V2_Client2GCTextMsg struct {
 
 func (x *CMsgGCCStrike15V2_Client2GCTextMsg) Reset() {
 	*x = CMsgGCCStrike15V2_Client2GCTextMsg{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[65]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[69]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5958,7 +6917,7 @@ func (x *CMsgGCCStrike15V2_Client2GCTextMsg) String() string {
 func (*CMsgGCCStrike15V2_Client2GCTextMsg) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Client2GCTextMsg) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[65]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[69]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5971,7 +6930,7 @@ func (x *CMsgGCCStrike15V2_Client2GCTextMsg) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgGCCStrike15V2_Client2GCTextMsg.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Client2GCTextMsg) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{65}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *CMsgGCCStrike15V2_Client2GCTextMsg) GetId() uint32 {
@@ -5998,7 +6957,7 @@ type CMsgGCCStrike15V2_MatchEndRunRewardDrops struct {
 
 func (x *CMsgGCCStrike15V2_MatchEndRunRewardDrops) Reset() {
 	*x = CMsgGCCStrike15V2_MatchEndRunRewardDrops{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[66]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[70]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6010,7 +6969,7 @@ func (x *CMsgGCCStrike15V2_MatchEndRunRewardDrops) String() string {
 func (*CMsgGCCStrike15V2_MatchEndRunRewardDrops) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchEndRunRewardDrops) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[66]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[70]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6023,7 +6982,7 @@ func (x *CMsgGCCStrike15V2_MatchEndRunRewardDrops) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchEndRunRewardDrops.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchEndRunRewardDrops) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{66}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *CMsgGCCStrike15V2_MatchEndRunRewardDrops) GetServerinfo() *CMsgGCCStrike15V2_MatchmakingServerReservationResponse {
@@ -6060,13 +7019,15 @@ type CEconItemPreviewDataBlock struct {
 	Dropreason         *uint32                              `protobuf:"varint,16,opt,name=dropreason" json:"dropreason,omitempty"`
 	Musicindex         *uint32                              `protobuf:"varint,17,opt,name=musicindex" json:"musicindex,omitempty"`
 	Entindex           *int32                               `protobuf:"varint,18,opt,name=entindex" json:"entindex,omitempty"`
+	Petindex           *uint32                              `protobuf:"varint,19,opt,name=petindex" json:"petindex,omitempty"`
+	Keychains          []*CEconItemPreviewDataBlock_Sticker `protobuf:"bytes,20,rep,name=keychains" json:"keychains,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
 
 func (x *CEconItemPreviewDataBlock) Reset() {
 	*x = CEconItemPreviewDataBlock{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[67]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[71]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6078,7 +7039,7 @@ func (x *CEconItemPreviewDataBlock) String() string {
 func (*CEconItemPreviewDataBlock) ProtoMessage() {}
 
 func (x *CEconItemPreviewDataBlock) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[67]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[71]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6091,7 +7052,7 @@ func (x *CEconItemPreviewDataBlock) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CEconItemPreviewDataBlock.ProtoReflect.Descriptor instead.
 func (*CEconItemPreviewDataBlock) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{67}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *CEconItemPreviewDataBlock) GetAccountid() uint32 {
@@ -6220,6 +7181,20 @@ func (x *CEconItemPreviewDataBlock) GetEntindex() int32 {
 	return 0
 }
 
+func (x *CEconItemPreviewDataBlock) GetPetindex() uint32 {
+	if x != nil && x.Petindex != nil {
+		return *x.Petindex
+	}
+	return 0
+}
+
+func (x *CEconItemPreviewDataBlock) GetKeychains() []*CEconItemPreviewDataBlock_Sticker {
+	if x != nil {
+		return x.Keychains
+	}
+	return nil
+}
+
 type CMsgGCCStrike15V2_MatchEndRewardDropsNotification struct {
 	state         protoimpl.MessageState     `protogen:"open.v1"`
 	Iteminfo      *CEconItemPreviewDataBlock `protobuf:"bytes,6,opt,name=iteminfo" json:"iteminfo,omitempty"`
@@ -6229,7 +7204,7 @@ type CMsgGCCStrike15V2_MatchEndRewardDropsNotification struct {
 
 func (x *CMsgGCCStrike15V2_MatchEndRewardDropsNotification) Reset() {
 	*x = CMsgGCCStrike15V2_MatchEndRewardDropsNotification{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[68]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[72]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6241,7 +7216,7 @@ func (x *CMsgGCCStrike15V2_MatchEndRewardDropsNotification) String() string {
 func (*CMsgGCCStrike15V2_MatchEndRewardDropsNotification) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchEndRewardDropsNotification) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[68]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[72]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6254,7 +7229,7 @@ func (x *CMsgGCCStrike15V2_MatchEndRewardDropsNotification) ProtoReflect() proto
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchEndRewardDropsNotification.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchEndRewardDropsNotification) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{68}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *CMsgGCCStrike15V2_MatchEndRewardDropsNotification) GetIteminfo() *CEconItemPreviewDataBlock {
@@ -6273,7 +7248,7 @@ type CMsgItemAcknowledged struct {
 
 func (x *CMsgItemAcknowledged) Reset() {
 	*x = CMsgItemAcknowledged{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[69]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[73]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6285,7 +7260,7 @@ func (x *CMsgItemAcknowledged) String() string {
 func (*CMsgItemAcknowledged) ProtoMessage() {}
 
 func (x *CMsgItemAcknowledged) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[69]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[73]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6298,7 +7273,7 @@ func (x *CMsgItemAcknowledged) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgItemAcknowledged.ProtoReflect.Descriptor instead.
 func (*CMsgItemAcknowledged) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{69}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *CMsgItemAcknowledged) GetIteminfo() *CEconItemPreviewDataBlock {
@@ -6320,7 +7295,7 @@ type CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest struct {
 
 func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest) Reset() {
 	*x = CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[70]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[74]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6332,7 +7307,7 @@ func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest) String() string
 func (*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[70]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[74]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6345,7 +7320,7 @@ func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest) ProtoReflect() 
 
 // Deprecated: Use CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{70}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest) GetParamS() uint64 {
@@ -6385,7 +7360,7 @@ type CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse struct {
 
 func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse) Reset() {
 	*x = CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[71]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[75]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6397,7 +7372,7 @@ func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse) String() strin
 func (*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[71]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[75]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6410,72 +7385,12 @@ func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse) ProtoReflect()
 
 // Deprecated: Use CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{71}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse) GetIteminfo() *CEconItemPreviewDataBlock {
 	if x != nil {
 		return x.Iteminfo
-	}
-	return nil
-}
-
-type CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	MatchId       *uint64                `protobuf:"varint,1,opt,name=match_id,json=matchId" json:"match_id,omitempty"`
-	Defindex      *uint32                `protobuf:"varint,2,opt,name=defindex" json:"defindex,omitempty"`
-	Accountids    []uint32               `protobuf:"varint,3,rep,name=accountids" json:"accountids,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) Reset() {
-	*x = CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[72]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[72]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{72}
-}
-
-func (x *CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) GetMatchId() uint64 {
-	if x != nil && x.MatchId != nil {
-		return *x.MatchId
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) GetDefindex() uint32 {
-	if x != nil && x.Defindex != nil {
-		return *x.Defindex
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification) GetAccountids() []uint32 {
-	if x != nil {
-		return x.Accountids
 	}
 	return nil
 }
@@ -6488,7 +7403,7 @@ type CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames struct {
 
 func (x *CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames) Reset() {
 	*x = CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[73]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[76]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6500,7 +7415,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames) String() string {
 func (*CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[73]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[76]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6513,7 +7428,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames) ProtoReflect() prot
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{73}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{76}
 }
 
 type CMsgGCCStrike15V2_MatchListRequestLiveGameForUser struct {
@@ -6525,7 +7440,7 @@ type CMsgGCCStrike15V2_MatchListRequestLiveGameForUser struct {
 
 func (x *CMsgGCCStrike15V2_MatchListRequestLiveGameForUser) Reset() {
 	*x = CMsgGCCStrike15V2_MatchListRequestLiveGameForUser{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[74]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[77]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6537,7 +7452,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestLiveGameForUser) String() string {
 func (*CMsgGCCStrike15V2_MatchListRequestLiveGameForUser) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchListRequestLiveGameForUser) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[74]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[77]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6550,7 +7465,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestLiveGameForUser) ProtoReflect() proto
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchListRequestLiveGameForUser.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchListRequestLiveGameForUser) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{74}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *CMsgGCCStrike15V2_MatchListRequestLiveGameForUser) GetAccountid() uint32 {
@@ -6569,7 +7484,7 @@ type CMsgGCCStrike15V2_MatchListRequestRecentUserGames struct {
 
 func (x *CMsgGCCStrike15V2_MatchListRequestRecentUserGames) Reset() {
 	*x = CMsgGCCStrike15V2_MatchListRequestRecentUserGames{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[75]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[78]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6581,7 +7496,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestRecentUserGames) String() string {
 func (*CMsgGCCStrike15V2_MatchListRequestRecentUserGames) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchListRequestRecentUserGames) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[75]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[78]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6594,7 +7509,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestRecentUserGames) ProtoReflect() proto
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchListRequestRecentUserGames.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchListRequestRecentUserGames) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{75}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *CMsgGCCStrike15V2_MatchListRequestRecentUserGames) GetAccountid() uint32 {
@@ -6613,7 +7528,7 @@ type CMsgGCCStrike15V2_MatchListRequestTournamentGames struct {
 
 func (x *CMsgGCCStrike15V2_MatchListRequestTournamentGames) Reset() {
 	*x = CMsgGCCStrike15V2_MatchListRequestTournamentGames{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[76]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[79]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6625,7 +7540,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestTournamentGames) String() string {
 func (*CMsgGCCStrike15V2_MatchListRequestTournamentGames) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchListRequestTournamentGames) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[76]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[79]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6638,7 +7553,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestTournamentGames) ProtoReflect() proto
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchListRequestTournamentGames.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchListRequestTournamentGames) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{76}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *CMsgGCCStrike15V2_MatchListRequestTournamentGames) GetEventid() int32 {
@@ -6659,7 +7574,7 @@ type CMsgGCCStrike15V2_MatchListRequestFullGameInfo struct {
 
 func (x *CMsgGCCStrike15V2_MatchListRequestFullGameInfo) Reset() {
 	*x = CMsgGCCStrike15V2_MatchListRequestFullGameInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[77]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[80]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6671,7 +7586,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestFullGameInfo) String() string {
 func (*CMsgGCCStrike15V2_MatchListRequestFullGameInfo) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchListRequestFullGameInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[77]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[80]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6684,7 +7599,7 @@ func (x *CMsgGCCStrike15V2_MatchListRequestFullGameInfo) ProtoReflect() protoref
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchListRequestFullGameInfo.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchListRequestFullGameInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{77}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *CMsgGCCStrike15V2_MatchListRequestFullGameInfo) GetMatchid() uint64 {
@@ -6721,7 +7636,7 @@ type CDataGCCStrike15V2_MatchInfo struct {
 
 func (x *CDataGCCStrike15V2_MatchInfo) Reset() {
 	*x = CDataGCCStrike15V2_MatchInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[78]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[81]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6733,7 +7648,7 @@ func (x *CDataGCCStrike15V2_MatchInfo) String() string {
 func (*CDataGCCStrike15V2_MatchInfo) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_MatchInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[78]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[81]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6746,7 +7661,7 @@ func (x *CDataGCCStrike15V2_MatchInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CDataGCCStrike15V2_MatchInfo.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_MatchInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{78}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *CDataGCCStrike15V2_MatchInfo) GetMatchid() uint64 {
@@ -6795,7 +7710,7 @@ type CDataGCCStrike15V2_TournamentGroupTeam struct {
 
 func (x *CDataGCCStrike15V2_TournamentGroupTeam) Reset() {
 	*x = CDataGCCStrike15V2_TournamentGroupTeam{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[79]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[82]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6807,7 +7722,7 @@ func (x *CDataGCCStrike15V2_TournamentGroupTeam) String() string {
 func (*CDataGCCStrike15V2_TournamentGroupTeam) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_TournamentGroupTeam) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[79]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[82]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6820,7 +7735,7 @@ func (x *CDataGCCStrike15V2_TournamentGroupTeam) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CDataGCCStrike15V2_TournamentGroupTeam.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_TournamentGroupTeam) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{79}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *CDataGCCStrike15V2_TournamentGroupTeam) GetTeamId() int32 {
@@ -6862,7 +7777,7 @@ type CDataGCCStrike15V2_TournamentGroup struct {
 
 func (x *CDataGCCStrike15V2_TournamentGroup) Reset() {
 	*x = CDataGCCStrike15V2_TournamentGroup{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[80]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[83]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6874,7 +7789,7 @@ func (x *CDataGCCStrike15V2_TournamentGroup) String() string {
 func (*CDataGCCStrike15V2_TournamentGroup) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_TournamentGroup) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[80]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[83]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6887,7 +7802,7 @@ func (x *CDataGCCStrike15V2_TournamentGroup) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CDataGCCStrike15V2_TournamentGroup.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_TournamentGroup) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{80}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *CDataGCCStrike15V2_TournamentGroup) GetGroupid() uint32 {
@@ -6972,7 +7887,7 @@ type CDataGCCStrike15V2_TournamentSection struct {
 
 func (x *CDataGCCStrike15V2_TournamentSection) Reset() {
 	*x = CDataGCCStrike15V2_TournamentSection{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[81]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[84]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6984,7 +7899,7 @@ func (x *CDataGCCStrike15V2_TournamentSection) String() string {
 func (*CDataGCCStrike15V2_TournamentSection) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_TournamentSection) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[81]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[84]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6997,7 +7912,7 @@ func (x *CDataGCCStrike15V2_TournamentSection) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CDataGCCStrike15V2_TournamentSection.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_TournamentSection) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{81}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *CDataGCCStrike15V2_TournamentSection) GetSectionid() uint32 {
@@ -7039,7 +7954,7 @@ type CDataGCCStrike15V2_TournamentInfo struct {
 
 func (x *CDataGCCStrike15V2_TournamentInfo) Reset() {
 	*x = CDataGCCStrike15V2_TournamentInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[82]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[85]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7051,7 +7966,7 @@ func (x *CDataGCCStrike15V2_TournamentInfo) String() string {
 func (*CDataGCCStrike15V2_TournamentInfo) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_TournamentInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[82]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[85]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7064,7 +7979,7 @@ func (x *CDataGCCStrike15V2_TournamentInfo) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CDataGCCStrike15V2_TournamentInfo.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_TournamentInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{82}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *CDataGCCStrike15V2_TournamentInfo) GetSections() []*CDataGCCStrike15V2_TournamentSection {
@@ -7102,7 +8017,7 @@ type CMsgGCCStrike15V2_MatchList struct {
 
 func (x *CMsgGCCStrike15V2_MatchList) Reset() {
 	*x = CMsgGCCStrike15V2_MatchList{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[83]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[86]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7114,7 +8029,7 @@ func (x *CMsgGCCStrike15V2_MatchList) String() string {
 func (*CMsgGCCStrike15V2_MatchList) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchList) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[83]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[86]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7127,7 +8042,7 @@ func (x *CMsgGCCStrike15V2_MatchList) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchList.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchList) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{83}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *CMsgGCCStrike15V2_MatchList) GetMsgrequestid() uint32 {
@@ -7172,6 +8087,66 @@ func (x *CMsgGCCStrike15V2_MatchList) GetTournamentinfo() *CDataGCCStrike15V2_To
 	return nil
 }
 
+type CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt struct {
+	state         protoimpl.MessageState          `protogen:"open.v1"`
+	Eventid       *int32                          `protobuf:"varint,1,opt,name=eventid" json:"eventid,omitempty"`
+	Matches       []*CDataGCCStrike15V2_MatchInfo `protobuf:"bytes,2,rep,name=matches" json:"matches,omitempty"`
+	Accountid     *uint32                         `protobuf:"varint,3,opt,name=accountid" json:"accountid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) Reset() {
+	*x = CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[87]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[87]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{87}
+}
+
+func (x *CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) GetEventid() int32 {
+	if x != nil && x.Eventid != nil {
+		return *x.Eventid
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) GetMatches() []*CDataGCCStrike15V2_MatchInfo {
+	if x != nil {
+		return x.Matches
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt) GetAccountid() uint32 {
+	if x != nil && x.Accountid != nil {
+		return *x.Accountid
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_Predictions struct {
 	state               protoimpl.MessageState                              `protogen:"open.v1"`
 	EventId             *uint32                                             `protobuf:"varint,1,opt,name=event_id,json=eventId" json:"event_id,omitempty"`
@@ -7182,7 +8157,7 @@ type CMsgGCCStrike15V2_Predictions struct {
 
 func (x *CMsgGCCStrike15V2_Predictions) Reset() {
 	*x = CMsgGCCStrike15V2_Predictions{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[84]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[88]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7194,7 +8169,7 @@ func (x *CMsgGCCStrike15V2_Predictions) String() string {
 func (*CMsgGCCStrike15V2_Predictions) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Predictions) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[84]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[88]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7207,7 +8182,7 @@ func (x *CMsgGCCStrike15V2_Predictions) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_Predictions.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Predictions) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{84}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *CMsgGCCStrike15V2_Predictions) GetEventId() uint32 {
@@ -7234,7 +8209,7 @@ type CMsgGCCStrike15V2_Fantasy struct {
 
 func (x *CMsgGCCStrike15V2_Fantasy) Reset() {
 	*x = CMsgGCCStrike15V2_Fantasy{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[85]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[89]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7246,7 +8221,7 @@ func (x *CMsgGCCStrike15V2_Fantasy) String() string {
 func (*CMsgGCCStrike15V2_Fantasy) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Fantasy) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[85]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[89]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7259,7 +8234,7 @@ func (x *CMsgGCCStrike15V2_Fantasy) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_Fantasy.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Fantasy) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{85}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *CMsgGCCStrike15V2_Fantasy) GetEventId() uint32 {
@@ -7285,7 +8260,7 @@ type CAttribute_String struct {
 
 func (x *CAttribute_String) Reset() {
 	*x = CAttribute_String{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[86]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[90]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7297,7 +8272,7 @@ func (x *CAttribute_String) String() string {
 func (*CAttribute_String) ProtoMessage() {}
 
 func (x *CAttribute_String) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[86]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[90]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7310,7 +8285,7 @@ func (x *CAttribute_String) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CAttribute_String.ProtoReflect.Descriptor instead.
 func (*CAttribute_String) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{86}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *CAttribute_String) GetValue() string {
@@ -7320,27 +8295,38 @@ func (x *CAttribute_String) GetValue() string {
 	return ""
 }
 
-type CMsgGCToGCReloadVersions struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+type CMsgLegacySource1ClientWelcome struct {
+	state                     protoimpl.MessageState                                 `protogen:"open.v1"`
+	Version                   *uint32                                                `protobuf:"varint,1,opt,name=version" json:"version,omitempty"`
+	GameData                  []byte                                                 `protobuf:"bytes,2,opt,name=game_data,json=gameData" json:"game_data,omitempty"`
+	OutofdateSubscribedCaches []*CMsgSOCacheSubscribed        `protobuf:"bytes,3,rep,name=outofdate_subscribed_caches,json=outofdateSubscribedCaches" json:"outofdate_subscribed_caches,omitempty"`
+	UptodateSubscribedCaches  []*CMsgSOCacheSubscriptionCheck `protobuf:"bytes,4,rep,name=uptodate_subscribed_caches,json=uptodateSubscribedCaches" json:"uptodate_subscribed_caches,omitempty"`
+	Location                  *CMsgLegacySource1ClientWelcome_Location               `protobuf:"bytes,5,opt,name=location" json:"location,omitempty"`
+	GameData2                 []byte                                                 `protobuf:"bytes,6,opt,name=game_data2,json=gameData2" json:"game_data2,omitempty"`
+	Rtime32GcWelcomeTimestamp *uint32                                                `protobuf:"varint,7,opt,name=rtime32_gc_welcome_timestamp,json=rtime32GcWelcomeTimestamp" json:"rtime32_gc_welcome_timestamp,omitempty"`
+	Currency                  *uint32                                                `protobuf:"varint,8,opt,name=currency" json:"currency,omitempty"`
+	Balance                   *uint32                                                `protobuf:"varint,9,opt,name=balance" json:"balance,omitempty"`
+	BalanceUrl                *string                                                `protobuf:"bytes,10,opt,name=balance_url,json=balanceUrl" json:"balance_url,omitempty"`
+	TxnCountryCode            *string                                                `protobuf:"bytes,11,opt,name=txn_country_code,json=txnCountryCode" json:"txn_country_code,omitempty"`
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
-func (x *CMsgGCToGCReloadVersions) Reset() {
-	*x = CMsgGCToGCReloadVersions{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[87]
+func (x *CMsgLegacySource1ClientWelcome) Reset() {
+	*x = CMsgLegacySource1ClientWelcome{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[91]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *CMsgGCToGCReloadVersions) String() string {
+func (x *CMsgLegacySource1ClientWelcome) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*CMsgGCToGCReloadVersions) ProtoMessage() {}
+func (*CMsgLegacySource1ClientWelcome) ProtoMessage() {}
 
-func (x *CMsgGCToGCReloadVersions) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[87]
+func (x *CMsgLegacySource1ClientWelcome) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[91]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7351,9 +8337,86 @@ func (x *CMsgGCToGCReloadVersions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use CMsgGCToGCReloadVersions.ProtoReflect.Descriptor instead.
-func (*CMsgGCToGCReloadVersions) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{87}
+// Deprecated: Use CMsgLegacySource1ClientWelcome.ProtoReflect.Descriptor instead.
+func (*CMsgLegacySource1ClientWelcome) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{91}
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetVersion() uint32 {
+	if x != nil && x.Version != nil {
+		return *x.Version
+	}
+	return 0
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetGameData() []byte {
+	if x != nil {
+		return x.GameData
+	}
+	return nil
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetOutofdateSubscribedCaches() []*CMsgSOCacheSubscribed {
+	if x != nil {
+		return x.OutofdateSubscribedCaches
+	}
+	return nil
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetUptodateSubscribedCaches() []*CMsgSOCacheSubscriptionCheck {
+	if x != nil {
+		return x.UptodateSubscribedCaches
+	}
+	return nil
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetLocation() *CMsgLegacySource1ClientWelcome_Location {
+	if x != nil {
+		return x.Location
+	}
+	return nil
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetGameData2() []byte {
+	if x != nil {
+		return x.GameData2
+	}
+	return nil
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetRtime32GcWelcomeTimestamp() uint32 {
+	if x != nil && x.Rtime32GcWelcomeTimestamp != nil {
+		return *x.Rtime32GcWelcomeTimestamp
+	}
+	return 0
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetCurrency() uint32 {
+	if x != nil && x.Currency != nil {
+		return *x.Currency
+	}
+	return 0
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetBalance() uint32 {
+	if x != nil && x.Balance != nil {
+		return *x.Balance
+	}
+	return 0
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetBalanceUrl() string {
+	if x != nil && x.BalanceUrl != nil {
+		return *x.BalanceUrl
+	}
+	return ""
+}
+
+func (x *CMsgLegacySource1ClientWelcome) GetTxnCountryCode() string {
+	if x != nil && x.TxnCountryCode != nil {
+		return *x.TxnCountryCode
+	}
+	return ""
 }
 
 type CMsgCStrike15Welcome struct {
@@ -7371,7 +8434,7 @@ type CMsgCStrike15Welcome struct {
 
 func (x *CMsgCStrike15Welcome) Reset() {
 	*x = CMsgCStrike15Welcome{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[88]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[92]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7383,7 +8446,7 @@ func (x *CMsgCStrike15Welcome) String() string {
 func (*CMsgCStrike15Welcome) ProtoMessage() {}
 
 func (x *CMsgCStrike15Welcome) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[88]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[92]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7396,7 +8459,7 @@ func (x *CMsgCStrike15Welcome) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgCStrike15Welcome.ProtoReflect.Descriptor instead.
 func (*CMsgCStrike15Welcome) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{88}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *CMsgCStrike15Welcome) GetStoreItemHash() uint32 {
@@ -7461,7 +8524,7 @@ type CMsgGCCStrike15V2_ClientVarValueNotificationInfo struct {
 
 func (x *CMsgGCCStrike15V2_ClientVarValueNotificationInfo) Reset() {
 	*x = CMsgGCCStrike15V2_ClientVarValueNotificationInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[89]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[93]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7473,7 +8536,7 @@ func (x *CMsgGCCStrike15V2_ClientVarValueNotificationInfo) String() string {
 func (*CMsgGCCStrike15V2_ClientVarValueNotificationInfo) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientVarValueNotificationInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[89]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[93]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7486,7 +8549,7 @@ func (x *CMsgGCCStrike15V2_ClientVarValueNotificationInfo) ProtoReflect() protor
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientVarValueNotificationInfo.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientVarValueNotificationInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{89}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *CMsgGCCStrike15V2_ClientVarValueNotificationInfo) GetValueName() string {
@@ -7529,13 +8592,14 @@ type CMsgGCCStrike15V2_ServerVarValueNotificationInfo struct {
 	Accountid     *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
 	Viewangles    []uint32               `protobuf:"varint,2,rep,name=viewangles" json:"viewangles,omitempty"`
 	Type          *uint32                `protobuf:"varint,3,opt,name=type" json:"type,omitempty"`
+	Userdata      []uint32               `protobuf:"varint,4,rep,name=userdata" json:"userdata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_ServerVarValueNotificationInfo) Reset() {
 	*x = CMsgGCCStrike15V2_ServerVarValueNotificationInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[90]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[94]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7547,7 +8611,7 @@ func (x *CMsgGCCStrike15V2_ServerVarValueNotificationInfo) String() string {
 func (*CMsgGCCStrike15V2_ServerVarValueNotificationInfo) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ServerVarValueNotificationInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[90]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[94]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7560,7 +8624,7 @@ func (x *CMsgGCCStrike15V2_ServerVarValueNotificationInfo) ProtoReflect() protor
 
 // Deprecated: Use CMsgGCCStrike15V2_ServerVarValueNotificationInfo.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ServerVarValueNotificationInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{90}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *CMsgGCCStrike15V2_ServerVarValueNotificationInfo) GetAccountid() uint32 {
@@ -7584,6 +8648,13 @@ func (x *CMsgGCCStrike15V2_ServerVarValueNotificationInfo) GetType() uint32 {
 	return 0
 }
 
+func (x *CMsgGCCStrike15V2_ServerVarValueNotificationInfo) GetUserdata() []uint32 {
+	if x != nil {
+		return x.Userdata
+	}
+	return nil
+}
+
 type CMsgGCCStrike15V2_GiftsLeaderboardRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -7592,7 +8663,7 @@ type CMsgGCCStrike15V2_GiftsLeaderboardRequest struct {
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardRequest) Reset() {
 	*x = CMsgGCCStrike15V2_GiftsLeaderboardRequest{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[91]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[95]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7604,7 +8675,7 @@ func (x *CMsgGCCStrike15V2_GiftsLeaderboardRequest) String() string {
 func (*CMsgGCCStrike15V2_GiftsLeaderboardRequest) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[91]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[95]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7617,7 +8688,7 @@ func (x *CMsgGCCStrike15V2_GiftsLeaderboardRequest) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgGCCStrike15V2_GiftsLeaderboardRequest.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GiftsLeaderboardRequest) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{91}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{95}
 }
 
 type CMsgGCCStrike15V2_GiftsLeaderboardResponse struct {
@@ -7633,7 +8704,7 @@ type CMsgGCCStrike15V2_GiftsLeaderboardResponse struct {
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse) Reset() {
 	*x = CMsgGCCStrike15V2_GiftsLeaderboardResponse{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[92]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[96]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7645,7 +8716,7 @@ func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse) String() string {
 func (*CMsgGCCStrike15V2_GiftsLeaderboardResponse) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[92]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[96]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7658,7 +8729,7 @@ func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use CMsgGCCStrike15V2_GiftsLeaderboardResponse.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GiftsLeaderboardResponse) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{92}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse) GetServertime() uint32 {
@@ -7706,7 +8777,7 @@ type CMsgGCCStrike15V2_ClientSubmitSurveyVote struct {
 
 func (x *CMsgGCCStrike15V2_ClientSubmitSurveyVote) Reset() {
 	*x = CMsgGCCStrike15V2_ClientSubmitSurveyVote{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[93]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[97]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7718,7 +8789,7 @@ func (x *CMsgGCCStrike15V2_ClientSubmitSurveyVote) String() string {
 func (*CMsgGCCStrike15V2_ClientSubmitSurveyVote) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientSubmitSurveyVote) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[93]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[97]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7731,7 +8802,7 @@ func (x *CMsgGCCStrike15V2_ClientSubmitSurveyVote) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientSubmitSurveyVote.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientSubmitSurveyVote) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{93}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *CMsgGCCStrike15V2_ClientSubmitSurveyVote) GetSurveyId() uint32 {
@@ -7757,7 +8828,7 @@ type CMsgGCCStrike15V2_Server2GCClientValidate struct {
 
 func (x *CMsgGCCStrike15V2_Server2GCClientValidate) Reset() {
 	*x = CMsgGCCStrike15V2_Server2GCClientValidate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[94]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[98]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7769,7 +8840,7 @@ func (x *CMsgGCCStrike15V2_Server2GCClientValidate) String() string {
 func (*CMsgGCCStrike15V2_Server2GCClientValidate) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Server2GCClientValidate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[94]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[98]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7782,112 +8853,12 @@ func (x *CMsgGCCStrike15V2_Server2GCClientValidate) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgGCCStrike15V2_Server2GCClientValidate.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Server2GCClientValidate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{94}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *CMsgGCCStrike15V2_Server2GCClientValidate) GetAccountid() uint32 {
 	if x != nil && x.Accountid != nil {
 		return *x.Accountid
-	}
-	return 0
-}
-
-type CMsgGCCStrike15V2_Server2GCPureServerValidationFailure struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Accountid     *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
-	Path          *string                `protobuf:"bytes,2,opt,name=path" json:"path,omitempty"`
-	File          *string                `protobuf:"bytes,3,opt,name=file" json:"file,omitempty"`
-	Crc           *uint32                `protobuf:"varint,4,opt,name=crc" json:"crc,omitempty"`
-	Hash          *int32                 `protobuf:"varint,5,opt,name=hash" json:"hash,omitempty"`
-	Len           *int32                 `protobuf:"varint,6,opt,name=len" json:"len,omitempty"`
-	PackNumber    *int32                 `protobuf:"varint,7,opt,name=pack_number,json=packNumber" json:"pack_number,omitempty"`
-	PackFileId    *int32                 `protobuf:"varint,8,opt,name=pack_file_id,json=packFileId" json:"pack_file_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) Reset() {
-	*x = CMsgGCCStrike15V2_Server2GCPureServerValidationFailure{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[95]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[95]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_Server2GCPureServerValidationFailure.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{95}
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetAccountid() uint32 {
-	if x != nil && x.Accountid != nil {
-		return *x.Accountid
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetPath() string {
-	if x != nil && x.Path != nil {
-		return *x.Path
-	}
-	return ""
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetFile() string {
-	if x != nil && x.File != nil {
-		return *x.File
-	}
-	return ""
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetCrc() uint32 {
-	if x != nil && x.Crc != nil {
-		return *x.Crc
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetHash() int32 {
-	if x != nil && x.Hash != nil {
-		return *x.Hash
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetLen() int32 {
-	if x != nil && x.Len != nil {
-		return *x.Len
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetPackNumber() int32 {
-	if x != nil && x.PackNumber != nil {
-		return *x.PackNumber
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_Server2GCPureServerValidationFailure) GetPackFileId() int32 {
-	if x != nil && x.PackFileId != nil {
-		return *x.PackFileId
 	}
 	return 0
 }
@@ -7904,7 +8875,7 @@ type CMsgGCCStrike15V2_GC2ClientTournamentInfo struct {
 
 func (x *CMsgGCCStrike15V2_GC2ClientTournamentInfo) Reset() {
 	*x = CMsgGCCStrike15V2_GC2ClientTournamentInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[96]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[99]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7916,7 +8887,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientTournamentInfo) String() string {
 func (*CMsgGCCStrike15V2_GC2ClientTournamentInfo) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GC2ClientTournamentInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[96]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[99]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7929,7 +8900,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientTournamentInfo) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgGCCStrike15V2_GC2ClientTournamentInfo.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GC2ClientTournamentInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{96}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *CMsgGCCStrike15V2_GC2ClientTournamentInfo) GetEventid() uint32 {
@@ -7971,7 +8942,7 @@ type CSOEconCoupon struct {
 
 func (x *CSOEconCoupon) Reset() {
 	*x = CSOEconCoupon{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[97]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[100]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -7983,7 +8954,7 @@ func (x *CSOEconCoupon) String() string {
 func (*CSOEconCoupon) ProtoMessage() {}
 
 func (x *CSOEconCoupon) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[97]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[100]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -7996,7 +8967,7 @@ func (x *CSOEconCoupon) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSOEconCoupon.ProtoReflect.Descriptor instead.
 func (*CSOEconCoupon) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{97}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *CSOEconCoupon) GetEntryid() uint32 {
@@ -8020,6 +8991,170 @@ func (x *CSOEconCoupon) GetExpirationDate() uint32 {
 	return 0
 }
 
+type CSOAccountItemPersonalStore struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	GenerationTime    *uint32                `protobuf:"varint,1,opt,name=generation_time,json=generationTime" json:"generation_time,omitempty"`
+	RedeemableBalance *uint32                `protobuf:"varint,2,opt,name=redeemable_balance,json=redeemableBalance" json:"redeemable_balance,omitempty"`
+	Items             []uint64               `protobuf:"varint,3,rep,name=items" json:"items,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *CSOAccountItemPersonalStore) Reset() {
+	*x = CSOAccountItemPersonalStore{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[101]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSOAccountItemPersonalStore) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSOAccountItemPersonalStore) ProtoMessage() {}
+
+func (x *CSOAccountItemPersonalStore) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[101]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSOAccountItemPersonalStore.ProtoReflect.Descriptor instead.
+func (*CSOAccountItemPersonalStore) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{101}
+}
+
+func (x *CSOAccountItemPersonalStore) GetGenerationTime() uint32 {
+	if x != nil && x.GenerationTime != nil {
+		return *x.GenerationTime
+	}
+	return 0
+}
+
+func (x *CSOAccountItemPersonalStore) GetRedeemableBalance() uint32 {
+	if x != nil && x.RedeemableBalance != nil {
+		return *x.RedeemableBalance
+	}
+	return 0
+}
+
+func (x *CSOAccountItemPersonalStore) GetItems() []uint64 {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
+type CSOAccountXpShop struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	GenerationTime    *uint32                `protobuf:"varint,1,opt,name=generation_time,json=generationTime" json:"generation_time,omitempty"`
+	RedeemableBalance *uint32                `protobuf:"varint,2,opt,name=redeemable_balance,json=redeemableBalance" json:"redeemable_balance,omitempty"`
+	XpTracks          []uint32               `protobuf:"varint,3,rep,name=xp_tracks,json=xpTracks" json:"xp_tracks,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *CSOAccountXpShop) Reset() {
+	*x = CSOAccountXpShop{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[102]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSOAccountXpShop) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSOAccountXpShop) ProtoMessage() {}
+
+func (x *CSOAccountXpShop) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[102]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSOAccountXpShop.ProtoReflect.Descriptor instead.
+func (*CSOAccountXpShop) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{102}
+}
+
+func (x *CSOAccountXpShop) GetGenerationTime() uint32 {
+	if x != nil && x.GenerationTime != nil {
+		return *x.GenerationTime
+	}
+	return 0
+}
+
+func (x *CSOAccountXpShop) GetRedeemableBalance() uint32 {
+	if x != nil && x.RedeemableBalance != nil {
+		return *x.RedeemableBalance
+	}
+	return 0
+}
+
+func (x *CSOAccountXpShop) GetXpTracks() []uint32 {
+	if x != nil {
+		return x.XpTracks
+	}
+	return nil
+}
+
+type CSOAccountKeychainRemoveToolCharges struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Charges       *uint32                `protobuf:"varint,1,opt,name=charges" json:"charges,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CSOAccountKeychainRemoveToolCharges) Reset() {
+	*x = CSOAccountKeychainRemoveToolCharges{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[103]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSOAccountKeychainRemoveToolCharges) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSOAccountKeychainRemoveToolCharges) ProtoMessage() {}
+
+func (x *CSOAccountKeychainRemoveToolCharges) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[103]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSOAccountKeychainRemoveToolCharges.ProtoReflect.Descriptor instead.
+func (*CSOAccountKeychainRemoveToolCharges) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{103}
+}
+
+func (x *CSOAccountKeychainRemoveToolCharges) GetCharges() uint32 {
+	if x != nil && x.Charges != nil {
+		return *x.Charges
+	}
+	return 0
+}
+
 type CSOQuestProgress struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Questid         *uint32                `protobuf:"varint,1,opt,name=questid" json:"questid,omitempty"`
@@ -8031,7 +9166,7 @@ type CSOQuestProgress struct {
 
 func (x *CSOQuestProgress) Reset() {
 	*x = CSOQuestProgress{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[98]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[104]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8043,7 +9178,7 @@ func (x *CSOQuestProgress) String() string {
 func (*CSOQuestProgress) ProtoMessage() {}
 
 func (x *CSOQuestProgress) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[98]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[104]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8056,7 +9191,7 @@ func (x *CSOQuestProgress) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSOQuestProgress.ProtoReflect.Descriptor instead.
 func (*CSOQuestProgress) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{98}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *CSOQuestProgress) GetQuestid() uint32 {
@@ -8087,13 +9222,15 @@ type CSOAccountSeasonalOperation struct {
 	PremiumTiers      *uint32                `protobuf:"varint,3,opt,name=premium_tiers,json=premiumTiers" json:"premium_tiers,omitempty"`
 	MissionId         *uint32                `protobuf:"varint,4,opt,name=mission_id,json=missionId" json:"mission_id,omitempty"`
 	MissionsCompleted *uint32                `protobuf:"varint,5,opt,name=missions_completed,json=missionsCompleted" json:"missions_completed,omitempty"`
+	RedeemableBalance *uint32                `protobuf:"varint,6,opt,name=redeemable_balance,json=redeemableBalance" json:"redeemable_balance,omitempty"`
+	SeasonPassTime    *uint32                `protobuf:"varint,7,opt,name=season_pass_time,json=seasonPassTime" json:"season_pass_time,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CSOAccountSeasonalOperation) Reset() {
 	*x = CSOAccountSeasonalOperation{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[99]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[105]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8105,7 +9242,7 @@ func (x *CSOAccountSeasonalOperation) String() string {
 func (*CSOAccountSeasonalOperation) ProtoMessage() {}
 
 func (x *CSOAccountSeasonalOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[99]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[105]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8118,7 +9255,7 @@ func (x *CSOAccountSeasonalOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSOAccountSeasonalOperation.ProtoReflect.Descriptor instead.
 func (*CSOAccountSeasonalOperation) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{99}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *CSOAccountSeasonalOperation) GetSeasonValue() uint32 {
@@ -8156,18 +9293,86 @@ func (x *CSOAccountSeasonalOperation) GetMissionsCompleted() uint32 {
 	return 0
 }
 
-type CSOPersonaDataPublic struct {
-	state         protoimpl.MessageState  `protogen:"open.v1"`
-	PlayerLevel   *int32                  `protobuf:"varint,1,opt,name=player_level,json=playerLevel" json:"player_level,omitempty"`
-	Commendation  *PlayerCommendationInfo `protobuf:"bytes,2,opt,name=commendation" json:"commendation,omitempty"`
-	ElevatedState *bool                   `protobuf:"varint,3,opt,name=elevated_state,json=elevatedState" json:"elevated_state,omitempty"`
+func (x *CSOAccountSeasonalOperation) GetRedeemableBalance() uint32 {
+	if x != nil && x.RedeemableBalance != nil {
+		return *x.RedeemableBalance
+	}
+	return 0
+}
+
+func (x *CSOAccountSeasonalOperation) GetSeasonPassTime() uint32 {
+	if x != nil && x.SeasonPassTime != nil {
+		return *x.SeasonPassTime
+	}
+	return 0
+}
+
+type CSOAccountRecurringSubscription struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	TimeNextCycle *uint32                `protobuf:"varint,1,opt,name=time_next_cycle,json=timeNextCycle" json:"time_next_cycle,omitempty"`
+	TimeInitiated *uint32                `protobuf:"varint,2,opt,name=time_initiated,json=timeInitiated" json:"time_initiated,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *CSOAccountRecurringSubscription) Reset() {
+	*x = CSOAccountRecurringSubscription{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[106]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CSOAccountRecurringSubscription) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CSOAccountRecurringSubscription) ProtoMessage() {}
+
+func (x *CSOAccountRecurringSubscription) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[106]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CSOAccountRecurringSubscription.ProtoReflect.Descriptor instead.
+func (*CSOAccountRecurringSubscription) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{106}
+}
+
+func (x *CSOAccountRecurringSubscription) GetTimeNextCycle() uint32 {
+	if x != nil && x.TimeNextCycle != nil {
+		return *x.TimeNextCycle
+	}
+	return 0
+}
+
+func (x *CSOAccountRecurringSubscription) GetTimeInitiated() uint32 {
+	if x != nil && x.TimeInitiated != nil {
+		return *x.TimeInitiated
+	}
+	return 0
+}
+
+type CSOPersonaDataPublic struct {
+	state                   protoimpl.MessageState  `protogen:"open.v1"`
+	PlayerLevel             *int32                  `protobuf:"varint,1,opt,name=player_level,json=playerLevel" json:"player_level,omitempty"`
+	Commendation            *PlayerCommendationInfo `protobuf:"bytes,2,opt,name=commendation" json:"commendation,omitempty"`
+	ElevatedState           *bool                   `protobuf:"varint,3,opt,name=elevated_state,json=elevatedState" json:"elevated_state,omitempty"`
+	XpTrailTimestampRefresh *uint32                 `protobuf:"varint,4,opt,name=xp_trail_timestamp_refresh,json=xpTrailTimestampRefresh" json:"xp_trail_timestamp_refresh,omitempty"`
+	XpTrailLevel            *uint32                 `protobuf:"varint,5,opt,name=xp_trail_level,json=xpTrailLevel" json:"xp_trail_level,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
 func (x *CSOPersonaDataPublic) Reset() {
 	*x = CSOPersonaDataPublic{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[100]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[107]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8179,7 +9384,7 @@ func (x *CSOPersonaDataPublic) String() string {
 func (*CSOPersonaDataPublic) ProtoMessage() {}
 
 func (x *CSOPersonaDataPublic) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[100]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[107]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8192,7 +9397,7 @@ func (x *CSOPersonaDataPublic) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CSOPersonaDataPublic.ProtoReflect.Descriptor instead.
 func (*CSOPersonaDataPublic) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{100}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *CSOPersonaDataPublic) GetPlayerLevel() int32 {
@@ -8216,6 +9421,200 @@ func (x *CSOPersonaDataPublic) GetElevatedState() bool {
 	return false
 }
 
+func (x *CSOPersonaDataPublic) GetXpTrailTimestampRefresh() uint32 {
+	if x != nil && x.XpTrailTimestampRefresh != nil {
+		return *x.XpTrailTimestampRefresh
+	}
+	return 0
+}
+
+func (x *CSOPersonaDataPublic) GetXpTrailLevel() uint32 {
+	if x != nil && x.XpTrailLevel != nil {
+		return *x.XpTrailLevel
+	}
+	return 0
+}
+
+type CMsgGCCStrike15V2_GC2ClientNotifyXPShop struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Prematch      *CSOAccountXpShop      `protobuf:"bytes,1,opt,name=prematch" json:"prematch,omitempty"`
+	Postmatch     *CSOAccountXpShop      `protobuf:"bytes,2,opt,name=postmatch" json:"postmatch,omitempty"`
+	CurrentXp     *uint32                `protobuf:"varint,3,opt,name=current_xp,json=currentXp" json:"current_xp,omitempty"`
+	CurrentLevel  *uint32                `protobuf:"varint,4,opt,name=current_level,json=currentLevel" json:"current_level,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientNotifyXPShop) Reset() {
+	*x = CMsgGCCStrike15V2_GC2ClientNotifyXPShop{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[108]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientNotifyXPShop) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_GC2ClientNotifyXPShop) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_GC2ClientNotifyXPShop) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[108]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_GC2ClientNotifyXPShop.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_GC2ClientNotifyXPShop) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{108}
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientNotifyXPShop) GetPrematch() *CSOAccountXpShop {
+	if x != nil {
+		return x.Prematch
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientNotifyXPShop) GetPostmatch() *CSOAccountXpShop {
+	if x != nil {
+		return x.Postmatch
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientNotifyXPShop) GetCurrentXp() uint32 {
+	if x != nil && x.CurrentXp != nil {
+		return *x.CurrentXp
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientNotifyXPShop) GetCurrentLevel() uint32 {
+	if x != nil && x.CurrentLevel != nil {
+		return *x.CurrentLevel
+	}
+	return 0
+}
+
+type CMsgGCCStrike15V2_Client2GcAckXPShopTracks struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_Client2GcAckXPShopTracks) Reset() {
+	*x = CMsgGCCStrike15V2_Client2GcAckXPShopTracks{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[109]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_Client2GcAckXPShopTracks) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_Client2GcAckXPShopTracks) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_Client2GcAckXPShopTracks) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[109]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_Client2GcAckXPShopTracks.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_Client2GcAckXPShopTracks) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{109}
+}
+
+type CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	GsLocationId   *uint32                `protobuf:"varint,1,opt,name=gs_location_id,json=gsLocationId" json:"gs_location_id,omitempty"`
+	DataCenterId   *uint32                `protobuf:"varint,2,opt,name=data_center_id,json=dataCenterId" json:"data_center_id,omitempty"`
+	NumLockedIn    *uint32                `protobuf:"varint,3,opt,name=num_locked_in,json=numLockedIn" json:"num_locked_in,omitempty"`
+	NumFoundNearby *uint32                `protobuf:"varint,4,opt,name=num_found_nearby,json=numFoundNearby" json:"num_found_nearby,omitempty"`
+	NoteLevel      *uint32                `protobuf:"varint,5,opt,name=note_level,json=noteLevel" json:"note_level,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) Reset() {
+	*x = CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[110]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[110]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{110}
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) GetGsLocationId() uint32 {
+	if x != nil && x.GsLocationId != nil {
+		return *x.GsLocationId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) GetDataCenterId() uint32 {
+	if x != nil && x.DataCenterId != nil {
+		return *x.DataCenterId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) GetNumLockedIn() uint32 {
+	if x != nil && x.NumLockedIn != nil {
+		return *x.NumLockedIn
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) GetNumFoundNearby() uint32 {
+	if x != nil && x.NumFoundNearby != nil {
+		return *x.NumFoundNearby
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats) GetNoteLevel() uint32 {
+	if x != nil && x.NoteLevel != nil {
+		return *x.NoteLevel
+	}
+	return 0
+}
+
 type CMsgGC_GlobalGame_Subscribe struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ticket        *uint64                `protobuf:"varint,1,opt,name=ticket" json:"ticket,omitempty"`
@@ -8225,7 +9624,7 @@ type CMsgGC_GlobalGame_Subscribe struct {
 
 func (x *CMsgGC_GlobalGame_Subscribe) Reset() {
 	*x = CMsgGC_GlobalGame_Subscribe{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[101]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[111]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8237,7 +9636,7 @@ func (x *CMsgGC_GlobalGame_Subscribe) String() string {
 func (*CMsgGC_GlobalGame_Subscribe) ProtoMessage() {}
 
 func (x *CMsgGC_GlobalGame_Subscribe) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[101]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[111]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8250,7 +9649,7 @@ func (x *CMsgGC_GlobalGame_Subscribe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGC_GlobalGame_Subscribe.ProtoReflect.Descriptor instead.
 func (*CMsgGC_GlobalGame_Subscribe) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{101}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *CMsgGC_GlobalGame_Subscribe) GetTicket() uint64 {
@@ -8269,7 +9668,7 @@ type CMsgGC_GlobalGame_Unsubscribe struct {
 
 func (x *CMsgGC_GlobalGame_Unsubscribe) Reset() {
 	*x = CMsgGC_GlobalGame_Unsubscribe{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[102]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[112]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8281,7 +9680,7 @@ func (x *CMsgGC_GlobalGame_Unsubscribe) String() string {
 func (*CMsgGC_GlobalGame_Unsubscribe) ProtoMessage() {}
 
 func (x *CMsgGC_GlobalGame_Unsubscribe) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[102]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[112]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8294,7 +9693,7 @@ func (x *CMsgGC_GlobalGame_Unsubscribe) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGC_GlobalGame_Unsubscribe.ProtoReflect.Descriptor instead.
 func (*CMsgGC_GlobalGame_Unsubscribe) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{102}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *CMsgGC_GlobalGame_Unsubscribe) GetTimeleft() int32 {
@@ -8315,7 +9714,7 @@ type CMsgGC_GlobalGame_Play struct {
 
 func (x *CMsgGC_GlobalGame_Play) Reset() {
 	*x = CMsgGC_GlobalGame_Play{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[103]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[113]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8327,7 +9726,7 @@ func (x *CMsgGC_GlobalGame_Play) String() string {
 func (*CMsgGC_GlobalGame_Play) ProtoMessage() {}
 
 func (x *CMsgGC_GlobalGame_Play) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[103]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[113]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8340,7 +9739,7 @@ func (x *CMsgGC_GlobalGame_Play) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGC_GlobalGame_Play.ProtoReflect.Descriptor instead.
 func (*CMsgGC_GlobalGame_Play) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{103}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *CMsgGC_GlobalGame_Play) GetTicket() uint64 {
@@ -8373,7 +9772,7 @@ type CMsgGCCStrike15V2_AcknowledgePenalty struct {
 
 func (x *CMsgGCCStrike15V2_AcknowledgePenalty) Reset() {
 	*x = CMsgGCCStrike15V2_AcknowledgePenalty{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[104]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[114]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8385,7 +9784,7 @@ func (x *CMsgGCCStrike15V2_AcknowledgePenalty) String() string {
 func (*CMsgGCCStrike15V2_AcknowledgePenalty) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_AcknowledgePenalty) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[104]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[114]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8398,7 +9797,7 @@ func (x *CMsgGCCStrike15V2_AcknowledgePenalty) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgGCCStrike15V2_AcknowledgePenalty.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_AcknowledgePenalty) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{104}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{114}
 }
 
 func (x *CMsgGCCStrike15V2_AcknowledgePenalty) GetAcknowledged() int32 {
@@ -8420,7 +9819,7 @@ type CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin struct {
 
 func (x *CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin) Reset() {
 	*x = CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[105]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[115]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8432,7 +9831,7 @@ func (x *CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin) String() string {
 func (*CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[105]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[115]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8445,7 +9844,7 @@ func (x *CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin) ProtoReflect() protoref
 
 // Deprecated: Use CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{105}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{115}
 }
 
 func (x *CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin) GetDefindex() uint32 {
@@ -8486,7 +9885,7 @@ type CMsgGCCStrike15V2_Client2GCStreamUnlock struct {
 
 func (x *CMsgGCCStrike15V2_Client2GCStreamUnlock) Reset() {
 	*x = CMsgGCCStrike15V2_Client2GCStreamUnlock{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[106]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[116]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8498,7 +9897,7 @@ func (x *CMsgGCCStrike15V2_Client2GCStreamUnlock) String() string {
 func (*CMsgGCCStrike15V2_Client2GCStreamUnlock) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Client2GCStreamUnlock) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[106]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[116]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8511,7 +9910,7 @@ func (x *CMsgGCCStrike15V2_Client2GCStreamUnlock) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgGCCStrike15V2_Client2GCStreamUnlock.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Client2GCStreamUnlock) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{106}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{116}
 }
 
 func (x *CMsgGCCStrike15V2_Client2GCStreamUnlock) GetTicket() uint64 {
@@ -8537,7 +9936,7 @@ type CMsgGCCStrike15V2_ClientToGCRequestElevate struct {
 
 func (x *CMsgGCCStrike15V2_ClientToGCRequestElevate) Reset() {
 	*x = CMsgGCCStrike15V2_ClientToGCRequestElevate{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[107]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[117]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8549,7 +9948,7 @@ func (x *CMsgGCCStrike15V2_ClientToGCRequestElevate) String() string {
 func (*CMsgGCCStrike15V2_ClientToGCRequestElevate) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientToGCRequestElevate) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[107]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[117]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8562,7 +9961,7 @@ func (x *CMsgGCCStrike15V2_ClientToGCRequestElevate) ProtoReflect() protoreflect
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientToGCRequestElevate.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientToGCRequestElevate) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{107}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{117}
 }
 
 func (x *CMsgGCCStrike15V2_ClientToGCRequestElevate) GetStage() uint32 {
@@ -8582,7 +9981,7 @@ type CMsgGCCStrike15V2_ClientToGCChat struct {
 
 func (x *CMsgGCCStrike15V2_ClientToGCChat) Reset() {
 	*x = CMsgGCCStrike15V2_ClientToGCChat{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[108]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[118]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8594,7 +9993,7 @@ func (x *CMsgGCCStrike15V2_ClientToGCChat) String() string {
 func (*CMsgGCCStrike15V2_ClientToGCChat) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientToGCChat) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[108]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[118]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8607,7 +10006,7 @@ func (x *CMsgGCCStrike15V2_ClientToGCChat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientToGCChat.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientToGCChat) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{108}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{118}
 }
 
 func (x *CMsgGCCStrike15V2_ClientToGCChat) GetMatchId() uint64 {
@@ -8634,7 +10033,7 @@ type CMsgGCCStrike15V2_GCToClientChat struct {
 
 func (x *CMsgGCCStrike15V2_GCToClientChat) Reset() {
 	*x = CMsgGCCStrike15V2_GCToClientChat{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[109]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[119]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8646,7 +10045,7 @@ func (x *CMsgGCCStrike15V2_GCToClientChat) String() string {
 func (*CMsgGCCStrike15V2_GCToClientChat) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GCToClientChat) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[109]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[119]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8659,7 +10058,7 @@ func (x *CMsgGCCStrike15V2_GCToClientChat) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_GCToClientChat.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GCToClientChat) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{109}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{119}
 }
 
 func (x *CMsgGCCStrike15V2_GCToClientChat) GetAccountId() uint32 {
@@ -8686,7 +10085,7 @@ type CMsgGCCStrike15V2_ClientAuthKeyCode struct {
 
 func (x *CMsgGCCStrike15V2_ClientAuthKeyCode) Reset() {
 	*x = CMsgGCCStrike15V2_ClientAuthKeyCode{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[110]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[120]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8698,7 +10097,7 @@ func (x *CMsgGCCStrike15V2_ClientAuthKeyCode) String() string {
 func (*CMsgGCCStrike15V2_ClientAuthKeyCode) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientAuthKeyCode) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[110]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[120]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8711,7 +10110,7 @@ func (x *CMsgGCCStrike15V2_ClientAuthKeyCode) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientAuthKeyCode.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientAuthKeyCode) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{110}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{120}
 }
 
 func (x *CMsgGCCStrike15V2_ClientAuthKeyCode) GetEventid() uint32 {
@@ -8737,7 +10136,7 @@ type CMsgGCCStrike15_GotvSyncPacket struct {
 
 func (x *CMsgGCCStrike15_GotvSyncPacket) Reset() {
 	*x = CMsgGCCStrike15_GotvSyncPacket{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[111]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[121]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8749,7 +10148,7 @@ func (x *CMsgGCCStrike15_GotvSyncPacket) String() string {
 func (*CMsgGCCStrike15_GotvSyncPacket) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15_GotvSyncPacket) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[111]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[121]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8762,7 +10161,7 @@ func (x *CMsgGCCStrike15_GotvSyncPacket) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15_GotvSyncPacket.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15_GotvSyncPacket) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{111}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{121}
 }
 
 func (x *CMsgGCCStrike15_GotvSyncPacket) GetData() *CEngineGotvSyncPacket {
@@ -8779,7 +10178,7 @@ type PlayerDecalDigitalSignature struct {
 	Rtime         *uint32                `protobuf:"varint,3,opt,name=rtime" json:"rtime,omitempty"`
 	Endpos        []float32              `protobuf:"fixed32,4,rep,name=endpos" json:"endpos,omitempty"`
 	Startpos      []float32              `protobuf:"fixed32,5,rep,name=startpos" json:"startpos,omitempty"`
-	Right         []float32              `protobuf:"fixed32,6,rep,name=right" json:"right,omitempty"`
+	Left          []float32              `protobuf:"fixed32,6,rep,name=left" json:"left,omitempty"`
 	TxDefidx      *uint32                `protobuf:"varint,7,opt,name=tx_defidx,json=txDefidx" json:"tx_defidx,omitempty"`
 	Entindex      *int32                 `protobuf:"varint,8,opt,name=entindex" json:"entindex,omitempty"`
 	Hitbox        *uint32                `protobuf:"varint,9,opt,name=hitbox" json:"hitbox,omitempty"`
@@ -8794,7 +10193,7 @@ type PlayerDecalDigitalSignature struct {
 
 func (x *PlayerDecalDigitalSignature) Reset() {
 	*x = PlayerDecalDigitalSignature{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[112]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[122]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8806,7 +10205,7 @@ func (x *PlayerDecalDigitalSignature) String() string {
 func (*PlayerDecalDigitalSignature) ProtoMessage() {}
 
 func (x *PlayerDecalDigitalSignature) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[112]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[122]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8819,7 +10218,7 @@ func (x *PlayerDecalDigitalSignature) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayerDecalDigitalSignature.ProtoReflect.Descriptor instead.
 func (*PlayerDecalDigitalSignature) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{112}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{122}
 }
 
 func (x *PlayerDecalDigitalSignature) GetSignature() []byte {
@@ -8857,9 +10256,9 @@ func (x *PlayerDecalDigitalSignature) GetStartpos() []float32 {
 	return nil
 }
 
-func (x *PlayerDecalDigitalSignature) GetRight() []float32 {
+func (x *PlayerDecalDigitalSignature) GetLeft() []float32 {
 	if x != nil {
-		return x.Right
+		return x.Left
 	}
 	return nil
 }
@@ -8930,7 +10329,7 @@ type CMsgGCCStrike15V2_ClientPlayerDecalSign struct {
 
 func (x *CMsgGCCStrike15V2_ClientPlayerDecalSign) Reset() {
 	*x = CMsgGCCStrike15V2_ClientPlayerDecalSign{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[113]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[123]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8942,7 +10341,7 @@ func (x *CMsgGCCStrike15V2_ClientPlayerDecalSign) String() string {
 func (*CMsgGCCStrike15V2_ClientPlayerDecalSign) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientPlayerDecalSign) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[113]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[123]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -8955,7 +10354,7 @@ func (x *CMsgGCCStrike15V2_ClientPlayerDecalSign) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientPlayerDecalSign.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientPlayerDecalSign) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{113}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{123}
 }
 
 func (x *CMsgGCCStrike15V2_ClientPlayerDecalSign) GetData() *PlayerDecalDigitalSignature {
@@ -8972,6 +10371,50 @@ func (x *CMsgGCCStrike15V2_ClientPlayerDecalSign) GetItemid() uint64 {
 	return 0
 }
 
+type CMsgGCCStrike15V2_BetaEnrollment struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Eresult       *uint32                `protobuf:"varint,1,opt,name=eresult" json:"eresult,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_BetaEnrollment) Reset() {
+	*x = CMsgGCCStrike15V2_BetaEnrollment{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[124]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_BetaEnrollment) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_BetaEnrollment) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_BetaEnrollment) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[124]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_BetaEnrollment.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_BetaEnrollment) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{124}
+}
+
+func (x *CMsgGCCStrike15V2_BetaEnrollment) GetEresult() uint32 {
+	if x != nil && x.Eresult != nil {
+		return *x.Eresult
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_ClientLogonFatalError struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Errorcode     *uint32                `protobuf:"varint,1,opt,name=errorcode" json:"errorcode,omitempty"`
@@ -8983,7 +10426,7 @@ type CMsgGCCStrike15V2_ClientLogonFatalError struct {
 
 func (x *CMsgGCCStrike15V2_ClientLogonFatalError) Reset() {
 	*x = CMsgGCCStrike15V2_ClientLogonFatalError{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[114]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[125]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -8995,7 +10438,7 @@ func (x *CMsgGCCStrike15V2_ClientLogonFatalError) String() string {
 func (*CMsgGCCStrike15V2_ClientLogonFatalError) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientLogonFatalError) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[114]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[125]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9008,7 +10451,7 @@ func (x *CMsgGCCStrike15V2_ClientLogonFatalError) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientLogonFatalError.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientLogonFatalError) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{114}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{125}
 }
 
 func (x *CMsgGCCStrike15V2_ClientLogonFatalError) GetErrorcode() uint32 {
@@ -9043,7 +10486,7 @@ type CMsgGCCStrike15V2_ClientPollState struct {
 
 func (x *CMsgGCCStrike15V2_ClientPollState) Reset() {
 	*x = CMsgGCCStrike15V2_ClientPollState{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[115]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[126]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9055,7 +10498,7 @@ func (x *CMsgGCCStrike15V2_ClientPollState) String() string {
 func (*CMsgGCCStrike15V2_ClientPollState) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientPollState) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[115]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[126]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9068,7 +10511,7 @@ func (x *CMsgGCCStrike15V2_ClientPollState) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientPollState.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientPollState) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{115}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{126}
 }
 
 func (x *CMsgGCCStrike15V2_ClientPollState) GetPollid() uint32 {
@@ -9109,7 +10552,7 @@ type CMsgGCCStrike15V2_Party_Register struct {
 
 func (x *CMsgGCCStrike15V2_Party_Register) Reset() {
 	*x = CMsgGCCStrike15V2_Party_Register{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[116]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[127]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9121,7 +10564,7 @@ func (x *CMsgGCCStrike15V2_Party_Register) String() string {
 func (*CMsgGCCStrike15V2_Party_Register) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Party_Register) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[116]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[127]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9134,7 +10577,7 @@ func (x *CMsgGCCStrike15V2_Party_Register) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_Party_Register.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Party_Register) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{116}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{127}
 }
 
 func (x *CMsgGCCStrike15V2_Party_Register) GetId() uint32 {
@@ -9214,7 +10657,7 @@ type CMsgGCCStrike15V2_Party_Search struct {
 
 func (x *CMsgGCCStrike15V2_Party_Search) Reset() {
 	*x = CMsgGCCStrike15V2_Party_Search{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[117]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[128]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9226,7 +10669,7 @@ func (x *CMsgGCCStrike15V2_Party_Search) String() string {
 func (*CMsgGCCStrike15V2_Party_Search) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Party_Search) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[117]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[128]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9239,7 +10682,7 @@ func (x *CMsgGCCStrike15V2_Party_Search) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_Party_Search.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Party_Search) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{117}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{128}
 }
 
 func (x *CMsgGCCStrike15V2_Party_Search) GetVer() uint32 {
@@ -9293,7 +10736,7 @@ type CMsgGCCStrike15V2_Party_SearchResults struct {
 
 func (x *CMsgGCCStrike15V2_Party_SearchResults) Reset() {
 	*x = CMsgGCCStrike15V2_Party_SearchResults{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[118]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[129]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9305,7 +10748,7 @@ func (x *CMsgGCCStrike15V2_Party_SearchResults) String() string {
 func (*CMsgGCCStrike15V2_Party_SearchResults) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Party_SearchResults) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[118]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[129]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9318,7 +10761,7 @@ func (x *CMsgGCCStrike15V2_Party_SearchResults) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgGCCStrike15V2_Party_SearchResults.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Party_SearchResults) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{118}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{129}
 }
 
 func (x *CMsgGCCStrike15V2_Party_SearchResults) GetEntries() []*CMsgGCCStrike15V2_Party_SearchResults_Entry {
@@ -9338,7 +10781,7 @@ type CMsgGCCStrike15V2_Party_Invite struct {
 
 func (x *CMsgGCCStrike15V2_Party_Invite) Reset() {
 	*x = CMsgGCCStrike15V2_Party_Invite{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[119]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[130]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9350,7 +10793,7 @@ func (x *CMsgGCCStrike15V2_Party_Invite) String() string {
 func (*CMsgGCCStrike15V2_Party_Invite) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Party_Invite) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[119]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[130]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9363,7 +10806,7 @@ func (x *CMsgGCCStrike15V2_Party_Invite) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CMsgGCCStrike15V2_Party_Invite.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Party_Invite) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{119}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{130}
 }
 
 func (x *CMsgGCCStrike15V2_Party_Invite) GetAccountid() uint32 {
@@ -9390,7 +10833,7 @@ type CMsgGCCStrike15V2_Account_RequestCoPlays struct {
 
 func (x *CMsgGCCStrike15V2_Account_RequestCoPlays) Reset() {
 	*x = CMsgGCCStrike15V2_Account_RequestCoPlays{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[120]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[131]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9402,7 +10845,7 @@ func (x *CMsgGCCStrike15V2_Account_RequestCoPlays) String() string {
 func (*CMsgGCCStrike15V2_Account_RequestCoPlays) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Account_RequestCoPlays) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[120]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[131]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9415,7 +10858,7 @@ func (x *CMsgGCCStrike15V2_Account_RequestCoPlays) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CMsgGCCStrike15V2_Account_RequestCoPlays.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Account_RequestCoPlays) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{120}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{131}
 }
 
 func (x *CMsgGCCStrike15V2_Account_RequestCoPlays) GetPlayers() []*CMsgGCCStrike15V2_Account_RequestCoPlays_Player {
@@ -9444,7 +10887,7 @@ type CMsgGCCStrike15V2_ClientToGCRequestTicket struct {
 
 func (x *CMsgGCCStrike15V2_ClientToGCRequestTicket) Reset() {
 	*x = CMsgGCCStrike15V2_ClientToGCRequestTicket{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[121]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[132]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9456,7 +10899,7 @@ func (x *CMsgGCCStrike15V2_ClientToGCRequestTicket) String() string {
 func (*CMsgGCCStrike15V2_ClientToGCRequestTicket) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientToGCRequestTicket) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[121]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[132]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9469,7 +10912,7 @@ func (x *CMsgGCCStrike15V2_ClientToGCRequestTicket) ProtoReflect() protoreflect.
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientToGCRequestTicket.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientToGCRequestTicket) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{121}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{132}
 }
 
 func (x *CMsgGCCStrike15V2_ClientToGCRequestTicket) GetAuthorizedSteamId() uint64 {
@@ -9509,7 +10952,7 @@ type CMsgGCToClientSteamDatagramTicket struct {
 
 func (x *CMsgGCToClientSteamDatagramTicket) Reset() {
 	*x = CMsgGCToClientSteamDatagramTicket{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[122]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[133]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9521,7 +10964,7 @@ func (x *CMsgGCToClientSteamDatagramTicket) String() string {
 func (*CMsgGCToClientSteamDatagramTicket) ProtoMessage() {}
 
 func (x *CMsgGCToClientSteamDatagramTicket) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[122]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[133]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9534,7 +10977,7 @@ func (x *CMsgGCToClientSteamDatagramTicket) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CMsgGCToClientSteamDatagramTicket.ProtoReflect.Descriptor instead.
 func (*CMsgGCToClientSteamDatagramTicket) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{122}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{133}
 }
 
 func (x *CMsgGCToClientSteamDatagramTicket) GetSerializedTicket() []byte {
@@ -9552,7 +10995,7 @@ type CMsgGCCStrike15V2_ClientRequestOffers struct {
 
 func (x *CMsgGCCStrike15V2_ClientRequestOffers) Reset() {
 	*x = CMsgGCCStrike15V2_ClientRequestOffers{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[123]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[134]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9564,7 +11007,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestOffers) String() string {
 func (*CMsgGCCStrike15V2_ClientRequestOffers) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientRequestOffers) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[123]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[134]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9577,7 +11020,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestOffers) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientRequestOffers.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientRequestOffers) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{123}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{134}
 }
 
 type CMsgGCCStrike15V2_ClientRequestSouvenir struct {
@@ -9591,7 +11034,7 @@ type CMsgGCCStrike15V2_ClientRequestSouvenir struct {
 
 func (x *CMsgGCCStrike15V2_ClientRequestSouvenir) Reset() {
 	*x = CMsgGCCStrike15V2_ClientRequestSouvenir{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[124]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[135]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9603,7 +11046,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestSouvenir) String() string {
 func (*CMsgGCCStrike15V2_ClientRequestSouvenir) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientRequestSouvenir) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[124]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[135]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9616,7 +11059,7 @@ func (x *CMsgGCCStrike15V2_ClientRequestSouvenir) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientRequestSouvenir.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientRequestSouvenir) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{124}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{135}
 }
 
 func (x *CMsgGCCStrike15V2_ClientRequestSouvenir) GetItemid() uint64 {
@@ -9650,7 +11093,7 @@ type CMsgGCCStrike15V2_ClientAccountBalance struct {
 
 func (x *CMsgGCCStrike15V2_ClientAccountBalance) Reset() {
 	*x = CMsgGCCStrike15V2_ClientAccountBalance{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[125]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[136]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9662,7 +11105,7 @@ func (x *CMsgGCCStrike15V2_ClientAccountBalance) String() string {
 func (*CMsgGCCStrike15V2_ClientAccountBalance) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientAccountBalance) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[125]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[136]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9675,7 +11118,7 @@ func (x *CMsgGCCStrike15V2_ClientAccountBalance) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientAccountBalance.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientAccountBalance) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{125}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{136}
 }
 
 func (x *CMsgGCCStrike15V2_ClientAccountBalance) GetAmount() uint64 {
@@ -9702,7 +11145,7 @@ type CMsgGCCStrike15V2_ClientPartyJoinRelay struct {
 
 func (x *CMsgGCCStrike15V2_ClientPartyJoinRelay) Reset() {
 	*x = CMsgGCCStrike15V2_ClientPartyJoinRelay{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[126]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[137]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9714,7 +11157,7 @@ func (x *CMsgGCCStrike15V2_ClientPartyJoinRelay) String() string {
 func (*CMsgGCCStrike15V2_ClientPartyJoinRelay) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientPartyJoinRelay) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[126]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[137]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9727,7 +11170,7 @@ func (x *CMsgGCCStrike15V2_ClientPartyJoinRelay) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientPartyJoinRelay.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientPartyJoinRelay) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{126}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{137}
 }
 
 func (x *CMsgGCCStrike15V2_ClientPartyJoinRelay) GetAccountid() uint32 {
@@ -9753,7 +11196,7 @@ type CMsgGCCStrike15V2_ClientPartyWarning struct {
 
 func (x *CMsgGCCStrike15V2_ClientPartyWarning) Reset() {
 	*x = CMsgGCCStrike15V2_ClientPartyWarning{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[127]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[138]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9765,7 +11208,7 @@ func (x *CMsgGCCStrike15V2_ClientPartyWarning) String() string {
 func (*CMsgGCCStrike15V2_ClientPartyWarning) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientPartyWarning) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[127]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[138]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9778,7 +11221,7 @@ func (x *CMsgGCCStrike15V2_ClientPartyWarning) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientPartyWarning.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientPartyWarning) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{127}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{138}
 }
 
 func (x *CMsgGCCStrike15V2_ClientPartyWarning) GetEntries() []*CMsgGCCStrike15V2_ClientPartyWarning_Entry {
@@ -9798,7 +11241,7 @@ type CMsgGCCStrike15V2_SetEventFavorite struct {
 
 func (x *CMsgGCCStrike15V2_SetEventFavorite) Reset() {
 	*x = CMsgGCCStrike15V2_SetEventFavorite{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[128]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[139]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9810,7 +11253,7 @@ func (x *CMsgGCCStrike15V2_SetEventFavorite) String() string {
 func (*CMsgGCCStrike15V2_SetEventFavorite) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_SetEventFavorite) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[128]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[139]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9823,7 +11266,7 @@ func (x *CMsgGCCStrike15V2_SetEventFavorite) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgGCCStrike15V2_SetEventFavorite.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_SetEventFavorite) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{128}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{139}
 }
 
 func (x *CMsgGCCStrike15V2_SetEventFavorite) GetEventid() uint64 {
@@ -9849,7 +11292,7 @@ type CMsgGCCStrike15V2_GetEventFavorites_Request struct {
 
 func (x *CMsgGCCStrike15V2_GetEventFavorites_Request) Reset() {
 	*x = CMsgGCCStrike15V2_GetEventFavorites_Request{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[129]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[140]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9861,7 +11304,7 @@ func (x *CMsgGCCStrike15V2_GetEventFavorites_Request) String() string {
 func (*CMsgGCCStrike15V2_GetEventFavorites_Request) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GetEventFavorites_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[129]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[140]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9874,7 +11317,7 @@ func (x *CMsgGCCStrike15V2_GetEventFavorites_Request) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCStrike15V2_GetEventFavorites_Request.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GetEventFavorites_Request) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{129}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{140}
 }
 
 func (x *CMsgGCCStrike15V2_GetEventFavorites_Request) GetAllEvents() bool {
@@ -9895,7 +11338,7 @@ type CMsgGCCStrike15V2_GetEventFavorites_Response struct {
 
 func (x *CMsgGCCStrike15V2_GetEventFavorites_Response) Reset() {
 	*x = CMsgGCCStrike15V2_GetEventFavorites_Response{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[130]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[141]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9907,7 +11350,7 @@ func (x *CMsgGCCStrike15V2_GetEventFavorites_Response) String() string {
 func (*CMsgGCCStrike15V2_GetEventFavorites_Response) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GetEventFavorites_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[130]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[141]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9920,7 +11363,7 @@ func (x *CMsgGCCStrike15V2_GetEventFavorites_Response) ProtoReflect() protorefle
 
 // Deprecated: Use CMsgGCCStrike15V2_GetEventFavorites_Response.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GetEventFavorites_Response) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{130}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{141}
 }
 
 func (x *CMsgGCCStrike15V2_GetEventFavorites_Response) GetAllEvents() bool {
@@ -9953,7 +11396,7 @@ type CMsgGCCStrike15V2_ClientPerfReport struct {
 
 func (x *CMsgGCCStrike15V2_ClientPerfReport) Reset() {
 	*x = CMsgGCCStrike15V2_ClientPerfReport{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[131]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[142]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -9965,7 +11408,7 @@ func (x *CMsgGCCStrike15V2_ClientPerfReport) String() string {
 func (*CMsgGCCStrike15V2_ClientPerfReport) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientPerfReport) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[131]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[142]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -9978,7 +11421,7 @@ func (x *CMsgGCCStrike15V2_ClientPerfReport) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientPerfReport.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientPerfReport) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{131}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{142}
 }
 
 func (x *CMsgGCCStrike15V2_ClientPerfReport) GetEntries() []*CMsgGCCStrike15V2_ClientPerfReport_Entry {
@@ -9986,6 +11429,74 @@ func (x *CMsgGCCStrike15V2_ClientPerfReport) GetEntries() []*CMsgGCCStrike15V2_C
 		return x.Entries
 	}
 	return nil
+}
+
+type CVDiagnostic struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            *uint32                `protobuf:"varint,1,opt,name=id" json:"id,omitempty"`
+	Extended      *uint32                `protobuf:"varint,2,opt,name=extended" json:"extended,omitempty"`
+	Value         *uint64                `protobuf:"varint,3,opt,name=value" json:"value,omitempty"`
+	StringValue   *string                `protobuf:"bytes,4,opt,name=string_value,json=stringValue" json:"string_value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CVDiagnostic) Reset() {
+	*x = CVDiagnostic{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[143]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CVDiagnostic) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CVDiagnostic) ProtoMessage() {}
+
+func (x *CVDiagnostic) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[143]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CVDiagnostic.ProtoReflect.Descriptor instead.
+func (*CVDiagnostic) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{143}
+}
+
+func (x *CVDiagnostic) GetId() uint32 {
+	if x != nil && x.Id != nil {
+		return *x.Id
+	}
+	return 0
+}
+
+func (x *CVDiagnostic) GetExtended() uint32 {
+	if x != nil && x.Extended != nil {
+		return *x.Extended
+	}
+	return 0
+}
+
+func (x *CVDiagnostic) GetValue() uint64 {
+	if x != nil && x.Value != nil {
+		return *x.Value
+	}
+	return 0
+}
+
+func (x *CVDiagnostic) GetStringValue() string {
+	if x != nil && x.StringValue != nil {
+		return *x.StringValue
+	}
+	return ""
 }
 
 type CMsgGCCStrike15V2_ClientReportValidation struct {
@@ -10009,13 +11520,14 @@ type CMsgGCCStrike15V2_ClientReportValidation struct {
 	ClientTime          *uint64                `protobuf:"varint,17,opt,name=client_time,json=clientTime" json:"client_time,omitempty"`
 	Diagnostic4         *uint64                `protobuf:"varint,18,opt,name=diagnostic4" json:"diagnostic4,omitempty"`
 	Diagnostic5         *uint64                `protobuf:"varint,19,opt,name=diagnostic5" json:"diagnostic5,omitempty"`
+	Diagnostics         []*CVDiagnostic        `protobuf:"bytes,20,rep,name=diagnostics" json:"diagnostics,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_ClientReportValidation) Reset() {
 	*x = CMsgGCCStrike15V2_ClientReportValidation{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[132]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[144]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10027,7 +11539,7 @@ func (x *CMsgGCCStrike15V2_ClientReportValidation) String() string {
 func (*CMsgGCCStrike15V2_ClientReportValidation) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientReportValidation) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[132]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[144]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10040,7 +11552,7 @@ func (x *CMsgGCCStrike15V2_ClientReportValidation) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientReportValidation.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientReportValidation) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{132}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{144}
 }
 
 func (x *CMsgGCCStrike15V2_ClientReportValidation) GetFileReport() string {
@@ -10176,22 +11688,31 @@ func (x *CMsgGCCStrike15V2_ClientReportValidation) GetDiagnostic5() uint64 {
 	return 0
 }
 
+func (x *CMsgGCCStrike15V2_ClientReportValidation) GetDiagnostics() []*CVDiagnostic {
+	if x != nil {
+		return x.Diagnostics
+	}
+	return nil
+}
+
 type CMsgGCCStrike15V2_GC2ClientRefuseSecureMode struct {
-	state                 protoimpl.MessageState `protogen:"open.v1"`
-	FileReport            *string                `protobuf:"bytes,1,opt,name=file_report,json=fileReport" json:"file_report,omitempty"`
-	OfferInsecureMode     *bool                  `protobuf:"varint,2,opt,name=offer_insecure_mode,json=offerInsecureMode" json:"offer_insecure_mode,omitempty"`
-	OfferSecureMode       *bool                  `protobuf:"varint,3,opt,name=offer_secure_mode,json=offerSecureMode" json:"offer_secure_mode,omitempty"`
-	ShowUnsignedUi        *bool                  `protobuf:"varint,4,opt,name=show_unsigned_ui,json=showUnsignedUi" json:"show_unsigned_ui,omitempty"`
-	KickUser              *bool                  `protobuf:"varint,5,opt,name=kick_user,json=kickUser" json:"kick_user,omitempty"`
-	ShowTrustedUi         *bool                  `protobuf:"varint,6,opt,name=show_trusted_ui,json=showTrustedUi" json:"show_trusted_ui,omitempty"`
-	ShowWarningNotTrusted *bool                  `protobuf:"varint,7,opt,name=show_warning_not_trusted,json=showWarningNotTrusted" json:"show_warning_not_trusted,omitempty"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"open.v1"`
+	FileReport              *string                `protobuf:"bytes,1,opt,name=file_report,json=fileReport" json:"file_report,omitempty"`
+	OfferInsecureMode       *bool                  `protobuf:"varint,2,opt,name=offer_insecure_mode,json=offerInsecureMode" json:"offer_insecure_mode,omitempty"`
+	OfferSecureMode         *bool                  `protobuf:"varint,3,opt,name=offer_secure_mode,json=offerSecureMode" json:"offer_secure_mode,omitempty"`
+	ShowUnsignedUi          *bool                  `protobuf:"varint,4,opt,name=show_unsigned_ui,json=showUnsignedUi" json:"show_unsigned_ui,omitempty"`
+	KickUser                *bool                  `protobuf:"varint,5,opt,name=kick_user,json=kickUser" json:"kick_user,omitempty"`
+	ShowTrustedUi           *bool                  `protobuf:"varint,6,opt,name=show_trusted_ui,json=showTrustedUi" json:"show_trusted_ui,omitempty"`
+	ShowWarningNotTrusted   *bool                  `protobuf:"varint,7,opt,name=show_warning_not_trusted,json=showWarningNotTrusted" json:"show_warning_not_trusted,omitempty"`
+	ShowWarningNotTrusted_2 *bool                  `protobuf:"varint,8,opt,name=show_warning_not_trusted_2,json=showWarningNotTrusted2" json:"show_warning_not_trusted_2,omitempty"`
+	FilesPreventedTrusted   *string                `protobuf:"bytes,9,opt,name=files_prevented_trusted,json=filesPreventedTrusted" json:"files_prevented_trusted,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) Reset() {
 	*x = CMsgGCCStrike15V2_GC2ClientRefuseSecureMode{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[133]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[145]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10203,7 +11724,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) String() string {
 func (*CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[133]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[145]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10216,7 +11737,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCStrike15V2_GC2ClientRefuseSecureMode.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{133}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{145}
 }
 
 func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) GetFileReport() string {
@@ -10268,6 +11789,20 @@ func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) GetShowWarningNotTrusted()
 	return false
 }
 
+func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) GetShowWarningNotTrusted_2() bool {
+	if x != nil && x.ShowWarningNotTrusted_2 != nil {
+		return *x.ShowWarningNotTrusted_2
+	}
+	return false
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientRefuseSecureMode) GetFilesPreventedTrusted() string {
+	if x != nil && x.FilesPreventedTrusted != nil {
+		return *x.FilesPreventedTrusted
+	}
+	return ""
+}
+
 type CMsgGCCStrike15V2_GC2ClientRequestValidation struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	FullReport    *bool                  `protobuf:"varint,1,opt,name=full_report,json=fullReport" json:"full_report,omitempty"`
@@ -10278,7 +11813,7 @@ type CMsgGCCStrike15V2_GC2ClientRequestValidation struct {
 
 func (x *CMsgGCCStrike15V2_GC2ClientRequestValidation) Reset() {
 	*x = CMsgGCCStrike15V2_GC2ClientRequestValidation{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[134]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[146]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10290,7 +11825,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientRequestValidation) String() string {
 func (*CMsgGCCStrike15V2_GC2ClientRequestValidation) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GC2ClientRequestValidation) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[134]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[146]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10303,7 +11838,7 @@ func (x *CMsgGCCStrike15V2_GC2ClientRequestValidation) ProtoReflect() protorefle
 
 // Deprecated: Use CMsgGCCStrike15V2_GC2ClientRequestValidation.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GC2ClientRequestValidation) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{134}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{146}
 }
 
 func (x *CMsgGCCStrike15V2_GC2ClientRequestValidation) GetFullReport() bool {
@@ -10320,6 +11855,339 @@ func (x *CMsgGCCStrike15V2_GC2ClientRequestValidation) GetModule() string {
 	return ""
 }
 
+type CMsgGCCStrike15V2_GC2ClientInitSystem struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Load          *bool                  `protobuf:"varint,1,opt,name=load" json:"load,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Outputname    *string                `protobuf:"bytes,3,opt,name=outputname" json:"outputname,omitempty"`
+	KeyData       []byte                 `protobuf:"bytes,4,opt,name=key_data,json=keyData" json:"key_data,omitempty"`
+	ShaHash       []byte                 `protobuf:"bytes,5,opt,name=sha_hash,json=shaHash" json:"sha_hash,omitempty"`
+	Cookie        *int32                 `protobuf:"varint,6,opt,name=cookie" json:"cookie,omitempty"`
+	Manifest      *string                `protobuf:"bytes,7,opt,name=manifest" json:"manifest,omitempty"`
+	SystemPackage []byte                 `protobuf:"bytes,8,opt,name=system_package,json=systemPackage" json:"system_package,omitempty"`
+	LoadSystem    *bool                  `protobuf:"varint,9,opt,name=load_system,json=loadSystem" json:"load_system,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) Reset() {
+	*x = CMsgGCCStrike15V2_GC2ClientInitSystem{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[147]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_GC2ClientInitSystem) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[147]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_GC2ClientInitSystem.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_GC2ClientInitSystem) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{147}
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetLoad() bool {
+	if x != nil && x.Load != nil {
+		return *x.Load
+	}
+	return false
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetOutputname() string {
+	if x != nil && x.Outputname != nil {
+		return *x.Outputname
+	}
+	return ""
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetKeyData() []byte {
+	if x != nil {
+		return x.KeyData
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetShaHash() []byte {
+	if x != nil {
+		return x.ShaHash
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetCookie() int32 {
+	if x != nil && x.Cookie != nil {
+		return *x.Cookie
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetManifest() string {
+	if x != nil && x.Manifest != nil {
+		return *x.Manifest
+	}
+	return ""
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetSystemPackage() []byte {
+	if x != nil {
+		return x.SystemPackage
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem) GetLoadSystem() bool {
+	if x != nil && x.LoadSystem != nil {
+		return *x.LoadSystem
+	}
+	return false
+}
+
+type CMsgGCCStrike15V2_GC2ClientInitSystem_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       *bool                  `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+	Diagnostic    *string                `protobuf:"bytes,2,opt,name=diagnostic" json:"diagnostic,omitempty"`
+	ShaHash       []byte                 `protobuf:"bytes,3,opt,name=sha_hash,json=shaHash" json:"sha_hash,omitempty"`
+	Response      *int32                 `protobuf:"varint,4,opt,name=response" json:"response,omitempty"`
+	ErrorCode1    *int32                 `protobuf:"varint,5,opt,name=error_code1,json=errorCode1" json:"error_code1,omitempty"`
+	ErrorCode2    *int32                 `protobuf:"varint,6,opt,name=error_code2,json=errorCode2" json:"error_code2,omitempty"`
+	Handle        *int64                 `protobuf:"varint,7,opt,name=handle" json:"handle,omitempty"`
+	EinitResult   *EInitSystemResult     `protobuf:"varint,8,opt,name=einit_result,json=einitResult,enum=EInitSystemResult,def=0" json:"einit_result,omitempty"`
+	AuxSystem1    *int32                 `protobuf:"varint,9,opt,name=aux_system1,json=auxSystem1" json:"aux_system1,omitempty"`
+	AuxSystem2    *int32                 `protobuf:"varint,10,opt,name=aux_system2,json=auxSystem2" json:"aux_system2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+// Default values for CMsgGCCStrike15V2_GC2ClientInitSystem_Response fields.
+const (
+	Default_CMsgGCCStrike15V2_GC2ClientInitSystem_Response_EinitResult = EInitSystemResult_k_EInitSystemResult_Invalid
+)
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) Reset() {
+	*x = CMsgGCCStrike15V2_GC2ClientInitSystem_Response{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[148]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_GC2ClientInitSystem_Response) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[148]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_GC2ClientInitSystem_Response.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_GC2ClientInitSystem_Response) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{148}
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetSuccess() bool {
+	if x != nil && x.Success != nil {
+		return *x.Success
+	}
+	return false
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetDiagnostic() string {
+	if x != nil && x.Diagnostic != nil {
+		return *x.Diagnostic
+	}
+	return ""
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetShaHash() []byte {
+	if x != nil {
+		return x.ShaHash
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetResponse() int32 {
+	if x != nil && x.Response != nil {
+		return *x.Response
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetErrorCode1() int32 {
+	if x != nil && x.ErrorCode1 != nil {
+		return *x.ErrorCode1
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetErrorCode2() int32 {
+	if x != nil && x.ErrorCode2 != nil {
+		return *x.ErrorCode2
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetHandle() int64 {
+	if x != nil && x.Handle != nil {
+		return *x.Handle
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetEinitResult() EInitSystemResult {
+	if x != nil && x.EinitResult != nil {
+		return *x.EinitResult
+	}
+	return Default_CMsgGCCStrike15V2_GC2ClientInitSystem_Response_EinitResult
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetAuxSystem1() int32 {
+	if x != nil && x.AuxSystem1 != nil {
+		return *x.AuxSystem1
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_GC2ClientInitSystem_Response) GetAuxSystem2() int32 {
+	if x != nil && x.AuxSystem2 != nil {
+		return *x.AuxSystem2
+	}
+	return 0
+}
+
+type CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName struct {
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	LeaderboardSafeName *string                `protobuf:"bytes,1,opt,name=leaderboard_safe_name,json=leaderboardSafeName" json:"leaderboard_safe_name,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName) Reset() {
+	*x = CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[149]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[149]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{149}
+}
+
+func (x *CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName) GetLeaderboardSafeName() string {
+	if x != nil && x.LeaderboardSafeName != nil {
+		return *x.LeaderboardSafeName
+	}
+	return ""
+}
+
+type PlayerRankingInfo_PerMapRank struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MapId         *uint32                `protobuf:"varint,1,opt,name=map_id,json=mapId" json:"map_id,omitempty"`
+	RankId        *uint32                `protobuf:"varint,2,opt,name=rank_id,json=rankId" json:"rank_id,omitempty"`
+	Wins          *uint32                `protobuf:"varint,3,opt,name=wins" json:"wins,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerRankingInfo_PerMapRank) Reset() {
+	*x = PlayerRankingInfo_PerMapRank{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[150]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerRankingInfo_PerMapRank) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerRankingInfo_PerMapRank) ProtoMessage() {}
+
+func (x *PlayerRankingInfo_PerMapRank) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[150]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerRankingInfo_PerMapRank.ProtoReflect.Descriptor instead.
+func (*PlayerRankingInfo_PerMapRank) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{11, 0}
+}
+
+func (x *PlayerRankingInfo_PerMapRank) GetMapId() uint32 {
+	if x != nil && x.MapId != nil {
+		return *x.MapId
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo_PerMapRank) GetRankId() uint32 {
+	if x != nil && x.RankId != nil {
+		return *x.RankId
+	}
+	return 0
+}
+
+func (x *PlayerRankingInfo_PerMapRank) GetWins() uint32 {
+	if x != nil && x.Wins != nil {
+		return *x.Wins
+	}
+	return 0
+}
+
 type ScoreLeaderboardData_Entry struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Tag           *uint32                `protobuf:"varint,1,opt,name=tag" json:"tag,omitempty"`
@@ -10330,7 +12198,7 @@ type ScoreLeaderboardData_Entry struct {
 
 func (x *ScoreLeaderboardData_Entry) Reset() {
 	*x = ScoreLeaderboardData_Entry{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[135]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[151]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10342,7 +12210,7 @@ func (x *ScoreLeaderboardData_Entry) String() string {
 func (*ScoreLeaderboardData_Entry) ProtoMessage() {}
 
 func (x *ScoreLeaderboardData_Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[135]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[151]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10355,7 +12223,7 @@ func (x *ScoreLeaderboardData_Entry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ScoreLeaderboardData_Entry.ProtoReflect.Descriptor instead.
 func (*ScoreLeaderboardData_Entry) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{20, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{21, 0}
 }
 
 func (x *ScoreLeaderboardData_Entry) GetTag() uint32 {
@@ -10382,7 +12250,7 @@ type ScoreLeaderboardData_AccountEntries struct {
 
 func (x *ScoreLeaderboardData_AccountEntries) Reset() {
 	*x = ScoreLeaderboardData_AccountEntries{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[136]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[152]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10394,7 +12262,7 @@ func (x *ScoreLeaderboardData_AccountEntries) String() string {
 func (*ScoreLeaderboardData_AccountEntries) ProtoMessage() {}
 
 func (x *ScoreLeaderboardData_AccountEntries) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[136]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[152]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10407,7 +12275,7 @@ func (x *ScoreLeaderboardData_AccountEntries) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use ScoreLeaderboardData_AccountEntries.ProtoReflect.Descriptor instead.
 func (*ScoreLeaderboardData_AccountEntries) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{20, 1}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{21, 1}
 }
 
 func (x *ScoreLeaderboardData_AccountEntries) GetAccountid() uint32 {
@@ -10435,7 +12303,7 @@ type PlayerQuestData_QuestItemData struct {
 
 func (x *PlayerQuestData_QuestItemData) Reset() {
 	*x = PlayerQuestData_QuestItemData{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[137]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[153]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10447,7 +12315,7 @@ func (x *PlayerQuestData_QuestItemData) String() string {
 func (*PlayerQuestData_QuestItemData) ProtoMessage() {}
 
 func (x *PlayerQuestData_QuestItemData) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[137]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[153]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10460,7 +12328,7 @@ func (x *PlayerQuestData_QuestItemData) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayerQuestData_QuestItemData.ProtoReflect.Descriptor instead.
 func (*PlayerQuestData_QuestItemData) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{21, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{22, 0}
 }
 
 func (x *PlayerQuestData_QuestItemData) GetQuestId() uint64 {
@@ -10484,74 +12352,6 @@ func (x *PlayerQuestData_QuestItemData) GetQuestBonusPointsEarned() int32 {
 	return 0
 }
 
-type CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Type          *int32                 `protobuf:"varint,1,opt,name=type" json:"type,omitempty"`
-	RegionId      *int32                 `protobuf:"varint,2,opt,name=region_id,json=regionId" json:"region_id,omitempty"`
-	RegionR       *float32               `protobuf:"fixed32,3,opt,name=region_r,json=regionR" json:"region_r,omitempty"`
-	Distance      *float32               `protobuf:"fixed32,4,opt,name=distance" json:"distance,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) Reset() {
-	*x = CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[138]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) ProtoMessage() {}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[138]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note.ProtoReflect.Descriptor instead.
-func (*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{29, 0}
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetType() int32 {
-	if x != nil && x.Type != nil {
-		return *x.Type
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetRegionId() int32 {
-	if x != nil && x.RegionId != nil {
-		return *x.RegionId
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetRegionR() float32 {
-	if x != nil && x.RegionR != nil {
-		return *x.RegionR
-	}
-	return 0
-}
-
-func (x *CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note) GetDistance() float32 {
-	if x != nil && x.Distance != nil {
-		return *x.Distance
-	}
-	return 0
-}
-
 type CDataGCCStrike15V2_TournamentMatchDraft_Entry struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Mapid         *int32                 `protobuf:"varint,1,opt,name=mapid" json:"mapid,omitempty"`
@@ -10562,7 +12362,7 @@ type CDataGCCStrike15V2_TournamentMatchDraft_Entry struct {
 
 func (x *CDataGCCStrike15V2_TournamentMatchDraft_Entry) Reset() {
 	*x = CDataGCCStrike15V2_TournamentMatchDraft_Entry{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[139]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[154]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10574,7 +12374,7 @@ func (x *CDataGCCStrike15V2_TournamentMatchDraft_Entry) String() string {
 func (*CDataGCCStrike15V2_TournamentMatchDraft_Entry) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_TournamentMatchDraft_Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[139]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[154]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10587,7 +12387,7 @@ func (x *CDataGCCStrike15V2_TournamentMatchDraft_Entry) ProtoReflect() protorefl
 
 // Deprecated: Use CDataGCCStrike15V2_TournamentMatchDraft_Entry.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_TournamentMatchDraft_Entry) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{30, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{33, 0}
 }
 
 func (x *CDataGCCStrike15V2_TournamentMatchDraft_Entry) GetMapid() int32 {
@@ -10615,7 +12415,7 @@ type CPreMatchInfoData_TeamStats struct {
 
 func (x *CPreMatchInfoData_TeamStats) Reset() {
 	*x = CPreMatchInfoData_TeamStats{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[140]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[155]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10627,7 +12427,7 @@ func (x *CPreMatchInfoData_TeamStats) String() string {
 func (*CPreMatchInfoData_TeamStats) ProtoMessage() {}
 
 func (x *CPreMatchInfoData_TeamStats) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[140]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[155]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10640,7 +12440,7 @@ func (x *CPreMatchInfoData_TeamStats) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CPreMatchInfoData_TeamStats.ProtoReflect.Descriptor instead.
 func (*CPreMatchInfoData_TeamStats) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{31, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{34, 0}
 }
 
 func (x *CPreMatchInfoData_TeamStats) GetMatchInfoIdxtxt() int32 {
@@ -10673,7 +12473,7 @@ type CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo struct {
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo) Reset() {
 	*x = CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[141]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[156]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10685,7 +12485,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo) String() string
 func (*CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[141]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[156]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10698,7 +12498,7 @@ func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo) ProtoReflect() 
 
 // Deprecated: Use CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{35, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{38, 0}
 }
 
 func (x *CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo) GetAccountMvp() uint32 {
@@ -10718,7 +12518,7 @@ type CMsgGCCStrike15V2_AccountPrivacySettings_Setting struct {
 
 func (x *CMsgGCCStrike15V2_AccountPrivacySettings_Setting) Reset() {
 	*x = CMsgGCCStrike15V2_AccountPrivacySettings_Setting{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[142]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[157]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10730,7 +12530,7 @@ func (x *CMsgGCCStrike15V2_AccountPrivacySettings_Setting) String() string {
 func (*CMsgGCCStrike15V2_AccountPrivacySettings_Setting) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_AccountPrivacySettings_Setting) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[142]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[157]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10743,7 +12543,7 @@ func (x *CMsgGCCStrike15V2_AccountPrivacySettings_Setting) ProtoReflect() protor
 
 // Deprecated: Use CMsgGCCStrike15V2_AccountPrivacySettings_Setting.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_AccountPrivacySettings_Setting) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{40, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{41, 0}
 }
 
 func (x *CMsgGCCStrike15V2_AccountPrivacySettings_Setting) GetSettingType() uint32 {
@@ -10760,6 +12560,318 @@ func (x *CMsgGCCStrike15V2_AccountPrivacySettings_Setting) GetSettingValue() uin
 	return 0
 }
 
+type CMsgGCCStrike15_ClientDeepStats_DeepStatsRange struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Begin         *uint32                `protobuf:"varint,1,opt,name=begin" json:"begin,omitempty"`
+	End           *uint32                `protobuf:"varint,2,opt,name=end" json:"end,omitempty"`
+	Frozen        *bool                  `protobuf:"varint,3,opt,name=frozen" json:"frozen,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) Reset() {
+	*x = CMsgGCCStrike15_ClientDeepStats_DeepStatsRange{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[158]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[158]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15_ClientDeepStats_DeepStatsRange.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{59, 0}
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) GetBegin() uint32 {
+	if x != nil && x.Begin != nil {
+		return *x.Begin
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) GetEnd() uint32 {
+	if x != nil && x.End != nil {
+		return *x.End
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsRange) GetFrozen() bool {
+	if x != nil && x.Frozen != nil {
+		return *x.Frozen
+	}
+	return false
+}
+
+type CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch struct {
+	state         protoimpl.MessageState  `protogen:"open.v1"`
+	Player        *DeepPlayerStatsEntry   `protobuf:"bytes,1,opt,name=player" json:"player,omitempty"`
+	Events        []*DeepPlayerMatchEvent `protobuf:"bytes,2,rep,name=events" json:"events,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch) Reset() {
+	*x = CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[159]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[159]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{59, 1}
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch) GetPlayer() *DeepPlayerStatsEntry {
+	if x != nil {
+		return x.Player
+	}
+	return nil
+}
+
+func (x *CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch) GetEvents() []*DeepPlayerMatchEvent {
+	if x != nil {
+		return x.Events
+	}
+	return nil
+}
+
+type CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	WeekId        *uint64                `protobuf:"varint,1,opt,name=week_id,json=weekId" json:"week_id,omitempty"`
+	RankId        *uint32                `protobuf:"varint,2,opt,name=rank_id,json=rankId" json:"rank_id,omitempty"`
+	MatchesPlayed *uint32                `protobuf:"varint,3,opt,name=matches_played,json=matchesPlayed" json:"matches_played,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) Reset() {
+	*x = CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[160]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[160]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{63, 0}
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) GetWeekId() uint64 {
+	if x != nil && x.WeekId != nil {
+		return *x.WeekId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) GetRankId() uint32 {
+	if x != nil && x.RankId != nil {
+		return *x.RankId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek) GetMatchesPlayed() uint32 {
+	if x != nil && x.MatchesPlayed != nil {
+		return *x.MatchesPlayed
+	}
+	return 0
+}
+
+type CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MapId         *uint32                `protobuf:"varint,1,opt,name=map_id,json=mapId" json:"map_id,omitempty"`
+	Wins          *uint32                `protobuf:"varint,2,opt,name=wins" json:"wins,omitempty"`
+	Ties          *uint32                `protobuf:"varint,3,opt,name=ties" json:"ties,omitempty"`
+	Losses        *uint32                `protobuf:"varint,4,opt,name=losses" json:"losses,omitempty"`
+	Rounds        *uint32                `protobuf:"varint,5,opt,name=rounds" json:"rounds,omitempty"`
+	Kills         *uint32                `protobuf:"varint,6,opt,name=kills" json:"kills,omitempty"`
+	Headshots     *uint32                `protobuf:"varint,7,opt,name=headshots" json:"headshots,omitempty"`
+	Assists       *uint32                `protobuf:"varint,8,opt,name=assists" json:"assists,omitempty"`
+	Deaths        *uint32                `protobuf:"varint,9,opt,name=deaths" json:"deaths,omitempty"`
+	Mvps          *uint32                `protobuf:"varint,10,opt,name=mvps" json:"mvps,omitempty"`
+	Rounds_3K     *uint32                `protobuf:"varint,11,opt,name=rounds_3k,json=rounds3k" json:"rounds_3k,omitempty"`
+	Rounds_4K     *uint32                `protobuf:"varint,12,opt,name=rounds_4k,json=rounds4k" json:"rounds_4k,omitempty"`
+	Rounds_5K     *uint32                `protobuf:"varint,13,opt,name=rounds_5k,json=rounds5k" json:"rounds_5k,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) Reset() {
+	*x = CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[161]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) ProtoMessage() {}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[161]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap.ProtoReflect.Descriptor instead.
+func (*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{63, 1}
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetMapId() uint32 {
+	if x != nil && x.MapId != nil {
+		return *x.MapId
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetWins() uint32 {
+	if x != nil && x.Wins != nil {
+		return *x.Wins
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetTies() uint32 {
+	if x != nil && x.Ties != nil {
+		return *x.Ties
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetLosses() uint32 {
+	if x != nil && x.Losses != nil {
+		return *x.Losses
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetRounds() uint32 {
+	if x != nil && x.Rounds != nil {
+		return *x.Rounds
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetKills() uint32 {
+	if x != nil && x.Kills != nil {
+		return *x.Kills
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetHeadshots() uint32 {
+	if x != nil && x.Headshots != nil {
+		return *x.Headshots
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetAssists() uint32 {
+	if x != nil && x.Assists != nil {
+		return *x.Assists
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetDeaths() uint32 {
+	if x != nil && x.Deaths != nil {
+		return *x.Deaths
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetMvps() uint32 {
+	if x != nil && x.Mvps != nil {
+		return *x.Mvps
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetRounds_3K() uint32 {
+	if x != nil && x.Rounds_3K != nil {
+		return *x.Rounds_3K
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetRounds_4K() uint32 {
+	if x != nil && x.Rounds_4K != nil {
+		return *x.Rounds_4K
+	}
+	return 0
+}
+
+func (x *CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap) GetRounds_5K() uint32 {
+	if x != nil && x.Rounds_5K != nil {
+		return *x.Rounds_5K
+	}
+	return 0
+}
+
 type CEconItemPreviewDataBlock_Sticker struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Slot          *uint32                `protobuf:"varint,1,opt,name=slot" json:"slot,omitempty"`
@@ -10768,13 +12880,17 @@ type CEconItemPreviewDataBlock_Sticker struct {
 	Scale         *float32               `protobuf:"fixed32,4,opt,name=scale" json:"scale,omitempty"`
 	Rotation      *float32               `protobuf:"fixed32,5,opt,name=rotation" json:"rotation,omitempty"`
 	TintId        *uint32                `protobuf:"varint,6,opt,name=tint_id,json=tintId" json:"tint_id,omitempty"`
+	OffsetX       *float32               `protobuf:"fixed32,7,opt,name=offset_x,json=offsetX" json:"offset_x,omitempty"`
+	OffsetY       *float32               `protobuf:"fixed32,8,opt,name=offset_y,json=offsetY" json:"offset_y,omitempty"`
+	OffsetZ       *float32               `protobuf:"fixed32,9,opt,name=offset_z,json=offsetZ" json:"offset_z,omitempty"`
+	Pattern       *uint32                `protobuf:"varint,10,opt,name=pattern" json:"pattern,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CEconItemPreviewDataBlock_Sticker) Reset() {
 	*x = CEconItemPreviewDataBlock_Sticker{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[143]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[162]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10786,7 +12902,7 @@ func (x *CEconItemPreviewDataBlock_Sticker) String() string {
 func (*CEconItemPreviewDataBlock_Sticker) ProtoMessage() {}
 
 func (x *CEconItemPreviewDataBlock_Sticker) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[143]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[162]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10799,7 +12915,7 @@ func (x *CEconItemPreviewDataBlock_Sticker) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CEconItemPreviewDataBlock_Sticker.ProtoReflect.Descriptor instead.
 func (*CEconItemPreviewDataBlock_Sticker) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{67, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{71, 0}
 }
 
 func (x *CEconItemPreviewDataBlock_Sticker) GetSlot() uint32 {
@@ -10844,6 +12960,34 @@ func (x *CEconItemPreviewDataBlock_Sticker) GetTintId() uint32 {
 	return 0
 }
 
+func (x *CEconItemPreviewDataBlock_Sticker) GetOffsetX() float32 {
+	if x != nil && x.OffsetX != nil {
+		return *x.OffsetX
+	}
+	return 0
+}
+
+func (x *CEconItemPreviewDataBlock_Sticker) GetOffsetY() float32 {
+	if x != nil && x.OffsetY != nil {
+		return *x.OffsetY
+	}
+	return 0
+}
+
+func (x *CEconItemPreviewDataBlock_Sticker) GetOffsetZ() float32 {
+	if x != nil && x.OffsetZ != nil {
+		return *x.OffsetZ
+	}
+	return 0
+}
+
+func (x *CEconItemPreviewDataBlock_Sticker) GetPattern() uint32 {
+	if x != nil && x.Pattern != nil {
+		return *x.Pattern
+	}
+	return 0
+}
+
 type CDataGCCStrike15V2_TournamentGroup_Picks struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Pickids       []int32                `protobuf:"varint,1,rep,name=pickids" json:"pickids,omitempty"`
@@ -10853,7 +12997,7 @@ type CDataGCCStrike15V2_TournamentGroup_Picks struct {
 
 func (x *CDataGCCStrike15V2_TournamentGroup_Picks) Reset() {
 	*x = CDataGCCStrike15V2_TournamentGroup_Picks{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[144]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[163]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10865,7 +13009,7 @@ func (x *CDataGCCStrike15V2_TournamentGroup_Picks) String() string {
 func (*CDataGCCStrike15V2_TournamentGroup_Picks) ProtoMessage() {}
 
 func (x *CDataGCCStrike15V2_TournamentGroup_Picks) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[144]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[163]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10878,7 +13022,7 @@ func (x *CDataGCCStrike15V2_TournamentGroup_Picks) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CDataGCCStrike15V2_TournamentGroup_Picks.ProtoReflect.Descriptor instead.
 func (*CDataGCCStrike15V2_TournamentGroup_Picks) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{80, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{83, 0}
 }
 
 func (x *CDataGCCStrike15V2_TournamentGroup_Picks) GetPickids() []int32 {
@@ -10901,7 +13045,7 @@ type CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick struct {
 
 func (x *CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick) Reset() {
 	*x = CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[145]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[164]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10913,7 +13057,7 @@ func (x *CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick) String() string {
 func (*CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[145]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[164]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -10926,7 +13070,7 @@ func (x *CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick) ProtoReflect() protor
 
 // Deprecated: Use CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{84, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{88, 0}
 }
 
 func (x *CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick) GetSectionid() int32 {
@@ -10975,7 +13119,7 @@ type CMsgGCCStrike15V2_Fantasy_FantasySlot struct {
 
 func (x *CMsgGCCStrike15V2_Fantasy_FantasySlot) Reset() {
 	*x = CMsgGCCStrike15V2_Fantasy_FantasySlot{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[146]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[165]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -10987,7 +13131,7 @@ func (x *CMsgGCCStrike15V2_Fantasy_FantasySlot) String() string {
 func (*CMsgGCCStrike15V2_Fantasy_FantasySlot) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Fantasy_FantasySlot) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[146]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[165]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11000,7 +13144,7 @@ func (x *CMsgGCCStrike15V2_Fantasy_FantasySlot) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgGCCStrike15V2_Fantasy_FantasySlot.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Fantasy_FantasySlot) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{85, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{89, 0}
 }
 
 func (x *CMsgGCCStrike15V2_Fantasy_FantasySlot) GetType() int32 {
@@ -11034,7 +13178,7 @@ type CMsgGCCStrike15V2_Fantasy_FantasyTeam struct {
 
 func (x *CMsgGCCStrike15V2_Fantasy_FantasyTeam) Reset() {
 	*x = CMsgGCCStrike15V2_Fantasy_FantasyTeam{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[147]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[166]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11046,7 +13190,7 @@ func (x *CMsgGCCStrike15V2_Fantasy_FantasyTeam) String() string {
 func (*CMsgGCCStrike15V2_Fantasy_FantasyTeam) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Fantasy_FantasyTeam) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[147]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[166]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11059,7 +13203,7 @@ func (x *CMsgGCCStrike15V2_Fantasy_FantasyTeam) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CMsgGCCStrike15V2_Fantasy_FantasyTeam.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Fantasy_FantasyTeam) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{85, 1}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{89, 1}
 }
 
 func (x *CMsgGCCStrike15V2_Fantasy_FantasyTeam) GetSectionid() int32 {
@@ -11076,6 +13220,66 @@ func (x *CMsgGCCStrike15V2_Fantasy_FantasyTeam) GetSlots() []*CMsgGCCStrike15V2_
 	return nil
 }
 
+type CMsgLegacySource1ClientWelcome_Location struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Latitude      *float32               `protobuf:"fixed32,1,opt,name=latitude" json:"latitude,omitempty"`
+	Longitude     *float32               `protobuf:"fixed32,2,opt,name=longitude" json:"longitude,omitempty"`
+	Country       *string                `protobuf:"bytes,3,opt,name=country" json:"country,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CMsgLegacySource1ClientWelcome_Location) Reset() {
+	*x = CMsgLegacySource1ClientWelcome_Location{}
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[167]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CMsgLegacySource1ClientWelcome_Location) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CMsgLegacySource1ClientWelcome_Location) ProtoMessage() {}
+
+func (x *CMsgLegacySource1ClientWelcome_Location) ProtoReflect() protoreflect.Message {
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[167]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CMsgLegacySource1ClientWelcome_Location.ProtoReflect.Descriptor instead.
+func (*CMsgLegacySource1ClientWelcome_Location) Descriptor() ([]byte, []int) {
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{91, 0}
+}
+
+func (x *CMsgLegacySource1ClientWelcome_Location) GetLatitude() float32 {
+	if x != nil && x.Latitude != nil {
+		return *x.Latitude
+	}
+	return 0
+}
+
+func (x *CMsgLegacySource1ClientWelcome_Location) GetLongitude() float32 {
+	if x != nil && x.Longitude != nil {
+		return *x.Longitude
+	}
+	return 0
+}
+
+func (x *CMsgLegacySource1ClientWelcome_Location) GetCountry() string {
+	if x != nil && x.Country != nil {
+		return *x.Country
+	}
+	return ""
+}
+
 type CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Accountid     *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
@@ -11086,7 +13290,7 @@ type CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry struct {
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry) Reset() {
 	*x = CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[148]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[168]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11098,7 +13302,7 @@ func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry) String
 func (*CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[148]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[168]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11111,7 +13315,7 @@ func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry) ProtoR
 
 // Deprecated: Use CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{92, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{96, 0}
 }
 
 func (x *CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry) GetAccountid() uint32 {
@@ -11136,13 +13340,14 @@ type CMsgGCCStrike15V2_Party_SearchResults_Entry struct {
 	Apr           *uint32                `protobuf:"varint,4,opt,name=apr" json:"apr,omitempty"`
 	Ark           *uint32                `protobuf:"varint,5,opt,name=ark" json:"ark,omitempty"`
 	Loc           *uint32                `protobuf:"varint,6,opt,name=loc" json:"loc,omitempty"`
+	Accountid     *uint32                `protobuf:"varint,7,opt,name=accountid" json:"accountid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CMsgGCCStrike15V2_Party_SearchResults_Entry) Reset() {
 	*x = CMsgGCCStrike15V2_Party_SearchResults_Entry{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[149]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[169]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11154,7 +13359,7 @@ func (x *CMsgGCCStrike15V2_Party_SearchResults_Entry) String() string {
 func (*CMsgGCCStrike15V2_Party_SearchResults_Entry) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Party_SearchResults_Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[149]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[169]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11167,7 +13372,7 @@ func (x *CMsgGCCStrike15V2_Party_SearchResults_Entry) ProtoReflect() protoreflec
 
 // Deprecated: Use CMsgGCCStrike15V2_Party_SearchResults_Entry.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Party_SearchResults_Entry) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{118, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{129, 0}
 }
 
 func (x *CMsgGCCStrike15V2_Party_SearchResults_Entry) GetId() uint32 {
@@ -11212,6 +13417,13 @@ func (x *CMsgGCCStrike15V2_Party_SearchResults_Entry) GetLoc() uint32 {
 	return 0
 }
 
+func (x *CMsgGCCStrike15V2_Party_SearchResults_Entry) GetAccountid() uint32 {
+	if x != nil && x.Accountid != nil {
+		return *x.Accountid
+	}
+	return 0
+}
+
 type CMsgGCCStrike15V2_Account_RequestCoPlays_Player struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Accountid     *uint32                `protobuf:"varint,1,opt,name=accountid" json:"accountid,omitempty"`
@@ -11223,7 +13435,7 @@ type CMsgGCCStrike15V2_Account_RequestCoPlays_Player struct {
 
 func (x *CMsgGCCStrike15V2_Account_RequestCoPlays_Player) Reset() {
 	*x = CMsgGCCStrike15V2_Account_RequestCoPlays_Player{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[150]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[170]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11235,7 +13447,7 @@ func (x *CMsgGCCStrike15V2_Account_RequestCoPlays_Player) String() string {
 func (*CMsgGCCStrike15V2_Account_RequestCoPlays_Player) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_Account_RequestCoPlays_Player) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[150]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[170]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11248,7 +13460,7 @@ func (x *CMsgGCCStrike15V2_Account_RequestCoPlays_Player) ProtoReflect() protore
 
 // Deprecated: Use CMsgGCCStrike15V2_Account_RequestCoPlays_Player.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_Account_RequestCoPlays_Player) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{120, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{131, 0}
 }
 
 func (x *CMsgGCCStrike15V2_Account_RequestCoPlays_Player) GetAccountid() uint32 {
@@ -11282,7 +13494,7 @@ type CMsgGCCStrike15V2_ClientPartyWarning_Entry struct {
 
 func (x *CMsgGCCStrike15V2_ClientPartyWarning_Entry) Reset() {
 	*x = CMsgGCCStrike15V2_ClientPartyWarning_Entry{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[151]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[171]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11294,7 +13506,7 @@ func (x *CMsgGCCStrike15V2_ClientPartyWarning_Entry) String() string {
 func (*CMsgGCCStrike15V2_ClientPartyWarning_Entry) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientPartyWarning_Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[151]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[171]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11307,7 +13519,7 @@ func (x *CMsgGCCStrike15V2_ClientPartyWarning_Entry) ProtoReflect() protoreflect
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientPartyWarning_Entry.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientPartyWarning_Entry) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{127, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{138, 0}
 }
 
 func (x *CMsgGCCStrike15V2_ClientPartyWarning_Entry) GetAccountid() uint32 {
@@ -11338,7 +13550,7 @@ type CMsgGCCStrike15V2_ClientPerfReport_Entry struct {
 
 func (x *CMsgGCCStrike15V2_ClientPerfReport_Entry) Reset() {
 	*x = CMsgGCCStrike15V2_ClientPerfReport_Entry{}
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[152]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[172]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -11350,7 +13562,7 @@ func (x *CMsgGCCStrike15V2_ClientPerfReport_Entry) String() string {
 func (*CMsgGCCStrike15V2_ClientPerfReport_Entry) ProtoMessage() {}
 
 func (x *CMsgGCCStrike15V2_ClientPerfReport_Entry) ProtoReflect() protoreflect.Message {
-	mi := &file_cstrike15_gcmessages_proto_msgTypes[152]
+	mi := &file_cstrike15_gcmessages_proto_msgTypes[172]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -11363,7 +13575,7 @@ func (x *CMsgGCCStrike15V2_ClientPerfReport_Entry) ProtoReflect() protoreflect.M
 
 // Deprecated: Use CMsgGCCStrike15V2_ClientPerfReport_Entry.ProtoReflect.Descriptor instead.
 func (*CMsgGCCStrike15V2_ClientPerfReport_Entry) Descriptor() ([]byte, []int) {
-	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{131, 0}
+	return file_cstrike15_gcmessages_proto_rawDescGZIP(), []int{142, 0}
 }
 
 func (x *CMsgGCCStrike15V2_ClientPerfReport_Entry) GetPerfcounter() uint32 {
@@ -11412,7 +13624,7 @@ var File_cstrike15_gcmessages_proto protoreflect.FileDescriptor
 
 const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\n" +
-	"\x1acstrike15_gcmessages.proto\x1a\x13steammessages.proto\x1a\x17engine_gcmessages.proto\"R\n" +
+	"\x1acstrike15_gcmessages.proto\x1a\x13steammessages.proto\x1a\x17engine_gcmessages.proto\x1a\x16gcsdk_gcmessages.proto\"R\n" +
 	"\x0eGameServerPing\x12\x12\n" +
 	"\x04ping\x18\x02 \x01(\x05R\x04ping\x12\x0e\n" +
 	"\x02ip\x18\x03 \x01(\rR\x02ip\x12\x1c\n" +
@@ -11454,7 +13666,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\fevent_public\x18\x06 \x01(\x05R\veventPublic\x12$\n" +
 	"\x0eevent_stage_id\x18\a \x01(\x05R\feventStageId\x12(\n" +
 	"\x10event_stage_name\x18\b \x01(\tR\x0eeventStageName\x12*\n" +
-	"\x11active_section_id\x18\t \x01(\rR\x0factiveSectionId\"\xc8\x05\n" +
+	"\x11active_section_id\x18\t \x01(\rR\x0factiveSectionId\"\x80\x06\n" +
 	"\x10GlobalStatistics\x12%\n" +
 	"\x0eplayers_online\x18\x01 \x01(\rR\rplayersOnline\x12%\n" +
 	"\x0eservers_online\x18\x02 \x01(\rR\rserversOnline\x12+\n" +
@@ -11472,7 +13684,8 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x10active_survey_id\x18\r \x01(\rR\x0eactiveSurveyId\x12\x1f\n" +
 	"\vrtime32_cur\x18\x0e \x01(\rR\n" +
 	"rtime32Cur\x12.\n" +
-	"\x13rtime32_event_start\x18\x0f \x01(\rR\x11rtime32EventStart\"K\n" +
+	"\x13rtime32_event_start\x18\x0f \x01(\rR\x11rtime32EventStart\x126\n" +
+	"\x17required_appid_version2\x18\x10 \x01(\rR\x15requiredAppidVersion2\"K\n" +
 	"\x1fOperationalStatisticDescription\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05idkey\x18\x02 \x01(\rR\x05idkey\"K\n" +
@@ -11482,7 +13695,12 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x1bOperationalStatisticsPacket\x12\x1a\n" +
 	"\bpacketid\x18\x01 \x01(\x05R\bpacketid\x12 \n" +
 	"\vmstimestamp\x18\x02 \x01(\x05R\vmstimestamp\x124\n" +
-	"\x06values\x18\x03 \x03(\v2\x1c.OperationalStatisticElementR\x06values\"\xa2\x01\n" +
+	"\x06values\x18\x03 \x03(\v2\x1c.OperationalStatisticElementR\x06values\"q\n" +
+	"\x13OperationalVarValue\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n" +
+	"\x06ivalue\x18\x02 \x01(\x05R\x06ivalue\x12\x16\n" +
+	"\x06fvalue\x18\x03 \x01(\x02R\x06fvalue\x12\x16\n" +
+	"\x06svalue\x18\x04 \x01(\fR\x06svalue\"\x89\x05\n" +
 	"\x11PlayerRankingInfo\x12\x1d\n" +
 	"\n" +
 	"account_id\x18\x01 \x01(\rR\taccountId\x12\x17\n" +
@@ -11491,7 +13709,27 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\vrank_change\x18\x04 \x01(\x02R\n" +
 	"rankChange\x12 \n" +
 	"\frank_type_id\x18\x06 \x01(\rR\n" +
-	"rankTypeId\"}\n" +
+	"rankTypeId\x12\x1d\n" +
+	"\n" +
+	"tv_control\x18\a \x01(\rR\ttvControl\x12*\n" +
+	"\x11rank_window_stats\x18\b \x01(\x04R\x0frankWindowStats\x12)\n" +
+	"\x10leaderboard_name\x18\t \x01(\tR\x0fleaderboardName\x12\x1e\n" +
+	"\vrank_if_win\x18\n" +
+	" \x01(\rR\trankIfWin\x12 \n" +
+	"\frank_if_lose\x18\v \x01(\rR\n" +
+	"rankIfLose\x12\x1e\n" +
+	"\vrank_if_tie\x18\f \x01(\rR\trankIfTie\x12?\n" +
+	"\fper_map_rank\x18\r \x03(\v2\x1d.PlayerRankingInfo.PerMapRankR\n" +
+	"perMapRank\x126\n" +
+	"\x17leaderboard_name_status\x18\x0e \x01(\rR\x15leaderboardNameStatus\x12!\n" +
+	"\fhighest_rank\x18\x0f \x01(\rR\vhighestRank\x12\x1f\n" +
+	"\vrank_expiry\x18\x10 \x01(\rR\n" +
+	"rankExpiry\x1aP\n" +
+	"\n" +
+	"PerMapRank\x12\x15\n" +
+	"\x06map_id\x18\x01 \x01(\rR\x05mapId\x12\x17\n" +
+	"\arank_id\x18\x02 \x01(\rR\x06rankId\x12\x12\n" +
+	"\x04wins\x18\x03 \x01(\rR\x04wins\"}\n" +
 	"\x16PlayerCommendationInfo\x12!\n" +
 	"\fcmd_friendly\x18\x01 \x01(\rR\vcmdFriendly\x12!\n" +
 	"\fcmd_teaching\x18\x02 \x01(\rR\vcmdTeaching\x12\x1d\n" +
@@ -11554,12 +13792,13 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x13MatchEndItemUpdates\x12\x17\n" +
 	"\aitem_id\x18\x01 \x01(\x04R\x06itemId\x12(\n" +
 	"\x10item_attr_defidx\x18\x02 \x01(\rR\x0eitemAttrDefidx\x121\n" +
-	"\x15item_attr_delta_value\x18\x03 \x01(\rR\x12itemAttrDeltaValue\"\xea\x02\n" +
+	"\x15item_attr_delta_value\x18\x03 \x01(\rR\x12itemAttrDeltaValue\"\x95\x03\n" +
 	"\x14ScoreLeaderboardData\x12\x19\n" +
 	"\bquest_id\x18\x01 \x01(\x04R\aquestId\x12\x14\n" +
 	"\x05score\x18\x02 \x01(\rR\x05score\x12L\n" +
 	"\x0eaccountentries\x18\x03 \x03(\v2$.ScoreLeaderboardData.AccountEntriesR\x0eaccountentries\x12?\n" +
-	"\fmatchentries\x18\x05 \x03(\v2\x1b.ScoreLeaderboardData.EntryR\fmatchentries\x1a+\n" +
+	"\fmatchentries\x18\x05 \x03(\v2\x1b.ScoreLeaderboardData.EntryR\fmatchentries\x12)\n" +
+	"\x10leaderboard_name\x18\x06 \x01(\tR\x0fleaderboardName\x1a+\n" +
 	"\x05Entry\x12\x10\n" +
 	"\x03tag\x18\x01 \x01(\rR\x03tag\x12\x10\n" +
 	"\x03val\x18\x02 \x01(\rR\x03val\x1ae\n" +
@@ -11580,25 +13819,82 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\rQuestItemData\x12\x19\n" +
 	"\bquest_id\x18\x01 \x01(\x04R\aquestId\x12;\n" +
 	"\x1aquest_normal_points_earned\x18\x02 \x01(\x05R\x17questNormalPointsEarned\x129\n" +
-	"\x19quest_bonus_points_earned\x18\x03 \x01(\x05R\x16questBonusPointsEarned\"\xde\x01\n" +
+	"\x19quest_bonus_points_earned\x18\x03 \x01(\x05R\x16questBonusPointsEarned\"\x95\b\n" +
+	"\x14DeepPlayerStatsEntry\x12\x1c\n" +
+	"\taccountid\x18\x01 \x01(\rR\taccountid\x12\x19\n" +
+	"\bmatch_id\x18\x02 \x01(\x04R\amatchId\x12 \n" +
+	"\fmm_game_mode\x18\x03 \x01(\rR\n" +
+	"mmGameMode\x12\x14\n" +
+	"\x05mapid\x18\x04 \x01(\rR\x05mapid\x12\"\n" +
+	"\rb_starting_ct\x18\x05 \x01(\bR\vbStartingCt\x12#\n" +
+	"\rmatch_outcome\x18\x06 \x01(\rR\fmatchOutcome\x12\x1d\n" +
+	"\n" +
+	"rounds_won\x18\a \x01(\rR\troundsWon\x12\x1f\n" +
+	"\vrounds_lost\x18\b \x01(\rR\n" +
+	"roundsLost\x12\x1d\n" +
+	"\n" +
+	"stat_score\x18\t \x01(\rR\tstatScore\x12\x1f\n" +
+	"\vstat_deaths\x18\f \x01(\rR\n" +
+	"statDeaths\x12\x1b\n" +
+	"\tstat_mvps\x18\r \x01(\rR\bstatMvps\x12\x1f\n" +
+	"\venemy_kills\x18\x0e \x01(\rR\n" +
+	"enemyKills\x12'\n" +
+	"\x0fenemy_headshots\x18\x0f \x01(\rR\x0eenemyHeadshots\x12\x1b\n" +
+	"\tenemy_2ks\x18\x10 \x01(\rR\benemy2ks\x12\x1b\n" +
+	"\tenemy_3ks\x18\x11 \x01(\rR\benemy3ks\x12\x1b\n" +
+	"\tenemy_4ks\x18\x12 \x01(\rR\benemy4ks\x12!\n" +
+	"\ftotal_damage\x18\x13 \x01(\rR\vtotalDamage\x126\n" +
+	"\x17engagements_entry_count\x18\x17 \x01(\rR\x15engagementsEntryCount\x124\n" +
+	"\x16engagements_entry_wins\x18\x18 \x01(\rR\x14engagementsEntryWins\x122\n" +
+	"\x15engagements_1v1_count\x18\x19 \x01(\rR\x13engagements1v1Count\x120\n" +
+	"\x14engagements_1v1_wins\x18\x1a \x01(\rR\x12engagements1v1Wins\x122\n" +
+	"\x15engagements_1v2_count\x18\x1b \x01(\rR\x13engagements1v2Count\x120\n" +
+	"\x14engagements_1v2_wins\x18\x1c \x01(\rR\x12engagements1v2Wins\x12#\n" +
+	"\rutility_count\x18\x1d \x01(\rR\futilityCount\x12'\n" +
+	"\x0futility_success\x18\x1e \x01(\rR\x0eutilitySuccess\x12\x1f\n" +
+	"\vflash_count\x18  \x01(\rR\n" +
+	"flashCount\x12#\n" +
+	"\rflash_success\x18! \x01(\rR\fflashSuccess\x12\x14\n" +
+	"\x05mates\x18\" \x03(\rR\x05mates\"\xc8\x03\n" +
+	"\x14DeepPlayerMatchEvent\x12\x1c\n" +
+	"\taccountid\x18\x01 \x01(\rR\taccountid\x12\x19\n" +
+	"\bmatch_id\x18\x02 \x01(\x04R\amatchId\x12\x19\n" +
+	"\bevent_id\x18\x03 \x01(\rR\aeventId\x12\x1d\n" +
+	"\n" +
+	"event_type\x18\x04 \x01(\rR\teventType\x12 \n" +
+	"\fb_playing_ct\x18\x05 \x01(\bR\n" +
+	"bPlayingCt\x12\x1c\n" +
+	"\n" +
+	"user_pos_x\x18\x06 \x01(\x05R\buserPosX\x12\x1c\n" +
+	"\n" +
+	"user_pos_y\x18\a \x01(\x05R\buserPosY\x12\x1c\n" +
+	"\n" +
+	"user_pos_z\x18\f \x01(\x05R\buserPosZ\x12\x1f\n" +
+	"\vuser_defidx\x18\b \x01(\rR\n" +
+	"userDefidx\x12\x1e\n" +
+	"\vother_pos_x\x18\t \x01(\x05R\totherPosX\x12\x1e\n" +
+	"\vother_pos_y\x18\n" +
+	" \x01(\x05R\totherPosY\x12\x1e\n" +
+	"\vother_pos_z\x18\r \x01(\x05R\totherPosZ\x12!\n" +
+	"\fother_defidx\x18\v \x01(\rR\votherDefidx\x12\x1d\n" +
+	"\n" +
+	"event_data\x18\x0e \x01(\x05R\teventData\"\xf4\x01\n" +
 	"\x1cCMsgGC_ServerQuestUpdateData\x12<\n" +
 	"\x11player_quest_data\x18\x01 \x03(\v2\x10.PlayerQuestDataR\x0fplayerQuestData\x12\x1f\n" +
 	"\vbinary_data\x18\x02 \x01(\fR\n" +
 	"binaryData\x12 \n" +
 	"\fmm_game_mode\x18\x03 \x01(\rR\n" +
 	"mmGameMode\x12=\n" +
-	"\x0emissionlbsdata\x18\x04 \x01(\v2\x15.ScoreLeaderboardDataR\x0emissionlbsdata\"\xc4\x01\n" +
-	"0CMsgGCCStrike15_v2_MatchmakingGCOperationalStats\x12\x1a\n" +
-	"\bpacketid\x18\x01 \x01(\x05R\bpacketid\x12<\n" +
-	"\bnamekeys\x18\x02 \x03(\v2 .OperationalStatisticDescriptionR\bnamekeys\x126\n" +
-	"\apackets\x18\x03 \x03(\v2\x1c.OperationalStatisticsPacketR\apackets\"x\n" +
+	"\x0emissionlbsdata\x18\x04 \x01(\v2\x15.ScoreLeaderboardDataR\x0emissionlbsdata\x12\x14\n" +
+	"\x05flags\x18\x05 \x01(\rR\x05flags\"\x8e\x01\n" +
 	".CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\rR\x05token\x12\x14\n" +
 	"\x05stamp\x18\x02 \x01(\rR\x05stamp\x12\x1a\n" +
-	"\bexchange\x18\x03 \x01(\x04R\bexchange\"\x9b\x01\n" +
+	"\bexchange\x18\x03 \x01(\x04R\bexchange\x12\x14\n" +
+	"\x05retry\x18\x04 \x01(\rR\x05retry\"\x9b\x01\n" +
 	"-CMsgGCCStrike15_v2_GC2ServerReservationUpdate\x124\n" +
 	"\x16viewers_external_total\x18\x01 \x01(\rR\x14viewersExternalTotal\x124\n" +
-	"\x16viewers_external_steam\x18\x02 \x01(\rR\x14viewersExternalSteam\"\x8c\x02\n" +
+	"\x16viewers_external_steam\x18\x02 \x01(\rR\x14viewersExternalSteam\"\xc6\x02\n" +
 	"#CMsgGCCStrike15_v2_MatchmakingStart\x12\x1f\n" +
 	"\vaccount_ids\x18\x01 \x03(\rR\n" +
 	"accountIds\x12\x1b\n" +
@@ -11608,9 +13904,17 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x0eclient_version\x18\x04 \x01(\rR\rclientVersion\x12@\n" +
 	"\x10tournament_match\x18\x05 \x01(\v2\x15.TournamentMatchSetupR\x0ftournamentMatch\x12\x1d\n" +
 	"\n" +
-	"prime_only\x18\x06 \x01(\bR\tprimeOnly\">\n" +
+	"prime_only\x18\x06 \x01(\bR\tprimeOnly\x12\x1d\n" +
+	"\n" +
+	"tv_control\x18\a \x01(\rR\ttvControl\x12\x19\n" +
+	"\blobby_id\x18\b \x01(\x04R\alobbyId\">\n" +
 	"\"CMsgGCCStrike15_v2_MatchmakingStop\x12\x18\n" +
-	"\aabandon\x18\x01 \x01(\x05R\aabandon\"\xa7\x02\n" +
+	"\aabandon\x18\x01 \x01(\x05R\aabandon\"\x9c\x01\n" +
+	"2CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate_Note\x12\x12\n" +
+	"\x04type\x18\x01 \x01(\x05R\x04type\x12\x1b\n" +
+	"\tregion_id\x18\x02 \x01(\x05R\bregionId\x12\x19\n" +
+	"\bregion_r\x18\x03 \x01(\x02R\aregionR\x12\x1a\n" +
+	"\bdistance\x18\x04 \x01(\x02R\bdistance\"\xb6\x03\n" +
 	"/CMsgGCCStrike15_v2_MatchmakingClient2ServerPing\x129\n" +
 	"\x0fgameserverpings\x18\x01 \x03(\v2\x0f.GameServerPingR\x0fgameserverpings\x12!\n" +
 	"\foffset_index\x18\x02 \x01(\x05R\voffsetIndex\x12\x1f\n" +
@@ -11619,7 +13923,11 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x11data_center_pings\x18\x04 \x03(\v2\x0f.DataCenterPingR\x0fdataCenterPings\x12\x19\n" +
 	"\bmax_ping\x18\x05 \x01(\rR\amaxPing\x12\x1d\n" +
 	"\n" +
-	"test_token\x18\x06 \x01(\aR\ttestToken\"\xf3\b\n" +
+	"test_token\x18\x06 \x01(\aR\ttestToken\x12\x1d\n" +
+	"\n" +
+	"search_key\x18\a \x01(\fR\tsearchKey\x12I\n" +
+	"\x05notes\x18\b \x03(\v23.CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate_NoteR\x05notes\x12#\n" +
+	"\rdebug_message\x18\t \x01(\tR\fdebugMessage\"\x83\b\n" +
 	"-CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate\x12 \n" +
 	"\vmatchmaking\x18\x01 \x01(\x05R\vmatchmaking\x12=\n" +
 	"\x1bwaiting_account_id_sessions\x18\x02 \x03(\rR\x18waitingAccountIdSessions\x12\x14\n" +
@@ -11632,17 +13940,12 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	" \x03(\rR\x1afailreadyAccountIdSessions\x12A\n" +
 	"\x1dvacbanned_account_id_sessions\x18\v \x03(\rR\x1avacbannedAccountIdSessions\x12B\n" +
 	"\x15server_ipaddress_mask\x18\f \x01(\v2\x0e.IpAddressMaskR\x13serverIpaddressMask\x12I\n" +
-	"\x05notes\x18\r \x03(\v23.CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.NoteR\x05notes\x12H\n" +
+	"\x05notes\x18\r \x03(\v23.CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate_NoteR\x05notes\x12H\n" +
 	"!penalty_account_id_sessions_green\x18\x0e \x03(\rR\x1dpenaltyAccountIdSessionsGreen\x12=\n" +
 	"\x1ainsufficientlevel_sessions\x18\x0f \x03(\rR\x19insufficientlevelSessions\x12?\n" +
 	"\x1cvsncheck_account_id_sessions\x18\x10 \x03(\rR\x19vsncheckAccountIdSessions\x12<\n" +
 	"\x1alauncher_mismatch_sessions\x18\x11 \x03(\rR\x18launcherMismatchSessions\x12?\n" +
-	"\x1cinsecure_account_id_sessions\x18\x12 \x03(\rR\x19insecureAccountIdSessions\x1an\n" +
-	"\x04Note\x12\x12\n" +
-	"\x04type\x18\x01 \x01(\x05R\x04type\x12\x1b\n" +
-	"\tregion_id\x18\x02 \x01(\x05R\bregionId\x12\x19\n" +
-	"\bregion_r\x18\x03 \x01(\x02R\aregionR\x12\x1a\n" +
-	"\bdistance\x18\x04 \x01(\x02R\bdistance\"\xd7\x03\n" +
+	"\x1cinsecure_account_id_sessions\x18\x12 \x03(\rR\x19insecureAccountIdSessions\"\xc6\x06\n" +
 	"(CDataGCCStrike15_v2_TournamentMatchDraft\x12\x19\n" +
 	"\bevent_id\x18\x01 \x01(\x05R\aeventId\x12$\n" +
 	"\x0eevent_stage_id\x18\x02 \x01(\x05R\feventStageId\x12\x1a\n" +
@@ -11655,7 +13958,24 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\rteam_id_veto1\x18\b \x01(\x05R\vteamIdVeto1\x12\"\n" +
 	"\rteam_id_pickn\x18\t \x01(\x05R\vteamIdPickn\x12G\n" +
 	"\x06drafts\x18\n" +
-	" \x03(\v2/.CDataGCCStrike15_v2_TournamentMatchDraft.EntryR\x06drafts\x1a;\n" +
+	" \x03(\v2/.CDataGCCStrike15_v2_TournamentMatchDraft.EntryR\x06drafts\x12 \n" +
+	"\fvote_mapid_0\x18\v \x03(\x05R\n" +
+	"voteMapid0\x12 \n" +
+	"\fvote_mapid_1\x18\f \x03(\x05R\n" +
+	"voteMapid1\x12 \n" +
+	"\fvote_mapid_2\x18\r \x03(\x05R\n" +
+	"voteMapid2\x12 \n" +
+	"\fvote_mapid_3\x18\x0e \x03(\x05R\n" +
+	"voteMapid3\x12 \n" +
+	"\fvote_mapid_4\x18\x0f \x03(\x05R\n" +
+	"voteMapid4\x12 \n" +
+	"\fvote_mapid_5\x18\x10 \x03(\x05R\n" +
+	"voteMapid5\x12,\n" +
+	"\x12vote_starting_side\x18\x11 \x03(\x05R\x10voteStartingSide\x12\x1d\n" +
+	"\n" +
+	"vote_phase\x18\x12 \x01(\x05R\tvotePhase\x12(\n" +
+	"\x10vote_phase_start\x18\x13 \x01(\x02R\x0evotePhaseStart\x12*\n" +
+	"\x11vote_phase_length\x18\x14 \x01(\x02R\x0fvotePhaseLength\x1a;\n" +
 	"\x05Entry\x12\x14\n" +
 	"\x05mapid\x18\x01 \x01(\x05R\x05mapid\x12\x1c\n" +
 	"\n" +
@@ -11668,7 +13988,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\tTeamStats\x12*\n" +
 	"\x11match_info_idxtxt\x18\x01 \x01(\x05R\x0fmatchInfoIdxtxt\x12$\n" +
 	"\x0ematch_info_txt\x18\x02 \x01(\tR\fmatchInfoTxt\x12(\n" +
-	"\x10match_info_teams\x18\x03 \x03(\tR\x0ematchInfoTeams\"\xb3\x06\n" +
+	"\x10match_info_teams\x18\x03 \x03(\tR\x0ematchInfoTeams\"\xbf\a\n" +
 	".CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve\x12\x1f\n" +
 	"\vaccount_ids\x18\x01 \x03(\rR\n" +
 	"accountIds\x12\x1b\n" +
@@ -11690,7 +14010,10 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x0epre_match_data\x18\x0f \x01(\v2\x12.CPreMatchInfoDataR\fpreMatchData\x12.\n" +
 	"\x13rtime32_event_start\x18\x10 \x01(\rR\x11rtime32EventStart\x12\x1d\n" +
 	"\n" +
-	"tv_control\x18\x11 \x01(\rR\ttvControl\"\xcf\x06\n" +
+	"tv_control\x18\x11 \x01(\rR\ttvControl\x128\n" +
+	"\rop_var_values\x18\x13 \x03(\v2\x14.OperationalVarValueR\vopVarValues\x12'\n" +
+	"\x0fsocache_control\x18\x14 \x01(\rR\x0esocacheControl\x12'\n" +
+	"\x0fteammate_colors\x18\x15 \x03(\x05R\x0eteammateColors\"\x91\a\n" +
 	"7CMsgGCCStrike15_v2_MatchmakingServerReservationResponse\x12$\n" +
 	"\rreservationid\x18\x01 \x01(\x04R\rreservationid\x12Q\n" +
 	"\vreservation\x18\x02 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ServerReserveR\vreservation\x12\x10\n" +
@@ -11710,7 +14033,11 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x15steamdatagram_routing\x18\x11 \x01(\rR\x14steamdatagramRouting\x12\x1d\n" +
 	"\n" +
 	"test_token\x18\x0f \x01(\aR\ttestToken\x12\x14\n" +
-	"\x05flags\x18\x10 \x01(\rR\x05flags\"\xca\x02\n" +
+	"\x05flags\x18\x10 \x01(\rR\x05flags\x12\x1f\n" +
+	"\vsystem_load\x18\x12 \x01(\rR\n" +
+	"systemLoad\x12\x1f\n" +
+	"\vcpus_online\x18\x13 \x01(\rR\n" +
+	"cpusOnline\"\x9a\x03\n" +
 	".CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve\x12\x1a\n" +
 	"\bserverid\x18\x01 \x01(\x04R\bserverid\x12\"\n" +
 	"\rdirect_udp_ip\x18\x02 \x01(\rR\vdirectUdpIp\x12&\n" +
@@ -11718,7 +14045,10 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\rreservationid\x18\x04 \x01(\x04R\rreservationid\x12Q\n" +
 	"\vreservation\x18\x05 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ServerReserveR\vreservation\x12\x10\n" +
 	"\x03map\x18\x06 \x01(\tR\x03map\x12%\n" +
-	"\x0eserver_address\x18\a \x01(\tR\rserverAddress\"\xbb\b\n" +
+	"\x0eserver_address\x18\a \x01(\tR\rserverAddress\x12(\n" +
+	"\ags_ping\x18\b \x01(\v2\x0f.DataCenterPingR\x06gsPing\x12$\n" +
+	"\x0egs_location_id\x18\t \x01(\rR\fgsLocationId\"\x89\n" +
+	"\n" +
 	".CMsgGCCStrike15_v2_MatchmakingServerRoundStats\x12$\n" +
 	"\rreservationid\x18\x01 \x01(\x04R\rreservationid\x12Q\n" +
 	"\vreservation\x18\x02 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ServerReserveR\vreservation\x12\x10\n" +
@@ -11748,26 +14078,18 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x13spectators_count_tv\x18\x17 \x01(\rR\x11spectatorsCountTv\x120\n" +
 	"\x14spectators_count_lnk\x18\x18 \x01(\rR\x12spectatorsCountLnk\x12&\n" +
 	"\x0fenemy_kills_agg\x18\x19 \x03(\x05R\renemyKillsAgg\x12U\n" +
-	"\tdrop_info\x18\x1a \x01(\v28.CMsgGCCStrike15_v2_MatchmakingServerRoundStats.DropInfoR\bdropInfo\x1a+\n" +
+	"\tdrop_info\x18\x1a \x01(\v28.CMsgGCCStrike15_v2_MatchmakingServerRoundStats.DropInfoR\bdropInfo\x12(\n" +
+	"\x10b_switched_teams\x18\x1b \x01(\bR\x0ebSwitchedTeams\x12\x1b\n" +
+	"\tenemy_2ks\x18\x1c \x03(\x05R\benemy2ks\x12%\n" +
+	"\x0eplayer_spawned\x18\x1d \x03(\x05R\rplayerSpawned\x12(\n" +
+	"\x10team_spawn_count\x18\x1e \x03(\x05R\x0eteamSpawnCount\x12\x1d\n" +
+	"\n" +
+	"max_rounds\x18\x1f \x01(\rR\tmaxRounds\x12\x15\n" +
+	"\x06map_id\x18  \x01(\x05R\x05mapId\x1a+\n" +
 	"\bDropInfo\x12\x1f\n" +
 	"\vaccount_mvp\x18\x01 \x01(\rR\n" +
-	"accountMvp\"\xc5\x03\n" +
-	",CMsgGCCStrike15_v2_MatchmakingServerMatchEnd\x12E\n" +
-	"\x05stats\x18\x01 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingServerRoundStatsR\x05stats\x12I\n" +
-	"\aconfirm\x18\x03 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirmR\aconfirm\x12\x18\n" +
-	"\arematch\x18\x04 \x01(\x04R\arematch\x12!\n" +
-	"\freplay_token\x18\x05 \x01(\rR\vreplayToken\x12*\n" +
-	"\x11replay_cluster_id\x18\x06 \x01(\rR\x0freplayClusterId\x12#\n" +
-	"\raborted_match\x18\a \x01(\bR\fabortedMatch\x12N\n" +
-	"\x14match_end_quest_data\x18\b \x01(\v2\x1d.CMsgGC_ServerQuestUpdateDataR\x11matchEndQuestData\x12%\n" +
-	"\x0eserver_version\x18\t \x01(\rR\rserverVersion\"\xfe\x02\n" +
-	"3CMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial\x12$\n" +
-	"\rreservationid\x18\x01 \x01(\x04R\rreservationid\x12Q\n" +
-	"\vreservation\x18\x02 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ServerReserveR\vreservation\x12I\n" +
-	"\aconfirm\x18\x03 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirmR\aconfirm\x12\\\n" +
-	"\x1bcompleted_player_quest_data\x18\x04 \x01(\v2\x1d.CMsgGC_ServerQuestUpdateDataR\x18completedPlayerQuestData\x12%\n" +
-	"\x0eserver_version\x18\x05 \x01(\rR\rserverVersion\".\n" +
-	",CMsgGCCStrike15_v2_MatchmakingClient2GCHello\"\xda\a\n" +
+	"accountMvp\".\n" +
+	",CMsgGCCStrike15_v2_MatchmakingClient2GCHello\"\xf6\a\n" +
 	",CMsgGCCStrike15_v2_MatchmakingGC2ClientHello\x12\x1d\n" +
 	"\n" +
 	"account_id\x18\x01 \x01(\rR\taccountId\x12S\n" +
@@ -11791,7 +14113,8 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\fplayer_level\x18\x11 \x01(\x05R\vplayerLevel\x12\"\n" +
 	"\rplayer_cur_xp\x18\x12 \x01(\x05R\vplayerCurXp\x121\n" +
 	"\x15player_xp_bonus_flags\x18\x13 \x01(\x05R\x12playerXpBonusFlags\x12.\n" +
-	"\brankings\x18\x14 \x03(\v2\x12.PlayerRankingInfoR\brankings\"\xce\x01\n" +
+	"\brankings\x18\x14 \x03(\v2\x12.PlayerRankingInfoR\brankings\x12\x1a\n" +
+	"\bowcaseid\x18\x15 \x01(\x04R\bowcaseid\"\xce\x01\n" +
 	")CMsgGCCStrike15_v2_AccountPrivacySettings\x12N\n" +
 	"\bsettings\x18\x01 \x03(\v22.CMsgGCCStrike15_v2_AccountPrivacySettings.SettingR\bsettings\x1aQ\n" +
 	"\aSetting\x12!\n" +
@@ -11802,15 +14125,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"account_id\x18\x01 \x01(\rR\taccountId\x12X\n" +
 	"\x0fabandoned_match\x18\x02 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ClientReserveR\x0eabandonedMatch\x12'\n" +
 	"\x0fpenalty_seconds\x18\x03 \x01(\rR\x0epenaltySeconds\x12%\n" +
-	"\x0epenalty_reason\x18\x04 \x01(\rR\rpenaltyReason\"\xb7\x01\n" +
-	"+CMsgGCCStrike15_v2_MatchmakingServer2GCKick\x12\x1d\n" +
-	"\n" +
-	"account_id\x18\x01 \x01(\rR\taccountId\x12Q\n" +
-	"\vreservation\x18\x02 \x01(\v2/.CMsgGCCStrike15_v2_MatchmakingGC2ServerReserveR\vreservation\x12\x16\n" +
-	"\x06reason\x18\x03 \x01(\rR\x06reason\"~\n" +
-	"1CMsgGCCStrike15_v2_MatchmakingGC2ServerRankUpdate\x12.\n" +
-	"\brankings\x18\x01 \x03(\v2\x12.PlayerRankingInfoR\brankings\x12\x19\n" +
-	"\bmatch_id\x18\x02 \x01(\x04R\amatchId\"W\n" +
+	"\x0epenalty_reason\x18\x04 \x01(\rR\rpenaltyReason\"W\n" +
 	"%CMsgGCCStrike15_v2_ClientGCRankUpdate\x12.\n" +
 	"\brankings\x18\x01 \x03(\v2\x12.PlayerRankingInfoR\brankings\"Y\n" +
 	"3CMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate\x12\"\n" +
@@ -11903,7 +14218,17 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\n" +
 	"mission_id\x18\x02 \x01(\rR\tmissionId\x12\x1f\n" +
 	"\vcampaign_id\x18\x03 \x01(\rR\n" +
-	"campaignId\"\xaf\x02\n" +
+	"campaignId\"\xc0\x01\n" +
+	",CMsgGCCstrike15_v2_ClientRedeemMissionReward\x12\x1f\n" +
+	"\vcampaign_id\x18\x01 \x01(\rR\n" +
+	"campaignId\x12\x1b\n" +
+	"\tredeem_id\x18\x02 \x01(\rR\bredeemId\x12-\n" +
+	"\x12redeemable_balance\x18\x03 \x01(\rR\x11redeemableBalance\x12#\n" +
+	"\rexpected_cost\x18\x04 \x01(\rR\fexpectedCost\"\x99\x01\n" +
+	")CMsgGCCstrike15_v2_ClientRedeemFreeReward\x12'\n" +
+	"\x0fgeneration_time\x18\x01 \x01(\rR\x0egenerationTime\x12-\n" +
+	"\x12redeemable_balance\x18\x02 \x01(\rR\x11redeemableBalance\x12\x14\n" +
+	"\x05items\x18\x03 \x03(\x04R\x05items\"\xd3\x03\n" +
 	",CMsgGCCstrike15_v2_GC2ServerNotifyXPRewarded\x129\n" +
 	"\x10xp_progress_data\x18\x01 \x03(\v2\x0f.XpProgressDataR\x0expProgressData\x12\x1d\n" +
 	"\n" +
@@ -11912,7 +14237,26 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"current_xp\x18\x03 \x01(\rR\tcurrentXp\x12#\n" +
 	"\rcurrent_level\x18\x04 \x01(\rR\fcurrentLevel\x12'\n" +
 	"\x0fupgraded_defidx\x18\x05 \x01(\rR\x0eupgradedDefidx\x128\n" +
-	"\x18operation_points_awarded\x18\x06 \x01(\rR\x16operationPointsAwarded\"\xd7\x01\n" +
+	"\x18operation_points_awarded\x18\x06 \x01(\rR\x16operationPointsAwarded\x12!\n" +
+	"\ffree_rewards\x18\a \x01(\rR\vfreeRewards\x12,\n" +
+	"\x12xp_trail_remaining\x18\b \x01(\rR\x10xpTrailRemaining\x12+\n" +
+	"\x12xp_trail_xp_needed\x18\t \x01(\x05R\x0fxpTrailXpNeeded\x12$\n" +
+	"\x0exp_trail_level\x18\n" +
+	" \x01(\rR\fxpTrailLevel\"<\n" +
+	"&CMsgGCCStrike15_v2_ClientNetworkConfig\x12\x12\n" +
+	"\x04data\x18\x01 \x01(\fR\x04data\"\x94\x03\n" +
+	"\x1fCMsgGCCStrike15_ClientDeepStats\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\rR\taccountId\x12E\n" +
+	"\x05range\x18\x02 \x01(\v2/.CMsgGCCStrike15_ClientDeepStats.DeepStatsRangeR\x05range\x12I\n" +
+	"\amatches\x18\x03 \x03(\v2/.CMsgGCCStrike15_ClientDeepStats.DeepStatsMatchR\amatches\x1aP\n" +
+	"\x0eDeepStatsRange\x12\x14\n" +
+	"\x05begin\x18\x01 \x01(\rR\x05begin\x12\x10\n" +
+	"\x03end\x18\x02 \x01(\rR\x03end\x12\x16\n" +
+	"\x06frozen\x18\x03 \x01(\bR\x06frozen\x1an\n" +
+	"\x0eDeepStatsMatch\x12-\n" +
+	"\x06player\x18\x01 \x01(\v2\x15.DeepPlayerStatsEntryR\x06player\x12-\n" +
+	"\x06events\x18\x02 \x03(\v2\x15.DeepPlayerMatchEventR\x06events\"\xd7\x01\n" +
 	"!CMsgGCCStrike15_v2_WatchInfoUsers\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\rR\trequestId\x12\x1f\n" +
@@ -11929,7 +14273,34 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"!CMsgGCCStrike15_v2_PlayersProfile\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x01 \x01(\rR\trequestId\x12X\n" +
-	"\x10account_profiles\x18\x02 \x03(\v2-.CMsgGCCStrike15_v2_MatchmakingGC2ClientHelloR\x0faccountProfiles\"\xa6\x02\n" +
+	"\x10account_profiles\x18\x02 \x03(\v2-.CMsgGCCStrike15_v2_MatchmakingGC2ClientHelloR\x0faccountProfiles\"\xcd\x05\n" +
+	"'CMsgGCCStrike15_v2_PremierSeasonSummary\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\rR\taccountId\x12\x1b\n" +
+	"\tseason_id\x18\x02 \x01(\rR\bseasonId\x12X\n" +
+	"\rdata_per_week\x18\x03 \x03(\v24.CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerWeekR\vdataPerWeek\x12U\n" +
+	"\fdata_per_map\x18\x04 \x03(\v23.CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerMapR\n" +
+	"dataPerMap\x1af\n" +
+	"\vDataPerWeek\x12\x17\n" +
+	"\aweek_id\x18\x01 \x01(\x04R\x06weekId\x12\x17\n" +
+	"\arank_id\x18\x02 \x01(\rR\x06rankId\x12%\n" +
+	"\x0ematches_played\x18\x03 \x01(\rR\rmatchesPlayed\x1a\xcc\x02\n" +
+	"\n" +
+	"DataPerMap\x12\x15\n" +
+	"\x06map_id\x18\x01 \x01(\rR\x05mapId\x12\x12\n" +
+	"\x04wins\x18\x02 \x01(\rR\x04wins\x12\x12\n" +
+	"\x04ties\x18\x03 \x01(\rR\x04ties\x12\x16\n" +
+	"\x06losses\x18\x04 \x01(\rR\x06losses\x12\x16\n" +
+	"\x06rounds\x18\x05 \x01(\rR\x06rounds\x12\x14\n" +
+	"\x05kills\x18\x06 \x01(\rR\x05kills\x12\x1c\n" +
+	"\theadshots\x18\a \x01(\rR\theadshots\x12\x18\n" +
+	"\aassists\x18\b \x01(\rR\aassists\x12\x16\n" +
+	"\x06deaths\x18\t \x01(\rR\x06deaths\x12\x12\n" +
+	"\x04mvps\x18\n" +
+	" \x01(\rR\x04mvps\x12\x1b\n" +
+	"\trounds_3k\x18\v \x01(\rR\brounds3k\x12\x1b\n" +
+	"\trounds_4k\x18\f \x01(\rR\brounds4k\x12\x1b\n" +
+	"\trounds_5k\x18\r \x01(\rR\brounds5k\"\xa6\x02\n" +
 	",CMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate\x12\x16\n" +
 	"\x06caseid\x18\x01 \x01(\x04R\x06caseid\x12\x1c\n" +
 	"\tsuspectid\x18\x03 \x01(\rR\tsuspectid\x12\x1e\n" +
@@ -11974,7 +14345,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\n" +
 	"serverinfo\x18\x03 \x01(\v28.CMsgGCCStrike15_v2_MatchmakingServerReservationResponseR\n" +
 	"serverinfo\x12N\n" +
-	"\x14match_end_quest_data\x18\x04 \x01(\v2\x1d.CMsgGC_ServerQuestUpdateDataR\x11matchEndQuestData\"\xfd\x05\n" +
+	"\x14match_end_quest_data\x18\x04 \x01(\v2\x1d.CMsgGC_ServerQuestUpdateDataR\x11matchEndQuestData\"\xc6\a\n" +
 	"\x19CEconItemPreviewDataBlock\x12\x1c\n" +
 	"\taccountid\x18\x01 \x01(\rR\taccountid\x12\x16\n" +
 	"\x06itemid\x18\x02 \x01(\x04R\x06itemid\x12\x1a\n" +
@@ -12002,7 +14373,9 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\n" +
 	"musicindex\x18\x11 \x01(\rR\n" +
 	"musicindex\x12\x1a\n" +
-	"\bentindex\x18\x12 \x01(\x05R\bentindex\x1a\x9b\x01\n" +
+	"\bentindex\x18\x12 \x01(\x05R\bentindex\x12\x1a\n" +
+	"\bpetindex\x18\x13 \x01(\rR\bpetindex\x12@\n" +
+	"\tkeychains\x18\x14 \x03(\v2\".CEconItemPreviewDataBlock.StickerR\tkeychains\x1a\x86\x02\n" +
 	"\aSticker\x12\x12\n" +
 	"\x04slot\x18\x01 \x01(\rR\x04slot\x12\x1d\n" +
 	"\n" +
@@ -12010,7 +14383,12 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x04wear\x18\x03 \x01(\x02R\x04wear\x12\x14\n" +
 	"\x05scale\x18\x04 \x01(\x02R\x05scale\x12\x1a\n" +
 	"\brotation\x18\x05 \x01(\x02R\brotation\x12\x17\n" +
-	"\atint_id\x18\x06 \x01(\rR\x06tintId\"l\n" +
+	"\atint_id\x18\x06 \x01(\rR\x06tintId\x12\x19\n" +
+	"\boffset_x\x18\a \x01(\x02R\aoffsetX\x12\x19\n" +
+	"\boffset_y\x18\b \x01(\x02R\aoffsetY\x12\x19\n" +
+	"\boffset_z\x18\t \x01(\x02R\aoffsetZ\x12\x18\n" +
+	"\apattern\x18\n" +
+	" \x01(\rR\apattern\"l\n" +
 	"2CMsgGCCStrike15_v2_MatchEndRewardDropsNotification\x126\n" +
 	"\biteminfo\x18\x06 \x01(\v2\x1a.CEconItemPreviewDataBlockR\biteminfo\"N\n" +
 	"\x14CMsgItemAcknowledged\x126\n" +
@@ -12021,13 +14399,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\aparam_d\x18\x03 \x01(\x04R\x06paramD\x12\x17\n" +
 	"\aparam_m\x18\x04 \x01(\x04R\x06paramM\"r\n" +
 	"8CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse\x126\n" +
-	"\biteminfo\x18\x01 \x01(\v2\x1a.CEconItemPreviewDataBlockR\biteminfo\"\x92\x01\n" +
-	"9CMsgGCCStrike15_v2_TournamentMatchRewardDropsNotification\x12\x19\n" +
-	"\bmatch_id\x18\x01 \x01(\x04R\amatchId\x12\x1a\n" +
-	"\bdefindex\x18\x02 \x01(\rR\bdefindex\x12\x1e\n" +
-	"\n" +
-	"accountids\x18\x03 \x03(\rR\n" +
-	"accountids\"5\n" +
+	"\biteminfo\x18\x01 \x01(\v2\x1a.CEconItemPreviewDataBlockR\biteminfo\"5\n" +
 	"3CMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames\"R\n" +
 	"2CMsgGCCStrike15_v2_MatchListRequestLiveGameForUser\x12\x1c\n" +
 	"\taccountid\x18\x01 \x01(\rR\taccountid\"R\n" +
@@ -12080,7 +14452,11 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"servertime\x128\n" +
 	"\amatches\x18\x04 \x03(\v2\x1e.CDataGCCStrike15_v2_MatchInfoR\amatches\x12)\n" +
 	"\astreams\x18\x05 \x03(\v2\x0f.TournamentTeamR\astreams\x12K\n" +
-	"\x0etournamentinfo\x18\x06 \x01(\v2#.CDataGCCStrike15_v2_TournamentInfoR\x0etournamentinfo\"\xb9\x02\n" +
+	"\x0etournamentinfo\x18\x06 \x01(\v2#.CDataGCCStrike15_v2_TournamentInfoR\x0etournamentinfo\"\xa6\x01\n" +
+	"2CMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt\x12\x18\n" +
+	"\aeventid\x18\x01 \x01(\x05R\aeventid\x128\n" +
+	"\amatches\x18\x02 \x03(\v2\x1e.CDataGCCStrike15_v2_MatchInfoR\amatches\x12\x1c\n" +
+	"\taccountid\x18\x03 \x01(\rR\taccountid\"\xb9\x02\n" +
 	"\x1eCMsgGCCStrike15_v2_Predictions\x12\x19\n" +
 	"\bevent_id\x18\x01 \x01(\rR\aeventId\x12g\n" +
 	"\x16group_match_team_picks\x18\x02 \x03(\v22.CMsgGCCStrike15_v2_Predictions.GroupMatchTeamPickR\x13groupMatchTeamPicks\x1a\x92\x01\n" +
@@ -12101,8 +14477,26 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\tsectionid\x18\x01 \x01(\x05R\tsectionid\x12=\n" +
 	"\x05slots\x18\x02 \x03(\v2'.CMsgGCCStrike15_v2_Fantasy.FantasySlotR\x05slots\")\n" +
 	"\x11CAttribute_String\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05value\"\x1a\n" +
-	"\x18CMsgGCToGCReloadVersions\"\xb2\x02\n" +
+	"\x05value\x18\x01 \x01(\tR\x05value\"\x93\x05\n" +
+	"\x1eCMsgLegacySource1ClientWelcome\x12\x18\n" +
+	"\aversion\x18\x01 \x01(\rR\aversion\x12\x1b\n" +
+	"\tgame_data\x18\x02 \x01(\fR\bgameData\x12V\n" +
+	"\x1boutofdate_subscribed_caches\x18\x03 \x03(\v2\x16.CMsgSOCacheSubscribedR\x19outofdateSubscribedCaches\x12[\n" +
+	"\x1auptodate_subscribed_caches\x18\x04 \x03(\v2\x1d.CMsgSOCacheSubscriptionCheckR\x18uptodateSubscribedCaches\x12D\n" +
+	"\blocation\x18\x05 \x01(\v2(.CMsgLegacySource1ClientWelcome.LocationR\blocation\x12\x1d\n" +
+	"\n" +
+	"game_data2\x18\x06 \x01(\fR\tgameData2\x12?\n" +
+	"\x1crtime32_gc_welcome_timestamp\x18\a \x01(\rR\x19rtime32GcWelcomeTimestamp\x12\x1a\n" +
+	"\bcurrency\x18\b \x01(\rR\bcurrency\x12\x18\n" +
+	"\abalance\x18\t \x01(\rR\abalance\x12\x1f\n" +
+	"\vbalance_url\x18\n" +
+	" \x01(\tR\n" +
+	"balanceUrl\x12(\n" +
+	"\x10txn_country_code\x18\v \x01(\tR\x0etxnCountryCode\x1a^\n" +
+	"\bLocation\x12\x1a\n" +
+	"\blatitude\x18\x01 \x01(\x02R\blatitude\x12\x1c\n" +
+	"\tlongitude\x18\x02 \x01(\x02R\tlongitude\x12\x18\n" +
+	"\acountry\x18\x03 \x01(\tR\acountry\"\xb2\x02\n" +
 	"\x14CMsgCStrike15Welcome\x12&\n" +
 	"\x0fstore_item_hash\x18\x05 \x01(\rR\rstoreItemHash\x128\n" +
 	"\x17timeplayedconsecutively\x18\x06 \x01(\rR\x17timeplayedconsecutively\x12*\n" +
@@ -12122,13 +14516,14 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"serverAddr\x12\x1f\n" +
 	"\vserver_port\x18\x04 \x01(\rR\n" +
 	"serverPort\x12#\n" +
-	"\rchoked_blocks\x18\x05 \x03(\tR\fchokedBlocks\"\x85\x01\n" +
+	"\rchoked_blocks\x18\x05 \x03(\tR\fchokedBlocks\"\xa1\x01\n" +
 	"1CMsgGCCStrike15_v2_ServerVarValueNotificationInfo\x12\x1c\n" +
 	"\taccountid\x18\x01 \x01(\rR\taccountid\x12\x1e\n" +
 	"\n" +
 	"viewangles\x18\x02 \x03(\rR\n" +
 	"viewangles\x12\x12\n" +
-	"\x04type\x18\x03 \x01(\rR\x04type\",\n" +
+	"\x04type\x18\x03 \x01(\rR\x04type\x12\x1a\n" +
+	"\buserdata\x18\x04 \x03(\rR\buserdata\",\n" +
 	"*CMsgGCCStrike15_v2_GiftsLeaderboardRequest\"\xf5\x02\n" +
 	"+CMsgGCCStrike15_v2_GiftsLeaderboardResponse\x12\x1e\n" +
 	"\n" +
@@ -12145,18 +14540,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\tsurvey_id\x18\x01 \x01(\rR\bsurveyId\x12\x12\n" +
 	"\x04vote\x18\x02 \x01(\rR\x04vote\"J\n" +
 	"*CMsgGCCStrike15_v2_Server2GCClientValidate\x12\x1c\n" +
-	"\taccountid\x18\x01 \x01(\rR\taccountid\"\xfa\x01\n" +
-	"7CMsgGCCStrike15_v2_Server2GCPureServerValidationFailure\x12\x1c\n" +
-	"\taccountid\x18\x01 \x01(\rR\taccountid\x12\x12\n" +
-	"\x04path\x18\x02 \x01(\tR\x04path\x12\x12\n" +
-	"\x04file\x18\x03 \x01(\tR\x04file\x12\x10\n" +
-	"\x03crc\x18\x04 \x01(\rR\x03crc\x12\x12\n" +
-	"\x04hash\x18\x05 \x01(\x05R\x04hash\x12\x10\n" +
-	"\x03len\x18\x06 \x01(\x05R\x03len\x12\x1f\n" +
-	"\vpack_number\x18\a \x01(\x05R\n" +
-	"packNumber\x12 \n" +
-	"\fpack_file_id\x18\b \x01(\x05R\n" +
-	"packFileId\"\x97\x01\n" +
+	"\taccountid\x18\x01 \x01(\rR\taccountid\"\x97\x01\n" +
 	"*CMsgGCCStrike15_v2_GC2ClientTournamentInfo\x12\x18\n" +
 	"\aeventid\x18\x01 \x01(\rR\aeventid\x12\x18\n" +
 	"\astageid\x18\x02 \x01(\rR\astageid\x12\x1b\n" +
@@ -12165,22 +14549,53 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\rCSOEconCoupon\x12\x1e\n" +
 	"\aentryid\x18\x01 \x01(\rB\x04\x80\xa6\x1d\x01R\aentryid\x12\x16\n" +
 	"\x06defidx\x18\x02 \x01(\rR\x06defidx\x12'\n" +
-	"\x0fexpiration_date\x18\x03 \x01(\aR\x0eexpirationDate\"\x80\x01\n" +
+	"\x0fexpiration_date\x18\x03 \x01(\aR\x0eexpirationDate\"\x8b\x01\n" +
+	"\x1bCSOAccountItemPersonalStore\x12'\n" +
+	"\x0fgeneration_time\x18\x01 \x01(\rR\x0egenerationTime\x12-\n" +
+	"\x12redeemable_balance\x18\x02 \x01(\rR\x11redeemableBalance\x12\x14\n" +
+	"\x05items\x18\x03 \x03(\x04R\x05items\"\x87\x01\n" +
+	"\x10CSOAccountXpShop\x12'\n" +
+	"\x0fgeneration_time\x18\x01 \x01(\rR\x0egenerationTime\x12-\n" +
+	"\x12redeemable_balance\x18\x02 \x01(\rR\x11redeemableBalance\x12\x1b\n" +
+	"\txp_tracks\x18\x03 \x03(\rR\bxpTracks\"?\n" +
+	"#CSOAccountKeychainRemoveToolCharges\x12\x18\n" +
+	"\acharges\x18\x01 \x01(\rR\acharges\"\x80\x01\n" +
 	"\x10CSOQuestProgress\x12\x1e\n" +
 	"\aquestid\x18\x01 \x01(\rB\x04\x80\xa6\x1d\x01R\aquestid\x12)\n" +
 	"\x10points_remaining\x18\x02 \x01(\rR\x0fpointsRemaining\x12!\n" +
-	"\fbonus_points\x18\x03 \x01(\rR\vbonusPoints\"\xde\x01\n" +
+	"\fbonus_points\x18\x03 \x01(\rR\vbonusPoints\"\xb7\x02\n" +
 	"\x1bCSOAccountSeasonalOperation\x12'\n" +
 	"\fseason_value\x18\x01 \x01(\rB\x04\x80\xa6\x1d\x01R\vseasonValue\x12#\n" +
 	"\rtier_unlocked\x18\x02 \x01(\rR\ftierUnlocked\x12#\n" +
 	"\rpremium_tiers\x18\x03 \x01(\rR\fpremiumTiers\x12\x1d\n" +
 	"\n" +
 	"mission_id\x18\x04 \x01(\rR\tmissionId\x12-\n" +
-	"\x12missions_completed\x18\x05 \x01(\rR\x11missionsCompleted\"\x9d\x01\n" +
+	"\x12missions_completed\x18\x05 \x01(\rR\x11missionsCompleted\x12-\n" +
+	"\x12redeemable_balance\x18\x06 \x01(\rR\x11redeemableBalance\x12(\n" +
+	"\x10season_pass_time\x18\a \x01(\rR\x0eseasonPassTime\"p\n" +
+	"\x1fCSOAccountRecurringSubscription\x12&\n" +
+	"\x0ftime_next_cycle\x18\x01 \x01(\rR\rtimeNextCycle\x12%\n" +
+	"\x0etime_initiated\x18\x02 \x01(\rR\rtimeInitiated\"\x80\x02\n" +
 	"\x14CSOPersonaDataPublic\x12!\n" +
 	"\fplayer_level\x18\x01 \x01(\x05R\vplayerLevel\x12;\n" +
 	"\fcommendation\x18\x02 \x01(\v2\x17.PlayerCommendationInfoR\fcommendation\x12%\n" +
-	"\x0eelevated_state\x18\x03 \x01(\bR\relevatedState\"5\n" +
+	"\x0eelevated_state\x18\x03 \x01(\bR\relevatedState\x12;\n" +
+	"\x1axp_trail_timestamp_refresh\x18\x04 \x01(\rR\x17xpTrailTimestampRefresh\x12$\n" +
+	"\x0exp_trail_level\x18\x05 \x01(\rR\fxpTrailLevel\"\xce\x01\n" +
+	"(CMsgGCCStrike15_v2_GC2ClientNotifyXPShop\x12-\n" +
+	"\bprematch\x18\x01 \x01(\v2\x11.CSOAccountXpShopR\bprematch\x12/\n" +
+	"\tpostmatch\x18\x02 \x01(\v2\x11.CSOAccountXpShopR\tpostmatch\x12\x1d\n" +
+	"\n" +
+	"current_xp\x18\x03 \x01(\rR\tcurrentXp\x12#\n" +
+	"\rcurrent_level\x18\x04 \x01(\rR\fcurrentLevel\"-\n" +
+	"+CMsgGCCStrike15_v2_Client2GcAckXPShopTracks\"\xed\x01\n" +
+	"2CMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats\x12$\n" +
+	"\x0egs_location_id\x18\x01 \x01(\rR\fgsLocationId\x12$\n" +
+	"\x0edata_center_id\x18\x02 \x01(\rR\fdataCenterId\x12\"\n" +
+	"\rnum_locked_in\x18\x03 \x01(\rR\vnumLockedIn\x12(\n" +
+	"\x10num_found_nearby\x18\x04 \x01(\rR\x0enumFoundNearby\x12\x1d\n" +
+	"\n" +
+	"note_level\x18\x05 \x01(\rR\tnoteLevel\"5\n" +
 	"\x1bCMsgGC_GlobalGame_Subscribe\x12\x16\n" +
 	"\x06ticket\x18\x01 \x01(\x04R\x06ticket\";\n" +
 	"\x1dCMsgGC_GlobalGame_Unsubscribe\x12\x1a\n" +
@@ -12216,14 +14631,14 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\aeventid\x18\x01 \x01(\rR\aeventid\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\tR\x04code\"L\n" +
 	"\x1eCMsgGCCStrike15_GotvSyncPacket\x12*\n" +
-	"\x04data\x18\x01 \x01(\v2\x16.CEngineGotvSyncPacketR\x04data\"\x98\x03\n" +
+	"\x04data\x18\x01 \x01(\v2\x16.CEngineGotvSyncPacketR\x04data\"\x96\x03\n" +
 	"\x1bPlayerDecalDigitalSignature\x12\x1c\n" +
 	"\tsignature\x18\x01 \x01(\fR\tsignature\x12\x1c\n" +
 	"\taccountid\x18\x02 \x01(\rR\taccountid\x12\x14\n" +
 	"\x05rtime\x18\x03 \x01(\rR\x05rtime\x12\x16\n" +
 	"\x06endpos\x18\x04 \x03(\x02R\x06endpos\x12\x1a\n" +
-	"\bstartpos\x18\x05 \x03(\x02R\bstartpos\x12\x14\n" +
-	"\x05right\x18\x06 \x03(\x02R\x05right\x12\x1b\n" +
+	"\bstartpos\x18\x05 \x03(\x02R\bstartpos\x12\x12\n" +
+	"\x04left\x18\x06 \x03(\x02R\x04left\x12\x1b\n" +
 	"\ttx_defidx\x18\a \x01(\rR\btxDefidx\x12\x1a\n" +
 	"\bentindex\x18\b \x01(\x05R\bentindex\x12\x16\n" +
 	"\x06hitbox\x18\t \x01(\rR\x06hitbox\x12\"\n" +
@@ -12235,7 +14650,9 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\atint_id\x18\x0e \x01(\rR\x06tintId\"t\n" +
 	"(CMsgGCCStrike15_v2_ClientPlayerDecalSign\x120\n" +
 	"\x04data\x18\x01 \x01(\v2\x1c.PlayerDecalDigitalSignatureR\x04data\x12\x16\n" +
-	"\x06itemid\x18\x02 \x01(\x04R\x06itemid\"|\n" +
+	"\x06itemid\x18\x02 \x01(\x04R\x06itemid\"=\n" +
+	"!CMsgGCCStrike15_v2_BetaEnrollment\x12\x18\n" +
+	"\aeresult\x18\x01 \x01(\rR\aeresult\"|\n" +
 	"(CMsgGCCStrike15_v2_ClientLogonFatalError\x12\x1c\n" +
 	"\terrorcode\x18\x01 \x01(\rR\terrorcode\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x18\n" +
@@ -12260,16 +14677,17 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x03ark\x18\x03 \x01(\rR\x03ark\x12\x12\n" +
 	"\x04grps\x18\x04 \x03(\rR\x04grps\x12\x1a\n" +
 	"\blauncher\x18\x05 \x01(\rR\blauncher\x12\x1b\n" +
-	"\tgame_type\x18\x06 \x01(\rR\bgameType\"\xef\x01\n" +
+	"\tgame_type\x18\x06 \x01(\rR\bgameType\"\x8e\x02\n" +
 	"&CMsgGCCStrike15_v2_Party_SearchResults\x12G\n" +
-	"\aentries\x18\x01 \x03(\v2-.CMsgGCCStrike15_v2_Party_SearchResults.EntryR\aentries\x1a|\n" +
+	"\aentries\x18\x01 \x03(\v2-.CMsgGCCStrike15_v2_Party_SearchResults.EntryR\aentries\x1a\x9a\x01\n" +
 	"\x05Entry\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x10\n" +
 	"\x03grp\x18\x02 \x01(\rR\x03grp\x12\x1b\n" +
 	"\tgame_type\x18\x03 \x01(\rR\bgameType\x12\x10\n" +
 	"\x03apr\x18\x04 \x01(\rR\x03apr\x12\x10\n" +
 	"\x03ark\x18\x05 \x01(\rR\x03ark\x12\x10\n" +
-	"\x03loc\x18\x06 \x01(\rR\x03loc\"Y\n" +
+	"\x03loc\x18\x06 \x01(\rR\x03loc\x12\x1c\n" +
+	"\taccountid\x18\a \x01(\rR\taccountid\"Y\n" +
 	"\x1fCMsgGCCStrike15_v2_Party_Invite\x12\x1c\n" +
 	"\taccountid\x18\x01 \x01(\rR\taccountid\x12\x18\n" +
 	"\alobbyid\x18\x02 \x01(\rR\alobbyid\"\xf4\x01\n" +
@@ -12325,7 +14743,12 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\treference\x18\x03 \x01(\fR\treference\x12\x16\n" +
 	"\x06actual\x18\x04 \x01(\fR\x06actual\x12\x1a\n" +
 	"\bsourceid\x18\x05 \x01(\rR\bsourceid\x12\x16\n" +
-	"\x06status\x18\x06 \x01(\rR\x06status\"\xc8\x05\n" +
+	"\x06status\x18\x06 \x01(\rR\x06status\"s\n" +
+	"\fCVDiagnostic\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x1a\n" +
+	"\bextended\x18\x02 \x01(\rR\bextended\x12\x14\n" +
+	"\x05value\x18\x03 \x01(\x04R\x05value\x12!\n" +
+	"\fstring_value\x18\x04 \x01(\tR\vstringValue\"\xf9\x05\n" +
 	")CMsgGCCStrike15_v2_ClientReportValidation\x12\x1f\n" +
 	"\vfile_report\x18\x01 \x01(\tR\n" +
 	"fileReport\x12!\n" +
@@ -12351,7 +14774,8 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\vclient_time\x18\x11 \x01(\x04R\n" +
 	"clientTime\x12 \n" +
 	"\vdiagnostic4\x18\x12 \x01(\x04R\vdiagnostic4\x12 \n" +
-	"\vdiagnostic5\x18\x13 \x01(\x04R\vdiagnostic5\"\xd3\x02\n" +
+	"\vdiagnostic5\x18\x13 \x01(\x04R\vdiagnostic5\x12/\n" +
+	"\vdiagnostics\x18\x14 \x03(\v2\r.CVDiagnosticR\vdiagnostics\"\xc7\x03\n" +
 	",CMsgGCCStrike15_v2_GC2ClientRefuseSecureMode\x12\x1f\n" +
 	"\vfile_report\x18\x01 \x01(\tR\n" +
 	"fileReport\x12.\n" +
@@ -12360,30 +14784,58 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x10show_unsigned_ui\x18\x04 \x01(\bR\x0eshowUnsignedUi\x12\x1b\n" +
 	"\tkick_user\x18\x05 \x01(\bR\bkickUser\x12&\n" +
 	"\x0fshow_trusted_ui\x18\x06 \x01(\bR\rshowTrustedUi\x127\n" +
-	"\x18show_warning_not_trusted\x18\a \x01(\bR\x15showWarningNotTrusted\"h\n" +
+	"\x18show_warning_not_trusted\x18\a \x01(\bR\x15showWarningNotTrusted\x12:\n" +
+	"\x1ashow_warning_not_trusted_2\x18\b \x01(\bR\x16showWarningNotTrusted2\x126\n" +
+	"\x17files_prevented_trusted\x18\t \x01(\tR\x15filesPreventedTrusted\"h\n" +
 	"-CMsgGCCStrike15_v2_GC2ClientRequestValidation\x12\x1f\n" +
 	"\vfull_report\x18\x01 \x01(\bR\n" +
 	"fullReport\x12\x16\n" +
-	"\x06module\x18\x02 \x01(\tR\x06module*\x82)\n" +
+	"\x06module\x18\x02 \x01(\tR\x06module\"\xa2\x02\n" +
+	"&CMsgGCCStrike15_v2_GC2ClientInitSystem\x12\x12\n" +
+	"\x04load\x18\x01 \x01(\bR\x04load\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1e\n" +
+	"\n" +
+	"outputname\x18\x03 \x01(\tR\n" +
+	"outputname\x12\x19\n" +
+	"\bkey_data\x18\x04 \x01(\fR\akeyData\x12\x19\n" +
+	"\bsha_hash\x18\x05 \x01(\fR\ashaHash\x12\x16\n" +
+	"\x06cookie\x18\x06 \x01(\x05R\x06cookie\x12\x1a\n" +
+	"\bmanifest\x18\a \x01(\tR\bmanifest\x12%\n" +
+	"\x0esystem_package\x18\b \x01(\fR\rsystemPackage\x12\x1f\n" +
+	"\vload_system\x18\t \x01(\bR\n" +
+	"loadSystem\"\x92\x03\n" +
+	"/CMsgGCCStrike15_v2_GC2ClientInitSystem_Response\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x1e\n" +
+	"\n" +
+	"diagnostic\x18\x02 \x01(\tR\n" +
+	"diagnostic\x12\x19\n" +
+	"\bsha_hash\x18\x03 \x01(\fR\ashaHash\x12\x1a\n" +
+	"\bresponse\x18\x04 \x01(\x05R\bresponse\x12\x1f\n" +
+	"\verror_code1\x18\x05 \x01(\x05R\n" +
+	"errorCode1\x12\x1f\n" +
+	"\verror_code2\x18\x06 \x01(\x05R\n" +
+	"errorCode2\x12\x16\n" +
+	"\x06handle\x18\a \x01(\x03R\x06handle\x12R\n" +
+	"\feinit_result\x18\b \x01(\x0e2\x12.EInitSystemResult:\x1bk_EInitSystemResult_InvalidR\veinitResult\x12\x1f\n" +
+	"\vaux_system1\x18\t \x01(\x05R\n" +
+	"auxSystem1\x12\x1f\n" +
+	"\vaux_system2\x18\n" +
+	" \x01(\x05R\n" +
+	"auxSystem2\"e\n" +
+	"/CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName\x122\n" +
+	"\x15leaderboard_safe_name\x18\x01 \x01(\tR\x13leaderboardSafeName*\xdc)\n" +
 	"\n" +
 	"ECsgoGCMsg\x12\x1e\n" +
 	"\x19k_EMsgGCCStrike15_v2_Base\x10\x8cG\x12*\n" +
 	"%k_EMsgGCCStrike15_v2_MatchmakingStart\x10\x8dG\x12)\n" +
 	"$k_EMsgGCCStrike15_v2_MatchmakingStop\x10\x8eG\x126\n" +
 	"1k_EMsgGCCStrike15_v2_MatchmakingClient2ServerPing\x10\x8fG\x124\n" +
-	"/k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate\x10\x90G\x125\n" +
-	"0k_EMsgGCCStrike15_v2_MatchmakingGC2ServerReserve\x10\x91G\x12>\n" +
+	"/k_EMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate\x10\x90G\x12>\n" +
 	"9k_EMsgGCCStrike15_v2_MatchmakingServerReservationResponse\x10\x92G\x125\n" +
-	"0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve\x10\x93G\x125\n" +
-	"0k_EMsgGCCStrike15_v2_MatchmakingServerRoundStats\x10\x94G\x123\n" +
+	"0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientReserve\x10\x93G\x123\n" +
 	".k_EMsgGCCStrike15_v2_MatchmakingClient2GCHello\x10\x95G\x123\n" +
-	".k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello\x10\x96G\x123\n" +
-	".k_EMsgGCCStrike15_v2_MatchmakingServerMatchEnd\x10\x97G\x125\n" +
-	"0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon\x10\x98G\x122\n" +
-	"-k_EMsgGCCStrike15_v2_MatchmakingServer2GCKick\x10\x99G\x125\n" +
-	"0k_EMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm\x10\x9aG\x127\n" +
-	"2k_EMsgGCCStrike15_v2_MatchmakingGCOperationalStats\x10\x9bG\x128\n" +
-	"3k_EMsgGCCStrike15_v2_MatchmakingGC2ServerRankUpdate\x10\x9cG\x12:\n" +
+	".k_EMsgGCCStrike15_v2_MatchmakingGC2ClientHello\x10\x96G\x125\n" +
+	"0k_EMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon\x10\x98G\x12:\n" +
 	"5k_EMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate\x10\x9dG\x12:\n" +
 	"5k_EMsgGCCStrike15_v2_ServerNotificationForUserPenalty\x10\x9eG\x12,\n" +
 	"'k_EMsgGCCStrike15_v2_ClientReportPlayer\x10\x9fG\x12,\n" +
@@ -12407,18 +14859,15 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"5k_EMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames\x10\xb4G\x129\n" +
 	"4k_EMsgGCCStrike15_v2_MatchListRequestRecentUserGames\x10\xb5G\x124\n" +
 	"/k_EMsgGCCStrike15_v2_GC2ServerReservationUpdate\x10\xb6G\x128\n" +
-	"3k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo\x10\xb8G\x12@\n" +
-	";k_EMsgGCCStrike15_v2_TournamentMatchRewardDropsNotification\x10\xb9G\x129\n" +
+	"3k_EMsgGCCStrike15_v2_ClientVarValueNotificationInfo\x10\xb8G\x129\n" +
 	"4k_EMsgGCCStrike15_v2_MatchListRequestTournamentGames\x10\xbaG\x126\n" +
 	"1k_EMsgGCCStrike15_v2_MatchListRequestFullGameInfo\x10\xbbG\x121\n" +
 	",k_EMsgGCCStrike15_v2_GiftsLeaderboardRequest\x10\xbcG\x122\n" +
 	"-k_EMsgGCCStrike15_v2_GiftsLeaderboardResponse\x10\xbdG\x128\n" +
-	"3k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo\x10\xbeG\x12\x1f\n" +
-	"\x1ak_EMsgGCToGCReloadVersions\x10\xbfG\x120\n" +
+	"3k_EMsgGCCStrike15_v2_ServerVarValueNotificationInfo\x10\xbeG\x120\n" +
 	"+k_EMsgGCCStrike15_v2_ClientSubmitSurveyVote\x10\xc0G\x121\n" +
 	",k_EMsgGCCStrike15_v2_Server2GCClientValidate\x10\xc1G\x129\n" +
 	"4k_EMsgGCCStrike15_v2_MatchListRequestLiveGameForUser\x10\xc2G\x12>\n" +
-	"9k_EMsgGCCStrike15_v2_Server2GCPureServerValidationFailure\x10\xc3G\x12>\n" +
 	"9k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest\x10\xc4G\x12?\n" +
 	":k_EMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse\x10\xc5G\x120\n" +
 	"+k_EMsgGCCStrike15_v2_AccountPrivacySettings\x10\xc6G\x12+\n" +
@@ -12428,8 +14877,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"!k_EMsgGCCStrike15_v2_DraftSummary\x10\xcaG\x125\n" +
 	"0k_EMsgGCCStrike15_v2_ClientRequestJoinFriendData\x10\xcbG\x125\n" +
 	"0k_EMsgGCCStrike15_v2_ClientRequestJoinServerData\x10\xccG\x121\n" +
-	",k_EMsgGCCStrike15_v2_ClientRequestNewMission\x10\xcdG\x123\n" +
-	".k_EMsgGCCStrike15_v2_GC2ServerNotifyXPRewarded\x10\xceG\x121\n" +
+	",k_EMsgGCCStrike15_v2_ClientRequestNewMission\x10\xcdG\x121\n" +
 	",k_EMsgGCCStrike15_v2_GC2ClientTournamentInfo\x10\xcfG\x12\"\n" +
 	"\x1dk_EMsgGC_GlobalGame_Subscribe\x10\xd0G\x12$\n" +
 	"\x1fk_EMsgGC_GlobalGame_Unsubscribe\x10\xd1G\x12\x1d\n" +
@@ -12460,8 +14908,7 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"(k_EMsgGCCStrike15_v2_ClientRequestOffers\x10\xebG\x12.\n" +
 	")k_EMsgGCCStrike15_v2_ClientAccountBalance\x10\xecG\x12.\n" +
 	")k_EMsgGCCStrike15_v2_ClientPartyJoinRelay\x10\xedG\x12,\n" +
-	"'k_EMsgGCCStrike15_v2_ClientPartyWarning\x10\xeeG\x12:\n" +
-	"5k_EMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial\x10\xefG\x12*\n" +
+	"'k_EMsgGCCStrike15_v2_ClientPartyWarning\x10\xeeG\x12*\n" +
 	"%k_EMsgGCCStrike15_v2_SetEventFavorite\x10\xf0G\x123\n" +
 	".k_EMsgGCCStrike15_v2_GetEventFavorites_Request\x10\xf1G\x12*\n" +
 	"%k_EMsgGCCStrike15_v2_ClientPerfReport\x10\xf2G\x124\n" +
@@ -12469,7 +14916,22 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"*k_EMsgGCCStrike15_v2_ClientRequestSouvenir\x10\xf4G\x120\n" +
 	"+k_EMsgGCCStrike15_v2_ClientReportValidation\x10\xf5G\x123\n" +
 	".k_EMsgGCCStrike15_v2_GC2ClientRefuseSecureMode\x10\xf6G\x124\n" +
-	"/k_EMsgGCCStrike15_v2_GC2ClientRequestValidation\x10\xf7G*\x98\x01\n" +
+	"/k_EMsgGCCStrike15_v2_GC2ClientRequestValidation\x10\xf7G\x123\n" +
+	".k_EMsgGCCStrike15_v2_ClientRedeemMissionReward\x10\xf9G\x12&\n" +
+	"!k_EMsgGCCStrike15_ClientDeepStats\x10\xfaG\x122\n" +
+	"-k_EMsgGCCStrike15_StartAgreementSessionInGame\x10\xfbG\x12-\n" +
+	"(k_EMsgGCCStrike15_v2_GC2ClientInitSystem\x10\xfcG\x126\n" +
+	"1k_EMsgGCCStrike15_v2_GC2ClientInitSystem_Response\x10\xfdG\x12'\n" +
+	"\"k_EMsgGCCStrike15_v2_PrivateQueues\x10\xfeG\x129\n" +
+	"4k_EMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt\x10\xffG\x12(\n" +
+	"#k_EMsgGCCStrike15_v2_BetaEnrollment\x10\x81H\x126\n" +
+	"1k_EMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName\x10\x82H\x120\n" +
+	"+k_EMsgGCCStrike15_v2_ClientRedeemFreeReward\x10\x83H\x12-\n" +
+	"(k_EMsgGCCStrike15_v2_ClientNetworkConfig\x10\x84H\x12/\n" +
+	"*k_EMsgGCCStrike15_v2_GC2ClientNotifyXPShop\x10\x85H\x122\n" +
+	"-k_EMsgGCCStrike15_v2_Client2GcAckXPShopTracks\x10\x86H\x129\n" +
+	"4k_EMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats\x10\x87H\x12.\n" +
+	")k_EMsgGCCStrike15_v2_PremierSeasonSummary\x10\x88H*\x98\x01\n" +
 	"\x12ECsgoSteamUserStat\x12&\n" +
 	"\"k_ECsgoSteamUserStat_XpEarnedGames\x10\x01\x12-\n" +
 	")k_ECsgoSteamUserStat_MatchWinsCompetitive\x10\x02\x12+\n" +
@@ -12477,7 +14939,17 @@ const file_cstrike15_gcmessages_proto_rawDesc = "" +
 	"\x17EClientReportingVersion\x12(\n" +
 	"$k_EClientReportingVersion_OldVersion\x10\x00\x12)\n" +
 	"%k_EClientReportingVersion_BetaVersion\x10\x01\x121\n" +
-	"-k_EClientReportingVersion_SupportsTrustedMode\x10\x02B\x05H\x01\x80\x01\x00"
+	"-k_EClientReportingVersion_SupportsTrustedMode\x10\x02*\xbe\x02\n" +
+	"\x11EInitSystemResult\x12\x1f\n" +
+	"\x1bk_EInitSystemResult_Invalid\x10\x00\x12\x1f\n" +
+	"\x1bk_EInitSystemResult_Success\x10\x01\x12\x1c\n" +
+	"\x18k_EInitSystemResult_None\x10\x02\x12 \n" +
+	"\x1ck_EInitSystemResult_NotFound\x10\x03\x12 \n" +
+	"\x1ck_EInitSystemResult_Existing\x10\x04\x12\"\n" +
+	"\x1ek_EInitSystemResult_FailedOpen\x10\x05\x12 \n" +
+	"\x1ck_EInitSystemResult_Mismatch\x10\x06\x12\"\n" +
+	"\x1ek_EInitSystemResult_FailedInit\x10\a\x12\x1b\n" +
+	"\x17k_EInitSystemResult_Max\x10\b"
 
 var (
 	file_cstrike15_gcmessages_proto_rawDescOnce sync.Once
@@ -12491,56 +14963,56 @@ func file_cstrike15_gcmessages_proto_rawDescGZIP() []byte {
 	return file_cstrike15_gcmessages_proto_rawDescData
 }
 
-var file_cstrike15_gcmessages_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_cstrike15_gcmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 153)
+var file_cstrike15_gcmessages_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
+var file_cstrike15_gcmessages_proto_msgTypes = make([]protoimpl.MessageInfo, 173)
 var file_cstrike15_gcmessages_proto_goTypes = []any{
 	(ECsgoGCMsg)(0),                                                         // 0: ECsgoGCMsg
 	(ECsgoSteamUserStat)(0),                                                 // 1: ECsgoSteamUserStat
 	(EClientReportingVersion)(0),                                            // 2: EClientReportingVersion
-	(*GameServerPing)(nil),                                                  // 3: GameServerPing
-	(*DataCenterPing)(nil),                                                  // 4: DataCenterPing
-	(*DetailedSearchStatistic)(nil),                                         // 5: DetailedSearchStatistic
-	(*TournamentPlayer)(nil),                                                // 6: TournamentPlayer
-	(*TournamentTeam)(nil),                                                  // 7: TournamentTeam
-	(*TournamentEvent)(nil),                                                 // 8: TournamentEvent
-	(*GlobalStatistics)(nil),                                                // 9: GlobalStatistics
-	(*OperationalStatisticDescription)(nil),                                 // 10: OperationalStatisticDescription
-	(*OperationalStatisticElement)(nil),                                     // 11: OperationalStatisticElement
-	(*OperationalStatisticsPacket)(nil),                                     // 12: OperationalStatisticsPacket
-	(*PlayerRankingInfo)(nil),                                               // 13: PlayerRankingInfo
-	(*PlayerCommendationInfo)(nil),                                          // 14: PlayerCommendationInfo
-	(*PlayerMedalsInfo)(nil),                                                // 15: PlayerMedalsInfo
-	(*AccountActivity)(nil),                                                 // 16: AccountActivity
-	(*TournamentMatchSetup)(nil),                                            // 17: TournamentMatchSetup
-	(*ServerHltvInfo)(nil),                                                  // 18: ServerHltvInfo
-	(*IpAddressMask)(nil),                                                   // 19: IpAddressMask
-	(*CMsgCsgoSteamUserStatChange)(nil),                                     // 20: CMsgCsgoSteamUserStatChange
-	(*XpProgressData)(nil),                                                  // 21: XpProgressData
-	(*MatchEndItemUpdates)(nil),                                             // 22: MatchEndItemUpdates
-	(*ScoreLeaderboardData)(nil),                                            // 23: ScoreLeaderboardData
-	(*PlayerQuestData)(nil),                                                 // 24: PlayerQuestData
-	(*CMsgGC_ServerQuestUpdateData)(nil),                                    // 25: CMsgGC_ServerQuestUpdateData
-	(*CMsgGCCStrike15V2_MatchmakingGCOperationalStats)(nil),                 // 26: CMsgGCCStrike15_v2_MatchmakingGCOperationalStats
-	(*CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm)(nil),                   // 27: CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm
-	(*CMsgGCCStrike15V2_GC2ServerReservationUpdate)(nil),                    // 28: CMsgGCCStrike15_v2_GC2ServerReservationUpdate
-	(*CMsgGCCStrike15V2_MatchmakingStart)(nil),                              // 29: CMsgGCCStrike15_v2_MatchmakingStart
-	(*CMsgGCCStrike15V2_MatchmakingStop)(nil),                               // 30: CMsgGCCStrike15_v2_MatchmakingStop
-	(*CMsgGCCStrike15V2_MatchmakingClient2ServerPing)(nil),                  // 31: CMsgGCCStrike15_v2_MatchmakingClient2ServerPing
-	(*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate)(nil),                    // 32: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate
-	(*CDataGCCStrike15V2_TournamentMatchDraft)(nil),                         // 33: CDataGCCStrike15_v2_TournamentMatchDraft
-	(*CPreMatchInfoData)(nil),                                               // 34: CPreMatchInfoData
-	(*CMsgGCCStrike15V2_MatchmakingGC2ServerReserve)(nil),                   // 35: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
-	(*CMsgGCCStrike15V2_MatchmakingServerReservationResponse)(nil),          // 36: CMsgGCCStrike15_v2_MatchmakingServerReservationResponse
-	(*CMsgGCCStrike15V2_MatchmakingGC2ClientReserve)(nil),                   // 37: CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
-	(*CMsgGCCStrike15V2_MatchmakingServerRoundStats)(nil),                   // 38: CMsgGCCStrike15_v2_MatchmakingServerRoundStats
-	(*CMsgGCCStrike15V2_MatchmakingServerMatchEnd)(nil),                     // 39: CMsgGCCStrike15_v2_MatchmakingServerMatchEnd
-	(*CMsgGCCStrike15V2_MatchmakingServerMatchEndPartial)(nil),              // 40: CMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial
-	(*CMsgGCCStrike15V2_MatchmakingClient2GCHello)(nil),                     // 41: CMsgGCCStrike15_v2_MatchmakingClient2GCHello
-	(*CMsgGCCStrike15V2_MatchmakingGC2ClientHello)(nil),                     // 42: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello
-	(*CMsgGCCStrike15V2_AccountPrivacySettings)(nil),                        // 43: CMsgGCCStrike15_v2_AccountPrivacySettings
-	(*CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon)(nil),                   // 44: CMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon
-	(*CMsgGCCStrike15V2_MatchmakingServer2GCKick)(nil),                      // 45: CMsgGCCStrike15_v2_MatchmakingServer2GCKick
-	(*CMsgGCCStrike15V2_MatchmakingGC2ServerRankUpdate)(nil),                // 46: CMsgGCCStrike15_v2_MatchmakingGC2ServerRankUpdate
+	(EInitSystemResult)(0),                                                  // 3: EInitSystemResult
+	(*GameServerPing)(nil),                                                  // 4: GameServerPing
+	(*DataCenterPing)(nil),                                                  // 5: DataCenterPing
+	(*DetailedSearchStatistic)(nil),                                         // 6: DetailedSearchStatistic
+	(*TournamentPlayer)(nil),                                                // 7: TournamentPlayer
+	(*TournamentTeam)(nil),                                                  // 8: TournamentTeam
+	(*TournamentEvent)(nil),                                                 // 9: TournamentEvent
+	(*GlobalStatistics)(nil),                                                // 10: GlobalStatistics
+	(*OperationalStatisticDescription)(nil),                                 // 11: OperationalStatisticDescription
+	(*OperationalStatisticElement)(nil),                                     // 12: OperationalStatisticElement
+	(*OperationalStatisticsPacket)(nil),                                     // 13: OperationalStatisticsPacket
+	(*OperationalVarValue)(nil),                                             // 14: OperationalVarValue
+	(*PlayerRankingInfo)(nil),                                               // 15: PlayerRankingInfo
+	(*PlayerCommendationInfo)(nil),                                          // 16: PlayerCommendationInfo
+	(*PlayerMedalsInfo)(nil),                                                // 17: PlayerMedalsInfo
+	(*AccountActivity)(nil),                                                 // 18: AccountActivity
+	(*TournamentMatchSetup)(nil),                                            // 19: TournamentMatchSetup
+	(*ServerHltvInfo)(nil),                                                  // 20: ServerHltvInfo
+	(*IpAddressMask)(nil),                                                   // 21: IpAddressMask
+	(*CMsgCsgoSteamUserStatChange)(nil),                                     // 22: CMsgCsgoSteamUserStatChange
+	(*XpProgressData)(nil),                                                  // 23: XpProgressData
+	(*MatchEndItemUpdates)(nil),                                             // 24: MatchEndItemUpdates
+	(*ScoreLeaderboardData)(nil),                                            // 25: ScoreLeaderboardData
+	(*PlayerQuestData)(nil),                                                 // 26: PlayerQuestData
+	(*DeepPlayerStatsEntry)(nil),                                            // 27: DeepPlayerStatsEntry
+	(*DeepPlayerMatchEvent)(nil),                                            // 28: DeepPlayerMatchEvent
+	(*CMsgGC_ServerQuestUpdateData)(nil),                                    // 29: CMsgGC_ServerQuestUpdateData
+	(*CMsgGCCStrike15V2_MatchmakingGC2ServerConfirm)(nil),                   // 30: CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm
+	(*CMsgGCCStrike15V2_GC2ServerReservationUpdate)(nil),                    // 31: CMsgGCCStrike15_v2_GC2ServerReservationUpdate
+	(*CMsgGCCStrike15V2_MatchmakingStart)(nil),                              // 32: CMsgGCCStrike15_v2_MatchmakingStart
+	(*CMsgGCCStrike15V2_MatchmakingStop)(nil),                               // 33: CMsgGCCStrike15_v2_MatchmakingStop
+	(*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note)(nil),               // 34: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate_Note
+	(*CMsgGCCStrike15V2_MatchmakingClient2ServerPing)(nil),                  // 35: CMsgGCCStrike15_v2_MatchmakingClient2ServerPing
+	(*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate)(nil),                    // 36: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate
+	(*CDataGCCStrike15V2_TournamentMatchDraft)(nil),                         // 37: CDataGCCStrike15_v2_TournamentMatchDraft
+	(*CPreMatchInfoData)(nil),                                               // 38: CPreMatchInfoData
+	(*CMsgGCCStrike15V2_MatchmakingGC2ServerReserve)(nil),                   // 39: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
+	(*CMsgGCCStrike15V2_MatchmakingServerReservationResponse)(nil),          // 40: CMsgGCCStrike15_v2_MatchmakingServerReservationResponse
+	(*CMsgGCCStrike15V2_MatchmakingGC2ClientReserve)(nil),                   // 41: CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
+	(*CMsgGCCStrike15V2_MatchmakingServerRoundStats)(nil),                   // 42: CMsgGCCStrike15_v2_MatchmakingServerRoundStats
+	(*CMsgGCCStrike15V2_MatchmakingClient2GCHello)(nil),                     // 43: CMsgGCCStrike15_v2_MatchmakingClient2GCHello
+	(*CMsgGCCStrike15V2_MatchmakingGC2ClientHello)(nil),                     // 44: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello
+	(*CMsgGCCStrike15V2_AccountPrivacySettings)(nil),                        // 45: CMsgGCCStrike15_v2_AccountPrivacySettings
+	(*CMsgGCCStrike15V2_MatchmakingGC2ClientAbandon)(nil),                   // 46: CMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon
 	(*CMsgGCCStrike15V2_ClientGCRankUpdate)(nil),                            // 47: CMsgGCCStrike15_v2_ClientGCRankUpdate
 	(*CMsgGCCStrike15V2_MatchmakingOperator2GCBlogUpdate)(nil),              // 48: CMsgGCCStrike15_v2_MatchmakingOperator2GCBlogUpdate
 	(*CMsgGCCStrike15V2_ServerNotificationForUserPenalty)(nil),              // 49: CMsgGCCStrike15_v2_ServerNotificationForUserPenalty
@@ -12553,203 +15025,235 @@ var file_cstrike15_gcmessages_proto_goTypes = []any{
 	(*CMsgGCCStrike15V2_ClientRequestJoinFriendData)(nil),                   // 56: CMsgGCCStrike15_v2_ClientRequestJoinFriendData
 	(*CMsgGCCStrike15V2_ClientRequestJoinServerData)(nil),                   // 57: CMsgGCCStrike15_v2_ClientRequestJoinServerData
 	(*CMsgGCCstrike15V2_ClientRequestNewMission)(nil),                       // 58: CMsgGCCstrike15_v2_ClientRequestNewMission
-	(*CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded)(nil),                     // 59: CMsgGCCstrike15_v2_GC2ServerNotifyXPRewarded
-	(*CMsgGCCStrike15V2_WatchInfoUsers)(nil),                                // 60: CMsgGCCStrike15_v2_WatchInfoUsers
-	(*CMsgGCCStrike15V2_ClientRequestPlayersProfile)(nil),                   // 61: CMsgGCCStrike15_v2_ClientRequestPlayersProfile
-	(*CMsgGCCStrike15V2_PlayersProfile)(nil),                                // 62: CMsgGCCStrike15_v2_PlayersProfile
-	(*CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate)(nil),                     // 63: CMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate
-	(*CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment)(nil),                 // 64: CMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment
-	(*CMsgGCCStrike15V2_PlayerOverwatchCaseStatus)(nil),                     // 65: CMsgGCCStrike15_v2_PlayerOverwatchCaseStatus
-	(*CClientHeaderOverwatchEvidence)(nil),                                  // 66: CClientHeaderOverwatchEvidence
-	(*CMsgGCCStrike15V2_GC2ClientTextMsg)(nil),                              // 67: CMsgGCCStrike15_v2_GC2ClientTextMsg
-	(*CMsgGCCStrike15V2_Client2GCTextMsg)(nil),                              // 68: CMsgGCCStrike15_v2_Client2GCTextMsg
-	(*CMsgGCCStrike15V2_MatchEndRunRewardDrops)(nil),                        // 69: CMsgGCCStrike15_v2_MatchEndRunRewardDrops
-	(*CEconItemPreviewDataBlock)(nil),                                       // 70: CEconItemPreviewDataBlock
-	(*CMsgGCCStrike15V2_MatchEndRewardDropsNotification)(nil),               // 71: CMsgGCCStrike15_v2_MatchEndRewardDropsNotification
-	(*CMsgItemAcknowledged)(nil),                                            // 72: CMsgItemAcknowledged
-	(*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest)(nil),          // 73: CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest
-	(*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse)(nil),         // 74: CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse
-	(*CMsgGCCStrike15V2_TournamentMatchRewardDropsNotification)(nil),        // 75: CMsgGCCStrike15_v2_TournamentMatchRewardDropsNotification
-	(*CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames)(nil),              // 76: CMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames
-	(*CMsgGCCStrike15V2_MatchListRequestLiveGameForUser)(nil),               // 77: CMsgGCCStrike15_v2_MatchListRequestLiveGameForUser
-	(*CMsgGCCStrike15V2_MatchListRequestRecentUserGames)(nil),               // 78: CMsgGCCStrike15_v2_MatchListRequestRecentUserGames
-	(*CMsgGCCStrike15V2_MatchListRequestTournamentGames)(nil),               // 79: CMsgGCCStrike15_v2_MatchListRequestTournamentGames
-	(*CMsgGCCStrike15V2_MatchListRequestFullGameInfo)(nil),                  // 80: CMsgGCCStrike15_v2_MatchListRequestFullGameInfo
-	(*CDataGCCStrike15V2_MatchInfo)(nil),                                    // 81: CDataGCCStrike15_v2_MatchInfo
-	(*CDataGCCStrike15V2_TournamentGroupTeam)(nil),                          // 82: CDataGCCStrike15_v2_TournamentGroupTeam
-	(*CDataGCCStrike15V2_TournamentGroup)(nil),                              // 83: CDataGCCStrike15_v2_TournamentGroup
-	(*CDataGCCStrike15V2_TournamentSection)(nil),                            // 84: CDataGCCStrike15_v2_TournamentSection
-	(*CDataGCCStrike15V2_TournamentInfo)(nil),                               // 85: CDataGCCStrike15_v2_TournamentInfo
-	(*CMsgGCCStrike15V2_MatchList)(nil),                                     // 86: CMsgGCCStrike15_v2_MatchList
-	(*CMsgGCCStrike15V2_Predictions)(nil),                                   // 87: CMsgGCCStrike15_v2_Predictions
-	(*CMsgGCCStrike15V2_Fantasy)(nil),                                       // 88: CMsgGCCStrike15_v2_Fantasy
-	(*CAttribute_String)(nil),                                               // 89: CAttribute_String
-	(*CMsgGCToGCReloadVersions)(nil),                                        // 90: CMsgGCToGCReloadVersions
-	(*CMsgCStrike15Welcome)(nil),                                            // 91: CMsgCStrike15Welcome
-	(*CMsgGCCStrike15V2_ClientVarValueNotificationInfo)(nil),                // 92: CMsgGCCStrike15_v2_ClientVarValueNotificationInfo
-	(*CMsgGCCStrike15V2_ServerVarValueNotificationInfo)(nil),                // 93: CMsgGCCStrike15_v2_ServerVarValueNotificationInfo
-	(*CMsgGCCStrike15V2_GiftsLeaderboardRequest)(nil),                       // 94: CMsgGCCStrike15_v2_GiftsLeaderboardRequest
-	(*CMsgGCCStrike15V2_GiftsLeaderboardResponse)(nil),                      // 95: CMsgGCCStrike15_v2_GiftsLeaderboardResponse
-	(*CMsgGCCStrike15V2_ClientSubmitSurveyVote)(nil),                        // 96: CMsgGCCStrike15_v2_ClientSubmitSurveyVote
-	(*CMsgGCCStrike15V2_Server2GCClientValidate)(nil),                       // 97: CMsgGCCStrike15_v2_Server2GCClientValidate
-	(*CMsgGCCStrike15V2_Server2GCPureServerValidationFailure)(nil),          // 98: CMsgGCCStrike15_v2_Server2GCPureServerValidationFailure
-	(*CMsgGCCStrike15V2_GC2ClientTournamentInfo)(nil),                       // 99: CMsgGCCStrike15_v2_GC2ClientTournamentInfo
-	(*CSOEconCoupon)(nil),                                                   // 100: CSOEconCoupon
-	(*CSOQuestProgress)(nil),                                                // 101: CSOQuestProgress
-	(*CSOAccountSeasonalOperation)(nil),                                     // 102: CSOAccountSeasonalOperation
-	(*CSOPersonaDataPublic)(nil),                                            // 103: CSOPersonaDataPublic
-	(*CMsgGC_GlobalGame_Subscribe)(nil),                                     // 104: CMsgGC_GlobalGame_Subscribe
-	(*CMsgGC_GlobalGame_Unsubscribe)(nil),                                   // 105: CMsgGC_GlobalGame_Unsubscribe
-	(*CMsgGC_GlobalGame_Play)(nil),                                          // 106: CMsgGC_GlobalGame_Play
-	(*CMsgGCCStrike15V2_AcknowledgePenalty)(nil),                            // 107: CMsgGCCStrike15_v2_AcknowledgePenalty
-	(*CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin)(nil),                  // 108: CMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin
-	(*CMsgGCCStrike15V2_Client2GCStreamUnlock)(nil),                         // 109: CMsgGCCStrike15_v2_Client2GCStreamUnlock
-	(*CMsgGCCStrike15V2_ClientToGCRequestElevate)(nil),                      // 110: CMsgGCCStrike15_v2_ClientToGCRequestElevate
-	(*CMsgGCCStrike15V2_ClientToGCChat)(nil),                                // 111: CMsgGCCStrike15_v2_ClientToGCChat
-	(*CMsgGCCStrike15V2_GCToClientChat)(nil),                                // 112: CMsgGCCStrike15_v2_GCToClientChat
-	(*CMsgGCCStrike15V2_ClientAuthKeyCode)(nil),                             // 113: CMsgGCCStrike15_v2_ClientAuthKeyCode
-	(*CMsgGCCStrike15_GotvSyncPacket)(nil),                                  // 114: CMsgGCCStrike15_GotvSyncPacket
-	(*PlayerDecalDigitalSignature)(nil),                                     // 115: PlayerDecalDigitalSignature
-	(*CMsgGCCStrike15V2_ClientPlayerDecalSign)(nil),                         // 116: CMsgGCCStrike15_v2_ClientPlayerDecalSign
-	(*CMsgGCCStrike15V2_ClientLogonFatalError)(nil),                         // 117: CMsgGCCStrike15_v2_ClientLogonFatalError
-	(*CMsgGCCStrike15V2_ClientPollState)(nil),                               // 118: CMsgGCCStrike15_v2_ClientPollState
-	(*CMsgGCCStrike15V2_Party_Register)(nil),                                // 119: CMsgGCCStrike15_v2_Party_Register
-	(*CMsgGCCStrike15V2_Party_Search)(nil),                                  // 120: CMsgGCCStrike15_v2_Party_Search
-	(*CMsgGCCStrike15V2_Party_SearchResults)(nil),                           // 121: CMsgGCCStrike15_v2_Party_SearchResults
-	(*CMsgGCCStrike15V2_Party_Invite)(nil),                                  // 122: CMsgGCCStrike15_v2_Party_Invite
-	(*CMsgGCCStrike15V2_Account_RequestCoPlays)(nil),                        // 123: CMsgGCCStrike15_v2_Account_RequestCoPlays
-	(*CMsgGCCStrike15V2_ClientToGCRequestTicket)(nil),                       // 124: CMsgGCCStrike15_v2_ClientToGCRequestTicket
-	(*CMsgGCToClientSteamDatagramTicket)(nil),                               // 125: CMsgGCToClientSteamDatagramTicket
-	(*CMsgGCCStrike15V2_ClientRequestOffers)(nil),                           // 126: CMsgGCCStrike15_v2_ClientRequestOffers
-	(*CMsgGCCStrike15V2_ClientRequestSouvenir)(nil),                         // 127: CMsgGCCStrike15_v2_ClientRequestSouvenir
-	(*CMsgGCCStrike15V2_ClientAccountBalance)(nil),                          // 128: CMsgGCCStrike15_v2_ClientAccountBalance
-	(*CMsgGCCStrike15V2_ClientPartyJoinRelay)(nil),                          // 129: CMsgGCCStrike15_v2_ClientPartyJoinRelay
-	(*CMsgGCCStrike15V2_ClientPartyWarning)(nil),                            // 130: CMsgGCCStrike15_v2_ClientPartyWarning
-	(*CMsgGCCStrike15V2_SetEventFavorite)(nil),                              // 131: CMsgGCCStrike15_v2_SetEventFavorite
-	(*CMsgGCCStrike15V2_GetEventFavorites_Request)(nil),                     // 132: CMsgGCCStrike15_v2_GetEventFavorites_Request
-	(*CMsgGCCStrike15V2_GetEventFavorites_Response)(nil),                    // 133: CMsgGCCStrike15_v2_GetEventFavorites_Response
-	(*CMsgGCCStrike15V2_ClientPerfReport)(nil),                              // 134: CMsgGCCStrike15_v2_ClientPerfReport
-	(*CMsgGCCStrike15V2_ClientReportValidation)(nil),                        // 135: CMsgGCCStrike15_v2_ClientReportValidation
-	(*CMsgGCCStrike15V2_GC2ClientRefuseSecureMode)(nil),                     // 136: CMsgGCCStrike15_v2_GC2ClientRefuseSecureMode
-	(*CMsgGCCStrike15V2_GC2ClientRequestValidation)(nil),                    // 137: CMsgGCCStrike15_v2_GC2ClientRequestValidation
-	(*ScoreLeaderboardData_Entry)(nil),                                      // 138: ScoreLeaderboardData.Entry
-	(*ScoreLeaderboardData_AccountEntries)(nil),                             // 139: ScoreLeaderboardData.AccountEntries
-	(*PlayerQuestData_QuestItemData)(nil),                                   // 140: PlayerQuestData.QuestItemData
-	(*CMsgGCCStrike15V2_MatchmakingGC2ClientUpdate_Note)(nil),               // 141: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.Note
-	(*CDataGCCStrike15V2_TournamentMatchDraft_Entry)(nil),                   // 142: CDataGCCStrike15_v2_TournamentMatchDraft.Entry
-	(*CPreMatchInfoData_TeamStats)(nil),                                     // 143: CPreMatchInfoData.TeamStats
-	(*CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo)(nil),          // 144: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.DropInfo
-	(*CMsgGCCStrike15V2_AccountPrivacySettings_Setting)(nil),                // 145: CMsgGCCStrike15_v2_AccountPrivacySettings.Setting
-	(*CEconItemPreviewDataBlock_Sticker)(nil),                               // 146: CEconItemPreviewDataBlock.Sticker
-	(*CDataGCCStrike15V2_TournamentGroup_Picks)(nil),                        // 147: CDataGCCStrike15_v2_TournamentGroup.Picks
-	(*CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick)(nil),                // 148: CMsgGCCStrike15_v2_Predictions.GroupMatchTeamPick
-	(*CMsgGCCStrike15V2_Fantasy_FantasySlot)(nil),                           // 149: CMsgGCCStrike15_v2_Fantasy.FantasySlot
-	(*CMsgGCCStrike15V2_Fantasy_FantasyTeam)(nil),                           // 150: CMsgGCCStrike15_v2_Fantasy.FantasyTeam
-	(*CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry)(nil), // 151: CMsgGCCStrike15_v2_GiftsLeaderboardResponse.GiftLeaderboardEntry
-	(*CMsgGCCStrike15V2_Party_SearchResults_Entry)(nil),                     // 152: CMsgGCCStrike15_v2_Party_SearchResults.Entry
-	(*CMsgGCCStrike15V2_Account_RequestCoPlays_Player)(nil),                 // 153: CMsgGCCStrike15_v2_Account_RequestCoPlays.Player
-	(*CMsgGCCStrike15V2_ClientPartyWarning_Entry)(nil),                      // 154: CMsgGCCStrike15_v2_ClientPartyWarning.Entry
-	(*CMsgGCCStrike15V2_ClientPerfReport_Entry)(nil),                        // 155: CMsgGCCStrike15_v2_ClientPerfReport.Entry
-	(*CEngineGotvSyncPacket)(nil),                   // 156: CEngineGotvSyncPacket
+	(*CMsgGCCstrike15V2_ClientRedeemMissionReward)(nil),                     // 59: CMsgGCCstrike15_v2_ClientRedeemMissionReward
+	(*CMsgGCCstrike15V2_ClientRedeemFreeReward)(nil),                        // 60: CMsgGCCstrike15_v2_ClientRedeemFreeReward
+	(*CMsgGCCstrike15V2_GC2ServerNotifyXPRewarded)(nil),                     // 61: CMsgGCCstrike15_v2_GC2ServerNotifyXPRewarded
+	(*CMsgGCCStrike15V2_ClientNetworkConfig)(nil),                           // 62: CMsgGCCStrike15_v2_ClientNetworkConfig
+	(*CMsgGCCStrike15_ClientDeepStats)(nil),                                 // 63: CMsgGCCStrike15_ClientDeepStats
+	(*CMsgGCCStrike15V2_WatchInfoUsers)(nil),                                // 64: CMsgGCCStrike15_v2_WatchInfoUsers
+	(*CMsgGCCStrike15V2_ClientRequestPlayersProfile)(nil),                   // 65: CMsgGCCStrike15_v2_ClientRequestPlayersProfile
+	(*CMsgGCCStrike15V2_PlayersProfile)(nil),                                // 66: CMsgGCCStrike15_v2_PlayersProfile
+	(*CMsgGCCStrike15V2_PremierSeasonSummary)(nil),                          // 67: CMsgGCCStrike15_v2_PremierSeasonSummary
+	(*CMsgGCCStrike15V2_PlayerOverwatchCaseUpdate)(nil),                     // 68: CMsgGCCStrike15_v2_PlayerOverwatchCaseUpdate
+	(*CMsgGCCStrike15V2_PlayerOverwatchCaseAssignment)(nil),                 // 69: CMsgGCCStrike15_v2_PlayerOverwatchCaseAssignment
+	(*CMsgGCCStrike15V2_PlayerOverwatchCaseStatus)(nil),                     // 70: CMsgGCCStrike15_v2_PlayerOverwatchCaseStatus
+	(*CClientHeaderOverwatchEvidence)(nil),                                  // 71: CClientHeaderOverwatchEvidence
+	(*CMsgGCCStrike15V2_GC2ClientTextMsg)(nil),                              // 72: CMsgGCCStrike15_v2_GC2ClientTextMsg
+	(*CMsgGCCStrike15V2_Client2GCTextMsg)(nil),                              // 73: CMsgGCCStrike15_v2_Client2GCTextMsg
+	(*CMsgGCCStrike15V2_MatchEndRunRewardDrops)(nil),                        // 74: CMsgGCCStrike15_v2_MatchEndRunRewardDrops
+	(*CEconItemPreviewDataBlock)(nil),                                       // 75: CEconItemPreviewDataBlock
+	(*CMsgGCCStrike15V2_MatchEndRewardDropsNotification)(nil),               // 76: CMsgGCCStrike15_v2_MatchEndRewardDropsNotification
+	(*CMsgItemAcknowledged)(nil),                                            // 77: CMsgItemAcknowledged
+	(*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockRequest)(nil),          // 78: CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest
+	(*CMsgGCCStrike15V2_Client2GCEconPreviewDataBlockResponse)(nil),         // 79: CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse
+	(*CMsgGCCStrike15V2_MatchListRequestCurrentLiveGames)(nil),              // 80: CMsgGCCStrike15_v2_MatchListRequestCurrentLiveGames
+	(*CMsgGCCStrike15V2_MatchListRequestLiveGameForUser)(nil),               // 81: CMsgGCCStrike15_v2_MatchListRequestLiveGameForUser
+	(*CMsgGCCStrike15V2_MatchListRequestRecentUserGames)(nil),               // 82: CMsgGCCStrike15_v2_MatchListRequestRecentUserGames
+	(*CMsgGCCStrike15V2_MatchListRequestTournamentGames)(nil),               // 83: CMsgGCCStrike15_v2_MatchListRequestTournamentGames
+	(*CMsgGCCStrike15V2_MatchListRequestFullGameInfo)(nil),                  // 84: CMsgGCCStrike15_v2_MatchListRequestFullGameInfo
+	(*CDataGCCStrike15V2_MatchInfo)(nil),                                    // 85: CDataGCCStrike15_v2_MatchInfo
+	(*CDataGCCStrike15V2_TournamentGroupTeam)(nil),                          // 86: CDataGCCStrike15_v2_TournamentGroupTeam
+	(*CDataGCCStrike15V2_TournamentGroup)(nil),                              // 87: CDataGCCStrike15_v2_TournamentGroup
+	(*CDataGCCStrike15V2_TournamentSection)(nil),                            // 88: CDataGCCStrike15_v2_TournamentSection
+	(*CDataGCCStrike15V2_TournamentInfo)(nil),                               // 89: CDataGCCStrike15_v2_TournamentInfo
+	(*CMsgGCCStrike15V2_MatchList)(nil),                                     // 90: CMsgGCCStrike15_v2_MatchList
+	(*CMsgGCCStrike15V2_MatchListTournamentOperatorMgmt)(nil),               // 91: CMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt
+	(*CMsgGCCStrike15V2_Predictions)(nil),                                   // 92: CMsgGCCStrike15_v2_Predictions
+	(*CMsgGCCStrike15V2_Fantasy)(nil),                                       // 93: CMsgGCCStrike15_v2_Fantasy
+	(*CAttribute_String)(nil),                                               // 94: CAttribute_String
+	(*CMsgLegacySource1ClientWelcome)(nil),                                  // 95: CMsgLegacySource1ClientWelcome
+	(*CMsgCStrike15Welcome)(nil),                                            // 96: CMsgCStrike15Welcome
+	(*CMsgGCCStrike15V2_ClientVarValueNotificationInfo)(nil),                // 97: CMsgGCCStrike15_v2_ClientVarValueNotificationInfo
+	(*CMsgGCCStrike15V2_ServerVarValueNotificationInfo)(nil),                // 98: CMsgGCCStrike15_v2_ServerVarValueNotificationInfo
+	(*CMsgGCCStrike15V2_GiftsLeaderboardRequest)(nil),                       // 99: CMsgGCCStrike15_v2_GiftsLeaderboardRequest
+	(*CMsgGCCStrike15V2_GiftsLeaderboardResponse)(nil),                      // 100: CMsgGCCStrike15_v2_GiftsLeaderboardResponse
+	(*CMsgGCCStrike15V2_ClientSubmitSurveyVote)(nil),                        // 101: CMsgGCCStrike15_v2_ClientSubmitSurveyVote
+	(*CMsgGCCStrike15V2_Server2GCClientValidate)(nil),                       // 102: CMsgGCCStrike15_v2_Server2GCClientValidate
+	(*CMsgGCCStrike15V2_GC2ClientTournamentInfo)(nil),                       // 103: CMsgGCCStrike15_v2_GC2ClientTournamentInfo
+	(*CSOEconCoupon)(nil),                                                   // 104: CSOEconCoupon
+	(*CSOAccountItemPersonalStore)(nil),                                     // 105: CSOAccountItemPersonalStore
+	(*CSOAccountXpShop)(nil),                                                // 106: CSOAccountXpShop
+	(*CSOAccountKeychainRemoveToolCharges)(nil),                             // 107: CSOAccountKeychainRemoveToolCharges
+	(*CSOQuestProgress)(nil),                                                // 108: CSOQuestProgress
+	(*CSOAccountSeasonalOperation)(nil),                                     // 109: CSOAccountSeasonalOperation
+	(*CSOAccountRecurringSubscription)(nil),                                 // 110: CSOAccountRecurringSubscription
+	(*CSOPersonaDataPublic)(nil),                                            // 111: CSOPersonaDataPublic
+	(*CMsgGCCStrike15V2_GC2ClientNotifyXPShop)(nil),                         // 112: CMsgGCCStrike15_v2_GC2ClientNotifyXPShop
+	(*CMsgGCCStrike15V2_Client2GcAckXPShopTracks)(nil),                      // 113: CMsgGCCStrike15_v2_Client2GcAckXPShopTracks
+	(*CMsgGCCStrike15V2_MatchmakingGC2ClientSearchStats)(nil),               // 114: CMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats
+	(*CMsgGC_GlobalGame_Subscribe)(nil),                                     // 115: CMsgGC_GlobalGame_Subscribe
+	(*CMsgGC_GlobalGame_Unsubscribe)(nil),                                   // 116: CMsgGC_GlobalGame_Unsubscribe
+	(*CMsgGC_GlobalGame_Play)(nil),                                          // 117: CMsgGC_GlobalGame_Play
+	(*CMsgGCCStrike15V2_AcknowledgePenalty)(nil),                            // 118: CMsgGCCStrike15_v2_AcknowledgePenalty
+	(*CMsgGCCStrike15V2_Client2GCRequestPrestigeCoin)(nil),                  // 119: CMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin
+	(*CMsgGCCStrike15V2_Client2GCStreamUnlock)(nil),                         // 120: CMsgGCCStrike15_v2_Client2GCStreamUnlock
+	(*CMsgGCCStrike15V2_ClientToGCRequestElevate)(nil),                      // 121: CMsgGCCStrike15_v2_ClientToGCRequestElevate
+	(*CMsgGCCStrike15V2_ClientToGCChat)(nil),                                // 122: CMsgGCCStrike15_v2_ClientToGCChat
+	(*CMsgGCCStrike15V2_GCToClientChat)(nil),                                // 123: CMsgGCCStrike15_v2_GCToClientChat
+	(*CMsgGCCStrike15V2_ClientAuthKeyCode)(nil),                             // 124: CMsgGCCStrike15_v2_ClientAuthKeyCode
+	(*CMsgGCCStrike15_GotvSyncPacket)(nil),                                  // 125: CMsgGCCStrike15_GotvSyncPacket
+	(*PlayerDecalDigitalSignature)(nil),                                     // 126: PlayerDecalDigitalSignature
+	(*CMsgGCCStrike15V2_ClientPlayerDecalSign)(nil),                         // 127: CMsgGCCStrike15_v2_ClientPlayerDecalSign
+	(*CMsgGCCStrike15V2_BetaEnrollment)(nil),                                // 128: CMsgGCCStrike15_v2_BetaEnrollment
+	(*CMsgGCCStrike15V2_ClientLogonFatalError)(nil),                         // 129: CMsgGCCStrike15_v2_ClientLogonFatalError
+	(*CMsgGCCStrike15V2_ClientPollState)(nil),                               // 130: CMsgGCCStrike15_v2_ClientPollState
+	(*CMsgGCCStrike15V2_Party_Register)(nil),                                // 131: CMsgGCCStrike15_v2_Party_Register
+	(*CMsgGCCStrike15V2_Party_Search)(nil),                                  // 132: CMsgGCCStrike15_v2_Party_Search
+	(*CMsgGCCStrike15V2_Party_SearchResults)(nil),                           // 133: CMsgGCCStrike15_v2_Party_SearchResults
+	(*CMsgGCCStrike15V2_Party_Invite)(nil),                                  // 134: CMsgGCCStrike15_v2_Party_Invite
+	(*CMsgGCCStrike15V2_Account_RequestCoPlays)(nil),                        // 135: CMsgGCCStrike15_v2_Account_RequestCoPlays
+	(*CMsgGCCStrike15V2_ClientToGCRequestTicket)(nil),                       // 136: CMsgGCCStrike15_v2_ClientToGCRequestTicket
+	(*CMsgGCToClientSteamDatagramTicket)(nil),                               // 137: CMsgGCToClientSteamDatagramTicket
+	(*CMsgGCCStrike15V2_ClientRequestOffers)(nil),                           // 138: CMsgGCCStrike15_v2_ClientRequestOffers
+	(*CMsgGCCStrike15V2_ClientRequestSouvenir)(nil),                         // 139: CMsgGCCStrike15_v2_ClientRequestSouvenir
+	(*CMsgGCCStrike15V2_ClientAccountBalance)(nil),                          // 140: CMsgGCCStrike15_v2_ClientAccountBalance
+	(*CMsgGCCStrike15V2_ClientPartyJoinRelay)(nil),                          // 141: CMsgGCCStrike15_v2_ClientPartyJoinRelay
+	(*CMsgGCCStrike15V2_ClientPartyWarning)(nil),                            // 142: CMsgGCCStrike15_v2_ClientPartyWarning
+	(*CMsgGCCStrike15V2_SetEventFavorite)(nil),                              // 143: CMsgGCCStrike15_v2_SetEventFavorite
+	(*CMsgGCCStrike15V2_GetEventFavorites_Request)(nil),                     // 144: CMsgGCCStrike15_v2_GetEventFavorites_Request
+	(*CMsgGCCStrike15V2_GetEventFavorites_Response)(nil),                    // 145: CMsgGCCStrike15_v2_GetEventFavorites_Response
+	(*CMsgGCCStrike15V2_ClientPerfReport)(nil),                              // 146: CMsgGCCStrike15_v2_ClientPerfReport
+	(*CVDiagnostic)(nil),                                                    // 147: CVDiagnostic
+	(*CMsgGCCStrike15V2_ClientReportValidation)(nil),                        // 148: CMsgGCCStrike15_v2_ClientReportValidation
+	(*CMsgGCCStrike15V2_GC2ClientRefuseSecureMode)(nil),                     // 149: CMsgGCCStrike15_v2_GC2ClientRefuseSecureMode
+	(*CMsgGCCStrike15V2_GC2ClientRequestValidation)(nil),                    // 150: CMsgGCCStrike15_v2_GC2ClientRequestValidation
+	(*CMsgGCCStrike15V2_GC2ClientInitSystem)(nil),                           // 151: CMsgGCCStrike15_v2_GC2ClientInitSystem
+	(*CMsgGCCStrike15V2_GC2ClientInitSystem_Response)(nil),                  // 152: CMsgGCCStrike15_v2_GC2ClientInitSystem_Response
+	(*CMsgGCCStrike15V2_SetPlayerLeaderboardSafeName)(nil),                  // 153: CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName
+	(*PlayerRankingInfo_PerMapRank)(nil),                                    // 154: PlayerRankingInfo.PerMapRank
+	(*ScoreLeaderboardData_Entry)(nil),                                      // 155: ScoreLeaderboardData.Entry
+	(*ScoreLeaderboardData_AccountEntries)(nil),                             // 156: ScoreLeaderboardData.AccountEntries
+	(*PlayerQuestData_QuestItemData)(nil),                                   // 157: PlayerQuestData.QuestItemData
+	(*CDataGCCStrike15V2_TournamentMatchDraft_Entry)(nil),                   // 158: CDataGCCStrike15_v2_TournamentMatchDraft.Entry
+	(*CPreMatchInfoData_TeamStats)(nil),                                     // 159: CPreMatchInfoData.TeamStats
+	(*CMsgGCCStrike15V2_MatchmakingServerRoundStats_DropInfo)(nil),          // 160: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.DropInfo
+	(*CMsgGCCStrike15V2_AccountPrivacySettings_Setting)(nil),                // 161: CMsgGCCStrike15_v2_AccountPrivacySettings.Setting
+	(*CMsgGCCStrike15_ClientDeepStats_DeepStatsRange)(nil),                  // 162: CMsgGCCStrike15_ClientDeepStats.DeepStatsRange
+	(*CMsgGCCStrike15_ClientDeepStats_DeepStatsMatch)(nil),                  // 163: CMsgGCCStrike15_ClientDeepStats.DeepStatsMatch
+	(*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerWeek)(nil),              // 164: CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerWeek
+	(*CMsgGCCStrike15V2_PremierSeasonSummary_DataPerMap)(nil),               // 165: CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerMap
+	(*CEconItemPreviewDataBlock_Sticker)(nil),                               // 166: CEconItemPreviewDataBlock.Sticker
+	(*CDataGCCStrike15V2_TournamentGroup_Picks)(nil),                        // 167: CDataGCCStrike15_v2_TournamentGroup.Picks
+	(*CMsgGCCStrike15V2_Predictions_GroupMatchTeamPick)(nil),                // 168: CMsgGCCStrike15_v2_Predictions.GroupMatchTeamPick
+	(*CMsgGCCStrike15V2_Fantasy_FantasySlot)(nil),                           // 169: CMsgGCCStrike15_v2_Fantasy.FantasySlot
+	(*CMsgGCCStrike15V2_Fantasy_FantasyTeam)(nil),                           // 170: CMsgGCCStrike15_v2_Fantasy.FantasyTeam
+	(*CMsgLegacySource1ClientWelcome_Location)(nil),                         // 171: CMsgLegacySource1ClientWelcome.Location
+	(*CMsgGCCStrike15V2_GiftsLeaderboardResponse_GiftLeaderboardEntry)(nil), // 172: CMsgGCCStrike15_v2_GiftsLeaderboardResponse.GiftLeaderboardEntry
+	(*CMsgGCCStrike15V2_Party_SearchResults_Entry)(nil),                     // 173: CMsgGCCStrike15_v2_Party_SearchResults.Entry
+	(*CMsgGCCStrike15V2_Account_RequestCoPlays_Player)(nil),                 // 174: CMsgGCCStrike15_v2_Account_RequestCoPlays.Player
+	(*CMsgGCCStrike15V2_ClientPartyWarning_Entry)(nil),                      // 175: CMsgGCCStrike15_v2_ClientPartyWarning.Entry
+	(*CMsgGCCStrike15V2_ClientPerfReport_Entry)(nil),                        // 176: CMsgGCCStrike15_v2_ClientPerfReport.Entry
+	(*CMsgSOCacheSubscribed)(nil),                    // 177: CMsgSOCacheSubscribed
+	(*CMsgSOCacheSubscriptionCheck)(nil),             // 178: CMsgSOCacheSubscriptionCheck
+	(*CEngineGotvSyncPacket)(nil),                   // 179: CEngineGotvSyncPacket
 }
 var file_cstrike15_gcmessages_proto_depIdxs = []int32{
-	6,   // 0: TournamentTeam.players:type_name -> TournamentPlayer
-	5,   // 1: GlobalStatistics.search_statistics:type_name -> DetailedSearchStatistic
-	11,  // 2: OperationalStatisticsPacket.values:type_name -> OperationalStatisticElement
-	139, // 3: ScoreLeaderboardData.accountentries:type_name -> ScoreLeaderboardData.AccountEntries
-	138, // 4: ScoreLeaderboardData.matchentries:type_name -> ScoreLeaderboardData.Entry
-	140, // 5: PlayerQuestData.quest_item_data:type_name -> PlayerQuestData.QuestItemData
-	21,  // 6: PlayerQuestData.xp_progress_data:type_name -> XpProgressData
-	22,  // 7: PlayerQuestData.item_updates:type_name -> MatchEndItemUpdates
-	20,  // 8: PlayerQuestData.userstatchanges:type_name -> CMsgCsgoSteamUserStatChange
-	24,  // 9: CMsgGC_ServerQuestUpdateData.player_quest_data:type_name -> PlayerQuestData
-	23,  // 10: CMsgGC_ServerQuestUpdateData.missionlbsdata:type_name -> ScoreLeaderboardData
-	10,  // 11: CMsgGCCStrike15_v2_MatchmakingGCOperationalStats.namekeys:type_name -> OperationalStatisticDescription
-	12,  // 12: CMsgGCCStrike15_v2_MatchmakingGCOperationalStats.packets:type_name -> OperationalStatisticsPacket
-	17,  // 13: CMsgGCCStrike15_v2_MatchmakingStart.tournament_match:type_name -> TournamentMatchSetup
-	3,   // 14: CMsgGCCStrike15_v2_MatchmakingClient2ServerPing.gameserverpings:type_name -> GameServerPing
-	4,   // 15: CMsgGCCStrike15_v2_MatchmakingClient2ServerPing.data_center_pings:type_name -> DataCenterPing
-	9,   // 16: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.global_stats:type_name -> GlobalStatistics
-	19,  // 17: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.server_ipaddress_mask:type_name -> IpAddressMask
-	141, // 18: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.notes:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.Note
-	142, // 19: CDataGCCStrike15_v2_TournamentMatchDraft.drafts:type_name -> CDataGCCStrike15_v2_TournamentMatchDraft.Entry
-	33,  // 20: CPreMatchInfoData.draft:type_name -> CDataGCCStrike15_v2_TournamentMatchDraft
-	143, // 21: CPreMatchInfoData.stats:type_name -> CPreMatchInfoData.TeamStats
-	13,  // 22: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.rankings:type_name -> PlayerRankingInfo
-	19,  // 23: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.whitelist:type_name -> IpAddressMask
-	8,   // 24: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.tournament_event:type_name -> TournamentEvent
-	7,   // 25: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.tournament_teams:type_name -> TournamentTeam
-	34,  // 26: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.pre_match_data:type_name -> CPreMatchInfoData
-	35,  // 27: CMsgGCCStrike15_v2_MatchmakingServerReservationResponse.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
-	18,  // 28: CMsgGCCStrike15_v2_MatchmakingServerReservationResponse.tv_info:type_name -> ServerHltvInfo
-	35,  // 29: CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
-	35,  // 30: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
-	27,  // 31: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.confirm:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm
-	144, // 32: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.drop_info:type_name -> CMsgGCCStrike15_v2_MatchmakingServerRoundStats.DropInfo
-	38,  // 33: CMsgGCCStrike15_v2_MatchmakingServerMatchEnd.stats:type_name -> CMsgGCCStrike15_v2_MatchmakingServerRoundStats
-	27,  // 34: CMsgGCCStrike15_v2_MatchmakingServerMatchEnd.confirm:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm
-	25,  // 35: CMsgGCCStrike15_v2_MatchmakingServerMatchEnd.match_end_quest_data:type_name -> CMsgGC_ServerQuestUpdateData
-	35,  // 36: CMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
-	27,  // 37: CMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial.confirm:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm
-	25,  // 38: CMsgGCCStrike15_v2_MatchmakingServerMatchEndPartial.completed_player_quest_data:type_name -> CMsgGC_ServerQuestUpdateData
-	37,  // 39: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.ongoingmatch:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
-	9,   // 40: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.global_stats:type_name -> GlobalStatistics
-	13,  // 41: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.ranking:type_name -> PlayerRankingInfo
-	14,  // 42: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.commendation:type_name -> PlayerCommendationInfo
-	15,  // 43: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.medals:type_name -> PlayerMedalsInfo
-	8,   // 44: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_event:type_name -> TournamentEvent
-	7,   // 45: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_event_teams:type_name -> TournamentTeam
-	7,   // 46: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_team:type_name -> TournamentTeam
-	8,   // 47: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_event_stages:type_name -> TournamentEvent
-	16,  // 48: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.activity:type_name -> AccountActivity
-	13,  // 49: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.rankings:type_name -> PlayerRankingInfo
-	145, // 50: CMsgGCCStrike15_v2_AccountPrivacySettings.settings:type_name -> CMsgGCCStrike15_v2_AccountPrivacySettings.Setting
-	37,  // 51: CMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon.abandoned_match:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
-	35,  // 52: CMsgGCCStrike15_v2_MatchmakingServer2GCKick.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
-	13,  // 53: CMsgGCCStrike15_v2_MatchmakingGC2ServerRankUpdate.rankings:type_name -> PlayerRankingInfo
-	13,  // 54: CMsgGCCStrike15_v2_ClientGCRankUpdate.rankings:type_name -> PlayerRankingInfo
-	14,  // 55: CMsgGCCStrike15_v2_ClientCommendPlayer.commendation:type_name -> PlayerCommendationInfo
-	4,   // 56: CMsgGCCStrike15_v2_ClientRequestWatchInfoFriends.data_center_pings:type_name -> DataCenterPing
-	37,  // 57: CMsgGCCStrike15_v2_ClientRequestJoinFriendData.res:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
-	37,  // 58: CMsgGCCStrike15_v2_ClientRequestJoinServerData.res:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
-	21,  // 59: CMsgGCCstrike15_v2_GC2ServerNotifyXPRewarded.xp_progress_data:type_name -> XpProgressData
-	55,  // 60: CMsgGCCStrike15_v2_WatchInfoUsers.watchable_match_infos:type_name -> WatchableMatchInfo
-	42,  // 61: CMsgGCCStrike15_v2_PlayersProfile.account_profiles:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientHello
-	36,  // 62: CMsgGCCStrike15_v2_MatchEndRunRewardDrops.serverinfo:type_name -> CMsgGCCStrike15_v2_MatchmakingServerReservationResponse
-	25,  // 63: CMsgGCCStrike15_v2_MatchEndRunRewardDrops.match_end_quest_data:type_name -> CMsgGC_ServerQuestUpdateData
-	146, // 64: CEconItemPreviewDataBlock.stickers:type_name -> CEconItemPreviewDataBlock.Sticker
-	70,  // 65: CMsgGCCStrike15_v2_MatchEndRewardDropsNotification.iteminfo:type_name -> CEconItemPreviewDataBlock
-	70,  // 66: CMsgItemAcknowledged.iteminfo:type_name -> CEconItemPreviewDataBlock
-	70,  // 67: CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse.iteminfo:type_name -> CEconItemPreviewDataBlock
-	55,  // 68: CDataGCCStrike15_v2_MatchInfo.watchablematchinfo:type_name -> WatchableMatchInfo
-	38,  // 69: CDataGCCStrike15_v2_MatchInfo.roundstats_legacy:type_name -> CMsgGCCStrike15_v2_MatchmakingServerRoundStats
-	38,  // 70: CDataGCCStrike15_v2_MatchInfo.roundstatsall:type_name -> CMsgGCCStrike15_v2_MatchmakingServerRoundStats
-	82,  // 71: CDataGCCStrike15_v2_TournamentGroup.teams:type_name -> CDataGCCStrike15_v2_TournamentGroupTeam
-	147, // 72: CDataGCCStrike15_v2_TournamentGroup.picks:type_name -> CDataGCCStrike15_v2_TournamentGroup.Picks
-	83,  // 73: CDataGCCStrike15_v2_TournamentSection.groups:type_name -> CDataGCCStrike15_v2_TournamentGroup
-	84,  // 74: CDataGCCStrike15_v2_TournamentInfo.sections:type_name -> CDataGCCStrike15_v2_TournamentSection
-	8,   // 75: CDataGCCStrike15_v2_TournamentInfo.tournament_event:type_name -> TournamentEvent
-	7,   // 76: CDataGCCStrike15_v2_TournamentInfo.tournament_teams:type_name -> TournamentTeam
-	81,  // 77: CMsgGCCStrike15_v2_MatchList.matches:type_name -> CDataGCCStrike15_v2_MatchInfo
-	7,   // 78: CMsgGCCStrike15_v2_MatchList.streams:type_name -> TournamentTeam
-	85,  // 79: CMsgGCCStrike15_v2_MatchList.tournamentinfo:type_name -> CDataGCCStrike15_v2_TournamentInfo
-	148, // 80: CMsgGCCStrike15_v2_Predictions.group_match_team_picks:type_name -> CMsgGCCStrike15_v2_Predictions.GroupMatchTeamPick
-	150, // 81: CMsgGCCStrike15_v2_Fantasy.teams:type_name -> CMsgGCCStrike15_v2_Fantasy.FantasyTeam
-	151, // 82: CMsgGCCStrike15_v2_GiftsLeaderboardResponse.entries:type_name -> CMsgGCCStrike15_v2_GiftsLeaderboardResponse.GiftLeaderboardEntry
-	14,  // 83: CSOPersonaDataPublic.commendation:type_name -> PlayerCommendationInfo
-	156, // 84: CMsgGCCStrike15_GotvSyncPacket.data:type_name -> CEngineGotvSyncPacket
-	115, // 85: CMsgGCCStrike15_v2_ClientPlayerDecalSign.data:type_name -> PlayerDecalDigitalSignature
-	152, // 86: CMsgGCCStrike15_v2_Party_SearchResults.entries:type_name -> CMsgGCCStrike15_v2_Party_SearchResults.Entry
-	153, // 87: CMsgGCCStrike15_v2_Account_RequestCoPlays.players:type_name -> CMsgGCCStrike15_v2_Account_RequestCoPlays.Player
-	154, // 88: CMsgGCCStrike15_v2_ClientPartyWarning.entries:type_name -> CMsgGCCStrike15_v2_ClientPartyWarning.Entry
-	155, // 89: CMsgGCCStrike15_v2_ClientPerfReport.entries:type_name -> CMsgGCCStrike15_v2_ClientPerfReport.Entry
-	138, // 90: ScoreLeaderboardData.AccountEntries.entries:type_name -> ScoreLeaderboardData.Entry
-	149, // 91: CMsgGCCStrike15_v2_Fantasy.FantasyTeam.slots:type_name -> CMsgGCCStrike15_v2_Fantasy.FantasySlot
-	92,  // [92:92] is the sub-list for method output_type
-	92,  // [92:92] is the sub-list for method input_type
-	92,  // [92:92] is the sub-list for extension type_name
-	92,  // [92:92] is the sub-list for extension extendee
-	0,   // [0:92] is the sub-list for field type_name
+	7,   // 0: TournamentTeam.players:type_name -> TournamentPlayer
+	6,   // 1: GlobalStatistics.search_statistics:type_name -> DetailedSearchStatistic
+	12,  // 2: OperationalStatisticsPacket.values:type_name -> OperationalStatisticElement
+	154, // 3: PlayerRankingInfo.per_map_rank:type_name -> PlayerRankingInfo.PerMapRank
+	156, // 4: ScoreLeaderboardData.accountentries:type_name -> ScoreLeaderboardData.AccountEntries
+	155, // 5: ScoreLeaderboardData.matchentries:type_name -> ScoreLeaderboardData.Entry
+	157, // 6: PlayerQuestData.quest_item_data:type_name -> PlayerQuestData.QuestItemData
+	23,  // 7: PlayerQuestData.xp_progress_data:type_name -> XpProgressData
+	24,  // 8: PlayerQuestData.item_updates:type_name -> MatchEndItemUpdates
+	22,  // 9: PlayerQuestData.userstatchanges:type_name -> CMsgCsgoSteamUserStatChange
+	26,  // 10: CMsgGC_ServerQuestUpdateData.player_quest_data:type_name -> PlayerQuestData
+	25,  // 11: CMsgGC_ServerQuestUpdateData.missionlbsdata:type_name -> ScoreLeaderboardData
+	19,  // 12: CMsgGCCStrike15_v2_MatchmakingStart.tournament_match:type_name -> TournamentMatchSetup
+	4,   // 13: CMsgGCCStrike15_v2_MatchmakingClient2ServerPing.gameserverpings:type_name -> GameServerPing
+	5,   // 14: CMsgGCCStrike15_v2_MatchmakingClient2ServerPing.data_center_pings:type_name -> DataCenterPing
+	34,  // 15: CMsgGCCStrike15_v2_MatchmakingClient2ServerPing.notes:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate_Note
+	10,  // 16: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.global_stats:type_name -> GlobalStatistics
+	21,  // 17: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.server_ipaddress_mask:type_name -> IpAddressMask
+	34,  // 18: CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate.notes:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate_Note
+	158, // 19: CDataGCCStrike15_v2_TournamentMatchDraft.drafts:type_name -> CDataGCCStrike15_v2_TournamentMatchDraft.Entry
+	37,  // 20: CPreMatchInfoData.draft:type_name -> CDataGCCStrike15_v2_TournamentMatchDraft
+	159, // 21: CPreMatchInfoData.stats:type_name -> CPreMatchInfoData.TeamStats
+	15,  // 22: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.rankings:type_name -> PlayerRankingInfo
+	21,  // 23: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.whitelist:type_name -> IpAddressMask
+	9,   // 24: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.tournament_event:type_name -> TournamentEvent
+	8,   // 25: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.tournament_teams:type_name -> TournamentTeam
+	38,  // 26: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.pre_match_data:type_name -> CPreMatchInfoData
+	14,  // 27: CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve.op_var_values:type_name -> OperationalVarValue
+	39,  // 28: CMsgGCCStrike15_v2_MatchmakingServerReservationResponse.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
+	20,  // 29: CMsgGCCStrike15_v2_MatchmakingServerReservationResponse.tv_info:type_name -> ServerHltvInfo
+	39,  // 30: CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
+	5,   // 31: CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve.gs_ping:type_name -> DataCenterPing
+	39,  // 32: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.reservation:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve
+	30,  // 33: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.confirm:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm
+	160, // 34: CMsgGCCStrike15_v2_MatchmakingServerRoundStats.drop_info:type_name -> CMsgGCCStrike15_v2_MatchmakingServerRoundStats.DropInfo
+	41,  // 35: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.ongoingmatch:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
+	10,  // 36: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.global_stats:type_name -> GlobalStatistics
+	15,  // 37: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.ranking:type_name -> PlayerRankingInfo
+	16,  // 38: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.commendation:type_name -> PlayerCommendationInfo
+	17,  // 39: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.medals:type_name -> PlayerMedalsInfo
+	9,   // 40: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_event:type_name -> TournamentEvent
+	8,   // 41: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_event_teams:type_name -> TournamentTeam
+	8,   // 42: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_team:type_name -> TournamentTeam
+	9,   // 43: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.my_current_event_stages:type_name -> TournamentEvent
+	18,  // 44: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.activity:type_name -> AccountActivity
+	15,  // 45: CMsgGCCStrike15_v2_MatchmakingGC2ClientHello.rankings:type_name -> PlayerRankingInfo
+	161, // 46: CMsgGCCStrike15_v2_AccountPrivacySettings.settings:type_name -> CMsgGCCStrike15_v2_AccountPrivacySettings.Setting
+	41,  // 47: CMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon.abandoned_match:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
+	15,  // 48: CMsgGCCStrike15_v2_ClientGCRankUpdate.rankings:type_name -> PlayerRankingInfo
+	16,  // 49: CMsgGCCStrike15_v2_ClientCommendPlayer.commendation:type_name -> PlayerCommendationInfo
+	5,   // 50: CMsgGCCStrike15_v2_ClientRequestWatchInfoFriends.data_center_pings:type_name -> DataCenterPing
+	41,  // 51: CMsgGCCStrike15_v2_ClientRequestJoinFriendData.res:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
+	41,  // 52: CMsgGCCStrike15_v2_ClientRequestJoinServerData.res:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve
+	23,  // 53: CMsgGCCstrike15_v2_GC2ServerNotifyXPRewarded.xp_progress_data:type_name -> XpProgressData
+	162, // 54: CMsgGCCStrike15_ClientDeepStats.range:type_name -> CMsgGCCStrike15_ClientDeepStats.DeepStatsRange
+	163, // 55: CMsgGCCStrike15_ClientDeepStats.matches:type_name -> CMsgGCCStrike15_ClientDeepStats.DeepStatsMatch
+	55,  // 56: CMsgGCCStrike15_v2_WatchInfoUsers.watchable_match_infos:type_name -> WatchableMatchInfo
+	44,  // 57: CMsgGCCStrike15_v2_PlayersProfile.account_profiles:type_name -> CMsgGCCStrike15_v2_MatchmakingGC2ClientHello
+	164, // 58: CMsgGCCStrike15_v2_PremierSeasonSummary.data_per_week:type_name -> CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerWeek
+	165, // 59: CMsgGCCStrike15_v2_PremierSeasonSummary.data_per_map:type_name -> CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerMap
+	40,  // 60: CMsgGCCStrike15_v2_MatchEndRunRewardDrops.serverinfo:type_name -> CMsgGCCStrike15_v2_MatchmakingServerReservationResponse
+	29,  // 61: CMsgGCCStrike15_v2_MatchEndRunRewardDrops.match_end_quest_data:type_name -> CMsgGC_ServerQuestUpdateData
+	166, // 62: CEconItemPreviewDataBlock.stickers:type_name -> CEconItemPreviewDataBlock.Sticker
+	166, // 63: CEconItemPreviewDataBlock.keychains:type_name -> CEconItemPreviewDataBlock.Sticker
+	75,  // 64: CMsgGCCStrike15_v2_MatchEndRewardDropsNotification.iteminfo:type_name -> CEconItemPreviewDataBlock
+	75,  // 65: CMsgItemAcknowledged.iteminfo:type_name -> CEconItemPreviewDataBlock
+	75,  // 66: CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse.iteminfo:type_name -> CEconItemPreviewDataBlock
+	55,  // 67: CDataGCCStrike15_v2_MatchInfo.watchablematchinfo:type_name -> WatchableMatchInfo
+	42,  // 68: CDataGCCStrike15_v2_MatchInfo.roundstats_legacy:type_name -> CMsgGCCStrike15_v2_MatchmakingServerRoundStats
+	42,  // 69: CDataGCCStrike15_v2_MatchInfo.roundstatsall:type_name -> CMsgGCCStrike15_v2_MatchmakingServerRoundStats
+	86,  // 70: CDataGCCStrike15_v2_TournamentGroup.teams:type_name -> CDataGCCStrike15_v2_TournamentGroupTeam
+	167, // 71: CDataGCCStrike15_v2_TournamentGroup.picks:type_name -> CDataGCCStrike15_v2_TournamentGroup.Picks
+	87,  // 72: CDataGCCStrike15_v2_TournamentSection.groups:type_name -> CDataGCCStrike15_v2_TournamentGroup
+	88,  // 73: CDataGCCStrike15_v2_TournamentInfo.sections:type_name -> CDataGCCStrike15_v2_TournamentSection
+	9,   // 74: CDataGCCStrike15_v2_TournamentInfo.tournament_event:type_name -> TournamentEvent
+	8,   // 75: CDataGCCStrike15_v2_TournamentInfo.tournament_teams:type_name -> TournamentTeam
+	85,  // 76: CMsgGCCStrike15_v2_MatchList.matches:type_name -> CDataGCCStrike15_v2_MatchInfo
+	8,   // 77: CMsgGCCStrike15_v2_MatchList.streams:type_name -> TournamentTeam
+	89,  // 78: CMsgGCCStrike15_v2_MatchList.tournamentinfo:type_name -> CDataGCCStrike15_v2_TournamentInfo
+	85,  // 79: CMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt.matches:type_name -> CDataGCCStrike15_v2_MatchInfo
+	168, // 80: CMsgGCCStrike15_v2_Predictions.group_match_team_picks:type_name -> CMsgGCCStrike15_v2_Predictions.GroupMatchTeamPick
+	170, // 81: CMsgGCCStrike15_v2_Fantasy.teams:type_name -> CMsgGCCStrike15_v2_Fantasy.FantasyTeam
+	177, // 82: CMsgLegacySource1ClientWelcome.outofdate_subscribed_caches:type_name -> CMsgSOCacheSubscribed
+	178, // 83: CMsgLegacySource1ClientWelcome.uptodate_subscribed_caches:type_name -> CMsgSOCacheSubscriptionCheck
+	171, // 84: CMsgLegacySource1ClientWelcome.location:type_name -> CMsgLegacySource1ClientWelcome.Location
+	172, // 85: CMsgGCCStrike15_v2_GiftsLeaderboardResponse.entries:type_name -> CMsgGCCStrike15_v2_GiftsLeaderboardResponse.GiftLeaderboardEntry
+	16,  // 86: CSOPersonaDataPublic.commendation:type_name -> PlayerCommendationInfo
+	106, // 87: CMsgGCCStrike15_v2_GC2ClientNotifyXPShop.prematch:type_name -> CSOAccountXpShop
+	106, // 88: CMsgGCCStrike15_v2_GC2ClientNotifyXPShop.postmatch:type_name -> CSOAccountXpShop
+	179, // 89: CMsgGCCStrike15_GotvSyncPacket.data:type_name -> CEngineGotvSyncPacket
+	126, // 90: CMsgGCCStrike15_v2_ClientPlayerDecalSign.data:type_name -> PlayerDecalDigitalSignature
+	173, // 91: CMsgGCCStrike15_v2_Party_SearchResults.entries:type_name -> CMsgGCCStrike15_v2_Party_SearchResults.Entry
+	174, // 92: CMsgGCCStrike15_v2_Account_RequestCoPlays.players:type_name -> CMsgGCCStrike15_v2_Account_RequestCoPlays.Player
+	175, // 93: CMsgGCCStrike15_v2_ClientPartyWarning.entries:type_name -> CMsgGCCStrike15_v2_ClientPartyWarning.Entry
+	176, // 94: CMsgGCCStrike15_v2_ClientPerfReport.entries:type_name -> CMsgGCCStrike15_v2_ClientPerfReport.Entry
+	147, // 95: CMsgGCCStrike15_v2_ClientReportValidation.diagnostics:type_name -> CVDiagnostic
+	3,   // 96: CMsgGCCStrike15_v2_GC2ClientInitSystem_Response.einit_result:type_name -> EInitSystemResult
+	155, // 97: ScoreLeaderboardData.AccountEntries.entries:type_name -> ScoreLeaderboardData.Entry
+	27,  // 98: CMsgGCCStrike15_ClientDeepStats.DeepStatsMatch.player:type_name -> DeepPlayerStatsEntry
+	28,  // 99: CMsgGCCStrike15_ClientDeepStats.DeepStatsMatch.events:type_name -> DeepPlayerMatchEvent
+	169, // 100: CMsgGCCStrike15_v2_Fantasy.FantasyTeam.slots:type_name -> CMsgGCCStrike15_v2_Fantasy.FantasySlot
+	101, // [101:101] is the sub-list for method output_type
+	101, // [101:101] is the sub-list for method input_type
+	101, // [101:101] is the sub-list for extension type_name
+	101, // [101:101] is the sub-list for extension extendee
+	0,   // [0:101] is the sub-list for field type_name
 }
 
 func init() { file_cstrike15_gcmessages_proto_init() }
@@ -12762,8 +15266,8 @@ func file_cstrike15_gcmessages_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_cstrike15_gcmessages_proto_rawDesc), len(file_cstrike15_gcmessages_proto_rawDesc)),
-			NumEnums:      3,
-			NumMessages:   153,
+			NumEnums:      4,
+			NumMessages:   173,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

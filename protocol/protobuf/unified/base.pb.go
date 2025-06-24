@@ -78,6 +78,62 @@ func (EProtoExecutionSite) EnumDescriptor() ([]byte, []int) {
 	return file_steammessages_unified_base_steamclient_proto_rawDescGZIP(), []int{0}
 }
 
+type EProtoServiceType int32
+
+const (
+	EProtoServiceType_k_EProtoServiceTypeSteamMessages       EProtoServiceType = 0
+	EProtoServiceType_k_EProtoServiceTypeVRGamepadUIMessages EProtoServiceType = 1
+)
+
+// Enum value maps for EProtoServiceType.
+var (
+	EProtoServiceType_name = map[int32]string{
+		0: "k_EProtoServiceTypeSteamMessages",
+		1: "k_EProtoServiceTypeVRGamepadUIMessages",
+	}
+	EProtoServiceType_value = map[string]int32{
+		"k_EProtoServiceTypeSteamMessages":       0,
+		"k_EProtoServiceTypeVRGamepadUIMessages": 1,
+	}
+)
+
+func (x EProtoServiceType) Enum() *EProtoServiceType {
+	p := new(EProtoServiceType)
+	*p = x
+	return p
+}
+
+func (x EProtoServiceType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (EProtoServiceType) Descriptor() protoreflect.EnumDescriptor {
+	return file_steammessages_unified_base_steamclient_proto_enumTypes[1].Descriptor()
+}
+
+func (EProtoServiceType) Type() protoreflect.EnumType {
+	return &file_steammessages_unified_base_steamclient_proto_enumTypes[1]
+}
+
+func (x EProtoServiceType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Do not use.
+func (x *EProtoServiceType) UnmarshalJSON(b []byte) error {
+	num, err := protoimpl.X.UnmarshalJSONEnum(x.Descriptor(), b)
+	if err != nil {
+		return err
+	}
+	*x = EProtoServiceType(num)
+	return nil
+}
+
+// Deprecated: Use EProtoServiceType.Descriptor instead.
+func (EProtoServiceType) EnumDescriptor() ([]byte, []int) {
+	return file_steammessages_unified_base_steamclient_proto_rawDescGZIP(), []int{1}
+}
+
 type NoResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -116,6 +172,22 @@ func (*NoResponse) Descriptor() ([]byte, []int) {
 
 var file_steammessages_unified_base_steamclient_proto_extTypes = []protoimpl.ExtensionInfo{
 	{
+		ExtendedType:  (*descriptor_proto.MessageOptions)(nil),
+		ExtensionType: (*string)(nil),
+		Field:         51000,
+		Name:          "message_description",
+		Tag:           "bytes,51000,opt,name=message_description",
+		Filename:      "steammessages_unified_base.steamclient.proto",
+	},
+	{
+		ExtendedType:  (*descriptor_proto.MessageOptions)(nil),
+		ExtensionType: (*bool)(nil),
+		Field:         50026,
+		Name:          "force_emit_message",
+		Tag:           "varint,50026,opt,name=force_emit_message,def=0",
+		Filename:      "steammessages_unified_base.steamclient.proto",
+	},
+	{
 		ExtendedType:  (*descriptor_proto.FieldOptions)(nil),
 		ExtensionType: (*string)(nil),
 		Field:         50000,
@@ -137,6 +209,22 @@ var file_steammessages_unified_base_steamclient_proto_extTypes = []protoimpl.Ext
 		Field:         50008,
 		Name:          "service_execution_site",
 		Tag:           "varint,50008,opt,name=service_execution_site,enum=EProtoExecutionSite,def=0",
+		Filename:      "steammessages_unified_base.steamclient.proto",
+	},
+	{
+		ExtendedType:  (*descriptor_proto.ServiceOptions)(nil),
+		ExtensionType: (*EProtoServiceType)(nil),
+		Field:         50025,
+		Name:          "service_type",
+		Tag:           "varint,50025,opt,name=service_type,enum=EProtoServiceType,def=0",
+		Filename:      "steammessages_unified_base.steamclient.proto",
+	},
+	{
+		ExtendedType:  (*descriptor_proto.ServiceOptions)(nil),
+		ExtensionType: (*bool)(nil),
+		Field:         50026,
+		Name:          "force_emit_service",
+		Tag:           "varint,50026,opt,name=force_emit_service,def=0",
 		Filename:      "steammessages_unified_base.steamclient.proto",
 	},
 	{
@@ -165,36 +253,48 @@ var file_steammessages_unified_base_steamclient_proto_extTypes = []protoimpl.Ext
 	},
 }
 
+// Extension fields to descriptor_proto.MessageOptions.
+var (
+	// optional string message_description = 51000;
+	E_MessageDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[0]
+	// optional bool force_emit_message = 50026;
+	E_ForceEmitMessage = &file_steammessages_unified_base_steamclient_proto_extTypes[1]
+)
+
 // Extension fields to descriptor_proto.FieldOptions.
 var (
 	// optional string description = 50000;
-	E_Description = &file_steammessages_unified_base_steamclient_proto_extTypes[0]
+	E_Description = &file_steammessages_unified_base_steamclient_proto_extTypes[2]
 )
 
 // Extension fields to descriptor_proto.ServiceOptions.
 var (
 	// optional string service_description = 50000;
-	E_ServiceDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[1]
+	E_ServiceDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[3]
 	// optional EProtoExecutionSite service_execution_site = 50008;
-	E_ServiceExecutionSite = &file_steammessages_unified_base_steamclient_proto_extTypes[2]
+	E_ServiceExecutionSite = &file_steammessages_unified_base_steamclient_proto_extTypes[4]
+	// optional EProtoServiceType service_type = 50025;
+	E_ServiceType = &file_steammessages_unified_base_steamclient_proto_extTypes[5]
+	// optional bool force_emit_service = 50026;
+	E_ForceEmitService = &file_steammessages_unified_base_steamclient_proto_extTypes[6]
 )
 
 // Extension fields to descriptor_proto.MethodOptions.
 var (
 	// optional string method_description = 50000;
-	E_MethodDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[3]
+	E_MethodDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[7]
 )
 
 // Extension fields to descriptor_proto.EnumOptions.
 var (
 	// optional string enum_description = 50000;
-	E_EnumDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[4]
+	E_EnumDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[8]
 )
 
 // Extension fields to descriptor_proto.EnumValueOptions.
 var (
 	// optional string enum_value_description = 50000;
-	E_EnumValueDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[5]
+	E_EnumValueDescription = &file_steammessages_unified_base_steamclient_proto_extTypes[9]
 )
 
 var File_steammessages_unified_base_steamclient_proto protoreflect.FileDescriptor
@@ -206,13 +306,20 @@ const file_steammessages_unified_base_steamclient_proto_rawDesc = "" +
 	"NoResponse*]\n" +
 	"\x13EProtoExecutionSite\x12 \n" +
 	"\x1ck_EProtoExecutionSiteUnknown\x10\x00\x12$\n" +
-	" k_EProtoExecutionSiteSteamClient\x10\x02:A\n" +
+	" k_EProtoExecutionSiteSteamClient\x10\x02*e\n" +
+	"\x11EProtoServiceType\x12$\n" +
+	" k_EProtoServiceTypeSteamMessages\x10\x00\x12*\n" +
+	"&k_EProtoServiceTypeVRGamepadUIMessages\x10\x01:R\n" +
+	"\x13message_description\x12\x1f.google.protobuf.MessageOptions\x18\xb8\x8e\x03 \x01(\tR\x12messageDescription:V\n" +
+	"\x12force_emit_message\x12\x1f.google.protobuf.MessageOptions\x18\xea\x86\x03 \x01(\b:\x05falseR\x10forceEmitMessage:A\n" +
 	"\vdescription\x12\x1d.google.protobuf.FieldOptions\x18І\x03 \x01(\tR\vdescription:R\n" +
 	"\x13service_description\x12\x1f.google.protobuf.ServiceOptions\x18І\x03 \x01(\tR\x12serviceDescription:\x8b\x01\n" +
-	"\x16service_execution_site\x12\x1f.google.protobuf.ServiceOptions\x18؆\x03 \x01(\x0e2\x14.EProtoExecutionSite:\x1ck_EProtoExecutionSiteUnknownR\x14serviceExecutionSite:O\n" +
+	"\x16service_execution_site\x12\x1f.google.protobuf.ServiceOptions\x18؆\x03 \x01(\x0e2\x14.EProtoExecutionSite:\x1ck_EProtoExecutionSiteUnknownR\x14serviceExecutionSite:z\n" +
+	"\fservice_type\x12\x1f.google.protobuf.ServiceOptions\x18\xe9\x86\x03 \x01(\x0e2\x12.EProtoServiceType: k_EProtoServiceTypeSteamMessagesR\vserviceType:V\n" +
+	"\x12force_emit_service\x12\x1f.google.protobuf.ServiceOptions\x18\xea\x86\x03 \x01(\b:\x05falseR\x10forceEmitService:O\n" +
 	"\x12method_description\x12\x1e.google.protobuf.MethodOptions\x18І\x03 \x01(\tR\x11methodDescription:I\n" +
 	"\x10enum_description\x12\x1c.google.protobuf.EnumOptions\x18І\x03 \x01(\tR\x0fenumDescription:Y\n" +
-	"\x16enum_value_description\x12!.google.protobuf.EnumValueOptions\x18І\x03 \x01(\tR\x14enumValueDescriptionB\x05H\x01\x80\x01\x00"
+	"\x16enum_value_description\x12!.google.protobuf.EnumValueOptions\x18І\x03 \x01(\tR\x14enumValueDescriptionB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_unified_base_steamclient_proto_rawDescOnce sync.Once
@@ -226,30 +333,37 @@ func file_steammessages_unified_base_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_unified_base_steamclient_proto_rawDescData
 }
 
-var file_steammessages_unified_base_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_steammessages_unified_base_steamclient_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_steammessages_unified_base_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_steammessages_unified_base_steamclient_proto_goTypes = []any{
 	(EProtoExecutionSite)(0),                  // 0: EProtoExecutionSite
-	(*NoResponse)(nil),                        // 1: NoResponse
-	(*descriptor_proto.FieldOptions)(nil),     // 2: google.protobuf.FieldOptions
-	(*descriptor_proto.ServiceOptions)(nil),   // 3: google.protobuf.ServiceOptions
-	(*descriptor_proto.MethodOptions)(nil),    // 4: google.protobuf.MethodOptions
-	(*descriptor_proto.EnumOptions)(nil),      // 5: google.protobuf.EnumOptions
-	(*descriptor_proto.EnumValueOptions)(nil), // 6: google.protobuf.EnumValueOptions
+	(EProtoServiceType)(0),                    // 1: EProtoServiceType
+	(*NoResponse)(nil),                        // 2: NoResponse
+	(*descriptor_proto.MessageOptions)(nil),   // 3: google.protobuf.MessageOptions
+	(*descriptor_proto.FieldOptions)(nil),     // 4: google.protobuf.FieldOptions
+	(*descriptor_proto.ServiceOptions)(nil),   // 5: google.protobuf.ServiceOptions
+	(*descriptor_proto.MethodOptions)(nil),    // 6: google.protobuf.MethodOptions
+	(*descriptor_proto.EnumOptions)(nil),      // 7: google.protobuf.EnumOptions
+	(*descriptor_proto.EnumValueOptions)(nil), // 8: google.protobuf.EnumValueOptions
 }
 var file_steammessages_unified_base_steamclient_proto_depIdxs = []int32{
-	2, // 0: description:extendee -> google.protobuf.FieldOptions
-	3, // 1: service_description:extendee -> google.protobuf.ServiceOptions
-	3, // 2: service_execution_site:extendee -> google.protobuf.ServiceOptions
-	4, // 3: method_description:extendee -> google.protobuf.MethodOptions
-	5, // 4: enum_description:extendee -> google.protobuf.EnumOptions
-	6, // 5: enum_value_description:extendee -> google.protobuf.EnumValueOptions
-	0, // 6: service_execution_site:type_name -> EProtoExecutionSite
-	7, // [7:7] is the sub-list for method output_type
-	7, // [7:7] is the sub-list for method input_type
-	6, // [6:7] is the sub-list for extension type_name
-	0, // [0:6] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	3,  // 0: message_description:extendee -> google.protobuf.MessageOptions
+	3,  // 1: force_emit_message:extendee -> google.protobuf.MessageOptions
+	4,  // 2: description:extendee -> google.protobuf.FieldOptions
+	5,  // 3: service_description:extendee -> google.protobuf.ServiceOptions
+	5,  // 4: service_execution_site:extendee -> google.protobuf.ServiceOptions
+	5,  // 5: service_type:extendee -> google.protobuf.ServiceOptions
+	5,  // 6: force_emit_service:extendee -> google.protobuf.ServiceOptions
+	6,  // 7: method_description:extendee -> google.protobuf.MethodOptions
+	7,  // 8: enum_description:extendee -> google.protobuf.EnumOptions
+	8,  // 9: enum_value_description:extendee -> google.protobuf.EnumValueOptions
+	0,  // 10: service_execution_site:type_name -> EProtoExecutionSite
+	1,  // 11: service_type:type_name -> EProtoServiceType
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	10, // [10:12] is the sub-list for extension type_name
+	0,  // [0:10] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_unified_base_steamclient_proto_init() }
@@ -262,9 +376,9 @@ func file_steammessages_unified_base_steamclient_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_unified_base_steamclient_proto_rawDesc), len(file_steammessages_unified_base_steamclient_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      2,
 			NumMessages:   1,
-			NumExtensions: 6,
+			NumExtensions: 10,
 			NumServices:   0,
 		},
 		GoTypes:           file_steammessages_unified_base_steamclient_proto_goTypes,

@@ -181,7 +181,7 @@ const file_uifontfile_format_proto_rawDesc = "" +
 	"\x0fpackage_version\x18\x01 \x02(\rR\x0epackageVersion\x12^\n" +
 	"\x14encrypted_font_files\x18\x02 \x03(\v2,.CUIFontFilePackagePB.CUIEncryptedFontFilePBR\x12encryptedFontFiles\x1aG\n" +
 	"\x16CUIEncryptedFontFilePB\x12-\n" +
-	"\x12encrypted_contents\x18\x01 \x01(\fR\x11encryptedContentsB\x05H\x01\x80\x01\x00"
+	"\x12encrypted_contents\x18\x01 \x01(\fR\x11encryptedContents"
 
 var (
 	file_uifontfile_format_proto_rawDescOnce sync.Once

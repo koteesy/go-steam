@@ -8,6 +8,7 @@ package unified
 
 import (
 	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -245,9 +246,15 @@ type CPartnerApps_FinishUploadLegacyDRM_Request struct {
 	AppId         *uint32                `protobuf:"varint,3,opt,name=app_id,json=appId" json:"app_id,omitempty"`
 	Flags         *uint32                `protobuf:"varint,4,opt,name=flags" json:"flags,omitempty"`
 	ToolName      *string                `protobuf:"bytes,5,opt,name=tool_name,json=toolName" json:"tool_name,omitempty"`
+	UseCloud      *bool                  `protobuf:"varint,6,opt,name=use_cloud,json=useCloud,def=0" json:"use_cloud,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
+
+// Default values for CPartnerApps_FinishUploadLegacyDRM_Request fields.
+const (
+	Default_CPartnerApps_FinishUploadLegacyDRM_Request_UseCloud = bool(false)
+)
 
 func (x *CPartnerApps_FinishUploadLegacyDRM_Request) Reset() {
 	*x = CPartnerApps_FinishUploadLegacyDRM_Request{}
@@ -312,6 +319,13 @@ func (x *CPartnerApps_FinishUploadLegacyDRM_Request) GetToolName() string {
 		return *x.ToolName
 	}
 	return ""
+}
+
+func (x *CPartnerApps_FinishUploadLegacyDRM_Request) GetUseCloud() bool {
+	if x != nil && x.UseCloud != nil {
+		return *x.UseCloud
+	}
+	return Default_CPartnerApps_FinishUploadLegacyDRM_Request_UseCloud
 }
 
 type CPartnerApps_FinishUploadLegacyDRM_Response struct {
@@ -471,9 +485,10 @@ func (x *CPartnerApps_FinishUploadDepot_Request) GetBuildFlags() uint32 {
 }
 
 type CPartnerApps_FinishUploadDepot_Response struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	BuildRoutingId *uint64                `protobuf:"varint,1,opt,name=build_routing_id,json=buildRoutingId" json:"build_routing_id,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *CPartnerApps_FinishUploadDepot_Response) Reset() {
@@ -504,6 +519,13 @@ func (x *CPartnerApps_FinishUploadDepot_Response) ProtoReflect() protoreflect.Me
 // Deprecated: Use CPartnerApps_FinishUploadDepot_Response.ProtoReflect.Descriptor instead.
 func (*CPartnerApps_FinishUploadDepot_Response) Descriptor() ([]byte, []int) {
 	return file_steammessages_partnerapps_steamclient_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CPartnerApps_FinishUploadDepot_Response) GetBuildRoutingId() uint64 {
+	if x != nil && x.BuildRoutingId != nil {
+		return *x.BuildRoutingId
+	}
+	return 0
 }
 
 type CPartnerApps_GetDepotBuildResult_Request struct {
@@ -906,7 +928,7 @@ var File_steammessages_partnerapps_steamclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_partnerapps_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"+steammessages_partnerapps.steamclient.proto\x1a,steammessages_unified_base.steamclient.proto\"[\n" +
+	"+steammessages_partnerapps.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\"[\n" +
 	"'CPartnerApps_RequestUploadToken_Request\x12\x1a\n" +
 	"\bfilename\x18\x01 \x01(\tR\bfilename\x12\x14\n" +
 	"\x05appid\x18\x02 \x01(\rR\x05appid\"\x88\x01\n" +
@@ -921,14 +943,15 @@ const file_steammessages_partnerapps_steamclient_proto_rawDesc = "" +
 	"routing_id\x18\x02 \x01(\x04R\troutingId\x12\x15\n" +
 	"\x06app_id\x18\x03 \x01(\rR\x05appId\"]\n" +
 	"(CPartnerApps_FinishUploadKVSign_Response\x121\n" +
-	"\x14signed_installscript\x18\x01 \x01(\tR\x13signedInstallscript\"\xb8\x01\n" +
+	"\x14signed_installscript\x18\x01 \x01(\tR\x13signedInstallscript\"\xdc\x01\n" +
 	"*CPartnerApps_FinishUploadLegacyDRM_Request\x12!\n" +
 	"\fupload_token\x18\x01 \x01(\x04R\vuploadToken\x12\x1d\n" +
 	"\n" +
 	"routing_id\x18\x02 \x01(\x04R\troutingId\x12\x15\n" +
 	"\x06app_id\x18\x03 \x01(\rR\x05appId\x12\x14\n" +
 	"\x05flags\x18\x04 \x01(\rR\x05flags\x12\x1b\n" +
-	"\ttool_name\x18\x05 \x01(\tR\btoolName\"F\n" +
+	"\ttool_name\x18\x05 \x01(\tR\btoolName\x12\"\n" +
+	"\tuse_cloud\x18\x06 \x01(\b:\x05falseR\buseCloud\"F\n" +
 	"+CPartnerApps_FinishUploadLegacyDRM_Response\x12\x17\n" +
 	"\afile_id\x18\x01 \x01(\tR\x06fileId\"$\n" +
 	"\"CPartnerApps_FinishUpload_Response\"\xbd\x01\n" +
@@ -939,8 +962,9 @@ const file_steammessages_partnerapps_steamclient_proto_rawDesc = "" +
 	"\x06app_id\x18\x03 \x01(\rR\x05appId\x12\x19\n" +
 	"\bdepot_id\x18\x04 \x01(\rR\adepotId\x12\x1f\n" +
 	"\vbuild_flags\x18\x05 \x01(\rR\n" +
-	"buildFlags\")\n" +
-	"'CPartnerApps_FinishUploadDepot_Response\"l\n" +
+	"buildFlags\"S\n" +
+	"'CPartnerApps_FinishUploadDepot_Response\x12(\n" +
+	"\x10build_routing_id\x18\x01 \x01(\x04R\x0ebuildRoutingId\"l\n" +
 	"(CPartnerApps_GetDepotBuildResult_Request\x12!\n" +
 	"\fupload_token\x18\x01 \x01(\x04R\vuploadToken\x12\x1d\n" +
 	"\n" +
@@ -968,19 +992,19 @@ const file_steammessages_partnerapps_steamclient_proto_rawDesc = "" +
 	"\x06app_id\x18\x02 \x01(\x05R\x05appId\"Z\n" +
 	"\x1eCPartnerApps_Download_Response\x12!\n" +
 	"\fdownload_url\x18\x01 \x01(\tR\vdownloadUrl\x12\x15\n" +
-	"\x06app_id\x18\x02 \x01(\x05R\x05appId2\xa1\x0e\n" +
-	"\vPartnerApps\x12\xb1\x01\n" +
-	"\x18RequestKVSignUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\"@\x82\xb5\x18<Request upload token for installscript file upload / signing\x12\xae\x01\n" +
-	"\x15RequestDRMUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\"@\x82\xb5\x18<Request upload token for executable file upload / processing\x12\xb5\x01\n" +
-	"\x15RequestCEGUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\"G\x82\xb5\x18CRequest upload token for custom executable file upload / processing\x12\xa3\x01\n" +
-	"\x17RequestDepotUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\"3\x82\xb5\x18/Request upload token for steampipe depot upload\x12\xab\x01\n" +
-	"\x12FinishUploadKVSign\x12\".CPartnerApps_FinishUpload_Request\x1a).CPartnerApps_FinishUploadKVSign_Response\"F\x82\xb5\x18BCommit method to sign an installscript after an upload is complete\x12\xa4\x01\n" +
-	"\x15FinishUploadDRMUpload\x12+.CPartnerApps_FinishUploadLegacyDRM_Request\x1a,.CPartnerApps_FinishUploadLegacyDRM_Response\"0\x82\xb5\x18,Commit method for executable file processing\x12\x99\x01\n" +
-	"\x15FinishUploadCEGUpload\x12\".CPartnerApps_FinishUpload_Request\x1a#.CPartnerApps_FinishUpload_Response\"7\x82\xb5\x183Commit method for custom executable file processing\x12\xa5\x01\n" +
-	"\x17FinishUploadDepotUpload\x12'.CPartnerApps_FinishUploadDepot_Request\x1a(.CPartnerApps_FinishUploadDepot_Response\"7\x82\xb5\x183Commit method for custom executable file processing\x12\xa4\x01\n" +
-	"\x13GetDepotBuildResult\x12).CPartnerApps_GetDepotBuildResult_Request\x1a*.CPartnerApps_GetDepotBuildResult_Response\"6\x82\xb5\x182Get build status for previously uploaded depot ZIP\x12\x8d\x01\n" +
-	"\x0eFindDRMUploads\x12$.CPartnerApps_FindDRMUploads_Request\x1a%.CPartnerApps_FindDRMUploads_Response\".\x82\xb5\x18*Finds N most recent prior uploads by appid\x12K\n" +
-	"\bDownload\x12\x1e.CPartnerApps_Download_Request\x1a\x1f.CPartnerApps_Download_Response\x1a2\x82\xb5\x18.Service methods for app management by partnersB\x03\x80\x01\x01"
+	"\x06app_id\x18\x02 \x01(\x05R\x05appId2\x8d\t\n" +
+	"\vPartnerApps\x12o\n" +
+	"\x18RequestKVSignUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\x12l\n" +
+	"\x15RequestDRMUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\x12l\n" +
+	"\x15RequestCEGUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\x12n\n" +
+	"\x17RequestDepotUploadToken\x12(.CPartnerApps_RequestUploadToken_Request\x1a).CPartnerApps_RequestUploadToken_Response\x12c\n" +
+	"\x12FinishUploadKVSign\x12\".CPartnerApps_FinishUpload_Request\x1a).CPartnerApps_FinishUploadKVSign_Response\x12r\n" +
+	"\x15FinishUploadDRMUpload\x12+.CPartnerApps_FinishUploadLegacyDRM_Request\x1a,.CPartnerApps_FinishUploadLegacyDRM_Response\x12`\n" +
+	"\x15FinishUploadCEGUpload\x12\".CPartnerApps_FinishUpload_Request\x1a#.CPartnerApps_FinishUpload_Response\x12l\n" +
+	"\x17FinishUploadDepotUpload\x12'.CPartnerApps_FinishUploadDepot_Request\x1a(.CPartnerApps_FinishUploadDepot_Response\x12l\n" +
+	"\x13GetDepotBuildResult\x12).CPartnerApps_GetDepotBuildResult_Request\x1a*.CPartnerApps_GetDepotBuildResult_Response\x12]\n" +
+	"\x0eFindDRMUploads\x12$.CPartnerApps_FindDRMUploads_Request\x1a%.CPartnerApps_FindDRMUploads_Response\x12K\n" +
+	"\bDownload\x12\x1e.CPartnerApps_Download_Request\x1a\x1f.CPartnerApps_Download_ResponseB8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_partnerapps_steamclient_proto_rawDescOnce sync.Once

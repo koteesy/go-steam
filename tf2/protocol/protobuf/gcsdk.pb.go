@@ -1991,7 +1991,7 @@ const file_gcsdk_gcmessages_proto_rawDesc = "" +
 	"\x1dGCConnectionStatus_NO_SESSION\x10\x02\x120\n" +
 	",GCConnectionStatus_NO_SESSION_IN_LOGON_QUEUE\x10\x03\x12\x1f\n" +
 	"\x1bGCConnectionStatus_NO_STEAM\x10\x04\x12 \n" +
-	"\x1cGCConnectionStatus_SUSPENDED\x10\x05B\x05H\x01\x80\x01\x00"
+	"\x1cGCConnectionStatus_SUSPENDED\x10\x05B:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_gcsdk_gcmessages_proto_rawDescOnce sync.Once

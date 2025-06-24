@@ -8,6 +8,9 @@ package unified
 
 import (
 	
+	
+	
+	
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -22,6 +25,102 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type CCloud_ClientLogUploadCheck_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ClientId      *uint64                `protobuf:"varint,1,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_ClientLogUploadCheck_Notification) Reset() {
+	*x = CCloud_ClientLogUploadCheck_Notification{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_ClientLogUploadCheck_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_ClientLogUploadCheck_Notification) ProtoMessage() {}
+
+func (x *CCloud_ClientLogUploadCheck_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_ClientLogUploadCheck_Notification.ProtoReflect.Descriptor instead.
+func (*CCloud_ClientLogUploadCheck_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CCloud_ClientLogUploadCheck_Notification) GetClientId() uint64 {
+	if x != nil && x.ClientId != nil {
+		return *x.ClientId
+	}
+	return 0
+}
+
+type CCloud_ClientLogUploadComplete_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ClientId      *uint64                `protobuf:"varint,1,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	RequestId     *uint64                `protobuf:"varint,2,opt,name=request_id,json=requestId" json:"request_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_ClientLogUploadComplete_Notification) Reset() {
+	*x = CCloud_ClientLogUploadComplete_Notification{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_ClientLogUploadComplete_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_ClientLogUploadComplete_Notification) ProtoMessage() {}
+
+func (x *CCloud_ClientLogUploadComplete_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_ClientLogUploadComplete_Notification.ProtoReflect.Descriptor instead.
+func (*CCloud_ClientLogUploadComplete_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CCloud_ClientLogUploadComplete_Notification) GetClientId() uint64 {
+	if x != nil && x.ClientId != nil {
+		return *x.ClientId
+	}
+	return 0
+}
+
+func (x *CCloud_ClientLogUploadComplete_Notification) GetRequestId() uint64 {
+	if x != nil && x.RequestId != nil {
+		return *x.RequestId
+	}
+	return 0
+}
+
 type CCloud_GetUploadServerInfo_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
@@ -31,7 +130,7 @@ type CCloud_GetUploadServerInfo_Request struct {
 
 func (x *CCloud_GetUploadServerInfo_Request) Reset() {
 	*x = CCloud_GetUploadServerInfo_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[0]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +142,7 @@ func (x *CCloud_GetUploadServerInfo_Request) String() string {
 func (*CCloud_GetUploadServerInfo_Request) ProtoMessage() {}
 
 func (x *CCloud_GetUploadServerInfo_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[0]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +155,7 @@ func (x *CCloud_GetUploadServerInfo_Request) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CCloud_GetUploadServerInfo_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_GetUploadServerInfo_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{0}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CCloud_GetUploadServerInfo_Request) GetAppid() uint32 {
@@ -75,7 +174,7 @@ type CCloud_GetUploadServerInfo_Response struct {
 
 func (x *CCloud_GetUploadServerInfo_Response) Reset() {
 	*x = CCloud_GetUploadServerInfo_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[1]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -87,7 +186,7 @@ func (x *CCloud_GetUploadServerInfo_Response) String() string {
 func (*CCloud_GetUploadServerInfo_Response) ProtoMessage() {}
 
 func (x *CCloud_GetUploadServerInfo_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[1]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +199,7 @@ func (x *CCloud_GetUploadServerInfo_Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use CCloud_GetUploadServerInfo_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_GetUploadServerInfo_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{1}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CCloud_GetUploadServerInfo_Response) GetServerUrl() string {
@@ -120,13 +219,14 @@ type CCloud_BeginHTTPUpload_Request struct {
 	PlatformsToSync      []string               `protobuf:"bytes,6,rep,name=platforms_to_sync,json=platformsToSync" json:"platforms_to_sync,omitempty"`
 	RequestHeadersNames  []string               `protobuf:"bytes,7,rep,name=request_headers_names,json=requestHeadersNames" json:"request_headers_names,omitempty"`
 	RequestHeadersValues []string               `protobuf:"bytes,8,rep,name=request_headers_values,json=requestHeadersValues" json:"request_headers_values,omitempty"`
+	UploadBatchId        *uint64                `protobuf:"varint,9,opt,name=upload_batch_id,json=uploadBatchId" json:"upload_batch_id,omitempty"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
 
 func (x *CCloud_BeginHTTPUpload_Request) Reset() {
 	*x = CCloud_BeginHTTPUpload_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[2]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -138,7 +238,7 @@ func (x *CCloud_BeginHTTPUpload_Request) String() string {
 func (*CCloud_BeginHTTPUpload_Request) ProtoMessage() {}
 
 func (x *CCloud_BeginHTTPUpload_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[2]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -151,7 +251,7 @@ func (x *CCloud_BeginHTTPUpload_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_BeginHTTPUpload_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_BeginHTTPUpload_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{2}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CCloud_BeginHTTPUpload_Request) GetAppid() uint32 {
@@ -210,6 +310,13 @@ func (x *CCloud_BeginHTTPUpload_Request) GetRequestHeadersValues() []string {
 	return nil
 }
 
+func (x *CCloud_BeginHTTPUpload_Request) GetUploadBatchId() uint64 {
+	if x != nil && x.UploadBatchId != nil {
+		return *x.UploadBatchId
+	}
+	return 0
+}
+
 type CCloud_BeginHTTPUpload_Response struct {
 	state          protoimpl.MessageState                         `protogen:"open.v1"`
 	Ugcid          *uint64                                        `protobuf:"fixed64,1,opt,name=ugcid" json:"ugcid,omitempty"`
@@ -224,7 +331,7 @@ type CCloud_BeginHTTPUpload_Response struct {
 
 func (x *CCloud_BeginHTTPUpload_Response) Reset() {
 	*x = CCloud_BeginHTTPUpload_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[3]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -236,7 +343,7 @@ func (x *CCloud_BeginHTTPUpload_Response) String() string {
 func (*CCloud_BeginHTTPUpload_Response) ProtoMessage() {}
 
 func (x *CCloud_BeginHTTPUpload_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[3]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -249,7 +356,7 @@ func (x *CCloud_BeginHTTPUpload_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_BeginHTTPUpload_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_BeginHTTPUpload_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{3}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CCloud_BeginHTTPUpload_Response) GetUgcid() uint64 {
@@ -306,7 +413,7 @@ type CCloud_CommitHTTPUpload_Request struct {
 
 func (x *CCloud_CommitHTTPUpload_Request) Reset() {
 	*x = CCloud_CommitHTTPUpload_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -318,7 +425,7 @@ func (x *CCloud_CommitHTTPUpload_Request) String() string {
 func (*CCloud_CommitHTTPUpload_Request) ProtoMessage() {}
 
 func (x *CCloud_CommitHTTPUpload_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[4]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -331,7 +438,7 @@ func (x *CCloud_CommitHTTPUpload_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_CommitHTTPUpload_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_CommitHTTPUpload_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{4}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CCloud_CommitHTTPUpload_Request) GetTransferSucceeded() bool {
@@ -371,7 +478,7 @@ type CCloud_CommitHTTPUpload_Response struct {
 
 func (x *CCloud_CommitHTTPUpload_Response) Reset() {
 	*x = CCloud_CommitHTTPUpload_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -383,7 +490,7 @@ func (x *CCloud_CommitHTTPUpload_Response) String() string {
 func (*CCloud_CommitHTTPUpload_Response) ProtoMessage() {}
 
 func (x *CCloud_CommitHTTPUpload_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[5]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -396,10 +503,287 @@ func (x *CCloud_CommitHTTPUpload_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_CommitHTTPUpload_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_CommitHTTPUpload_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{5}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CCloud_CommitHTTPUpload_Response) GetFileCommitted() bool {
+	if x != nil && x.FileCommitted != nil {
+		return *x.FileCommitted
+	}
+	return false
+}
+
+type CCloud_BeginUGCUpload_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	FileSize      *uint32                `protobuf:"varint,2,opt,name=file_size,json=fileSize" json:"file_size,omitempty"`
+	Filename      *string                `protobuf:"bytes,3,opt,name=filename" json:"filename,omitempty"`
+	FileSha       *string                `protobuf:"bytes,4,opt,name=file_sha,json=fileSha" json:"file_sha,omitempty"`
+	ContentType   *string                `protobuf:"bytes,5,opt,name=content_type,json=contentType" json:"content_type,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_BeginUGCUpload_Request) Reset() {
+	*x = CCloud_BeginUGCUpload_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_BeginUGCUpload_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_BeginUGCUpload_Request) ProtoMessage() {}
+
+func (x *CCloud_BeginUGCUpload_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_BeginUGCUpload_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_BeginUGCUpload_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CCloud_BeginUGCUpload_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_BeginUGCUpload_Request) GetFileSize() uint32 {
+	if x != nil && x.FileSize != nil {
+		return *x.FileSize
+	}
+	return 0
+}
+
+func (x *CCloud_BeginUGCUpload_Request) GetFilename() string {
+	if x != nil && x.Filename != nil {
+		return *x.Filename
+	}
+	return ""
+}
+
+func (x *CCloud_BeginUGCUpload_Request) GetFileSha() string {
+	if x != nil && x.FileSha != nil {
+		return *x.FileSha
+	}
+	return ""
+}
+
+func (x *CCloud_BeginUGCUpload_Request) GetContentType() string {
+	if x != nil && x.ContentType != nil {
+		return *x.ContentType
+	}
+	return ""
+}
+
+type CCloud_BeginUGCUpload_Response struct {
+	state          protoimpl.MessageState                        `protogen:"open.v1"`
+	StorageSystem  *EPublishedFileStorageSystem      `protobuf:"varint,1,opt,name=storage_system,json=storageSystem,enum=EPublishedFileStorageSystem,def=0" json:"storage_system,omitempty"`
+	Ugcid          *uint64                                       `protobuf:"fixed64,2,opt,name=ugcid" json:"ugcid,omitempty"`
+	Timestamp      *uint32                                       `protobuf:"fixed32,3,opt,name=timestamp" json:"timestamp,omitempty"`
+	UrlHost        *string                                       `protobuf:"bytes,4,opt,name=url_host,json=urlHost" json:"url_host,omitempty"`
+	UrlPath        *string                                       `protobuf:"bytes,5,opt,name=url_path,json=urlPath" json:"url_path,omitempty"`
+	UseHttps       *bool                                         `protobuf:"varint,6,opt,name=use_https,json=useHttps" json:"use_https,omitempty"`
+	RequestHeaders []*CCloud_BeginUGCUpload_Response_HTTPHeaders `protobuf:"bytes,7,rep,name=request_headers,json=requestHeaders" json:"request_headers,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+// Default values for CCloud_BeginUGCUpload_Response fields.
+const (
+	Default_CCloud_BeginUGCUpload_Response_StorageSystem = EPublishedFileStorageSystem(0) // EPublishedFileStorageSystem_k_EPublishedFileStorageSystemInvalid
+)
+
+func (x *CCloud_BeginUGCUpload_Response) Reset() {
+	*x = CCloud_BeginUGCUpload_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_BeginUGCUpload_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_BeginUGCUpload_Response) ProtoMessage() {}
+
+func (x *CCloud_BeginUGCUpload_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_BeginUGCUpload_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_BeginUGCUpload_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *CCloud_BeginUGCUpload_Response) GetStorageSystem() EPublishedFileStorageSystem {
+	if x != nil && x.StorageSystem != nil {
+		return *x.StorageSystem
+	}
+	return Default_CCloud_BeginUGCUpload_Response_StorageSystem
+}
+
+func (x *CCloud_BeginUGCUpload_Response) GetUgcid() uint64 {
+	if x != nil && x.Ugcid != nil {
+		return *x.Ugcid
+	}
+	return 0
+}
+
+func (x *CCloud_BeginUGCUpload_Response) GetTimestamp() uint32 {
+	if x != nil && x.Timestamp != nil {
+		return *x.Timestamp
+	}
+	return 0
+}
+
+func (x *CCloud_BeginUGCUpload_Response) GetUrlHost() string {
+	if x != nil && x.UrlHost != nil {
+		return *x.UrlHost
+	}
+	return ""
+}
+
+func (x *CCloud_BeginUGCUpload_Response) GetUrlPath() string {
+	if x != nil && x.UrlPath != nil {
+		return *x.UrlPath
+	}
+	return ""
+}
+
+func (x *CCloud_BeginUGCUpload_Response) GetUseHttps() bool {
+	if x != nil && x.UseHttps != nil {
+		return *x.UseHttps
+	}
+	return false
+}
+
+func (x *CCloud_BeginUGCUpload_Response) GetRequestHeaders() []*CCloud_BeginUGCUpload_Response_HTTPHeaders {
+	if x != nil {
+		return x.RequestHeaders
+	}
+	return nil
+}
+
+type CCloud_CommitUGCUpload_Request struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	TransferSucceeded *bool                  `protobuf:"varint,1,opt,name=transfer_succeeded,json=transferSucceeded" json:"transfer_succeeded,omitempty"`
+	Appid             *uint32                `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
+	Ugcid             *uint64                `protobuf:"fixed64,3,opt,name=ugcid" json:"ugcid,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *CCloud_CommitUGCUpload_Request) Reset() {
+	*x = CCloud_CommitUGCUpload_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_CommitUGCUpload_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_CommitUGCUpload_Request) ProtoMessage() {}
+
+func (x *CCloud_CommitUGCUpload_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_CommitUGCUpload_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_CommitUGCUpload_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *CCloud_CommitUGCUpload_Request) GetTransferSucceeded() bool {
+	if x != nil && x.TransferSucceeded != nil {
+		return *x.TransferSucceeded
+	}
+	return false
+}
+
+func (x *CCloud_CommitUGCUpload_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_CommitUGCUpload_Request) GetUgcid() uint64 {
+	if x != nil && x.Ugcid != nil {
+		return *x.Ugcid
+	}
+	return 0
+}
+
+type CCloud_CommitUGCUpload_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	FileCommitted *bool                  `protobuf:"varint,1,opt,name=file_committed,json=fileCommitted" json:"file_committed,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_CommitUGCUpload_Response) Reset() {
+	*x = CCloud_CommitUGCUpload_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_CommitUGCUpload_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_CommitUGCUpload_Response) ProtoMessage() {}
+
+func (x *CCloud_CommitUGCUpload_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_CommitUGCUpload_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_CommitUGCUpload_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *CCloud_CommitUGCUpload_Response) GetFileCommitted() bool {
 	if x != nil && x.FileCommitted != nil {
 		return *x.FileCommitted
 	}
@@ -416,7 +800,7 @@ type CCloud_GetFileDetails_Request struct {
 
 func (x *CCloud_GetFileDetails_Request) Reset() {
 	*x = CCloud_GetFileDetails_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -428,7 +812,7 @@ func (x *CCloud_GetFileDetails_Request) String() string {
 func (*CCloud_GetFileDetails_Request) ProtoMessage() {}
 
 func (x *CCloud_GetFileDetails_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[6]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -441,7 +825,7 @@ func (x *CCloud_GetFileDetails_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_GetFileDetails_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_GetFileDetails_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{6}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *CCloud_GetFileDetails_Request) GetUgcid() uint64 {
@@ -476,7 +860,7 @@ type CCloud_UserFile struct {
 
 func (x *CCloud_UserFile) Reset() {
 	*x = CCloud_UserFile{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -488,7 +872,7 @@ func (x *CCloud_UserFile) String() string {
 func (*CCloud_UserFile) ProtoMessage() {}
 
 func (x *CCloud_UserFile) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[7]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -501,7 +885,7 @@ func (x *CCloud_UserFile) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_UserFile.ProtoReflect.Descriptor instead.
 func (*CCloud_UserFile) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{7}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *CCloud_UserFile) GetAppid() uint32 {
@@ -583,7 +967,7 @@ type CCloud_GetFileDetails_Response struct {
 
 func (x *CCloud_GetFileDetails_Response) Reset() {
 	*x = CCloud_GetFileDetails_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -595,7 +979,7 @@ func (x *CCloud_GetFileDetails_Response) String() string {
 func (*CCloud_GetFileDetails_Response) ProtoMessage() {}
 
 func (x *CCloud_GetFileDetails_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[8]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -608,7 +992,7 @@ func (x *CCloud_GetFileDetails_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_GetFileDetails_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_GetFileDetails_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{8}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *CCloud_GetFileDetails_Response) GetDetails() *CCloud_UserFile {
@@ -630,7 +1014,7 @@ type CCloud_EnumerateUserFiles_Request struct {
 
 func (x *CCloud_EnumerateUserFiles_Request) Reset() {
 	*x = CCloud_EnumerateUserFiles_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -642,7 +1026,7 @@ func (x *CCloud_EnumerateUserFiles_Request) String() string {
 func (*CCloud_EnumerateUserFiles_Request) ProtoMessage() {}
 
 func (x *CCloud_EnumerateUserFiles_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[9]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -655,7 +1039,7 @@ func (x *CCloud_EnumerateUserFiles_Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CCloud_EnumerateUserFiles_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_EnumerateUserFiles_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{9}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *CCloud_EnumerateUserFiles_Request) GetAppid() uint32 {
@@ -696,7 +1080,7 @@ type CCloud_EnumerateUserFiles_Response struct {
 
 func (x *CCloud_EnumerateUserFiles_Response) Reset() {
 	*x = CCloud_EnumerateUserFiles_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -708,7 +1092,7 @@ func (x *CCloud_EnumerateUserFiles_Response) String() string {
 func (*CCloud_EnumerateUserFiles_Response) ProtoMessage() {}
 
 func (x *CCloud_EnumerateUserFiles_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[10]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -721,7 +1105,7 @@ func (x *CCloud_EnumerateUserFiles_Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CCloud_EnumerateUserFiles_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_EnumerateUserFiles_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{10}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *CCloud_EnumerateUserFiles_Response) GetFiles() []*CCloud_UserFile {
@@ -742,13 +1126,14 @@ type CCloud_Delete_Request struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Filename      *string                `protobuf:"bytes,1,opt,name=filename" json:"filename,omitempty"`
 	Appid         *uint32                `protobuf:"varint,2,opt,name=appid" json:"appid,omitempty"`
+	UploadBatchId *uint64                `protobuf:"varint,3,opt,name=upload_batch_id,json=uploadBatchId" json:"upload_batch_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CCloud_Delete_Request) Reset() {
 	*x = CCloud_Delete_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -760,7 +1145,7 @@ func (x *CCloud_Delete_Request) String() string {
 func (*CCloud_Delete_Request) ProtoMessage() {}
 
 func (x *CCloud_Delete_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[11]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -773,7 +1158,7 @@ func (x *CCloud_Delete_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_Delete_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_Delete_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{11}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CCloud_Delete_Request) GetFilename() string {
@@ -790,6 +1175,13 @@ func (x *CCloud_Delete_Request) GetAppid() uint32 {
 	return 0
 }
 
+func (x *CCloud_Delete_Request) GetUploadBatchId() uint64 {
+	if x != nil && x.UploadBatchId != nil {
+		return *x.UploadBatchId
+	}
+	return 0
+}
+
 type CCloud_Delete_Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -798,7 +1190,7 @@ type CCloud_Delete_Response struct {
 
 func (x *CCloud_Delete_Response) Reset() {
 	*x = CCloud_Delete_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -810,7 +1202,7 @@ func (x *CCloud_Delete_Response) String() string {
 func (*CCloud_Delete_Response) ProtoMessage() {}
 
 func (x *CCloud_Delete_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[12]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -823,7 +1215,7 @@ func (x *CCloud_Delete_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_Delete_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_Delete_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{12}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{18}
 }
 
 type CCloud_GetClientEncryptionKey_Request struct {
@@ -834,7 +1226,7 @@ type CCloud_GetClientEncryptionKey_Request struct {
 
 func (x *CCloud_GetClientEncryptionKey_Request) Reset() {
 	*x = CCloud_GetClientEncryptionKey_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -846,7 +1238,7 @@ func (x *CCloud_GetClientEncryptionKey_Request) String() string {
 func (*CCloud_GetClientEncryptionKey_Request) ProtoMessage() {}
 
 func (x *CCloud_GetClientEncryptionKey_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[13]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -859,7 +1251,7 @@ func (x *CCloud_GetClientEncryptionKey_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CCloud_GetClientEncryptionKey_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_GetClientEncryptionKey_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{13}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{19}
 }
 
 type CCloud_GetClientEncryptionKey_Response struct {
@@ -872,7 +1264,7 @@ type CCloud_GetClientEncryptionKey_Response struct {
 
 func (x *CCloud_GetClientEncryptionKey_Response) Reset() {
 	*x = CCloud_GetClientEncryptionKey_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -884,7 +1276,7 @@ func (x *CCloud_GetClientEncryptionKey_Response) String() string {
 func (*CCloud_GetClientEncryptionKey_Response) ProtoMessage() {}
 
 func (x *CCloud_GetClientEncryptionKey_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[14]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -897,7 +1289,7 @@ func (x *CCloud_GetClientEncryptionKey_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CCloud_GetClientEncryptionKey_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_GetClientEncryptionKey_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{14}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *CCloud_GetClientEncryptionKey_Response) GetKey() []byte {
@@ -929,7 +1321,7 @@ type CCloud_CDNReport_Notification struct {
 
 func (x *CCloud_CDNReport_Notification) Reset() {
 	*x = CCloud_CDNReport_Notification{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -941,7 +1333,7 @@ func (x *CCloud_CDNReport_Notification) String() string {
 func (*CCloud_CDNReport_Notification) ProtoMessage() {}
 
 func (x *CCloud_CDNReport_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[15]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -954,7 +1346,7 @@ func (x *CCloud_CDNReport_Notification) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_CDNReport_Notification.ProtoReflect.Descriptor instead.
 func (*CCloud_CDNReport_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{15}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CCloud_CDNReport_Notification) GetSteamid() uint64 {
@@ -1007,26 +1399,30 @@ func (x *CCloud_CDNReport_Notification) GetDuration() uint32 {
 }
 
 type CCloud_ExternalStorageTransferReport_Notification struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	Host           *string                `protobuf:"bytes,1,opt,name=host" json:"host,omitempty"`
-	Path           *string                `protobuf:"bytes,2,opt,name=path" json:"path,omitempty"`
-	IsUpload       *bool                  `protobuf:"varint,3,opt,name=is_upload,json=isUpload" json:"is_upload,omitempty"`
-	Success        *bool                  `protobuf:"varint,4,opt,name=success" json:"success,omitempty"`
-	HttpStatusCode *uint32                `protobuf:"varint,5,opt,name=http_status_code,json=httpStatusCode" json:"http_status_code,omitempty"`
-	BytesExpected  *uint64                `protobuf:"varint,6,opt,name=bytes_expected,json=bytesExpected" json:"bytes_expected,omitempty"`
-	BytesActual    *uint64                `protobuf:"varint,7,opt,name=bytes_actual,json=bytesActual" json:"bytes_actual,omitempty"`
-	DurationMs     *uint32                `protobuf:"varint,8,opt,name=duration_ms,json=durationMs" json:"duration_ms,omitempty"`
-	Cellid         *uint32                `protobuf:"varint,9,opt,name=cellid" json:"cellid,omitempty"`
-	Proxied        *bool                  `protobuf:"varint,10,opt,name=proxied" json:"proxied,omitempty"`
-	Ipv6Local      *bool                  `protobuf:"varint,11,opt,name=ipv6_local,json=ipv6Local" json:"ipv6_local,omitempty"`
-	Ipv6Remote     *bool                  `protobuf:"varint,12,opt,name=ipv6_remote,json=ipv6Remote" json:"ipv6_remote,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Host              *string                `protobuf:"bytes,1,opt,name=host" json:"host,omitempty"`
+	Path              *string                `protobuf:"bytes,2,opt,name=path" json:"path,omitempty"`
+	IsUpload          *bool                  `protobuf:"varint,3,opt,name=is_upload,json=isUpload" json:"is_upload,omitempty"`
+	Success           *bool                  `protobuf:"varint,4,opt,name=success" json:"success,omitempty"`
+	HttpStatusCode    *uint32                `protobuf:"varint,5,opt,name=http_status_code,json=httpStatusCode" json:"http_status_code,omitempty"`
+	BytesExpected     *uint64                `protobuf:"varint,6,opt,name=bytes_expected,json=bytesExpected" json:"bytes_expected,omitempty"`
+	BytesActual       *uint64                `protobuf:"varint,7,opt,name=bytes_actual,json=bytesActual" json:"bytes_actual,omitempty"`
+	DurationMs        *uint32                `protobuf:"varint,8,opt,name=duration_ms,json=durationMs" json:"duration_ms,omitempty"`
+	Cellid            *uint32                `protobuf:"varint,9,opt,name=cellid" json:"cellid,omitempty"`
+	Proxied           *bool                  `protobuf:"varint,10,opt,name=proxied" json:"proxied,omitempty"`
+	Ipv6Local         *bool                  `protobuf:"varint,11,opt,name=ipv6_local,json=ipv6Local" json:"ipv6_local,omitempty"`
+	Ipv6Remote        *bool                  `protobuf:"varint,12,opt,name=ipv6_remote,json=ipv6Remote" json:"ipv6_remote,omitempty"`
+	TimeToConnectMs   *uint32                `protobuf:"varint,13,opt,name=time_to_connect_ms,json=timeToConnectMs" json:"time_to_connect_ms,omitempty"`
+	TimeToSendReqMs   *uint32                `protobuf:"varint,14,opt,name=time_to_send_req_ms,json=timeToSendReqMs" json:"time_to_send_req_ms,omitempty"`
+	TimeToFirstByteMs *uint32                `protobuf:"varint,15,opt,name=time_to_first_byte_ms,json=timeToFirstByteMs" json:"time_to_first_byte_ms,omitempty"`
+	TimeToLastByteMs  *uint32                `protobuf:"varint,16,opt,name=time_to_last_byte_ms,json=timeToLastByteMs" json:"time_to_last_byte_ms,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *CCloud_ExternalStorageTransferReport_Notification) Reset() {
 	*x = CCloud_ExternalStorageTransferReport_Notification{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1038,7 +1434,7 @@ func (x *CCloud_ExternalStorageTransferReport_Notification) String() string {
 func (*CCloud_ExternalStorageTransferReport_Notification) ProtoMessage() {}
 
 func (x *CCloud_ExternalStorageTransferReport_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[16]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1051,7 +1447,7 @@ func (x *CCloud_ExternalStorageTransferReport_Notification) ProtoReflect() proto
 
 // Deprecated: Use CCloud_ExternalStorageTransferReport_Notification.ProtoReflect.Descriptor instead.
 func (*CCloud_ExternalStorageTransferReport_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{16}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *CCloud_ExternalStorageTransferReport_Notification) GetHost() string {
@@ -1138,6 +1534,326 @@ func (x *CCloud_ExternalStorageTransferReport_Notification) GetIpv6Remote() bool
 	return false
 }
 
+func (x *CCloud_ExternalStorageTransferReport_Notification) GetTimeToConnectMs() uint32 {
+	if x != nil && x.TimeToConnectMs != nil {
+		return *x.TimeToConnectMs
+	}
+	return 0
+}
+
+func (x *CCloud_ExternalStorageTransferReport_Notification) GetTimeToSendReqMs() uint32 {
+	if x != nil && x.TimeToSendReqMs != nil {
+		return *x.TimeToSendReqMs
+	}
+	return 0
+}
+
+func (x *CCloud_ExternalStorageTransferReport_Notification) GetTimeToFirstByteMs() uint32 {
+	if x != nil && x.TimeToFirstByteMs != nil {
+		return *x.TimeToFirstByteMs
+	}
+	return 0
+}
+
+func (x *CCloud_ExternalStorageTransferReport_Notification) GetTimeToLastByteMs() uint32 {
+	if x != nil && x.TimeToLastByteMs != nil {
+		return *x.TimeToLastByteMs
+	}
+	return 0
+}
+
+type CCloud_BeginAppUploadBatch_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	MachineName   *string                `protobuf:"bytes,2,opt,name=machine_name,json=machineName" json:"machine_name,omitempty"`
+	FilesToUpload []string               `protobuf:"bytes,3,rep,name=files_to_upload,json=filesToUpload" json:"files_to_upload,omitempty"`
+	FilesToDelete []string               `protobuf:"bytes,4,rep,name=files_to_delete,json=filesToDelete" json:"files_to_delete,omitempty"`
+	ClientId      *uint64                `protobuf:"varint,5,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	AppBuildId    *uint64                `protobuf:"varint,6,opt,name=app_build_id,json=appBuildId" json:"app_build_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) Reset() {
+	*x = CCloud_BeginAppUploadBatch_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_BeginAppUploadBatch_Request) ProtoMessage() {}
+
+func (x *CCloud_BeginAppUploadBatch_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_BeginAppUploadBatch_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_BeginAppUploadBatch_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) GetMachineName() string {
+	if x != nil && x.MachineName != nil {
+		return *x.MachineName
+	}
+	return ""
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) GetFilesToUpload() []string {
+	if x != nil {
+		return x.FilesToUpload
+	}
+	return nil
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) GetFilesToDelete() []string {
+	if x != nil {
+		return x.FilesToDelete
+	}
+	return nil
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) GetClientId() uint64 {
+	if x != nil && x.ClientId != nil {
+		return *x.ClientId
+	}
+	return 0
+}
+
+func (x *CCloud_BeginAppUploadBatch_Request) GetAppBuildId() uint64 {
+	if x != nil && x.AppBuildId != nil {
+		return *x.AppBuildId
+	}
+	return 0
+}
+
+type CCloud_BeginAppUploadBatch_Response struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	BatchId         *uint64                `protobuf:"varint,1,opt,name=batch_id,json=batchId" json:"batch_id,omitempty"`
+	AppChangeNumber *uint64                `protobuf:"varint,4,opt,name=app_change_number,json=appChangeNumber" json:"app_change_number,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CCloud_BeginAppUploadBatch_Response) Reset() {
+	*x = CCloud_BeginAppUploadBatch_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_BeginAppUploadBatch_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_BeginAppUploadBatch_Response) ProtoMessage() {}
+
+func (x *CCloud_BeginAppUploadBatch_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_BeginAppUploadBatch_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_BeginAppUploadBatch_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *CCloud_BeginAppUploadBatch_Response) GetBatchId() uint64 {
+	if x != nil && x.BatchId != nil {
+		return *x.BatchId
+	}
+	return 0
+}
+
+func (x *CCloud_BeginAppUploadBatch_Response) GetAppChangeNumber() uint64 {
+	if x != nil && x.AppChangeNumber != nil {
+		return *x.AppChangeNumber
+	}
+	return 0
+}
+
+type CCloud_CompleteAppUploadBatch_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	BatchId       *uint64                `protobuf:"varint,2,opt,name=batch_id,json=batchId" json:"batch_id,omitempty"`
+	BatchEresult  *uint32                `protobuf:"varint,3,opt,name=batch_eresult,json=batchEresult" json:"batch_eresult,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Notification) Reset() {
+	*x = CCloud_CompleteAppUploadBatch_Notification{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_CompleteAppUploadBatch_Notification) ProtoMessage() {}
+
+func (x *CCloud_CompleteAppUploadBatch_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_CompleteAppUploadBatch_Notification.ProtoReflect.Descriptor instead.
+func (*CCloud_CompleteAppUploadBatch_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Notification) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Notification) GetBatchId() uint64 {
+	if x != nil && x.BatchId != nil {
+		return *x.BatchId
+	}
+	return 0
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Notification) GetBatchEresult() uint32 {
+	if x != nil && x.BatchEresult != nil {
+		return *x.BatchEresult
+	}
+	return 0
+}
+
+type CCloud_CompleteAppUploadBatch_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	BatchId       *uint64                `protobuf:"varint,2,opt,name=batch_id,json=batchId" json:"batch_id,omitempty"`
+	BatchEresult  *uint32                `protobuf:"varint,3,opt,name=batch_eresult,json=batchEresult" json:"batch_eresult,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Request) Reset() {
+	*x = CCloud_CompleteAppUploadBatch_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_CompleteAppUploadBatch_Request) ProtoMessage() {}
+
+func (x *CCloud_CompleteAppUploadBatch_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_CompleteAppUploadBatch_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_CompleteAppUploadBatch_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Request) GetBatchId() uint64 {
+	if x != nil && x.BatchId != nil {
+		return *x.BatchId
+	}
+	return 0
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Request) GetBatchEresult() uint32 {
+	if x != nil && x.BatchEresult != nil {
+		return *x.BatchEresult
+	}
+	return 0
+}
+
+type CCloud_CompleteAppUploadBatch_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Response) Reset() {
+	*x = CCloud_CompleteAppUploadBatch_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_CompleteAppUploadBatch_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_CompleteAppUploadBatch_Response) ProtoMessage() {}
+
+func (x *CCloud_CompleteAppUploadBatch_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_CompleteAppUploadBatch_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_CompleteAppUploadBatch_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{27}
+}
+
 type CCloud_ClientBeginFileUpload_Request struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Appid           *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
@@ -1150,7 +1866,8 @@ type CCloud_ClientBeginFileUpload_Request struct {
 	CellId          *uint32                `protobuf:"varint,9,opt,name=cell_id,json=cellId" json:"cell_id,omitempty"`
 	CanEncrypt      *bool                  `protobuf:"varint,10,opt,name=can_encrypt,json=canEncrypt" json:"can_encrypt,omitempty"`
 	IsSharedFile    *bool                  `protobuf:"varint,11,opt,name=is_shared_file,json=isSharedFile" json:"is_shared_file,omitempty"`
-	Realm           *uint32                `protobuf:"varint,12,opt,name=realm" json:"realm,omitempty"`
+	DeprecatedRealm *uint32                `protobuf:"varint,12,opt,name=deprecated_realm,json=deprecatedRealm" json:"deprecated_realm,omitempty"`
+	UploadBatchId   *uint64                `protobuf:"varint,13,opt,name=upload_batch_id,json=uploadBatchId" json:"upload_batch_id,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1162,7 +1879,7 @@ const (
 
 func (x *CCloud_ClientBeginFileUpload_Request) Reset() {
 	*x = CCloud_ClientBeginFileUpload_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1174,7 +1891,7 @@ func (x *CCloud_ClientBeginFileUpload_Request) String() string {
 func (*CCloud_ClientBeginFileUpload_Request) ProtoMessage() {}
 
 func (x *CCloud_ClientBeginFileUpload_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[17]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1187,7 +1904,7 @@ func (x *CCloud_ClientBeginFileUpload_Request) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use CCloud_ClientBeginFileUpload_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientBeginFileUpload_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{17}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *CCloud_ClientBeginFileUpload_Request) GetAppid() uint32 {
@@ -1260,9 +1977,16 @@ func (x *CCloud_ClientBeginFileUpload_Request) GetIsSharedFile() bool {
 	return false
 }
 
-func (x *CCloud_ClientBeginFileUpload_Request) GetRealm() uint32 {
-	if x != nil && x.Realm != nil {
-		return *x.Realm
+func (x *CCloud_ClientBeginFileUpload_Request) GetDeprecatedRealm() uint32 {
+	if x != nil && x.DeprecatedRealm != nil {
+		return *x.DeprecatedRealm
+	}
+	return 0
+}
+
+func (x *CCloud_ClientBeginFileUpload_Request) GetUploadBatchId() uint64 {
+	if x != nil && x.UploadBatchId != nil {
+		return *x.UploadBatchId
 	}
 	return 0
 }
@@ -1284,7 +2008,7 @@ type ClientCloudFileUploadBlockDetails struct {
 
 func (x *ClientCloudFileUploadBlockDetails) Reset() {
 	*x = ClientCloudFileUploadBlockDetails{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1296,7 +2020,7 @@ func (x *ClientCloudFileUploadBlockDetails) String() string {
 func (*ClientCloudFileUploadBlockDetails) ProtoMessage() {}
 
 func (x *ClientCloudFileUploadBlockDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[18]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1309,7 +2033,7 @@ func (x *ClientCloudFileUploadBlockDetails) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use ClientCloudFileUploadBlockDetails.ProtoReflect.Descriptor instead.
 func (*ClientCloudFileUploadBlockDetails) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{18}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *ClientCloudFileUploadBlockDetails) GetUrlHost() string {
@@ -1385,7 +2109,7 @@ type CCloud_ClientBeginFileUpload_Response struct {
 
 func (x *CCloud_ClientBeginFileUpload_Response) Reset() {
 	*x = CCloud_ClientBeginFileUpload_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1397,7 +2121,7 @@ func (x *CCloud_ClientBeginFileUpload_Response) String() string {
 func (*CCloud_ClientBeginFileUpload_Response) ProtoMessage() {}
 
 func (x *CCloud_ClientBeginFileUpload_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[19]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1410,7 +2134,7 @@ func (x *CCloud_ClientBeginFileUpload_Response) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CCloud_ClientBeginFileUpload_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientBeginFileUpload_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{19}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CCloud_ClientBeginFileUpload_Response) GetEncryptFile() bool {
@@ -1439,7 +2163,7 @@ type CCloud_ClientCommitFileUpload_Request struct {
 
 func (x *CCloud_ClientCommitFileUpload_Request) Reset() {
 	*x = CCloud_ClientCommitFileUpload_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1451,7 +2175,7 @@ func (x *CCloud_ClientCommitFileUpload_Request) String() string {
 func (*CCloud_ClientCommitFileUpload_Request) ProtoMessage() {}
 
 func (x *CCloud_ClientCommitFileUpload_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[20]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1464,7 +2188,7 @@ func (x *CCloud_ClientCommitFileUpload_Request) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use CCloud_ClientCommitFileUpload_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientCommitFileUpload_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{20}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CCloud_ClientCommitFileUpload_Request) GetTransferSucceeded() bool {
@@ -1504,7 +2228,7 @@ type CCloud_ClientCommitFileUpload_Response struct {
 
 func (x *CCloud_ClientCommitFileUpload_Response) Reset() {
 	*x = CCloud_ClientCommitFileUpload_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1516,7 +2240,7 @@ func (x *CCloud_ClientCommitFileUpload_Response) String() string {
 func (*CCloud_ClientCommitFileUpload_Response) ProtoMessage() {}
 
 func (x *CCloud_ClientCommitFileUpload_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[21]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1529,7 +2253,7 @@ func (x *CCloud_ClientCommitFileUpload_Response) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CCloud_ClientCommitFileUpload_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientCommitFileUpload_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{21}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *CCloud_ClientCommitFileUpload_Response) GetFileCommitted() bool {
@@ -1544,13 +2268,14 @@ type CCloud_ClientFileDownload_Request struct {
 	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
 	Filename      *string                `protobuf:"bytes,2,opt,name=filename" json:"filename,omitempty"`
 	Realm         *uint32                `protobuf:"varint,3,opt,name=realm" json:"realm,omitempty"`
+	ForceProxy    *bool                  `protobuf:"varint,4,opt,name=force_proxy,json=forceProxy" json:"force_proxy,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CCloud_ClientFileDownload_Request) Reset() {
 	*x = CCloud_ClientFileDownload_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[22]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1562,7 +2287,7 @@ func (x *CCloud_ClientFileDownload_Request) String() string {
 func (*CCloud_ClientFileDownload_Request) ProtoMessage() {}
 
 func (x *CCloud_ClientFileDownload_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[22]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1575,7 +2300,7 @@ func (x *CCloud_ClientFileDownload_Request) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CCloud_ClientFileDownload_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientFileDownload_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{22}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *CCloud_ClientFileDownload_Request) GetAppid() uint32 {
@@ -1599,6 +2324,13 @@ func (x *CCloud_ClientFileDownload_Request) GetRealm() uint32 {
 	return 0
 }
 
+func (x *CCloud_ClientFileDownload_Request) GetForceProxy() bool {
+	if x != nil && x.ForceProxy != nil {
+		return *x.ForceProxy
+	}
+	return false
+}
+
 type CCloud_ClientFileDownload_Response struct {
 	state            protoimpl.MessageState                            `protogen:"open.v1"`
 	Appid            *uint32                                           `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
@@ -1618,7 +2350,7 @@ type CCloud_ClientFileDownload_Response struct {
 
 func (x *CCloud_ClientFileDownload_Response) Reset() {
 	*x = CCloud_ClientFileDownload_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[23]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1630,7 +2362,7 @@ func (x *CCloud_ClientFileDownload_Response) String() string {
 func (*CCloud_ClientFileDownload_Response) ProtoMessage() {}
 
 func (x *CCloud_ClientFileDownload_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[23]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1643,7 +2375,7 @@ func (x *CCloud_ClientFileDownload_Response) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use CCloud_ClientFileDownload_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientFileDownload_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{23}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *CCloud_ClientFileDownload_Response) GetAppid() uint32 {
@@ -1728,13 +2460,14 @@ type CCloud_ClientDeleteFile_Request struct {
 	Appid            *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
 	Filename         *string                `protobuf:"bytes,2,opt,name=filename" json:"filename,omitempty"`
 	IsExplicitDelete *bool                  `protobuf:"varint,3,opt,name=is_explicit_delete,json=isExplicitDelete" json:"is_explicit_delete,omitempty"`
+	UploadBatchId    *uint64                `protobuf:"varint,4,opt,name=upload_batch_id,json=uploadBatchId" json:"upload_batch_id,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
 
 func (x *CCloud_ClientDeleteFile_Request) Reset() {
 	*x = CCloud_ClientDeleteFile_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[24]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1746,7 +2479,7 @@ func (x *CCloud_ClientDeleteFile_Request) String() string {
 func (*CCloud_ClientDeleteFile_Request) ProtoMessage() {}
 
 func (x *CCloud_ClientDeleteFile_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[24]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1759,7 +2492,7 @@ func (x *CCloud_ClientDeleteFile_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_ClientDeleteFile_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientDeleteFile_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{24}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *CCloud_ClientDeleteFile_Request) GetAppid() uint32 {
@@ -1783,6 +2516,13 @@ func (x *CCloud_ClientDeleteFile_Request) GetIsExplicitDelete() bool {
 	return false
 }
 
+func (x *CCloud_ClientDeleteFile_Request) GetUploadBatchId() uint64 {
+	if x != nil && x.UploadBatchId != nil {
+		return *x.UploadBatchId
+	}
+	return 0
+}
+
 type CCloud_ClientDeleteFile_Response struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
@@ -1791,7 +2531,7 @@ type CCloud_ClientDeleteFile_Response struct {
 
 func (x *CCloud_ClientDeleteFile_Response) Reset() {
 	*x = CCloud_ClientDeleteFile_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[25]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1803,7 +2543,7 @@ func (x *CCloud_ClientDeleteFile_Response) String() string {
 func (*CCloud_ClientDeleteFile_Response) ProtoMessage() {}
 
 func (x *CCloud_ClientDeleteFile_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[25]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1816,7 +2556,7 @@ func (x *CCloud_ClientDeleteFile_Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_ClientDeleteFile_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientDeleteFile_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{25}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{36}
 }
 
 type CCloud_ClientConflictResolution_Notification struct {
@@ -1829,7 +2569,7 @@ type CCloud_ClientConflictResolution_Notification struct {
 
 func (x *CCloud_ClientConflictResolution_Notification) Reset() {
 	*x = CCloud_ClientConflictResolution_Notification{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[26]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1841,7 +2581,7 @@ func (x *CCloud_ClientConflictResolution_Notification) String() string {
 func (*CCloud_ClientConflictResolution_Notification) ProtoMessage() {}
 
 func (x *CCloud_ClientConflictResolution_Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[26]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1854,7 +2594,7 @@ func (x *CCloud_ClientConflictResolution_Notification) ProtoReflect() protorefle
 
 // Deprecated: Use CCloud_ClientConflictResolution_Notification.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientConflictResolution_Notification) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{26}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *CCloud_ClientConflictResolution_Notification) GetAppid() uint32 {
@@ -1879,7 +2619,7 @@ type CCloud_EnumerateUserApps_Request struct {
 
 func (x *CCloud_EnumerateUserApps_Request) Reset() {
 	*x = CCloud_EnumerateUserApps_Request{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[27]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1891,7 +2631,7 @@ func (x *CCloud_EnumerateUserApps_Request) String() string {
 func (*CCloud_EnumerateUserApps_Request) ProtoMessage() {}
 
 func (x *CCloud_EnumerateUserApps_Request) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[27]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1904,7 +2644,7 @@ func (x *CCloud_EnumerateUserApps_Request) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CCloud_EnumerateUserApps_Request.ProtoReflect.Descriptor instead.
 func (*CCloud_EnumerateUserApps_Request) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{27}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{38}
 }
 
 type CCloud_EnumerateUserApps_Response struct {
@@ -1916,7 +2656,7 @@ type CCloud_EnumerateUserApps_Response struct {
 
 func (x *CCloud_EnumerateUserApps_Response) Reset() {
 	*x = CCloud_EnumerateUserApps_Response{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[28]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1928,7 +2668,7 @@ func (x *CCloud_EnumerateUserApps_Response) String() string {
 func (*CCloud_EnumerateUserApps_Response) ProtoMessage() {}
 
 func (x *CCloud_EnumerateUserApps_Response) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[28]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1941,7 +2681,7 @@ func (x *CCloud_EnumerateUserApps_Response) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use CCloud_EnumerateUserApps_Response.ProtoReflect.Descriptor instead.
 func (*CCloud_EnumerateUserApps_Response) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{28}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *CCloud_EnumerateUserApps_Response) GetApps() []*CCloud_EnumerateUserApps_Response_Apps {
@@ -1949,6 +2689,843 @@ func (x *CCloud_EnumerateUserApps_Response) GetApps() []*CCloud_EnumerateUserApp
 		return x.Apps
 	}
 	return nil
+}
+
+type CCloud_GetAppFileChangelist_Request struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	Appid              *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	SyncedChangeNumber *uint64                `protobuf:"varint,2,opt,name=synced_change_number,json=syncedChangeNumber" json:"synced_change_number,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *CCloud_GetAppFileChangelist_Request) Reset() {
+	*x = CCloud_GetAppFileChangelist_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_GetAppFileChangelist_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_GetAppFileChangelist_Request) ProtoMessage() {}
+
+func (x *CCloud_GetAppFileChangelist_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_GetAppFileChangelist_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_GetAppFileChangelist_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *CCloud_GetAppFileChangelist_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_GetAppFileChangelist_Request) GetSyncedChangeNumber() uint64 {
+	if x != nil && x.SyncedChangeNumber != nil {
+		return *x.SyncedChangeNumber
+	}
+	return 0
+}
+
+type CCloud_AppFileInfo struct {
+	state            protoimpl.MessageState                 `protogen:"open.v1"`
+	FileName         *string                                `protobuf:"bytes,1,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
+	ShaFile          []byte                                 `protobuf:"bytes,2,opt,name=sha_file,json=shaFile" json:"sha_file,omitempty"`
+	TimeStamp        *uint64                                `protobuf:"varint,3,opt,name=time_stamp,json=timeStamp" json:"time_stamp,omitempty"`
+	RawFileSize      *uint32                                `protobuf:"varint,4,opt,name=raw_file_size,json=rawFileSize" json:"raw_file_size,omitempty"`
+	PersistState     *ECloudStoragePersistState `protobuf:"varint,5,opt,name=persist_state,json=persistState,enum=ECloudStoragePersistState,def=0" json:"persist_state,omitempty"`
+	PlatformsToSync  *uint32                                `protobuf:"varint,6,opt,name=platforms_to_sync,json=platformsToSync" json:"platforms_to_sync,omitempty"`
+	PathPrefixIndex  *uint32                                `protobuf:"varint,7,opt,name=path_prefix_index,json=pathPrefixIndex" json:"path_prefix_index,omitempty"`
+	MachineNameIndex *uint32                                `protobuf:"varint,8,opt,name=machine_name_index,json=machineNameIndex" json:"machine_name_index,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+// Default values for CCloud_AppFileInfo fields.
+const (
+	Default_CCloud_AppFileInfo_PersistState = ECloudStoragePersistState(0) // ECloudStoragePersistState_k_ECloudStoragePersistStatePersisted
+)
+
+func (x *CCloud_AppFileInfo) Reset() {
+	*x = CCloud_AppFileInfo{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppFileInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppFileInfo) ProtoMessage() {}
+
+func (x *CCloud_AppFileInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppFileInfo.ProtoReflect.Descriptor instead.
+func (*CCloud_AppFileInfo) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *CCloud_AppFileInfo) GetFileName() string {
+	if x != nil && x.FileName != nil {
+		return *x.FileName
+	}
+	return ""
+}
+
+func (x *CCloud_AppFileInfo) GetShaFile() []byte {
+	if x != nil {
+		return x.ShaFile
+	}
+	return nil
+}
+
+func (x *CCloud_AppFileInfo) GetTimeStamp() uint64 {
+	if x != nil && x.TimeStamp != nil {
+		return *x.TimeStamp
+	}
+	return 0
+}
+
+func (x *CCloud_AppFileInfo) GetRawFileSize() uint32 {
+	if x != nil && x.RawFileSize != nil {
+		return *x.RawFileSize
+	}
+	return 0
+}
+
+func (x *CCloud_AppFileInfo) GetPersistState() ECloudStoragePersistState {
+	if x != nil && x.PersistState != nil {
+		return *x.PersistState
+	}
+	return Default_CCloud_AppFileInfo_PersistState
+}
+
+func (x *CCloud_AppFileInfo) GetPlatformsToSync() uint32 {
+	if x != nil && x.PlatformsToSync != nil {
+		return *x.PlatformsToSync
+	}
+	return 0
+}
+
+func (x *CCloud_AppFileInfo) GetPathPrefixIndex() uint32 {
+	if x != nil && x.PathPrefixIndex != nil {
+		return *x.PathPrefixIndex
+	}
+	return 0
+}
+
+func (x *CCloud_AppFileInfo) GetMachineNameIndex() uint32 {
+	if x != nil && x.MachineNameIndex != nil {
+		return *x.MachineNameIndex
+	}
+	return 0
+}
+
+type CCloud_GetAppFileChangelist_Response struct {
+	state               protoimpl.MessageState `protogen:"open.v1"`
+	CurrentChangeNumber *uint64                `protobuf:"varint,1,opt,name=current_change_number,json=currentChangeNumber" json:"current_change_number,omitempty"`
+	Files               []*CCloud_AppFileInfo  `protobuf:"bytes,2,rep,name=files" json:"files,omitempty"`
+	IsOnlyDelta         *bool                  `protobuf:"varint,3,opt,name=is_only_delta,json=isOnlyDelta" json:"is_only_delta,omitempty"`
+	PathPrefixes        []string               `protobuf:"bytes,4,rep,name=path_prefixes,json=pathPrefixes" json:"path_prefixes,omitempty"`
+	MachineNames        []string               `protobuf:"bytes,5,rep,name=machine_names,json=machineNames" json:"machine_names,omitempty"`
+	AppBuildidHwm       *uint64                `protobuf:"varint,6,opt,name=app_buildid_hwm,json=appBuildidHwm" json:"app_buildid_hwm,omitempty"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) Reset() {
+	*x = CCloud_GetAppFileChangelist_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_GetAppFileChangelist_Response) ProtoMessage() {}
+
+func (x *CCloud_GetAppFileChangelist_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_GetAppFileChangelist_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_GetAppFileChangelist_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) GetCurrentChangeNumber() uint64 {
+	if x != nil && x.CurrentChangeNumber != nil {
+		return *x.CurrentChangeNumber
+	}
+	return 0
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) GetFiles() []*CCloud_AppFileInfo {
+	if x != nil {
+		return x.Files
+	}
+	return nil
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) GetIsOnlyDelta() bool {
+	if x != nil && x.IsOnlyDelta != nil {
+		return *x.IsOnlyDelta
+	}
+	return false
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) GetPathPrefixes() []string {
+	if x != nil {
+		return x.PathPrefixes
+	}
+	return nil
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) GetMachineNames() []string {
+	if x != nil {
+		return x.MachineNames
+	}
+	return nil
+}
+
+func (x *CCloud_GetAppFileChangelist_Response) GetAppBuildidHwm() uint64 {
+	if x != nil && x.AppBuildidHwm != nil {
+		return *x.AppBuildidHwm
+	}
+	return 0
+}
+
+type CCloud_AppSessionSuspend_Request struct {
+	state              protoimpl.MessageState `protogen:"open.v1"`
+	Appid              *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	ClientId           *uint64                `protobuf:"varint,2,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	MachineName        *string                `protobuf:"bytes,3,opt,name=machine_name,json=machineName" json:"machine_name,omitempty"`
+	CloudSyncCompleted *bool                  `protobuf:"varint,4,opt,name=cloud_sync_completed,json=cloudSyncCompleted" json:"cloud_sync_completed,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *CCloud_AppSessionSuspend_Request) Reset() {
+	*x = CCloud_AppSessionSuspend_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppSessionSuspend_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppSessionSuspend_Request) ProtoMessage() {}
+
+func (x *CCloud_AppSessionSuspend_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppSessionSuspend_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_AppSessionSuspend_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *CCloud_AppSessionSuspend_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_AppSessionSuspend_Request) GetClientId() uint64 {
+	if x != nil && x.ClientId != nil {
+		return *x.ClientId
+	}
+	return 0
+}
+
+func (x *CCloud_AppSessionSuspend_Request) GetMachineName() string {
+	if x != nil && x.MachineName != nil {
+		return *x.MachineName
+	}
+	return ""
+}
+
+func (x *CCloud_AppSessionSuspend_Request) GetCloudSyncCompleted() bool {
+	if x != nil && x.CloudSyncCompleted != nil {
+		return *x.CloudSyncCompleted
+	}
+	return false
+}
+
+type CCloud_AppSessionSuspend_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_AppSessionSuspend_Response) Reset() {
+	*x = CCloud_AppSessionSuspend_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppSessionSuspend_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppSessionSuspend_Response) ProtoMessage() {}
+
+func (x *CCloud_AppSessionSuspend_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppSessionSuspend_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_AppSessionSuspend_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{44}
+}
+
+type CCloud_AppSessionResume_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	ClientId      *uint64                `protobuf:"varint,2,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_AppSessionResume_Request) Reset() {
+	*x = CCloud_AppSessionResume_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppSessionResume_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppSessionResume_Request) ProtoMessage() {}
+
+func (x *CCloud_AppSessionResume_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppSessionResume_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_AppSessionResume_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *CCloud_AppSessionResume_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_AppSessionResume_Request) GetClientId() uint64 {
+	if x != nil && x.ClientId != nil {
+		return *x.ClientId
+	}
+	return 0
+}
+
+type CCloud_AppSessionResume_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_AppSessionResume_Response) Reset() {
+	*x = CCloud_AppSessionResume_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppSessionResume_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppSessionResume_Response) ProtoMessage() {}
+
+func (x *CCloud_AppSessionResume_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppSessionResume_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_AppSessionResume_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{46}
+}
+
+type CCloud_AppLaunchIntent_Request struct {
+	state                   protoimpl.MessageState `protogen:"open.v1"`
+	Appid                   *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	ClientId                *uint64                `protobuf:"varint,2,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	MachineName             *string                `protobuf:"bytes,3,opt,name=machine_name,json=machineName" json:"machine_name,omitempty"`
+	IgnorePendingOperations *bool                  `protobuf:"varint,4,opt,name=ignore_pending_operations,json=ignorePendingOperations" json:"ignore_pending_operations,omitempty"`
+	OsType                  *int32                 `protobuf:"varint,5,opt,name=os_type,json=osType" json:"os_type,omitempty"`
+	DeviceType              *int32                 `protobuf:"varint,6,opt,name=device_type,json=deviceType" json:"device_type,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
+func (x *CCloud_AppLaunchIntent_Request) Reset() {
+	*x = CCloud_AppLaunchIntent_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppLaunchIntent_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppLaunchIntent_Request) ProtoMessage() {}
+
+func (x *CCloud_AppLaunchIntent_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppLaunchIntent_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_AppLaunchIntent_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *CCloud_AppLaunchIntent_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_AppLaunchIntent_Request) GetClientId() uint64 {
+	if x != nil && x.ClientId != nil {
+		return *x.ClientId
+	}
+	return 0
+}
+
+func (x *CCloud_AppLaunchIntent_Request) GetMachineName() string {
+	if x != nil && x.MachineName != nil {
+		return *x.MachineName
+	}
+	return ""
+}
+
+func (x *CCloud_AppLaunchIntent_Request) GetIgnorePendingOperations() bool {
+	if x != nil && x.IgnorePendingOperations != nil {
+		return *x.IgnorePendingOperations
+	}
+	return false
+}
+
+func (x *CCloud_AppLaunchIntent_Request) GetOsType() int32 {
+	if x != nil && x.OsType != nil {
+		return *x.OsType
+	}
+	return 0
+}
+
+func (x *CCloud_AppLaunchIntent_Request) GetDeviceType() int32 {
+	if x != nil && x.DeviceType != nil {
+		return *x.DeviceType
+	}
+	return 0
+}
+
+type CCloud_AppLaunchIntent_Response struct {
+	state                   protoimpl.MessageState                                              `protogen:"open.v1"`
+	PendingRemoteOperations []*CCloud_PendingRemoteOperation `protobuf:"bytes,1,rep,name=pending_remote_operations,json=pendingRemoteOperations" json:"pending_remote_operations,omitempty"`
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
+func (x *CCloud_AppLaunchIntent_Response) Reset() {
+	*x = CCloud_AppLaunchIntent_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppLaunchIntent_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppLaunchIntent_Response) ProtoMessage() {}
+
+func (x *CCloud_AppLaunchIntent_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppLaunchIntent_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_AppLaunchIntent_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *CCloud_AppLaunchIntent_Response) GetPendingRemoteOperations() []*CCloud_PendingRemoteOperation {
+	if x != nil {
+		return x.PendingRemoteOperations
+	}
+	return nil
+}
+
+type CCloud_AppExitSyncDone_Notification struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Appid            *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	ClientId         *uint64                `protobuf:"varint,2,opt,name=client_id,json=clientId" json:"client_id,omitempty"`
+	UploadsCompleted *bool                  `protobuf:"varint,3,opt,name=uploads_completed,json=uploadsCompleted" json:"uploads_completed,omitempty"`
+	UploadsRequired  *bool                  `protobuf:"varint,4,opt,name=uploads_required,json=uploadsRequired" json:"uploads_required,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *CCloud_AppExitSyncDone_Notification) Reset() {
+	*x = CCloud_AppExitSyncDone_Notification{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppExitSyncDone_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppExitSyncDone_Notification) ProtoMessage() {}
+
+func (x *CCloud_AppExitSyncDone_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppExitSyncDone_Notification.ProtoReflect.Descriptor instead.
+func (*CCloud_AppExitSyncDone_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *CCloud_AppExitSyncDone_Notification) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_AppExitSyncDone_Notification) GetClientId() uint64 {
+	if x != nil && x.ClientId != nil {
+		return *x.ClientId
+	}
+	return 0
+}
+
+func (x *CCloud_AppExitSyncDone_Notification) GetUploadsCompleted() bool {
+	if x != nil && x.UploadsCompleted != nil {
+		return *x.UploadsCompleted
+	}
+	return false
+}
+
+func (x *CCloud_AppExitSyncDone_Notification) GetUploadsRequired() bool {
+	if x != nil && x.UploadsRequired != nil {
+		return *x.UploadsRequired
+	}
+	return false
+}
+
+type CCloud_ClientGetAppQuotaUsage_Request struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Appid         *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Request) Reset() {
+	*x = CCloud_ClientGetAppQuotaUsage_Request{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Request) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_ClientGetAppQuotaUsage_Request) ProtoMessage() {}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Request) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_ClientGetAppQuotaUsage_Request.ProtoReflect.Descriptor instead.
+func (*CCloud_ClientGetAppQuotaUsage_Request) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Request) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+type CCloud_ClientGetAppQuotaUsage_Response struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ExistingFiles *uint32                `protobuf:"varint,1,opt,name=existing_files,json=existingFiles" json:"existing_files,omitempty"`
+	ExistingBytes *uint64                `protobuf:"varint,2,opt,name=existing_bytes,json=existingBytes" json:"existing_bytes,omitempty"`
+	MaxNumFiles   *uint32                `protobuf:"varint,3,opt,name=max_num_files,json=maxNumFiles" json:"max_num_files,omitempty"`
+	MaxNumBytes   *uint64                `protobuf:"varint,4,opt,name=max_num_bytes,json=maxNumBytes" json:"max_num_bytes,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Response) Reset() {
+	*x = CCloud_ClientGetAppQuotaUsage_Response{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Response) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_ClientGetAppQuotaUsage_Response) ProtoMessage() {}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Response) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_ClientGetAppQuotaUsage_Response.ProtoReflect.Descriptor instead.
+func (*CCloud_ClientGetAppQuotaUsage_Response) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Response) GetExistingFiles() uint32 {
+	if x != nil && x.ExistingFiles != nil {
+		return *x.ExistingFiles
+	}
+	return 0
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Response) GetExistingBytes() uint64 {
+	if x != nil && x.ExistingBytes != nil {
+		return *x.ExistingBytes
+	}
+	return 0
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Response) GetMaxNumFiles() uint32 {
+	if x != nil && x.MaxNumFiles != nil {
+		return *x.MaxNumFiles
+	}
+	return 0
+}
+
+func (x *CCloud_ClientGetAppQuotaUsage_Response) GetMaxNumBytes() uint64 {
+	if x != nil && x.MaxNumBytes != nil {
+		return *x.MaxNumBytes
+	}
+	return 0
+}
+
+type CCloud_AppCloudStateChange_Notification struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Appid           *uint32                `protobuf:"varint,1,opt,name=appid" json:"appid,omitempty"`
+	AppChangeNumber *uint64                `protobuf:"varint,2,opt,name=app_change_number,json=appChangeNumber" json:"app_change_number,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CCloud_AppCloudStateChange_Notification) Reset() {
+	*x = CCloud_AppCloudStateChange_Notification{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_AppCloudStateChange_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_AppCloudStateChange_Notification) ProtoMessage() {}
+
+func (x *CCloud_AppCloudStateChange_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_AppCloudStateChange_Notification.ProtoReflect.Descriptor instead.
+func (*CCloud_AppCloudStateChange_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *CCloud_AppCloudStateChange_Notification) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CCloud_AppCloudStateChange_Notification) GetAppChangeNumber() uint64 {
+	if x != nil && x.AppChangeNumber != nil {
+		return *x.AppChangeNumber
+	}
+	return 0
+}
+
+type CCloud_ClientLogUploadRequest_Notification struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RequestId     *uint64                `protobuf:"varint,1,opt,name=request_id,json=requestId" json:"request_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_ClientLogUploadRequest_Notification) Reset() {
+	*x = CCloud_ClientLogUploadRequest_Notification{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_ClientLogUploadRequest_Notification) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_ClientLogUploadRequest_Notification) ProtoMessage() {}
+
+func (x *CCloud_ClientLogUploadRequest_Notification) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_ClientLogUploadRequest_Notification.ProtoReflect.Descriptor instead.
+func (*CCloud_ClientLogUploadRequest_Notification) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *CCloud_ClientLogUploadRequest_Notification) GetRequestId() uint64 {
+	if x != nil && x.RequestId != nil {
+		return *x.RequestId
+	}
+	return 0
 }
 
 type CCloud_BeginHTTPUpload_Response_HTTPHeaders struct {
@@ -1961,7 +3538,7 @@ type CCloud_BeginHTTPUpload_Response_HTTPHeaders struct {
 
 func (x *CCloud_BeginHTTPUpload_Response_HTTPHeaders) Reset() {
 	*x = CCloud_BeginHTTPUpload_Response_HTTPHeaders{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[29]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1973,7 +3550,7 @@ func (x *CCloud_BeginHTTPUpload_Response_HTTPHeaders) String() string {
 func (*CCloud_BeginHTTPUpload_Response_HTTPHeaders) ProtoMessage() {}
 
 func (x *CCloud_BeginHTTPUpload_Response_HTTPHeaders) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[29]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1986,7 +3563,7 @@ func (x *CCloud_BeginHTTPUpload_Response_HTTPHeaders) ProtoReflect() protoreflec
 
 // Deprecated: Use CCloud_BeginHTTPUpload_Response_HTTPHeaders.ProtoReflect.Descriptor instead.
 func (*CCloud_BeginHTTPUpload_Response_HTTPHeaders) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{3, 0}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{5, 0}
 }
 
 func (x *CCloud_BeginHTTPUpload_Response_HTTPHeaders) GetName() string {
@@ -2003,6 +3580,58 @@ func (x *CCloud_BeginHTTPUpload_Response_HTTPHeaders) GetValue() string {
 	return ""
 }
 
+type CCloud_BeginUGCUpload_Response_HTTPHeaders struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	Value         *string                `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CCloud_BeginUGCUpload_Response_HTTPHeaders) Reset() {
+	*x = CCloud_BeginUGCUpload_Response_HTTPHeaders{}
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CCloud_BeginUGCUpload_Response_HTTPHeaders) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CCloud_BeginUGCUpload_Response_HTTPHeaders) ProtoMessage() {}
+
+func (x *CCloud_BeginUGCUpload_Response_HTTPHeaders) ProtoReflect() protoreflect.Message {
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CCloud_BeginUGCUpload_Response_HTTPHeaders.ProtoReflect.Descriptor instead.
+func (*CCloud_BeginUGCUpload_Response_HTTPHeaders) Descriptor() ([]byte, []int) {
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{9, 0}
+}
+
+func (x *CCloud_BeginUGCUpload_Response_HTTPHeaders) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *CCloud_BeginUGCUpload_Response_HTTPHeaders) GetValue() string {
+	if x != nil && x.Value != nil {
+		return *x.Value
+	}
+	return ""
+}
+
 type ClientCloudFileUploadBlockDetails_HTTPHeaders struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
@@ -2013,7 +3642,7 @@ type ClientCloudFileUploadBlockDetails_HTTPHeaders struct {
 
 func (x *ClientCloudFileUploadBlockDetails_HTTPHeaders) Reset() {
 	*x = ClientCloudFileUploadBlockDetails_HTTPHeaders{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[30]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2025,7 +3654,7 @@ func (x *ClientCloudFileUploadBlockDetails_HTTPHeaders) String() string {
 func (*ClientCloudFileUploadBlockDetails_HTTPHeaders) ProtoMessage() {}
 
 func (x *ClientCloudFileUploadBlockDetails_HTTPHeaders) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[30]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2038,7 +3667,7 @@ func (x *ClientCloudFileUploadBlockDetails_HTTPHeaders) ProtoReflect() protorefl
 
 // Deprecated: Use ClientCloudFileUploadBlockDetails_HTTPHeaders.ProtoReflect.Descriptor instead.
 func (*ClientCloudFileUploadBlockDetails_HTTPHeaders) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{18, 0}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{29, 0}
 }
 
 func (x *ClientCloudFileUploadBlockDetails_HTTPHeaders) GetName() string {
@@ -2065,7 +3694,7 @@ type CCloud_ClientFileDownload_Response_HTTPHeaders struct {
 
 func (x *CCloud_ClientFileDownload_Response_HTTPHeaders) Reset() {
 	*x = CCloud_ClientFileDownload_Response_HTTPHeaders{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[31]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[57]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2077,7 +3706,7 @@ func (x *CCloud_ClientFileDownload_Response_HTTPHeaders) String() string {
 func (*CCloud_ClientFileDownload_Response_HTTPHeaders) ProtoMessage() {}
 
 func (x *CCloud_ClientFileDownload_Response_HTTPHeaders) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[31]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[57]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2090,7 +3719,7 @@ func (x *CCloud_ClientFileDownload_Response_HTTPHeaders) ProtoReflect() protoref
 
 // Deprecated: Use CCloud_ClientFileDownload_Response_HTTPHeaders.ProtoReflect.Descriptor instead.
 func (*CCloud_ClientFileDownload_Response_HTTPHeaders) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{23, 0}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{34, 0}
 }
 
 func (x *CCloud_ClientFileDownload_Response_HTTPHeaders) GetName() string {
@@ -2118,7 +3747,7 @@ type CCloud_EnumerateUserApps_Response_Apps struct {
 
 func (x *CCloud_EnumerateUserApps_Response_Apps) Reset() {
 	*x = CCloud_EnumerateUserApps_Response_Apps{}
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[32]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[58]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2130,7 +3759,7 @@ func (x *CCloud_EnumerateUserApps_Response_Apps) String() string {
 func (*CCloud_EnumerateUserApps_Response_Apps) ProtoMessage() {}
 
 func (x *CCloud_EnumerateUserApps_Response_Apps) ProtoReflect() protoreflect.Message {
-	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[32]
+	mi := &file_steammessages_cloud_steamclient_proto_msgTypes[58]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2143,7 +3772,7 @@ func (x *CCloud_EnumerateUserApps_Response_Apps) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use CCloud_EnumerateUserApps_Response_Apps.ProtoReflect.Descriptor instead.
 func (*CCloud_EnumerateUserApps_Response_Apps) Descriptor() ([]byte, []int) {
-	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{28, 0}
+	return file_steammessages_cloud_steamclient_proto_rawDescGZIP(), []int{39, 0}
 }
 
 func (x *CCloud_EnumerateUserApps_Response_Apps) GetAppid() uint32 {
@@ -2171,41 +3800,71 @@ var File_steammessages_cloud_steamclient_proto protoreflect.FileDescriptor
 
 const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\n" +
-	"%steammessages_cloud.steamclient.proto\x1a,steammessages_unified_base.steamclient.proto\"k\n" +
-	"\"CCloud_GetUploadServerInfo_Request\x12E\n" +
-	"\x05appid\x18\x01 \x01(\rB/\x82\xb5\x18+App ID to which a file will be uploaded to.R\x05appid\"D\n" +
+	"%steammessages_cloud.steamclient.proto\x1a\x18steammessages_base.proto\x1a,steammessages_unified_base.steamclient.proto\x1a\venums.proto\x1a\"steammessages_client_objects.proto\"G\n" +
+	"(CCloud_ClientLogUploadCheck_Notification\x12\x1b\n" +
+	"\tclient_id\x18\x01 \x01(\x04R\bclientId\"i\n" +
+	"+CCloud_ClientLogUploadComplete_Notification\x12\x1b\n" +
+	"\tclient_id\x18\x01 \x01(\x04R\bclientId\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x02 \x01(\x04R\trequestId\":\n" +
+	"\"CCloud_GetUploadServerInfo_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\"D\n" +
 	"#CCloud_GetUploadServerInfo_Response\x12\x1d\n" +
 	"\n" +
-	"server_url\x18\x01 \x01(\tR\tserverUrl\"\x9d\a\n" +
-	"\x1eCCloud_BeginHTTPUpload_Request\x12F\n" +
-	"\x05appid\x18\x01 \x01(\rB0\x82\xb5\x18,App ID for which the file is being uploaded.R\x05appid\x12=\n" +
-	"\tfile_size\x18\x02 \x01(\rB \x82\xb5\x18\x1cOriginal file size in bytes.R\bfileSize\x12G\n" +
-	"\bfilename\x18\x03 \x01(\tB+\x82\xb5\x18'Name of the file to store in the cloud.R\bfilename\x12_\n" +
-	"\bfile_sha\x18\x04 \x01(\tBD\x82\xb5\x18@Hex string (40 digits) representing the SHA1 digest of the file.R\afileSha\x12f\n" +
-	"\tis_public\x18\x05 \x01(\bBI\x82\xb5\x18ETrue if the file should be marked public on the UFS, false otherwise.R\bisPublic\x12\xa8\x01\n" +
-	"\x11platforms_to_sync\x18\x06 \x03(\tB|\x82\xb5\x18xArray of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android.R\x0fplatformsToSync\x12\x87\x01\n" +
-	"\x15request_headers_names\x18\a \x03(\tBS\x82\xb5\x18ONames for headers you'll want to set on your upload request. May be left blank.R\x13requestHeadersNames\x12\xac\x01\n" +
-	"\x16request_headers_values\x18\b \x03(\tBv\x82\xb5\x18rValues for headers you'll want to set on your upload request. The number of names must equal the number of values.R\x14requestHeadersValues\"\xe4\x04\n" +
-	"\x1fCCloud_BeginHTTPUpload_Response\x126\n" +
-	"\x05ugcid\x18\x01 \x01(\x06B \x82\xb5\x18\x1cUGC ID of the uploaded file.R\x05ugcid\x12;\n" +
-	"\ttimestamp\x18\x02 \x01(\aB\x1d\x82\xb5\x18\x19Server timestamp of file.R\ttimestamp\x12a\n" +
-	"\burl_host\x18\x03 \x01(\tBF\x82\xb5\x18BHost name of server to which file should be uploaded via HTTP PUT.R\aurlHost\x12X\n" +
-	"\burl_path\x18\x04 \x01(\tB=\x82\xb5\x189Relative path on server to which file should be uploaded.R\aurlPath\x12H\n" +
-	"\tuse_https\x18\x05 \x01(\bB+\x82\xb5\x18'If true, use https, otherwise use http.R\buseHttps\x12\x8b\x01\n" +
-	"\x0frequest_headers\x18\x06 \x03(\v2,.CCloud_BeginHTTPUpload_Response.HTTPHeadersB4\x82\xb5\x180Name-value pairs to be sent in HTTP PUT request.R\x0erequestHeaders\x1a7\n" +
+	"server_url\x18\x01 \x01(\tR\tserverUrl\"\xe5\x02\n" +
+	"\x1eCCloud_BeginHTTPUpload_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tfile_size\x18\x02 \x01(\rR\bfileSize\x12\x1a\n" +
+	"\bfilename\x18\x03 \x01(\tR\bfilename\x12\x19\n" +
+	"\bfile_sha\x18\x04 \x01(\tR\afileSha\x12\x1b\n" +
+	"\tis_public\x18\x05 \x01(\bR\bisPublic\x12*\n" +
+	"\x11platforms_to_sync\x18\x06 \x03(\tR\x0fplatformsToSync\x122\n" +
+	"\x15request_headers_names\x18\a \x03(\tR\x13requestHeadersNames\x124\n" +
+	"\x16request_headers_values\x18\b \x03(\tR\x14requestHeadersValues\x12&\n" +
+	"\x0fupload_batch_id\x18\t \x01(\x04R\ruploadBatchId\"\xb8\x02\n" +
+	"\x1fCCloud_BeginHTTPUpload_Response\x12\x14\n" +
+	"\x05ugcid\x18\x01 \x01(\x06R\x05ugcid\x12\x1c\n" +
+	"\ttimestamp\x18\x02 \x01(\aR\ttimestamp\x12\x19\n" +
+	"\burl_host\x18\x03 \x01(\tR\aurlHost\x12\x19\n" +
+	"\burl_path\x18\x04 \x01(\tR\aurlPath\x12\x1b\n" +
+	"\tuse_https\x18\x05 \x01(\bR\buseHttps\x12U\n" +
+	"\x0frequest_headers\x18\x06 \x03(\v2,.CCloud_BeginHTTPUpload_Response.HTTPHeadersR\x0erequestHeaders\x1a7\n" +
 	"\vHTTPHeaders\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value\"\xda\x04\n" +
-	"\x1fCCloud_CommitHTTPUpload_Request\x12\xb7\x01\n" +
-	"\x12transfer_succeeded\x18\x01 \x01(\bB\x87\x01\x82\xb5\x18\x82\x01True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginHTTPUpload), false if a failure occurred.R\x11transferSucceeded\x12\x7f\n" +
-	"\x05appid\x18\x02 \x01(\rBi\x82\xb5\x18eApp ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginHTTPUpload.R\x05appid\x12\x9e\x01\n" +
-	"\bfile_sha\x18\x03 \x01(\tB\x82\x01\x82\xb5\x18~Hex string (40 digits) representing the SHA1 digest of the file. Must match the SHA1 digest provided to Cloud.BeginHTTPUpload.R\afileSha\x12[\n" +
-	"\bfilename\x18\x04 \x01(\tB?\x82\xb5\x18;Filename as specified in the Cloud.BeginHTTPUpload request.R\bfilename\"\x8c\x01\n" +
-	" CCloud_CommitHTTPUpload_Response\x12h\n" +
-	"\x0efile_committed\x18\x01 \x01(\bBA\x82\xb5\x18=True if the file was successfully committed, false otherwise.R\rfileCommitted\"\x9a\x01\n" +
-	"\x1dCCloud_GetFileDetails_Request\x12B\n" +
-	"\x05ugcid\x18\x01 \x01(\x04B,\x82\xb5\x18(ID of the Cloud file to get details for.R\x05ugcid\x125\n" +
-	"\x05appid\x18\x02 \x01(\rB\x1f\x82\xb5\x18\x1bApp ID the file belongs to.R\x05appid\"\xf1\x03\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"\x9d\x01\n" +
+	"\x1fCCloud_CommitHTTPUpload_Request\x12-\n" +
+	"\x12transfer_succeeded\x18\x01 \x01(\bR\x11transferSucceeded\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x19\n" +
+	"\bfile_sha\x18\x03 \x01(\tR\afileSha\x12\x1a\n" +
+	"\bfilename\x18\x04 \x01(\tR\bfilename\"I\n" +
+	" CCloud_CommitHTTPUpload_Response\x12%\n" +
+	"\x0efile_committed\x18\x01 \x01(\bR\rfileCommitted\"\xac\x01\n" +
+	"\x1dCCloud_BeginUGCUpload_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tfile_size\x18\x02 \x01(\rR\bfileSize\x12\x1a\n" +
+	"\bfilename\x18\x03 \x01(\tR\bfilename\x12\x19\n" +
+	"\bfile_sha\x18\x04 \x01(\tR\afileSha\x12!\n" +
+	"\fcontent_type\x18\x05 \x01(\tR\vcontentType\"\xa1\x03\n" +
+	"\x1eCCloud_BeginUGCUpload_Response\x12i\n" +
+	"\x0estorage_system\x18\x01 \x01(\x0e2\x1c.EPublishedFileStorageSystem:$k_EPublishedFileStorageSystemInvalidR\rstorageSystem\x12\x14\n" +
+	"\x05ugcid\x18\x02 \x01(\x06R\x05ugcid\x12\x1c\n" +
+	"\ttimestamp\x18\x03 \x01(\aR\ttimestamp\x12\x19\n" +
+	"\burl_host\x18\x04 \x01(\tR\aurlHost\x12\x19\n" +
+	"\burl_path\x18\x05 \x01(\tR\aurlPath\x12\x1b\n" +
+	"\tuse_https\x18\x06 \x01(\bR\buseHttps\x12T\n" +
+	"\x0frequest_headers\x18\a \x03(\v2+.CCloud_BeginUGCUpload_Response.HTTPHeadersR\x0erequestHeaders\x1a7\n" +
+	"\vHTTPHeaders\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"{\n" +
+	"\x1eCCloud_CommitUGCUpload_Request\x12-\n" +
+	"\x12transfer_succeeded\x18\x01 \x01(\bR\x11transferSucceeded\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x14\n" +
+	"\x05ugcid\x18\x03 \x01(\x06R\x05ugcid\"H\n" +
+	"\x1fCCloud_CommitUGCUpload_Response\x12%\n" +
+	"\x0efile_committed\x18\x01 \x01(\bR\rfileCommitted\"K\n" +
+	"\x1dCCloud_GetFileDetails_Request\x12\x14\n" +
+	"\x05ugcid\x18\x01 \x01(\x04R\x05ugcid\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\"\xac\x02\n" +
 	"\x0fCCloud_UserFile\x12\x14\n" +
 	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x14\n" +
 	"\x05ugcid\x18\x02 \x01(\x04R\x05ugcid\x12\x1a\n" +
@@ -2214,31 +3873,31 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\tfile_size\x18\x05 \x01(\rR\bfileSize\x12\x10\n" +
 	"\x03url\x18\x06 \x01(\tR\x03url\x12'\n" +
 	"\x0fsteamid_creator\x18\a \x01(\x06R\x0esteamidCreator\x12\x14\n" +
-	"\x05flags\x18\b \x01(\rR\x05flags\x12\xa8\x01\n" +
-	"\x11platforms_to_sync\x18\t \x03(\tB|\x82\xb5\x18xArray of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android.R\x0fplatformsToSync\x12_\n" +
+	"\x05flags\x18\b \x01(\rR\x05flags\x12*\n" +
+	"\x11platforms_to_sync\x18\t \x03(\tR\x0fplatformsToSync\x12\x19\n" +
 	"\bfile_sha\x18\n" +
-	" \x01(\tBD\x82\xb5\x18@Hex string (40 digits) representing the SHA1 digest of the file.R\afileSha\"L\n" +
+	" \x01(\tR\afileSha\"L\n" +
 	"\x1eCCloud_GetFileDetails_Response\x12*\n" +
-	"\adetails\x18\x01 \x01(\v2\x10.CCloud_UserFileR\adetails\"\x95\x04\n" +
-	"!CCloud_EnumerateUserFiles_Request\x12;\n" +
-	"\x05appid\x18\x01 \x01(\rB%\x82\xb5\x18!App ID to enumerate the files of.R\x05appid\x12\xac\x01\n" +
-	"\x10extended_details\x18\x02 \x01(\bB\x80\x01\x82\xb5\x18|(Optional) Get extended details back on the files found. Defaults to only returned the app Id and UGC Id of the files found.R\x0fextendedDetails\x12\x83\x01\n" +
-	"\x05count\x18\x03 \x01(\rBm\x82\xb5\x18i(Optional) Maximum number of results to return on this call. Defaults to a maximum of 500 files returned.R\x05count\x12~\n" +
-	"\vstart_index\x18\x04 \x01(\rB]\x82\xb5\x18Y(Optional) Starting index to begin enumeration at. Defaults to the beginning of the list.R\n" +
+	"\adetails\x18\x01 \x01(\v2\x10.CCloud_UserFileR\adetails\"\x9b\x01\n" +
+	"!CCloud_EnumerateUserFiles_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12)\n" +
+	"\x10extended_details\x18\x02 \x01(\bR\x0fextendedDetails\x12\x14\n" +
+	"\x05count\x18\x03 \x01(\rR\x05count\x12\x1f\n" +
+	"\vstart_index\x18\x04 \x01(\rR\n" +
 	"startIndex\"m\n" +
 	"\"CCloud_EnumerateUserFiles_Response\x12&\n" +
 	"\x05files\x18\x01 \x03(\v2\x10.CCloud_UserFileR\x05files\x12\x1f\n" +
 	"\vtotal_files\x18\x02 \x01(\rR\n" +
-	"totalFiles\"j\n" +
+	"totalFiles\"q\n" +
 	"\x15CCloud_Delete_Request\x12\x1a\n" +
-	"\bfilename\x18\x01 \x01(\tR\bfilename\x125\n" +
-	"\x05appid\x18\x02 \x01(\rB\x1f\x82\xb5\x18\x1bApp ID the file belongs to.R\x05appid\"\x18\n" +
+	"\bfilename\x18\x01 \x01(\tR\bfilename\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x12&\n" +
+	"\x0fupload_batch_id\x18\x03 \x01(\x04R\ruploadBatchId\"\x18\n" +
 	"\x16CCloud_Delete_Response\"'\n" +
-	"%CCloud_GetClientEncryptionKey_Request\"x\n" +
-	"&CCloud_GetClientEncryptionKey_Response\x12,\n" +
-	"\x03key\x18\x01 \x01(\fB\x1a\x82\xb5\x18\x16AES-256 encryption keyR\x03key\x12 \n" +
-	"\x03crc\x18\x02 \x01(\x05B\x0e\x82\xb5\x18\n" +
-	"CRC of keyR\x03crc\"\xf9\x01\n" +
+	"%CCloud_GetClientEncryptionKey_Request\"L\n" +
+	"&CCloud_GetClientEncryptionKey_Response\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\fR\x03key\x12\x10\n" +
+	"\x03crc\x18\x02 \x01(\x05R\x03crc\"\xf9\x01\n" +
 	"\x1dCCloud_CDNReport_Notification\x12\x18\n" +
 	"\asteamid\x18\x01 \x01(\x06R\asteamid\x12\x10\n" +
 	"\x03url\x18\x02 \x01(\tR\x03url\x12\x18\n" +
@@ -2246,7 +3905,7 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\x10http_status_code\x18\x04 \x01(\rR\x0ehttpStatusCode\x12%\n" +
 	"\x0eexpected_bytes\x18\x05 \x01(\x04R\rexpectedBytes\x12%\n" +
 	"\x0ereceived_bytes\x18\x06 \x01(\x04R\rreceivedBytes\x12\x1a\n" +
-	"\bduration\x18\a \x01(\rR\bduration\"\x99\x03\n" +
+	"\bduration\x18\a \x01(\rR\bduration\"\xd6\x04\n" +
 	"1CCloud_ExternalStorageTransferReport_Notification\x12\x12\n" +
 	"\x04host\x18\x01 \x01(\tR\x04host\x12\x12\n" +
 	"\x04path\x18\x02 \x01(\tR\x04path\x12\x1b\n" +
@@ -2263,76 +3922,104 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\n" +
 	"ipv6_local\x18\v \x01(\bR\tipv6Local\x12\x1f\n" +
 	"\vipv6_remote\x18\f \x01(\bR\n" +
-	"ipv6Remote\"\xd2\x06\n" +
-	"$CCloud_ClientBeginFileUpload_Request\x12F\n" +
-	"\x05appid\x18\x01 \x01(\rB0\x82\xb5\x18,App ID for which the file is being uploaded.R\x05appid\x12N\n" +
-	"\tfile_size\x18\x02 \x01(\rB1\x82\xb5\x18-file size as transmitted and stored in Cloud.R\bfileSize\x12[\n" +
-	"\rraw_file_size\x18\x03 \x01(\rB7\x82\xb5\x183file size before any compression and/or encryption.R\vrawFileSize\x121\n" +
-	"\bfile_sha\x18\x04 \x01(\fB\x16\x82\xb5\x18\x12SHA-1 of raw file.R\afileSha\x125\n" +
+	"ipv6Remote\x12+\n" +
+	"\x12time_to_connect_ms\x18\r \x01(\rR\x0ftimeToConnectMs\x12,\n" +
+	"\x13time_to_send_req_ms\x18\x0e \x01(\rR\x0ftimeToSendReqMs\x120\n" +
+	"\x15time_to_first_byte_ms\x18\x0f \x01(\rR\x11timeToFirstByteMs\x12.\n" +
+	"\x14time_to_last_byte_ms\x18\x10 \x01(\rR\x10timeToLastByteMs\"\xec\x01\n" +
+	"\"CCloud_BeginAppUploadBatch_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12!\n" +
+	"\fmachine_name\x18\x02 \x01(\tR\vmachineName\x12&\n" +
+	"\x0ffiles_to_upload\x18\x03 \x03(\tR\rfilesToUpload\x12&\n" +
+	"\x0ffiles_to_delete\x18\x04 \x03(\tR\rfilesToDelete\x12\x1b\n" +
+	"\tclient_id\x18\x05 \x01(\x04R\bclientId\x12 \n" +
+	"\fapp_build_id\x18\x06 \x01(\x04R\n" +
+	"appBuildId\"l\n" +
+	"#CCloud_BeginAppUploadBatch_Response\x12\x19\n" +
+	"\bbatch_id\x18\x01 \x01(\x04R\abatchId\x12*\n" +
+	"\x11app_change_number\x18\x04 \x01(\x04R\x0fappChangeNumber\"\x82\x01\n" +
+	"*CCloud_CompleteAppUploadBatch_Notification\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x19\n" +
+	"\bbatch_id\x18\x02 \x01(\x04R\abatchId\x12#\n" +
+	"\rbatch_eresult\x18\x03 \x01(\rR\fbatchEresult\"}\n" +
+	"%CCloud_CompleteAppUploadBatch_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x19\n" +
+	"\bbatch_id\x18\x02 \x01(\x04R\abatchId\x12#\n" +
+	"\rbatch_eresult\x18\x03 \x01(\rR\fbatchEresult\"(\n" +
+	"&CCloud_CompleteAppUploadBatch_Response\"\xbe\x03\n" +
+	"$CCloud_ClientBeginFileUpload_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tfile_size\x18\x02 \x01(\rR\bfileSize\x12\"\n" +
+	"\rraw_file_size\x18\x03 \x01(\rR\vrawFileSize\x12\x19\n" +
+	"\bfile_sha\x18\x04 \x01(\fR\afileSha\x12\x1d\n" +
 	"\n" +
-	"time_stamp\x18\x05 \x01(\x04B\x16\x82\xb5\x18\x12Timestamp of file.R\ttimeStamp\x12G\n" +
-	"\bfilename\x18\x06 \x01(\tB+\x82\xb5\x18'Name of the file to store in the cloud.R\bfilename\x126\n" +
+	"time_stamp\x18\x05 \x01(\x04R\ttimeStamp\x12\x1a\n" +
+	"\bfilename\x18\x06 \x01(\tR\bfilename\x126\n" +
 	"\x11platforms_to_sync\x18\a \x01(\r:\n" +
-	"4294967295R\x0fplatformsToSync\x12N\n" +
-	"\acell_id\x18\t \x01(\rB5\x82\xb5\x181Client's cell ID so we can pick storage location.R\x06cellId\x12]\n" +
+	"4294967295R\x0fplatformsToSync\x12\x17\n" +
+	"\acell_id\x18\t \x01(\rR\x06cellId\x12\x1f\n" +
 	"\vcan_encrypt\x18\n" +
-	" \x01(\bB<\x82\xb5\x188if true, client can encrypt the file before uploading itR\n" +
-	"canEncrypt\x12t\n" +
-	"\x0eis_shared_file\x18\v \x01(\bBN\x82\xb5\x18Jif true, this is going to be UGC or a screenshot or some other shared fileR\fisSharedFile\x12%\n" +
-	"\x05realm\x18\f \x01(\rB\x0f\x82\xb5\x18\vSteam RealmR\x05realm\"\xf3\a\n" +
-	"!ClientCloudFileUploadBlockDetails\x12a\n" +
-	"\burl_host\x18\x01 \x01(\tBF\x82\xb5\x18BHost name of server to which file should be uploaded via HTTP PUT.R\aurlHost\x12X\n" +
-	"\burl_path\x18\x02 \x01(\tB=\x82\xb5\x189Relative path on server to which file should be uploaded.R\aurlPath\x12H\n" +
-	"\tuse_https\x18\x03 \x01(\bB+\x82\xb5\x18'If true, use https, otherwise use http.R\buseHttps\x12G\n" +
-	"\vhttp_method\x18\x04 \x01(\x05B&\x82\xb5\x18\"EHTTPMethod to use for this block.R\n" +
-	"httpMethod\x12\x8d\x01\n" +
-	"\x0frequest_headers\x18\x05 \x03(\v2..ClientCloudFileUploadBlockDetails.HTTPHeadersB4\x82\xb5\x180Name-value pairs to be sent in HTTP PUT request.R\x0erequestHeaders\x12E\n" +
-	"\fblock_offset\x18\x06 \x01(\x04B\"\x82\xb5\x18\x1eoffset of file block to uploadR\vblockOffset\x12z\n" +
-	"\fblock_length\x18\a \x01(\rBW\x82\xb5\x18Slength of file block to upload - if zero, no part of the file is part of this blockR\vblockLength\x12q\n" +
-	"\x12explicit_body_data\x18\b \x01(\fBC\x82\xb5\x18?explicit body data to use, instead of file data, for this blockR\x10explicitBodyData\x12\x7f\n" +
-	"\x0fmay_parallelize\x18\t \x01(\bBV\x82\xb5\x18Rif true, this request may be done in parallel with other similarly-marked requestsR\x0emayParallelize\x1a7\n" +
+	" \x01(\bR\n" +
+	"canEncrypt\x12$\n" +
+	"\x0eis_shared_file\x18\v \x01(\bR\fisSharedFile\x12)\n" +
+	"\x10deprecated_realm\x18\f \x01(\rR\x0fdeprecatedRealm\x12&\n" +
+	"\x0fupload_batch_id\x18\r \x01(\x04R\ruploadBatchId\"\xc6\x03\n" +
+	"!ClientCloudFileUploadBlockDetails\x12\x19\n" +
+	"\burl_host\x18\x01 \x01(\tR\aurlHost\x12\x19\n" +
+	"\burl_path\x18\x02 \x01(\tR\aurlPath\x12\x1b\n" +
+	"\tuse_https\x18\x03 \x01(\bR\buseHttps\x12\x1f\n" +
+	"\vhttp_method\x18\x04 \x01(\x05R\n" +
+	"httpMethod\x12W\n" +
+	"\x0frequest_headers\x18\x05 \x03(\v2..ClientCloudFileUploadBlockDetails.HTTPHeadersR\x0erequestHeaders\x12!\n" +
+	"\fblock_offset\x18\x06 \x01(\x04R\vblockOffset\x12!\n" +
+	"\fblock_length\x18\a \x01(\rR\vblockLength\x12,\n" +
+	"\x12explicit_body_data\x18\b \x01(\fR\x10explicitBodyData\x12'\n" +
+	"\x0fmay_parallelize\x18\t \x01(\bR\x0emayParallelize\x1a7\n" +
 	"\vHTTPHeaders\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value\"\x89\x02\n" +
-	"%CCloud_ClientBeginFileUpload_Response\x12h\n" +
-	"\fencrypt_file\x18\x01 \x01(\bBE\x82\xb5\x18AIf true, the file should be encrypted by the client before uploadR\vencryptFile\x12v\n" +
-	"\x0eblock_requests\x18\x02 \x03(\v2\".ClientCloudFileUploadBlockDetailsB+\x82\xb5\x18'HTTP requests to make to perform uploadR\rblockRequests\"\xf6\x03\n" +
-	"%CCloud_ClientCommitFileUpload_Request\x12t\n" +
-	"\x12transfer_succeeded\x18\x01 \x01(\bBE\x82\xb5\x18ATrue if all block uploads succeeded, false if any of them failed.R\x11transferSucceeded\x12\x7f\n" +
-	"\x05appid\x18\x02 \x01(\rBi\x82\xb5\x18eApp ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginFileUpload.R\x05appid\x12y\n" +
-	"\bfile_sha\x18\x03 \x01(\fB^\x82\xb5\x18ZSHA1 digest of the raw file. Must match the SHA1 digest provided to Cloud.BeginFileUpload.R\afileSha\x12[\n" +
-	"\bfilename\x18\x04 \x01(\tB?\x82\xb5\x18;Filename as specified in the Cloud.BeginFileUpload request.R\bfilename\"\x92\x01\n" +
-	"&CCloud_ClientCommitFileUpload_Response\x12h\n" +
-	"\x0efile_committed\x18\x01 \x01(\bBA\x82\xb5\x18=True if the file was successfully committed, false otherwise.R\rfileCommitted\"\xb8\x01\n" +
-	"!CCloud_ClientFileDownload_Request\x125\n" +
-	"\x05appid\x18\x01 \x01(\rB\x1f\x82\xb5\x18\x1bApp ID the file is part of.R\x05appid\x125\n" +
-	"\bfilename\x18\x02 \x01(\tB\x19\x82\xb5\x18\x15Filename of the file.R\bfilename\x12%\n" +
-	"\x05realm\x18\x03 \x01(\rB\x0f\x82\xb5\x18\vSteam RealmR\x05realm\"\x87\a\n" +
-	"\"CCloud_ClientFileDownload_Response\x129\n" +
-	"\x05appid\x18\x01 \x01(\rB#\x82\xb5\x18\x1fApplication the file belongs toR\x05appid\x12Q\n" +
-	"\tfile_size\x18\x02 \x01(\rB4\x82\xb5\x180file size as transmitted and stored in the CloudR\bfileSize\x12T\n" +
-	"\rraw_file_size\x18\x03 \x01(\rB0\x82\xb5\x18,file size when decompressed and/or decryptedR\vrawFileSize\x12*\n" +
-	"\bsha_file\x18\x04 \x01(\fB\x0f\x82\xb5\x18\vSHA of fileR\ashaFile\x124\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"\x95\x01\n" +
+	"%CCloud_ClientBeginFileUpload_Response\x12!\n" +
+	"\fencrypt_file\x18\x01 \x01(\bR\vencryptFile\x12I\n" +
+	"\x0eblock_requests\x18\x02 \x03(\v2\".ClientCloudFileUploadBlockDetailsR\rblockRequests\"\xa3\x01\n" +
+	"%CCloud_ClientCommitFileUpload_Request\x12-\n" +
+	"\x12transfer_succeeded\x18\x01 \x01(\bR\x11transferSucceeded\x12\x14\n" +
+	"\x05appid\x18\x02 \x01(\rR\x05appid\x12\x19\n" +
+	"\bfile_sha\x18\x03 \x01(\fR\afileSha\x12\x1a\n" +
+	"\bfilename\x18\x04 \x01(\tR\bfilename\"O\n" +
+	"&CCloud_ClientCommitFileUpload_Response\x12%\n" +
+	"\x0efile_committed\x18\x01 \x01(\bR\rfileCommitted\"\x8c\x01\n" +
+	"!CCloud_ClientFileDownload_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1a\n" +
+	"\bfilename\x18\x02 \x01(\tR\bfilename\x12\x14\n" +
+	"\x05realm\x18\x03 \x01(\rR\x05realm\x12\x1f\n" +
+	"\vforce_proxy\x18\x04 \x01(\bR\n" +
+	"forceProxy\"\xe7\x03\n" +
+	"\"CCloud_ClientFileDownload_Response\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tfile_size\x18\x02 \x01(\rR\bfileSize\x12\"\n" +
+	"\rraw_file_size\x18\x03 \x01(\rR\vrawFileSize\x12\x19\n" +
+	"\bsha_file\x18\x04 \x01(\fR\ashaFile\x12\x1d\n" +
 	"\n" +
-	"time_stamp\x18\x05 \x01(\x04B\x15\x82\xb5\x18\x11Timestamp of fileR\ttimeStamp\x12\\\n" +
-	"\x12is_explicit_delete\x18\x06 \x01(\bB.\x82\xb5\x18*True if this is an explicitly deleted fileR\x10isExplicitDelete\x128\n" +
-	"\burl_host\x18\a \x01(\tB\x1d\x82\xb5\x18\x19Host to GET the file fromR\aurlHost\x12X\n" +
-	"\burl_path\x18\b \x01(\tB=\x82\xb5\x189Path on that host to use, including URL parameters if anyR\aurlPath\x12A\n" +
-	"\tuse_https\x18\t \x01(\bB$\x82\xb5\x18 If set, use HTTPS, else use HTTPR\buseHttps\x12\x8e\x01\n" +
+	"time_stamp\x18\x05 \x01(\x04R\ttimeStamp\x12,\n" +
+	"\x12is_explicit_delete\x18\x06 \x01(\bR\x10isExplicitDelete\x12\x19\n" +
+	"\burl_host\x18\a \x01(\tR\aurlHost\x12\x19\n" +
+	"\burl_path\x18\b \x01(\tR\aurlPath\x12\x1b\n" +
+	"\tuse_https\x18\t \x01(\bR\buseHttps\x12X\n" +
 	"\x0frequest_headers\x18\n" +
-	" \x03(\v2/.CCloud_ClientFileDownload_Response.HTTPHeadersB4\x82\xb5\x180Name-value pairs to be sent in HTTP GET request.R\x0erequestHeaders\x12\x1c\n" +
+	" \x03(\v2/.CCloud_ClientFileDownload_Response.HTTPHeadersR\x0erequestHeaders\x12\x1c\n" +
 	"\tencrypted\x18\v \x01(\bR\tencrypted\x1a7\n" +
 	"\vHTTPHeaders\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value\"\x86\x02\n" +
-	"\x1fCCloud_ClientDeleteFile_Request\x12E\n" +
-	"\x05appid\x18\x01 \x01(\rB/\x82\xb5\x18+App ID for which the file is being deleted.R\x05appid\x121\n" +
-	"\bfilename\x18\x02 \x01(\tB\x15\x82\xb5\x18\x11Filename of file.R\bfilename\x12i\n" +
-	"\x12is_explicit_delete\x18\x03 \x01(\bB;\x82\xb5\x187If true, this is a 'delete'; if false, it is a 'forget'R\x10isExplicitDelete\"\"\n" +
-	" CCloud_ClientDeleteFile_Response\"\xf9\x01\n" +
-	",CCloud_ClientConflictResolution_Notification\x12E\n" +
-	"\x05appid\x18\x01 \x01(\rB/\x82\xb5\x18+App ID for which the conflict was resolved.R\x05appid\x12\x81\x01\n" +
-	"\x11chose_local_files\x18\x02 \x01(\bBU\x82\xb5\x18QDid the user choose to keep the files local to the machine they are on right now?R\x0fchoseLocalFiles\"\"\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value\"\xa9\x01\n" +
+	"\x1fCCloud_ClientDeleteFile_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1a\n" +
+	"\bfilename\x18\x02 \x01(\tR\bfilename\x12,\n" +
+	"\x12is_explicit_delete\x18\x03 \x01(\bR\x10isExplicitDelete\x12&\n" +
+	"\x0fupload_batch_id\x18\x04 \x01(\x04R\ruploadBatchId\"\"\n" +
+	" CCloud_ClientDeleteFile_Response\"p\n" +
+	",CCloud_ClientConflictResolution_Notification\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12*\n" +
+	"\x11chose_local_files\x18\x02 \x01(\bR\x0fchoseLocalFiles\"\"\n" +
 	" CCloud_EnumerateUserApps_Request\"\xbc\x01\n" +
 	"!CCloud_EnumerateUserApps_Response\x12;\n" +
 	"\x04apps\x18\x01 \x03(\v2'.CCloud_EnumerateUserApps_Response.AppsR\x04apps\x1aZ\n" +
@@ -2341,23 +4028,97 @@ const file_steammessages_cloud_steamclient_proto_rawDesc = "" +
 	"\n" +
 	"totalcount\x18\x02 \x01(\x05R\n" +
 	"totalcount\x12\x1c\n" +
-	"\ttotalsize\x18\x03 \x01(\x03R\ttotalsize2\xab\x12\n" +
-	"\x05Cloud\x12\x9c\x01\n" +
-	"\x13GetUploadServerInfo\x12#.CCloud_GetUploadServerInfo_Request\x1a$.CCloud_GetUploadServerInfo_Response\":\x82\xb5\x186Returns the URL of the proper cloud server for a user.\x12\xa8\x02\n" +
-	"\x0fBeginHTTPUpload\x12\x1f.CCloud_BeginHTTPUpload_Request\x1a .CCloud_BeginHTTPUpload_Response\"\xd1\x01\x82\xb5\x18\xcc\x01Begins the process of uploading a file to Steam external storage services. File should be uploaded via HTTP PUT to the returned URL, after which the upload must be finalized by a call to CommitHTTPUpload.\x12\xad\x01\n" +
-	"\x10CommitHTTPUpload\x12 .CCloud_CommitHTTPUpload_Request\x1a!.CCloud_CommitHTTPUpload_Response\"T\x82\xb5\x18PCommits a file upload initiated by BeginHTTPUpload and transferred via HTTP PUT.\x12w\n" +
-	"\x0eGetFileDetails\x12\x1e.CCloud_GetFileDetails_Request\x1a\x1f.CCloud_GetFileDetails_Response\"$\x82\xb5\x18 Returns details on a Cloud file.\x12\xba\x01\n" +
-	"\x12EnumerateUserFiles\x12\".CCloud_EnumerateUserFiles_Request\x1a#.CCloud_EnumerateUserFiles_Response\"[\x82\xb5\x18WEnumerates Cloud files for a user of a given app ID. Returns up to 500 files at a time.\x12d\n" +
-	"\x06Delete\x12\x16.CCloud_Delete_Request\x1a\x17.CCloud_Delete_Response\")\x82\xb5\x18%Deletes a file from the user's cloud.\x12\x99\x01\n" +
-	"\x16GetClientEncryptionKey\x12&.CCloud_GetClientEncryptionKey_Request\x1a'.CCloud_GetClientEncryptionKey_Response\".\x82\xb5\x18*Gets the user's Cloud file encryption key.\x12c\n" +
-	"\tCDNReport\x12\x1e.CCloud_CDNReport_Notification\x1a\v.NoResponse\")\x82\xb5\x18%Reports the result of a CDN transfer.\x12\x9f\x01\n" +
-	"\x1dExternalStorageTransferReport\x122.CCloud_ExternalStorageTransferReport_Notification\x1a\v.NoResponse\"=\x82\xb5\x189Reports the result of an external Cloud storage transfer.\x12\x88\x01\n" +
-	"\x15ClientBeginFileUpload\x12%.CCloud_ClientBeginFileUpload_Request\x1a&.CCloud_ClientBeginFileUpload_Response\" \x82\xb5\x18\x1cInitiate an upload to Cloud.\x12\x9a\x01\n" +
-	"\x16ClientCommitFileUpload\x12&.CCloud_ClientCommitFileUpload_Request\x1a'.CCloud_ClientCommitFileUpload_Response\"/\x82\xb5\x18+Commit the file upload or indicate failure.\x12|\n" +
-	"\x12ClientFileDownload\x12\".CCloud_ClientFileDownload_Request\x1a#.CCloud_ClientFileDownload_Response\"\x1d\x82\xb5\x18\x19Initiate a file download.\x12u\n" +
-	"\x10ClientDeleteFile\x12 .CCloud_ClientDeleteFile_Request\x1a!.CCloud_ClientDeleteFile_Response\"\x1c\x82\xb5\x18\x18Delete or forget a file.\x12\x8e\x01\n" +
-	"\x18ClientConflictResolution\x12-.CCloud_ClientConflictResolution_Notification\x1a\v.NoResponse\"6\x82\xb5\x182User has picked a resolution for a Cloud conflict.\x12\x8f\x01\n" +
-	"\x11EnumerateUserApps\x12!.CCloud_EnumerateUserApps_Request\x1a\".CCloud_EnumerateUserApps_Response\"3\x82\xb5\x18/Enumerates apps stroing cloud files for a user.\x1a)\x82\xb5\x18%A service for Steam Cloud operations.B\x03\x80\x01\x01"
+	"\ttotalsize\x18\x03 \x01(\x03R\ttotalsize\"m\n" +
+	"#CCloud_GetAppFileChangelist_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x120\n" +
+	"\x14synced_change_number\x18\x02 \x01(\x04R\x12syncedChangeNumber\"\xfc\x02\n" +
+	"\x12CCloud_AppFileInfo\x12\x1b\n" +
+	"\tfile_name\x18\x01 \x01(\tR\bfileName\x12\x19\n" +
+	"\bsha_file\x18\x02 \x01(\fR\ashaFile\x12\x1d\n" +
+	"\n" +
+	"time_stamp\x18\x03 \x01(\x04R\ttimeStamp\x12\"\n" +
+	"\rraw_file_size\x18\x04 \x01(\rR\vrawFileSize\x12e\n" +
+	"\rpersist_state\x18\x05 \x01(\x0e2\x1a.ECloudStoragePersistState:$k_ECloudStoragePersistStatePersistedR\fpersistState\x12*\n" +
+	"\x11platforms_to_sync\x18\x06 \x01(\rR\x0fplatformsToSync\x12*\n" +
+	"\x11path_prefix_index\x18\a \x01(\rR\x0fpathPrefixIndex\x12,\n" +
+	"\x12machine_name_index\x18\b \x01(\rR\x10machineNameIndex\"\x9b\x02\n" +
+	"$CCloud_GetAppFileChangelist_Response\x122\n" +
+	"\x15current_change_number\x18\x01 \x01(\x04R\x13currentChangeNumber\x12)\n" +
+	"\x05files\x18\x02 \x03(\v2\x13.CCloud_AppFileInfoR\x05files\x12\"\n" +
+	"\ris_only_delta\x18\x03 \x01(\bR\visOnlyDelta\x12#\n" +
+	"\rpath_prefixes\x18\x04 \x03(\tR\fpathPrefixes\x12#\n" +
+	"\rmachine_names\x18\x05 \x03(\tR\fmachineNames\x12&\n" +
+	"\x0fapp_buildid_hwm\x18\x06 \x01(\x04R\rappBuildidHwm\"\xaa\x01\n" +
+	" CCloud_AppSessionSuspend_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tclient_id\x18\x02 \x01(\x04R\bclientId\x12!\n" +
+	"\fmachine_name\x18\x03 \x01(\tR\vmachineName\x120\n" +
+	"\x14cloud_sync_completed\x18\x04 \x01(\bR\x12cloudSyncCompleted\"#\n" +
+	"!CCloud_AppSessionSuspend_Response\"T\n" +
+	"\x1fCCloud_AppSessionResume_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tclient_id\x18\x02 \x01(\x04R\bclientId\"\"\n" +
+	" CCloud_AppSessionResume_Response\"\xec\x01\n" +
+	"\x1eCCloud_AppLaunchIntent_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tclient_id\x18\x02 \x01(\x04R\bclientId\x12!\n" +
+	"\fmachine_name\x18\x03 \x01(\tR\vmachineName\x12:\n" +
+	"\x19ignore_pending_operations\x18\x04 \x01(\bR\x17ignorePendingOperations\x12\x17\n" +
+	"\aos_type\x18\x05 \x01(\x05R\x06osType\x12\x1f\n" +
+	"\vdevice_type\x18\x06 \x01(\x05R\n" +
+	"deviceType\"}\n" +
+	"\x1fCCloud_AppLaunchIntent_Response\x12Z\n" +
+	"\x19pending_remote_operations\x18\x01 \x03(\v2\x1e.CCloud_PendingRemoteOperationR\x17pendingRemoteOperations\"\xb0\x01\n" +
+	"#CCloud_AppExitSyncDone_Notification\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12\x1b\n" +
+	"\tclient_id\x18\x02 \x01(\x04R\bclientId\x12+\n" +
+	"\x11uploads_completed\x18\x03 \x01(\bR\x10uploadsCompleted\x12)\n" +
+	"\x10uploads_required\x18\x04 \x01(\bR\x0fuploadsRequired\"=\n" +
+	"%CCloud_ClientGetAppQuotaUsage_Request\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\"\xbe\x01\n" +
+	"&CCloud_ClientGetAppQuotaUsage_Response\x12%\n" +
+	"\x0eexisting_files\x18\x01 \x01(\rR\rexistingFiles\x12%\n" +
+	"\x0eexisting_bytes\x18\x02 \x01(\x04R\rexistingBytes\x12\"\n" +
+	"\rmax_num_files\x18\x03 \x01(\rR\vmaxNumFiles\x12\"\n" +
+	"\rmax_num_bytes\x18\x04 \x01(\x04R\vmaxNumBytes\"k\n" +
+	"'CCloud_AppCloudStateChange_Notification\x12\x14\n" +
+	"\x05appid\x18\x01 \x01(\rR\x05appid\x12*\n" +
+	"\x11app_change_number\x18\x02 \x01(\x04R\x0fappChangeNumber\"K\n" +
+	"*CCloud_ClientLogUploadRequest_Notification\x12\x1d\n" +
+	"\n" +
+	"request_id\x18\x01 \x01(\x04R\trequestId2\xf0\x13\n" +
+	"\x05Cloud\x12N\n" +
+	"\x14ClientLogUploadCheck\x12).CCloud_ClientLogUploadCheck_Notification\x1a\v.NoResponse\x12T\n" +
+	"\x17ClientLogUploadComplete\x12,.CCloud_ClientLogUploadComplete_Notification\x1a\v.NoResponse\x12`\n" +
+	"\x13GetUploadServerInfo\x12#.CCloud_GetUploadServerInfo_Request\x1a$.CCloud_GetUploadServerInfo_Response\x12T\n" +
+	"\x0fBeginHTTPUpload\x12\x1f.CCloud_BeginHTTPUpload_Request\x1a .CCloud_BeginHTTPUpload_Response\x12W\n" +
+	"\x10CommitHTTPUpload\x12 .CCloud_CommitHTTPUpload_Request\x1a!.CCloud_CommitHTTPUpload_Response\x12Q\n" +
+	"\x0eBeginUGCUpload\x12\x1e.CCloud_BeginUGCUpload_Request\x1a\x1f.CCloud_BeginUGCUpload_Response\x12T\n" +
+	"\x0fCommitUGCUpload\x12\x1f.CCloud_CommitUGCUpload_Request\x1a .CCloud_CommitUGCUpload_Response\x12Q\n" +
+	"\x0eGetFileDetails\x12\x1e.CCloud_GetFileDetails_Request\x1a\x1f.CCloud_GetFileDetails_Response\x12]\n" +
+	"\x12EnumerateUserFiles\x12\".CCloud_EnumerateUserFiles_Request\x1a#.CCloud_EnumerateUserFiles_Response\x129\n" +
+	"\x06Delete\x12\x16.CCloud_Delete_Request\x1a\x17.CCloud_Delete_Response\x12i\n" +
+	"\x16GetClientEncryptionKey\x12&.CCloud_GetClientEncryptionKey_Request\x1a'.CCloud_GetClientEncryptionKey_Response\x128\n" +
+	"\tCDNReport\x12\x1e.CCloud_CDNReport_Notification\x1a\v.NoResponse\x12`\n" +
+	"\x1dExternalStorageTransferReport\x122.CCloud_ExternalStorageTransferReport_Notification\x1a\v.NoResponse\x12`\n" +
+	"\x13BeginAppUploadBatch\x12#.CCloud_BeginAppUploadBatch_Request\x1a$.CCloud_BeginAppUploadBatch_Response\x12R\n" +
+	"\x16CompleteAppUploadBatch\x12+.CCloud_CompleteAppUploadBatch_Notification\x1a\v.NoResponse\x12q\n" +
+	"\x1eCompleteAppUploadBatchBlocking\x12&.CCloud_CompleteAppUploadBatch_Request\x1a'.CCloud_CompleteAppUploadBatch_Response\x12f\n" +
+	"\x15ClientBeginFileUpload\x12%.CCloud_ClientBeginFileUpload_Request\x1a&.CCloud_ClientBeginFileUpload_Response\x12i\n" +
+	"\x16ClientCommitFileUpload\x12&.CCloud_ClientCommitFileUpload_Request\x1a'.CCloud_ClientCommitFileUpload_Response\x12]\n" +
+	"\x12ClientFileDownload\x12\".CCloud_ClientFileDownload_Request\x1a#.CCloud_ClientFileDownload_Response\x12W\n" +
+	"\x10ClientDeleteFile\x12 .CCloud_ClientDeleteFile_Request\x1a!.CCloud_ClientDeleteFile_Response\x12V\n" +
+	"\x18ClientConflictResolution\x12-.CCloud_ClientConflictResolution_Notification\x1a\v.NoResponse\x12Z\n" +
+	"\x11EnumerateUserApps\x12!.CCloud_EnumerateUserApps_Request\x1a\".CCloud_EnumerateUserApps_Response\x12c\n" +
+	"\x14GetAppFileChangelist\x12$.CCloud_GetAppFileChangelist_Request\x1a%.CCloud_GetAppFileChangelist_Response\x12Z\n" +
+	"\x11SuspendAppSession\x12!.CCloud_AppSessionSuspend_Request\x1a\".CCloud_AppSessionSuspend_Response\x12W\n" +
+	"\x10ResumeAppSession\x12 .CCloud_AppSessionResume_Request\x1a!.CCloud_AppSessionResume_Response\x12Z\n" +
+	"\x15SignalAppLaunchIntent\x12\x1f.CCloud_AppLaunchIntent_Request\x1a .CCloud_AppLaunchIntent_Response\x12J\n" +
+	"\x15SignalAppExitSyncDone\x12$.CCloud_AppExitSyncDone_Notification\x1a\v.NoResponse\x12i\n" +
+	"\x16ClientGetAppQuotaUsage\x12&.CCloud_ClientGetAppQuotaUsage_Request\x1a'.CCloud_ClientGetAppQuotaUsage_Response2\xb6\x01\n" +
+	"\vCloudClient\x12M\n" +
+	"\x14NotifyAppStateChange\x12(.CCloud_AppCloudStateChange_Notification\x1a\v.NoResponse\x12R\n" +
+	"\x16ClientLogUploadRequest\x12+.CCloud_ClientLogUploadRequest_Notification\x1a\v.NoResponse\x1a\x04\xc0\xb5\x18\x02B8Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x01"
 
 var (
 	file_steammessages_cloud_steamclient_proto_rawDescOnce sync.Once
@@ -2371,86 +4132,150 @@ func file_steammessages_cloud_steamclient_proto_rawDescGZIP() []byte {
 	return file_steammessages_cloud_steamclient_proto_rawDescData
 }
 
-var file_steammessages_cloud_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 33)
+var file_steammessages_cloud_steamclient_proto_msgTypes = make([]protoimpl.MessageInfo, 59)
 var file_steammessages_cloud_steamclient_proto_goTypes = []any{
-	(*CCloud_GetUploadServerInfo_Request)(nil),                      // 0: CCloud_GetUploadServerInfo_Request
-	(*CCloud_GetUploadServerInfo_Response)(nil),                     // 1: CCloud_GetUploadServerInfo_Response
-	(*CCloud_BeginHTTPUpload_Request)(nil),                          // 2: CCloud_BeginHTTPUpload_Request
-	(*CCloud_BeginHTTPUpload_Response)(nil),                         // 3: CCloud_BeginHTTPUpload_Response
-	(*CCloud_CommitHTTPUpload_Request)(nil),                         // 4: CCloud_CommitHTTPUpload_Request
-	(*CCloud_CommitHTTPUpload_Response)(nil),                        // 5: CCloud_CommitHTTPUpload_Response
-	(*CCloud_GetFileDetails_Request)(nil),                           // 6: CCloud_GetFileDetails_Request
-	(*CCloud_UserFile)(nil),                                         // 7: CCloud_UserFile
-	(*CCloud_GetFileDetails_Response)(nil),                          // 8: CCloud_GetFileDetails_Response
-	(*CCloud_EnumerateUserFiles_Request)(nil),                       // 9: CCloud_EnumerateUserFiles_Request
-	(*CCloud_EnumerateUserFiles_Response)(nil),                      // 10: CCloud_EnumerateUserFiles_Response
-	(*CCloud_Delete_Request)(nil),                                   // 11: CCloud_Delete_Request
-	(*CCloud_Delete_Response)(nil),                                  // 12: CCloud_Delete_Response
-	(*CCloud_GetClientEncryptionKey_Request)(nil),                   // 13: CCloud_GetClientEncryptionKey_Request
-	(*CCloud_GetClientEncryptionKey_Response)(nil),                  // 14: CCloud_GetClientEncryptionKey_Response
-	(*CCloud_CDNReport_Notification)(nil),                           // 15: CCloud_CDNReport_Notification
-	(*CCloud_ExternalStorageTransferReport_Notification)(nil),       // 16: CCloud_ExternalStorageTransferReport_Notification
-	(*CCloud_ClientBeginFileUpload_Request)(nil),                    // 17: CCloud_ClientBeginFileUpload_Request
-	(*ClientCloudFileUploadBlockDetails)(nil),                       // 18: ClientCloudFileUploadBlockDetails
-	(*CCloud_ClientBeginFileUpload_Response)(nil),                   // 19: CCloud_ClientBeginFileUpload_Response
-	(*CCloud_ClientCommitFileUpload_Request)(nil),                   // 20: CCloud_ClientCommitFileUpload_Request
-	(*CCloud_ClientCommitFileUpload_Response)(nil),                  // 21: CCloud_ClientCommitFileUpload_Response
-	(*CCloud_ClientFileDownload_Request)(nil),                       // 22: CCloud_ClientFileDownload_Request
-	(*CCloud_ClientFileDownload_Response)(nil),                      // 23: CCloud_ClientFileDownload_Response
-	(*CCloud_ClientDeleteFile_Request)(nil),                         // 24: CCloud_ClientDeleteFile_Request
-	(*CCloud_ClientDeleteFile_Response)(nil),                        // 25: CCloud_ClientDeleteFile_Response
-	(*CCloud_ClientConflictResolution_Notification)(nil),            // 26: CCloud_ClientConflictResolution_Notification
-	(*CCloud_EnumerateUserApps_Request)(nil),                        // 27: CCloud_EnumerateUserApps_Request
-	(*CCloud_EnumerateUserApps_Response)(nil),                       // 28: CCloud_EnumerateUserApps_Response
-	(*CCloud_BeginHTTPUpload_Response_HTTPHeaders)(nil),             // 29: CCloud_BeginHTTPUpload_Response.HTTPHeaders
-	(*ClientCloudFileUploadBlockDetails_HTTPHeaders)(nil),           // 30: ClientCloudFileUploadBlockDetails.HTTPHeaders
-	(*CCloud_ClientFileDownload_Response_HTTPHeaders)(nil),          // 31: CCloud_ClientFileDownload_Response.HTTPHeaders
-	(*CCloud_EnumerateUserApps_Response_Apps)(nil),                  // 32: CCloud_EnumerateUserApps_Response.Apps
-	(*NoResponse)(nil), // 33: NoResponse
+	(*CCloud_ClientLogUploadCheck_Notification)(nil),                         // 0: CCloud_ClientLogUploadCheck_Notification
+	(*CCloud_ClientLogUploadComplete_Notification)(nil),                      // 1: CCloud_ClientLogUploadComplete_Notification
+	(*CCloud_GetUploadServerInfo_Request)(nil),                               // 2: CCloud_GetUploadServerInfo_Request
+	(*CCloud_GetUploadServerInfo_Response)(nil),                              // 3: CCloud_GetUploadServerInfo_Response
+	(*CCloud_BeginHTTPUpload_Request)(nil),                                   // 4: CCloud_BeginHTTPUpload_Request
+	(*CCloud_BeginHTTPUpload_Response)(nil),                                  // 5: CCloud_BeginHTTPUpload_Response
+	(*CCloud_CommitHTTPUpload_Request)(nil),                                  // 6: CCloud_CommitHTTPUpload_Request
+	(*CCloud_CommitHTTPUpload_Response)(nil),                                 // 7: CCloud_CommitHTTPUpload_Response
+	(*CCloud_BeginUGCUpload_Request)(nil),                                    // 8: CCloud_BeginUGCUpload_Request
+	(*CCloud_BeginUGCUpload_Response)(nil),                                   // 9: CCloud_BeginUGCUpload_Response
+	(*CCloud_CommitUGCUpload_Request)(nil),                                   // 10: CCloud_CommitUGCUpload_Request
+	(*CCloud_CommitUGCUpload_Response)(nil),                                  // 11: CCloud_CommitUGCUpload_Response
+	(*CCloud_GetFileDetails_Request)(nil),                                    // 12: CCloud_GetFileDetails_Request
+	(*CCloud_UserFile)(nil),                                                  // 13: CCloud_UserFile
+	(*CCloud_GetFileDetails_Response)(nil),                                   // 14: CCloud_GetFileDetails_Response
+	(*CCloud_EnumerateUserFiles_Request)(nil),                                // 15: CCloud_EnumerateUserFiles_Request
+	(*CCloud_EnumerateUserFiles_Response)(nil),                               // 16: CCloud_EnumerateUserFiles_Response
+	(*CCloud_Delete_Request)(nil),                                            // 17: CCloud_Delete_Request
+	(*CCloud_Delete_Response)(nil),                                           // 18: CCloud_Delete_Response
+	(*CCloud_GetClientEncryptionKey_Request)(nil),                            // 19: CCloud_GetClientEncryptionKey_Request
+	(*CCloud_GetClientEncryptionKey_Response)(nil),                           // 20: CCloud_GetClientEncryptionKey_Response
+	(*CCloud_CDNReport_Notification)(nil),                                    // 21: CCloud_CDNReport_Notification
+	(*CCloud_ExternalStorageTransferReport_Notification)(nil),                // 22: CCloud_ExternalStorageTransferReport_Notification
+	(*CCloud_BeginAppUploadBatch_Request)(nil),                               // 23: CCloud_BeginAppUploadBatch_Request
+	(*CCloud_BeginAppUploadBatch_Response)(nil),                              // 24: CCloud_BeginAppUploadBatch_Response
+	(*CCloud_CompleteAppUploadBatch_Notification)(nil),                       // 25: CCloud_CompleteAppUploadBatch_Notification
+	(*CCloud_CompleteAppUploadBatch_Request)(nil),                            // 26: CCloud_CompleteAppUploadBatch_Request
+	(*CCloud_CompleteAppUploadBatch_Response)(nil),                           // 27: CCloud_CompleteAppUploadBatch_Response
+	(*CCloud_ClientBeginFileUpload_Request)(nil),                             // 28: CCloud_ClientBeginFileUpload_Request
+	(*ClientCloudFileUploadBlockDetails)(nil),                                // 29: ClientCloudFileUploadBlockDetails
+	(*CCloud_ClientBeginFileUpload_Response)(nil),                            // 30: CCloud_ClientBeginFileUpload_Response
+	(*CCloud_ClientCommitFileUpload_Request)(nil),                            // 31: CCloud_ClientCommitFileUpload_Request
+	(*CCloud_ClientCommitFileUpload_Response)(nil),                           // 32: CCloud_ClientCommitFileUpload_Response
+	(*CCloud_ClientFileDownload_Request)(nil),                                // 33: CCloud_ClientFileDownload_Request
+	(*CCloud_ClientFileDownload_Response)(nil),                               // 34: CCloud_ClientFileDownload_Response
+	(*CCloud_ClientDeleteFile_Request)(nil),                                  // 35: CCloud_ClientDeleteFile_Request
+	(*CCloud_ClientDeleteFile_Response)(nil),                                 // 36: CCloud_ClientDeleteFile_Response
+	(*CCloud_ClientConflictResolution_Notification)(nil),                     // 37: CCloud_ClientConflictResolution_Notification
+	(*CCloud_EnumerateUserApps_Request)(nil),                                 // 38: CCloud_EnumerateUserApps_Request
+	(*CCloud_EnumerateUserApps_Response)(nil),                                // 39: CCloud_EnumerateUserApps_Response
+	(*CCloud_GetAppFileChangelist_Request)(nil),                              // 40: CCloud_GetAppFileChangelist_Request
+	(*CCloud_AppFileInfo)(nil),                                               // 41: CCloud_AppFileInfo
+	(*CCloud_GetAppFileChangelist_Response)(nil),                             // 42: CCloud_GetAppFileChangelist_Response
+	(*CCloud_AppSessionSuspend_Request)(nil),                                 // 43: CCloud_AppSessionSuspend_Request
+	(*CCloud_AppSessionSuspend_Response)(nil),                                // 44: CCloud_AppSessionSuspend_Response
+	(*CCloud_AppSessionResume_Request)(nil),                                  // 45: CCloud_AppSessionResume_Request
+	(*CCloud_AppSessionResume_Response)(nil),                                 // 46: CCloud_AppSessionResume_Response
+	(*CCloud_AppLaunchIntent_Request)(nil),                                   // 47: CCloud_AppLaunchIntent_Request
+	(*CCloud_AppLaunchIntent_Response)(nil),                                  // 48: CCloud_AppLaunchIntent_Response
+	(*CCloud_AppExitSyncDone_Notification)(nil),                              // 49: CCloud_AppExitSyncDone_Notification
+	(*CCloud_ClientGetAppQuotaUsage_Request)(nil),                            // 50: CCloud_ClientGetAppQuotaUsage_Request
+	(*CCloud_ClientGetAppQuotaUsage_Response)(nil),                           // 51: CCloud_ClientGetAppQuotaUsage_Response
+	(*CCloud_AppCloudStateChange_Notification)(nil),                          // 52: CCloud_AppCloudStateChange_Notification
+	(*CCloud_ClientLogUploadRequest_Notification)(nil),                       // 53: CCloud_ClientLogUploadRequest_Notification
+	(*CCloud_BeginHTTPUpload_Response_HTTPHeaders)(nil),                      // 54: CCloud_BeginHTTPUpload_Response.HTTPHeaders
+	(*CCloud_BeginUGCUpload_Response_HTTPHeaders)(nil),                       // 55: CCloud_BeginUGCUpload_Response.HTTPHeaders
+	(*ClientCloudFileUploadBlockDetails_HTTPHeaders)(nil),                    // 56: ClientCloudFileUploadBlockDetails.HTTPHeaders
+	(*CCloud_ClientFileDownload_Response_HTTPHeaders)(nil),                   // 57: CCloud_ClientFileDownload_Response.HTTPHeaders
+	(*CCloud_EnumerateUserApps_Response_Apps)(nil),                           // 58: CCloud_EnumerateUserApps_Response.Apps
+	(EPublishedFileStorageSystem)(0),                             // 59: EPublishedFileStorageSystem
+	(ECloudStoragePersistState)(0),                               // 60: ECloudStoragePersistState
+	(*CCloud_PendingRemoteOperation)(nil), // 61: CCloud_PendingRemoteOperation
+	(*NoResponse)(nil),          // 62: NoResponse
 }
 var file_steammessages_cloud_steamclient_proto_depIdxs = []int32{
-	29, // 0: CCloud_BeginHTTPUpload_Response.request_headers:type_name -> CCloud_BeginHTTPUpload_Response.HTTPHeaders
-	7,  // 1: CCloud_GetFileDetails_Response.details:type_name -> CCloud_UserFile
-	7,  // 2: CCloud_EnumerateUserFiles_Response.files:type_name -> CCloud_UserFile
-	30, // 3: ClientCloudFileUploadBlockDetails.request_headers:type_name -> ClientCloudFileUploadBlockDetails.HTTPHeaders
-	18, // 4: CCloud_ClientBeginFileUpload_Response.block_requests:type_name -> ClientCloudFileUploadBlockDetails
-	31, // 5: CCloud_ClientFileDownload_Response.request_headers:type_name -> CCloud_ClientFileDownload_Response.HTTPHeaders
-	32, // 6: CCloud_EnumerateUserApps_Response.apps:type_name -> CCloud_EnumerateUserApps_Response.Apps
-	0,  // 7: Cloud.GetUploadServerInfo:input_type -> CCloud_GetUploadServerInfo_Request
-	2,  // 8: Cloud.BeginHTTPUpload:input_type -> CCloud_BeginHTTPUpload_Request
-	4,  // 9: Cloud.CommitHTTPUpload:input_type -> CCloud_CommitHTTPUpload_Request
-	6,  // 10: Cloud.GetFileDetails:input_type -> CCloud_GetFileDetails_Request
-	9,  // 11: Cloud.EnumerateUserFiles:input_type -> CCloud_EnumerateUserFiles_Request
-	11, // 12: Cloud.Delete:input_type -> CCloud_Delete_Request
-	13, // 13: Cloud.GetClientEncryptionKey:input_type -> CCloud_GetClientEncryptionKey_Request
-	15, // 14: Cloud.CDNReport:input_type -> CCloud_CDNReport_Notification
-	16, // 15: Cloud.ExternalStorageTransferReport:input_type -> CCloud_ExternalStorageTransferReport_Notification
-	17, // 16: Cloud.ClientBeginFileUpload:input_type -> CCloud_ClientBeginFileUpload_Request
-	20, // 17: Cloud.ClientCommitFileUpload:input_type -> CCloud_ClientCommitFileUpload_Request
-	22, // 18: Cloud.ClientFileDownload:input_type -> CCloud_ClientFileDownload_Request
-	24, // 19: Cloud.ClientDeleteFile:input_type -> CCloud_ClientDeleteFile_Request
-	26, // 20: Cloud.ClientConflictResolution:input_type -> CCloud_ClientConflictResolution_Notification
-	27, // 21: Cloud.EnumerateUserApps:input_type -> CCloud_EnumerateUserApps_Request
-	1,  // 22: Cloud.GetUploadServerInfo:output_type -> CCloud_GetUploadServerInfo_Response
-	3,  // 23: Cloud.BeginHTTPUpload:output_type -> CCloud_BeginHTTPUpload_Response
-	5,  // 24: Cloud.CommitHTTPUpload:output_type -> CCloud_CommitHTTPUpload_Response
-	8,  // 25: Cloud.GetFileDetails:output_type -> CCloud_GetFileDetails_Response
-	10, // 26: Cloud.EnumerateUserFiles:output_type -> CCloud_EnumerateUserFiles_Response
-	12, // 27: Cloud.Delete:output_type -> CCloud_Delete_Response
-	14, // 28: Cloud.GetClientEncryptionKey:output_type -> CCloud_GetClientEncryptionKey_Response
-	33, // 29: Cloud.CDNReport:output_type -> NoResponse
-	33, // 30: Cloud.ExternalStorageTransferReport:output_type -> NoResponse
-	19, // 31: Cloud.ClientBeginFileUpload:output_type -> CCloud_ClientBeginFileUpload_Response
-	21, // 32: Cloud.ClientCommitFileUpload:output_type -> CCloud_ClientCommitFileUpload_Response
-	23, // 33: Cloud.ClientFileDownload:output_type -> CCloud_ClientFileDownload_Response
-	25, // 34: Cloud.ClientDeleteFile:output_type -> CCloud_ClientDeleteFile_Response
-	33, // 35: Cloud.ClientConflictResolution:output_type -> NoResponse
-	28, // 36: Cloud.EnumerateUserApps:output_type -> CCloud_EnumerateUserApps_Response
-	22, // [22:37] is the sub-list for method output_type
-	7,  // [7:22] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	54, // 0: CCloud_BeginHTTPUpload_Response.request_headers:type_name -> CCloud_BeginHTTPUpload_Response.HTTPHeaders
+	59, // 1: CCloud_BeginUGCUpload_Response.storage_system:type_name -> EPublishedFileStorageSystem
+	55, // 2: CCloud_BeginUGCUpload_Response.request_headers:type_name -> CCloud_BeginUGCUpload_Response.HTTPHeaders
+	13, // 3: CCloud_GetFileDetails_Response.details:type_name -> CCloud_UserFile
+	13, // 4: CCloud_EnumerateUserFiles_Response.files:type_name -> CCloud_UserFile
+	56, // 5: ClientCloudFileUploadBlockDetails.request_headers:type_name -> ClientCloudFileUploadBlockDetails.HTTPHeaders
+	29, // 6: CCloud_ClientBeginFileUpload_Response.block_requests:type_name -> ClientCloudFileUploadBlockDetails
+	57, // 7: CCloud_ClientFileDownload_Response.request_headers:type_name -> CCloud_ClientFileDownload_Response.HTTPHeaders
+	58, // 8: CCloud_EnumerateUserApps_Response.apps:type_name -> CCloud_EnumerateUserApps_Response.Apps
+	60, // 9: CCloud_AppFileInfo.persist_state:type_name -> ECloudStoragePersistState
+	41, // 10: CCloud_GetAppFileChangelist_Response.files:type_name -> CCloud_AppFileInfo
+	61, // 11: CCloud_AppLaunchIntent_Response.pending_remote_operations:type_name -> CCloud_PendingRemoteOperation
+	0,  // 12: Cloud.ClientLogUploadCheck:input_type -> CCloud_ClientLogUploadCheck_Notification
+	1,  // 13: Cloud.ClientLogUploadComplete:input_type -> CCloud_ClientLogUploadComplete_Notification
+	2,  // 14: Cloud.GetUploadServerInfo:input_type -> CCloud_GetUploadServerInfo_Request
+	4,  // 15: Cloud.BeginHTTPUpload:input_type -> CCloud_BeginHTTPUpload_Request
+	6,  // 16: Cloud.CommitHTTPUpload:input_type -> CCloud_CommitHTTPUpload_Request
+	8,  // 17: Cloud.BeginUGCUpload:input_type -> CCloud_BeginUGCUpload_Request
+	10, // 18: Cloud.CommitUGCUpload:input_type -> CCloud_CommitUGCUpload_Request
+	12, // 19: Cloud.GetFileDetails:input_type -> CCloud_GetFileDetails_Request
+	15, // 20: Cloud.EnumerateUserFiles:input_type -> CCloud_EnumerateUserFiles_Request
+	17, // 21: Cloud.Delete:input_type -> CCloud_Delete_Request
+	19, // 22: Cloud.GetClientEncryptionKey:input_type -> CCloud_GetClientEncryptionKey_Request
+	21, // 23: Cloud.CDNReport:input_type -> CCloud_CDNReport_Notification
+	22, // 24: Cloud.ExternalStorageTransferReport:input_type -> CCloud_ExternalStorageTransferReport_Notification
+	23, // 25: Cloud.BeginAppUploadBatch:input_type -> CCloud_BeginAppUploadBatch_Request
+	25, // 26: Cloud.CompleteAppUploadBatch:input_type -> CCloud_CompleteAppUploadBatch_Notification
+	26, // 27: Cloud.CompleteAppUploadBatchBlocking:input_type -> CCloud_CompleteAppUploadBatch_Request
+	28, // 28: Cloud.ClientBeginFileUpload:input_type -> CCloud_ClientBeginFileUpload_Request
+	31, // 29: Cloud.ClientCommitFileUpload:input_type -> CCloud_ClientCommitFileUpload_Request
+	33, // 30: Cloud.ClientFileDownload:input_type -> CCloud_ClientFileDownload_Request
+	35, // 31: Cloud.ClientDeleteFile:input_type -> CCloud_ClientDeleteFile_Request
+	37, // 32: Cloud.ClientConflictResolution:input_type -> CCloud_ClientConflictResolution_Notification
+	38, // 33: Cloud.EnumerateUserApps:input_type -> CCloud_EnumerateUserApps_Request
+	40, // 34: Cloud.GetAppFileChangelist:input_type -> CCloud_GetAppFileChangelist_Request
+	43, // 35: Cloud.SuspendAppSession:input_type -> CCloud_AppSessionSuspend_Request
+	45, // 36: Cloud.ResumeAppSession:input_type -> CCloud_AppSessionResume_Request
+	47, // 37: Cloud.SignalAppLaunchIntent:input_type -> CCloud_AppLaunchIntent_Request
+	49, // 38: Cloud.SignalAppExitSyncDone:input_type -> CCloud_AppExitSyncDone_Notification
+	50, // 39: Cloud.ClientGetAppQuotaUsage:input_type -> CCloud_ClientGetAppQuotaUsage_Request
+	52, // 40: CloudClient.NotifyAppStateChange:input_type -> CCloud_AppCloudStateChange_Notification
+	53, // 41: CloudClient.ClientLogUploadRequest:input_type -> CCloud_ClientLogUploadRequest_Notification
+	62, // 42: Cloud.ClientLogUploadCheck:output_type -> NoResponse
+	62, // 43: Cloud.ClientLogUploadComplete:output_type -> NoResponse
+	3,  // 44: Cloud.GetUploadServerInfo:output_type -> CCloud_GetUploadServerInfo_Response
+	5,  // 45: Cloud.BeginHTTPUpload:output_type -> CCloud_BeginHTTPUpload_Response
+	7,  // 46: Cloud.CommitHTTPUpload:output_type -> CCloud_CommitHTTPUpload_Response
+	9,  // 47: Cloud.BeginUGCUpload:output_type -> CCloud_BeginUGCUpload_Response
+	11, // 48: Cloud.CommitUGCUpload:output_type -> CCloud_CommitUGCUpload_Response
+	14, // 49: Cloud.GetFileDetails:output_type -> CCloud_GetFileDetails_Response
+	16, // 50: Cloud.EnumerateUserFiles:output_type -> CCloud_EnumerateUserFiles_Response
+	18, // 51: Cloud.Delete:output_type -> CCloud_Delete_Response
+	20, // 52: Cloud.GetClientEncryptionKey:output_type -> CCloud_GetClientEncryptionKey_Response
+	62, // 53: Cloud.CDNReport:output_type -> NoResponse
+	62, // 54: Cloud.ExternalStorageTransferReport:output_type -> NoResponse
+	24, // 55: Cloud.BeginAppUploadBatch:output_type -> CCloud_BeginAppUploadBatch_Response
+	62, // 56: Cloud.CompleteAppUploadBatch:output_type -> NoResponse
+	27, // 57: Cloud.CompleteAppUploadBatchBlocking:output_type -> CCloud_CompleteAppUploadBatch_Response
+	30, // 58: Cloud.ClientBeginFileUpload:output_type -> CCloud_ClientBeginFileUpload_Response
+	32, // 59: Cloud.ClientCommitFileUpload:output_type -> CCloud_ClientCommitFileUpload_Response
+	34, // 60: Cloud.ClientFileDownload:output_type -> CCloud_ClientFileDownload_Response
+	36, // 61: Cloud.ClientDeleteFile:output_type -> CCloud_ClientDeleteFile_Response
+	62, // 62: Cloud.ClientConflictResolution:output_type -> NoResponse
+	39, // 63: Cloud.EnumerateUserApps:output_type -> CCloud_EnumerateUserApps_Response
+	42, // 64: Cloud.GetAppFileChangelist:output_type -> CCloud_GetAppFileChangelist_Response
+	44, // 65: Cloud.SuspendAppSession:output_type -> CCloud_AppSessionSuspend_Response
+	46, // 66: Cloud.ResumeAppSession:output_type -> CCloud_AppSessionResume_Response
+	48, // 67: Cloud.SignalAppLaunchIntent:output_type -> CCloud_AppLaunchIntent_Response
+	62, // 68: Cloud.SignalAppExitSyncDone:output_type -> NoResponse
+	51, // 69: Cloud.ClientGetAppQuotaUsage:output_type -> CCloud_ClientGetAppQuotaUsage_Response
+	62, // 70: CloudClient.NotifyAppStateChange:output_type -> NoResponse
+	62, // 71: CloudClient.ClientLogUploadRequest:output_type -> NoResponse
+	42, // [42:72] is the sub-list for method output_type
+	12, // [12:42] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_steammessages_cloud_steamclient_proto_init() }
@@ -2464,9 +4289,9 @@ func file_steammessages_cloud_steamclient_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_steammessages_cloud_steamclient_proto_rawDesc), len(file_steammessages_cloud_steamclient_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   33,
+			NumMessages:   59,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   2,
 		},
 		GoTypes:           file_steammessages_cloud_steamclient_proto_goTypes,
 		DependencyIndexes: file_steammessages_cloud_steamclient_proto_depIdxs,

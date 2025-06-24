@@ -86,6 +86,14 @@ func buildProtoMap(srcSubdir string, files map[string]string, outDir string) {
 
 	opt = append(opt, "--go_opt=Mgoogle/protobuf/descriptor.proto=google/protobuf/descriptor.proto")
 
+	// Автоматически добавляем --go_opt=M... для всех .proto файлов в папке srcSubdir
+	protoDir := filepath.Join("Protobufs", srcSubdir)
+	protoFiles, _ := filepath.Glob(filepath.Join(protoDir, "*.proto"))
+	for _, file := range protoFiles {
+		name := filepath.Base(file)
+		opt = append(opt, "--go_opt=M"+name+"="+protoDir+"/"+name)
+	}
+
 	for proto := range files {
 		opt = append(opt, "--go_opt=Msteammessages.proto=Protobufs/"+srcSubdir+"/steammessages.proto")
 		opt = append(opt, "--go_opt=M"+proto+"=Protobufs/"+srcSubdir+"/"+proto)
@@ -108,6 +116,7 @@ func buildProtoMap(srcSubdir string, files map[string]string, outDir string) {
 var clientProtoFiles = map[string]string{
 	"steammessages_base.proto":   "base.pb.go",
 	"encrypted_app_ticket.proto": "app_ticket.pb.go",
+	"enums.proto":                "enums.pb.go",
 
 	"steammessages_clientserver.proto":         "client_server.pb.go",
 	"steammessages_clientserver_2.proto":       "client_server_2.pb.go",
@@ -168,12 +177,19 @@ func compileProto(srcBase, srcSubdir, proto, target string, opt []string) {
 		panic(err)
 	}
 
+	// Определяем базовый путь для go_package
+	baseImportPath := "github.com/an0nfunc/go-steam/v3/protocol/protobuf"
+
 	args := []string{
 		"-I=" + srcBase,
 		"-I=" + srcBase + "/google",
 		"-I=" + srcBase + "/" + srcSubdir,
 		"--go_out=" + outDir,
 	}
+
+	// Добавляем параметр M для всех proto файлов как go_opt
+	args = append(args, fmt.Sprintf("--go_opt=M%s=%s", proto, baseImportPath))
+
 	args = append(args, opt...)
 	args = append(args, proto)
 
@@ -316,6 +332,31 @@ func execute(command string, args []string) {
 	}
 
 	cmd := exec.Command(command, args...)
+
+	// Если это protoc, убедимся что protoc-gen-go доступен
+	if command == "protoc" {
+		// Проверяем, есть ли protoc-gen-go в PATH
+		if _, err := exec.LookPath("protoc-gen-go"); err != nil {
+			// Если нет в PATH, ищем в GOPATH/bin или GOBIN
+			goBin := os.Getenv("GOBIN")
+			if goBin == "" {
+				goPath := os.Getenv("GOPATH")
+				if goPath == "" {
+					home, _ := os.UserHomeDir()
+					goPath = filepath.Join(home, "go")
+				}
+				goBin = filepath.Join(goPath, "bin")
+			}
+
+			protocGenGoPath := filepath.Join(goBin, "protoc-gen-go")
+			if _, err := os.Stat(protocGenGoPath); err == nil {
+				// Добавляем путь к PATH
+				path := os.Getenv("PATH")
+				cmd.Env = append(os.Environ(), "PATH="+goBin+string(filepath.ListSeparator)+path)
+			}
+		}
+	}
+
 	cmd.Stdout = newQuotedWriter(os.Stdout)
 	cmd.Stderr = newQuotedWriter(os.Stderr)
 

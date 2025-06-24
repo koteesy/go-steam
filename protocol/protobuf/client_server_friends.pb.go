@@ -1951,6 +1951,10 @@ type CMsgClientPersonaState_Friend struct {
 	WatchingBroadcastAppid     *uint32                                 `protobuf:"varint,75,opt,name=watching_broadcast_appid,json=watchingBroadcastAppid" json:"watching_broadcast_appid,omitempty"`
 	WatchingBroadcastViewers   *uint32                                 `protobuf:"varint,76,opt,name=watching_broadcast_viewers,json=watchingBroadcastViewers" json:"watching_broadcast_viewers,omitempty"`
 	WatchingBroadcastTitle     *string                                 `protobuf:"bytes,77,opt,name=watching_broadcast_title,json=watchingBroadcastTitle" json:"watching_broadcast_title,omitempty"`
+	IsCommunityBanned          *bool                                   `protobuf:"varint,78,opt,name=is_community_banned,json=isCommunityBanned" json:"is_community_banned,omitempty"`
+	PlayerNamePendingReview    *bool                                   `protobuf:"varint,79,opt,name=player_name_pending_review,json=playerNamePendingReview" json:"player_name_pending_review,omitempty"`
+	AvatarPendingReview        *bool                                   `protobuf:"varint,80,opt,name=avatar_pending_review,json=avatarPendingReview" json:"avatar_pending_review,omitempty"`
+	OnSteamDeck                *bool                                   `protobuf:"varint,81,opt,name=on_steam_deck,json=onSteamDeck" json:"on_steam_deck,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -2181,6 +2185,34 @@ func (x *CMsgClientPersonaState_Friend) GetWatchingBroadcastTitle() string {
 	return ""
 }
 
+func (x *CMsgClientPersonaState_Friend) GetIsCommunityBanned() bool {
+	if x != nil && x.IsCommunityBanned != nil {
+		return *x.IsCommunityBanned
+	}
+	return false
+}
+
+func (x *CMsgClientPersonaState_Friend) GetPlayerNamePendingReview() bool {
+	if x != nil && x.PlayerNamePendingReview != nil {
+		return *x.PlayerNamePendingReview
+	}
+	return false
+}
+
+func (x *CMsgClientPersonaState_Friend) GetAvatarPendingReview() bool {
+	if x != nil && x.AvatarPendingReview != nil {
+		return *x.AvatarPendingReview
+	}
+	return false
+}
+
+func (x *CMsgClientPersonaState_Friend) GetOnSteamDeck() bool {
+	if x != nil && x.OnSteamDeck != nil {
+		return *x.OnSteamDeck
+	}
+	return false
+}
+
 type CMsgClientPersonaState_Friend_ClanData struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	OggAppId      *uint32                `protobuf:"varint,1,opt,name=ogg_app_id,json=oggAppId" json:"ogg_app_id,omitempty"`
@@ -2292,6 +2324,7 @@ type CMsgClientEmoticonList_Emoticon struct {
 	TimeLastUsed  *uint32                `protobuf:"varint,3,opt,name=time_last_used,json=timeLastUsed" json:"time_last_used,omitempty"`
 	UseCount      *uint32                `protobuf:"varint,4,opt,name=use_count,json=useCount" json:"use_count,omitempty"`
 	TimeReceived  *uint32                `protobuf:"varint,5,opt,name=time_received,json=timeReceived" json:"time_received,omitempty"`
+	Appid         *uint32                `protobuf:"varint,6,opt,name=appid" json:"appid,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2361,12 +2394,21 @@ func (x *CMsgClientEmoticonList_Emoticon) GetTimeReceived() uint32 {
 	return 0
 }
 
+func (x *CMsgClientEmoticonList_Emoticon) GetAppid() uint32 {
+	if x != nil && x.Appid != nil {
+		return *x.Appid
+	}
+	return 0
+}
+
 type CMsgClientEmoticonList_Sticker struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          *string                `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	Count         *int32                 `protobuf:"varint,2,opt,name=count" json:"count,omitempty"`
 	TimeReceived  *uint32                `protobuf:"varint,3,opt,name=time_received,json=timeReceived" json:"time_received,omitempty"`
 	Appid         *uint32                `protobuf:"varint,4,opt,name=appid" json:"appid,omitempty"`
+	TimeLastUsed  *uint32                `protobuf:"varint,5,opt,name=time_last_used,json=timeLastUsed" json:"time_last_used,omitempty"`
+	UseCount      *uint32                `protobuf:"varint,6,opt,name=use_count,json=useCount" json:"use_count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2425,6 +2467,20 @@ func (x *CMsgClientEmoticonList_Sticker) GetTimeReceived() uint32 {
 func (x *CMsgClientEmoticonList_Sticker) GetAppid() uint32 {
 	if x != nil && x.Appid != nil {
 		return *x.Appid
+	}
+	return 0
+}
+
+func (x *CMsgClientEmoticonList_Sticker) GetTimeLastUsed() uint32 {
+	if x != nil && x.TimeLastUsed != nil {
+		return *x.TimeLastUsed
+	}
+	return 0
+}
+
+func (x *CMsgClientEmoticonList_Sticker) GetUseCount() uint32 {
+	if x != nil && x.UseCount != nil {
+		return *x.UseCount
 	}
 	return 0
 }
@@ -2584,11 +2640,10 @@ const file_steammessages_clientserver_friends_proto_rawDesc = "" +
 	"\x19CMsgPersonaChangeResponse\x12\x16\n" +
 	"\x06result\x18\x01 \x01(\rR\x06result\x12\x1f\n" +
 	"\vplayer_name\x18\x02 \x01(\tR\n" +
-	"playerName\"\xa1\v\n" +
+	"playerName\"\xe6\f\n" +
 	"\x16CMsgClientPersonaState\x12!\n" +
 	"\fstatus_flags\x18\x01 \x01(\rR\vstatusFlags\x128\n" +
-	"\afriends\x18\x02 \x03(\v2\x1e.CMsgClientPersonaState.FriendR\afriends\x1a\xa9\n" +
-	"\n" +
+	"\afriends\x18\x02 \x03(\v2\x1e.CMsgClientPersonaState.FriendR\afriends\x1a\xee\v\n" +
 	"\x06Friend\x12\x1a\n" +
 	"\bfriendid\x18\x01 \x01(\x06R\bfriendid\x12#\n" +
 	"\rpersona_state\x18\x02 \x01(\rR\fpersonaState\x12+\n" +
@@ -2623,7 +2678,11 @@ const file_steammessages_clientserver_friends_proto_rawDesc = "" +
 	"\x1cwatching_broadcast_accountid\x18J \x01(\rR\x1awatchingBroadcastAccountid\x128\n" +
 	"\x18watching_broadcast_appid\x18K \x01(\rR\x16watchingBroadcastAppid\x12<\n" +
 	"\x1awatching_broadcast_viewers\x18L \x01(\rR\x18watchingBroadcastViewers\x128\n" +
-	"\x18watching_broadcast_title\x18M \x01(\tR\x16watchingBroadcastTitle\x1aL\n" +
+	"\x18watching_broadcast_title\x18M \x01(\tR\x16watchingBroadcastTitle\x12.\n" +
+	"\x13is_community_banned\x18N \x01(\bR\x11isCommunityBanned\x12;\n" +
+	"\x1aplayer_name_pending_review\x18O \x01(\bR\x17playerNamePendingReview\x122\n" +
+	"\x15avatar_pending_review\x18P \x01(\bR\x13avatarPendingReview\x12\"\n" +
+	"\ron_steam_deck\x18Q \x01(\bR\vonSteamDeck\x1aL\n" +
 	"\bClanData\x12\x1c\n" +
 	"\n" +
 	"ogg_app_id\x18\x01 \x01(\rR\boggAppId\x12\"\n" +
@@ -2673,28 +2732,31 @@ const file_steammessages_clientserver_friends_proto_rawDesc = "" +
 	"\vsteamiduser\x18\x02 \x01(\x06R\vsteamiduser\"C\n" +
 	"'CMsgClientRemoveFriendFromGroupResponse\x12\x18\n" +
 	"\aeresult\x18\x01 \x01(\rR\aeresult\"\x1b\n" +
-	"\x19CMsgClientGetEmoticonList\"\xf1\x04\n" +
+	"\x19CMsgClientGetEmoticonList\"\xcb\x05\n" +
 	"\x16CMsgClientEmoticonList\x12>\n" +
 	"\temoticons\x18\x01 \x03(\v2 .CMsgClientEmoticonList.EmoticonR\temoticons\x12;\n" +
 	"\bstickers\x18\x02 \x03(\v2\x1f.CMsgClientEmoticonList.StickerR\bstickers\x128\n" +
-	"\aeffects\x18\x03 \x03(\v2\x1e.CMsgClientEmoticonList.EffectR\aeffects\x1a\x9c\x01\n" +
+	"\aeffects\x18\x03 \x03(\v2\x1e.CMsgClientEmoticonList.EffectR\aeffects\x1a\xb2\x01\n" +
 	"\bEmoticon\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x05R\x05count\x12$\n" +
 	"\x0etime_last_used\x18\x03 \x01(\rR\ftimeLastUsed\x12\x1b\n" +
 	"\tuse_count\x18\x04 \x01(\rR\buseCount\x12#\n" +
-	"\rtime_received\x18\x05 \x01(\rR\ftimeReceived\x1an\n" +
+	"\rtime_received\x18\x05 \x01(\rR\ftimeReceived\x12\x14\n" +
+	"\x05appid\x18\x06 \x01(\rR\x05appid\x1a\xb1\x01\n" +
 	"\aSticker\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x05R\x05count\x12#\n" +
 	"\rtime_received\x18\x03 \x01(\rR\ftimeReceived\x12\x14\n" +
-	"\x05appid\x18\x04 \x01(\rR\x05appid\x1a\x90\x01\n" +
+	"\x05appid\x18\x04 \x01(\rR\x05appid\x12$\n" +
+	"\x0etime_last_used\x18\x05 \x01(\rR\ftimeLastUsed\x12\x1b\n" +
+	"\tuse_count\x18\x06 \x01(\rR\buseCount\x1a\x90\x01\n" +
 	"\x06Effect\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05count\x18\x02 \x01(\x05R\x05count\x12#\n" +
 	"\rtime_received\x18\x03 \x01(\rR\ftimeReceived\x12!\n" +
 	"\finfinite_use\x18\x04 \x01(\bR\vinfiniteUse\x12\x14\n" +
-	"\x05appid\x18\x05 \x01(\rR\x05appidB\x05H\x01\x80\x01\x00"
+	"\x05appid\x18\x05 \x01(\rR\x05appidB:H\x01Z3github.com/Philipp15b/go-steam/v3/protocol/protobuf\x80\x01\x00"
 
 var (
 	file_steammessages_clientserver_friends_proto_rawDescOnce sync.Once
